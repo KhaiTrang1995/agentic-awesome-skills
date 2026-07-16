@@ -1,527 +1,616 @@
-# 🌌 Antigravity Awesome Skills: 255+ Agentic Skills for Claude Code, Gemini CLI, Cursor, Copilot & More
+<!-- registry-sync: version=14.5.0; skills=1962; stars=43325; updated_at=2026-07-15T17:16:56+00:00 -->
+[![Agentic Awesome Skills social preview](apps/web-app/public/social-card.png)](https://github.com/sickn33/agentic-awesome-skills)
 
-> **The Ultimate Collection of 255+ Universal Agentic Skills for AI Coding Assistants — Claude Code, Gemini CLI, Codex CLI, Antigravity IDE, GitHub Copilot, Cursor, OpenCode**
+# 🌌 Agentic Awesome Skills: 1,962+ Agentic Skills for Claude Code, Gemini CLI, Cursor, Autohand Code, Copilot & More
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+> **Installable GitHub library of 1,962+ agentic skills for Claude Code, Cursor, Codex CLI, Autohand Code, Gemini CLI, Antigravity, and other AI coding assistants.**
+
+Agentic Awesome Skills is an installable GitHub library and npm installer for reusable `SKILL.md` playbooks. It is designed for Claude Code, Cursor, Codex CLI, Autohand Code, Gemini CLI, Antigravity, Kiro, OpenCode, GitHub Copilot, and other AI coding assistants that benefit from structured operating instructions. Instead of collecting one-off prompt snippets, this repository gives you a searchable, installable catalog of skills, bundles, workflows, plugin-safe distributions, and practical docs that help agents perform recurring tasks with better context, stronger constraints, and clearer outputs.
+
+This is an independent community project. It is not affiliated with, sponsored by, endorsed by, or authorized by Google. Google, Antigravity, Gemini, and related product names are referenced only to describe compatibility and install targets.
+
+You can use this repo to install a broad multi-tool skill library, start from focused plugin bundles, or jump into workflow-driven execution for planning, coding, debugging, testing, security review, infrastructure, product work, and growth tasks. The root README is intentionally a high-signal landing page: understand what the project is, install the right surface quickly, choose the right tool path, and then follow deeper docs only when you need them.
+
+The canonical project page is the GitHub repository at <https://github.com/sickn33/agentic-awesome-skills>; the hosted catalog is a companion discovery surface for search, plugins, skill detail pages, and exact-set composition.
+
+**Start here:** [Install in 1 minute](#installation) · [Build an exact set](https://sickn33.github.io/agentic-awesome-skills/workbench) · [Recommended plugins](#recommended-specialized-plugins) · [Compare plugin packs](https://sickn33.github.io/agentic-awesome-skills/plugins) · [Choose your tool](#choose-your-tool) · [📚 Browse 1,962+ Skills](#browse-1962-skills) · [Bundles & workflows](#bundles--workflows) · [Support the project](#support-the-project)
+
+[![GitHub stars](https://img.shields.io/badge/⭐%2043%2C000%2B%20Stars-gold?style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills/stargazers)
+[![Follow @AASkills_ on X](https://img.shields.io/badge/Follow-%40AASkills__-black?style=for-the-badge&logo=x)](https://x.com/AASkills_)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Anthropic-purple)](https://claude.ai)
-[![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Google-blue)](https://github.com/google-gemini/gemini-cli)
-[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-OpenAI-green)](https://github.com/openai/codex)
 [![Cursor](https://img.shields.io/badge/Cursor-AI%20IDE-orange)](https://cursor.sh)
-[![Copilot](https://img.shields.io/badge/GitHub%20Copilot-VSCode-lightblue)](https://github.com/features/copilot)
-[![OpenCode](https://img.shields.io/badge/OpenCode-CLI-gray)](https://github.com/opencode-ai/opencode)
-[![Antigravity](https://img.shields.io/badge/Antigravity-DeepMind-red)](https://github.com/sickn33/antigravity-awesome-skills)
+[![Codex CLI](https://img.shields.io/badge/Codex%20CLI-OpenAI-green)](https://github.com/openai/codex)
+[![Autohand Code](https://img.shields.io/badge/Autohand%20Code-CLI-blue)](https://github.com/autohandai/code-cli)
+[![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Google-blue)](https://github.com/google-gemini/gemini-cli)
+[![Latest Release](https://img.shields.io/github/v/release/sickn33/agentic-awesome-skills?display_name=tag&style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills/releases/latest)
+[![Install with NPX](https://img.shields.io/badge/Install-npx%20agentic--awesome--skills-black?style=for-the-badge&logo=npm)](#installation)
+[![Kiro](https://img.shields.io/badge/Kiro-AWS-orange?style=for-the-badge)](https://kiro.dev)
+[![Copilot](https://img.shields.io/badge/Copilot-GitHub-lightblue?style=for-the-badge)](https://github.com/features/copilot)
+[![OpenCode](https://img.shields.io/badge/OpenCode-CLI-gray?style=for-the-badge)](https://github.com/opencode-ai/opencode)
+[![Antigravity](https://img.shields.io/badge/Antigravity-AI%20IDE-red?style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills)
 
-**Antigravity Awesome Skills** is a curated, battle-tested library of **255 high-performance agentic skills** designed to work seamlessly across all major AI coding assistants:
+**Current release: V14.5.0.** Trusted by 43k+ GitHub stargazers, this repository combines official and community skill collections with bundles, workflows, installation paths, and docs that help you go from first install to daily use quickly.
 
-- 🟣 **Claude Code** (Anthropic CLI)
-- 🔵 **Gemini CLI** (Google DeepMind)
-- 🟢 **Codex CLI** (OpenAI)
-- 🔴 **Antigravity IDE** (Google DeepMind)
-- 🩵 **GitHub Copilot** (VSCode Extension)
-- 🟠 **Cursor** (AI-native IDE)
-- ⚪ **OpenCode** (Open-source CLI)
+## Why This Repo
 
-This repository provides essential skills to transform your AI assistant into a **full-stack digital agency**, including official capabilities from **Anthropic**, **OpenAI**, **Google**, **Supabase**, and **Vercel Labs**.
+- **Installable, not just inspirational**: use `npx agentic-awesome-skills` to put skills where your tool expects them.
+- **Built for major agent workflows**: Claude Code, Cursor, Codex CLI, Autohand Code, Gemini CLI, Antigravity, Kiro, OpenCode, Copilot, and more.
+- **Broad coverage with real utility**: 1,962+ skills across development, testing, security, infrastructure, product, and marketing.
+- **Inspect before installing**: the hosted [Skill Workbench](https://sickn33.github.io/agentic-awesome-skills/workbench) filters recorded risk, provenance, host compatibility, and setup evidence, then generates release-pinned preview and install commands for exact IDs.
+- **Focused by default**: specialized plugins help you start with the web, security, data, docs, DevOps, QA, OSS, or agent/MCP workflows you actually need.
+- **Useful whether you want breadth or curation**: install the full catalog, choose a specialized plugin, start with bundles, or compare alternatives before installing.
 
-## 📍 Table of Contents
+## Table of Contents
 
-- [🚀 New Here? Start Here!](#new-here-start-here)
-- [🔌 Compatibility & Invocation](#compatibility--invocation)
-- [📦 Features & Categories](#features--categories)
-- [🎁 Curated Collections (Bundles)](#curated-collections)
-- [📜 Full Skill Registry](#full-skill-registry-255255)
-- [🛠️ Installation](#installation)
-- [🤝 How to Contribute](#how-to-contribute)
-- [👥 Contributors & Credits](#credits--sources)
-- [⚖️ License](#license)
-- [👥 Repo Contributors](#repo-contributors)
-- [🌟 Star History](#star-history)
-
----
-
-## New Here? Start Here!
-
-**Welcome to the V3 Enterprise Edition.** This isn't just a list of scripts; it's a complete operating system for your AI Agent.
-
-### 1. 🐣 Context: What is this?
-
-AI Agents (like Claude Code, Cursor, or Gemini) are smart, but they lack **specific tools**. They don't know your company's "Deployment Protocol" or the specific syntax for "AWS CloudFormation".
-**Skills** are small markdown files that teach them how to do these specific tasks perfectly, every time.
-
-### 2. ⚡️ Quick Start (The "Bundle" Way)
-
-Don't install 250+ skills manually. Use our **Starter Packs**:
-
-1.  **Clone the repo**:
-    ```bash
-    git clone https://github.com/sickn33/antigravity-awesome-skills.git .agent/skills
-    ```
-2.  **Pick your persona** (See [docs/BUNDLES.md](docs/BUNDLES.md)):
-    - **Web Dev?** use the `Web Wizard` pack.
-    - **Hacker?** use the `Security Engineer` pack.
-    - **Just curious?** start with `Essentials`.
-
-### 3. 🧠 How to use
-
-Once installed, just ask your agent naturally:
-
-> "Use the **@brainstorming** skill to help me plan a SaaS."
-> "Run **@lint-and-validate** on this file."
-
-👉 **[Read the Full Getting Started Guide](GETTING_STARTED.md)**
-
----
-
-## Compatibility & Invocation
-
-These skills follow the universal **SKILL.md** format and work with any AI coding assistant that supports agentic skills.
-
-| Tool            | Type | Invocation Example                | Path              |
-| :-------------- | :--- | :-------------------------------- | :---------------- |
-| **Claude Code** | CLI  | `>> /skill-name help me...`       | `.claude/skills/` |
-| **Gemini CLI**  | CLI  | `(User Prompt) Use skill-name...` | `.gemini/skills/` |
-| **Antigravity** | IDE  | `(Agent Mode) Use skill...`       | `.agent/skills/`  |
-| **Cursor**      | IDE  | `@skill-name (in Chat)`           | `.cursor/skills/` |
-| **Copilot**     | Ext  | `(Paste content manually)`        | N/A               |
-
-> [!TIP]
-> **Universal Path**: We recommend cloning to `.agent/skills/`. Most modern tools (Antigravity, recent CLIs) look here by default.
-
-> [!WARNING]
-> **Windows Users**: This repository uses **symlinks** for official skills.
-> You must enable Developer Mode or run Git as Administrator:
-> `git clone -c core.symlinks=true https://github.com/...`
-
----
-
-Whether you are using **Gemini CLI**, **Claude Code**, **Codex CLI**, **Cursor**, **GitHub Copilot**, **Antigravity**, or **OpenCode**, these skills are designed to drop right in and supercharge your AI agent.
-
-This repository aggregates the best capabilities from across the open-source community, transforming your AI assistant into a full-stack digital agency capable of Engineering, Design, Security, Marketing, and Autonomous Operations.
-
-## Features & Categories
-
-The repository is organized into several key areas of expertise:
-
-| Category                    | Skills Count | Key Skills Included                                                                                                          |
-| :-------------------------- | :----------- | :--------------------------------------------------------------------------------------------------------------------------- |
-| **🛸 Autonomous & Agentic** | **~8**       | Loki Mode (Startup-in-a-box), Subagent Driven Dev, Dispatching Parallel Agents, Planning With Files, Skill Creator/Developer |
-| **🔌 Integrations & APIs**  | **~25**      | Stripe, Firebase, Supabase, Vercel, Clerk Auth, Twilio, Discord Bot, Slack Bot, GraphQL, AWS Serverless                      |
-| **🛡️ Cybersecurity**        | **~51**      | Ethical Hacking, Metasploit, Burp Suite, SQLMap, Active Directory, AWS/Cloud Pentesting, OWASP Top 100, Red Team Tools       |
-| **🎨 Creative & Design**    | **~10**      | UI/UX Pro Max, Frontend Design, Canvas, Algorithmic Art, Theme Factory, D3 Viz, Web Artifacts                                |
-| **🛠️ Development**          | **~33**      | TDD, Systematic Debugging, React Patterns, Backend/Frontend Guidelines, Senior Fullstack, Software Architecture              |
-| **🏗️ Infrastructure & Git** | **~8**       | Linux Shell Scripting, Git Worktrees, Git Pushing, Conventional Commits, File Organization, GitHub Workflow Automation       |
-| **🤖 AI Agents & LLM**      | **~31**      | LangGraph, CrewAI, Langfuse, RAG Engineer, Prompt Engineer, Voice Agents, Browser Automation, Agent Memory Systems           |
-| **🔄 Workflow & Planning**  | **~6**       | Writing Plans, Executing Plans, Concise Planning, Verification Before Completion, Code Review (Requesting/Receiving)         |
-| **📄 Document Processing**  | **~4**       | DOCX (Official), PDF (Official), PPTX (Official), XLSX (Official)                                                            |
-| **🧪 Testing & QA**         | **~4**       | Webapp Testing, Playwright Automation, Test Fixing, Testing Patterns                                                         |
-| **📈 Product & Strategy**   | **~8**       | Product Manager Toolkit, Content Creator, ASO, Doc Co-authoring, Brainstorming, Internal Comms                               |
-| **📣 Marketing & Growth**   | **~23**      | Page CRO, Copywriting, SEO Audit, Paid Ads, Email Sequence, Pricing Strategy, Referral Program, Launch Strategy              |
-| **🚀 Maker Tools**          | **~11**      | Micro-SaaS Launcher, Browser Extension Builder, Telegram Bot, AI Wrapper Product, Viral Generator, 3D Web Experience         |
-
----
-
-## Curated Collections
-
-[Check out our Starter Packs in docs/BUNDLES.md](docs/BUNDLES.md) to find the perfect toolkit for your role.
-
-## 📦 Curated Collections
-
-[Check out our Starter Packs in docs/BUNDLES.md](docs/BUNDLES.md) to find the perfect toolkit for your role.
-
-## Full Skill Registry (255/255)
-
-> [!NOTE] > **Document Skills**: We provide both **community** and **official Anthropic** versions for DOCX, PDF, PPTX, and XLSX. Locally, the official versions are used by default (via symlinks). In the repository, both versions are available for flexibility.
-
-| Skill Name | Risk | Description | Path |
-| :--- | :--- | :--- | :--- |
-| **2d-games** | ⚪ | 2D game development principles. Sprites, tilemaps, physics, camera. | `skills/game-development/2d-games` |
-| **3d-games** | ⚪ | 3D game development principles. Rendering, shaders, physics, cameras. | `skills/game-development/3d-games` |
-| **3d-web-experience** | ⚪ | Expert in building 3D experiences for the web - Three.js, React Three Fiber, Spline, WebGL, and interactive 3D scenes. Covers product configurators, 3D portfolios, immersive websites, and bringing depth to web experiences. Use when: 3D website, three.js, WebGL, react three fiber, 3D experience. | `skills/3d-web-experience` |
-| **ab-test-setup** | ⚪ | Structured guide for setting up A/B tests with mandatory gates for hypothesis, metrics, and execution readiness. | `skills/ab-test-setup` |
-| **Active Directory Attacks** | ⚪ | This skill should be used when the user asks to "attack Active Directory", "exploit AD", "Kerberoasting", "DCSync", "pass-the-hash", "BloodHound enumeration", "Golden Ticket", "Silver Ticket", "AS-REP roasting", "NTLM relay", or needs guidance on Windows domain penetration testing. | `skills/active-directory-attacks` |
-| **address-github-comments** | ⚪ | Use when you need to address review or issue comments on an open GitHub Pull Request using the gh CLI. | `skills/address-github-comments` |
-| **agent-evaluation** | ⚪ | Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability metrics, and production monitoring—where even top agents achieve less than 50% on real-world benchmarks Use when: agent testing, agent evaluation, benchmark agents, agent reliability, test agent. | `skills/agent-evaluation` |
-| **agent-manager-skill** | ⚪ | Manage multiple local CLI agents via tmux sessions (start/stop/monitor/assign) with cron-friendly scheduling. | `skills/agent-manager-skill` |
-| **agent-memory-mcp** | ⚪ | A hybrid memory system that provides persistent, searchable knowledge management for AI agents (Architecture, Patterns, Decisions). | `skills/agent-memory-mcp` |
-| **agent-memory-systems** | ⚪ | Memory is the cornerstone of intelligent agents. Without it, every interaction starts from zero. This skill covers the architecture of agent memory: short-term (context window), long-term (vector stores), and the cognitive architectures that organize them.  Key insight: Memory isn't just storage - it's retrieval. A million stored facts mean nothing if you can't find the right one. Chunking, embedding, and retrieval strategies determine whether your agent remembers or forgets.  The field is fragm | `skills/agent-memory-systems` |
-| **agent-tool-builder** | ⚪ | Tools are how AI agents interact with the world. A well-designed tool is the difference between an agent that works and one that hallucinates, fails silently, or costs 10x more tokens than necessary.  This skill covers tool design from schema to error handling. JSON Schema best practices, description writing that actually helps the LLM, validation, and the emerging MCP standard that's becoming the lingua franca for AI tools.  Key insight: Tool descriptions are more important than tool implementa | `skills/agent-tool-builder` |
-| **ai-agents-architect** | ⚪ | Expert in designing and building autonomous AI agents. Masters tool use, memory systems, planning strategies, and multi-agent orchestration. Use when: build agent, AI agent, autonomous agent, tool use, function calling. | `skills/ai-agents-architect` |
-| **ai-product** | ⚪ | Every product will be AI-powered. The question is whether you'll build it right or ship a demo that falls apart in production.  This skill covers LLM integration patterns, RAG architecture, prompt engineering that scales, AI UX that users trust, and cost optimization that doesn't bankrupt you. Use when: keywords, file_patterns, code_patterns. | `skills/ai-product` |
-| **ai-wrapper-product** | ⚪ | Expert in building products that wrap AI APIs (OpenAI, Anthropic, etc.) into focused tools people will pay for. Not just 'ChatGPT but different' - products that solve specific problems with AI. Covers prompt engineering for products, cost management, rate limiting, and building defensible AI businesses. Use when: AI wrapper, GPT product, AI tool, wrap AI, AI SaaS. | `skills/ai-wrapper-product` |
-| **algolia-search** | ⚪ | Expert patterns for Algolia search implementation, indexing strategies, React InstantSearch, and relevance tuning Use when: adding search to, algolia, instantsearch, search api, search functionality. | `skills/algolia-search` |
-| **algorithmic-art** | ⚪ | Creating algorithmic art using p5.js with seeded randomness and interactive parameter exploration. Use this when users request creating art using code, generative art, algorithmic art, flow fields, or particle systems. Create original algorithmic art rather than copying existing artists' work to avoid copyright violations. | `skills/algorithmic-art` |
-| **analytics-tracking** | ⚪ | Design, audit, and improve analytics tracking systems that produce reliable, decision-ready data. Use when the user wants to set up, fix, or evaluate analytics tracking (GA4, GTM, product analytics, events, conversions, UTMs). This skill focuses on measurement strategy, signal quality, and validation— not just firing events. | `skills/analytics-tracking` |
-| **API Fuzzing for Bug Bounty** | ⚪ | This skill should be used when the user asks to "test API security", "fuzz APIs", "find IDOR vulnerabilities", "test REST API", "test GraphQL", "API penetration testing", "bug bounty API testing", or needs guidance on API security assessment techniques. | `skills/api-fuzzing-bug-bounty` |
-| **api-documentation-generator** | ⚪ | Generate comprehensive, developer-friendly API documentation from code, including endpoints, parameters, examples, and best practices | `skills/api-documentation-generator` |
-| **api-patterns** | ⚪ | API design principles and decision-making. REST vs GraphQL vs tRPC selection, response formats, versioning, pagination. | `skills/api-patterns` |
-| **api-security-best-practices** | ⚪ | Implement secure API design patterns including authentication, authorization, input validation, rate limiting, and protection against common API vulnerabilities | `skills/api-security-best-practices` |
-| **app-builder** | ⚪ | Main application building orchestrator. Creates full-stack applications from natural language requests. Determines project type, selects tech stack, coordinates agents. | `skills/app-builder` |
-| **app-store-optimization** | ⚪ | Complete App Store Optimization (ASO) toolkit for researching, optimizing, and tracking mobile app performance on Apple App Store and Google Play Store | `skills/app-store-optimization` |
-| **architecture** | ⚪ | Architectural decision-making framework. Requirements analysis, trade-off evaluation, ADR documentation. Use when making architecture decisions or analyzing system design. | `skills/architecture` |
-| **autonomous-agent-patterns** | ⚪ | Design patterns for building autonomous coding agents. Covers tool integration, permission systems, browser automation, and human-in-the-loop workflows. Use when building AI agents, designing tool APIs, implementing permission systems, or creating autonomous coding assistants. | `skills/autonomous-agent-patterns` |
-| **autonomous-agents** | ⚪ | Autonomous agents are AI systems that can independently decompose goals, plan actions, execute tools, and self-correct without constant human guidance. The challenge isn't making them capable - it's making them reliable. Every extra decision multiplies failure probability.  This skill covers agent loops (ReAct, Plan-Execute), goal decomposition, reflection patterns, and production reliability. Key insight: compounding error rates kill autonomous agents. A 95% success rate per step drops to 60% b | `skills/autonomous-agents` |
-| **avalonia-layout-zafiro** | ⚪ | Guidelines for modern Avalonia UI layout using Zafiro.Avalonia, emphasizing shared styles, generic components, and avoiding XAML redundancy. | `skills/avalonia-layout-zafiro` |
-| **avalonia-viewmodels-zafiro** | ⚪ | Optimal ViewModel and Wizard creation patterns for Avalonia using Zafiro and ReactiveUI. | `skills/avalonia-viewmodels-zafiro` |
-| **avalonia-zafiro-development** | ⚪ | Mandatory skills, conventions, and behavioral rules for Avalonia UI development using the Zafiro toolkit. | `skills/avalonia-zafiro-development` |
-| **AWS Penetration Testing** | ⚪ | This skill should be used when the user asks to "pentest AWS", "test AWS security", "enumerate IAM", "exploit cloud infrastructure", "AWS privilege escalation", "S3 bucket testing", "metadata SSRF", "Lambda exploitation", or needs guidance on Amazon Web Services security assessment. | `skills/aws-penetration-testing` |
-| **aws-serverless** | ⚪ | Specialized skill for building production-ready serverless applications on AWS. Covers Lambda functions, API Gateway, DynamoDB, SQS/SNS event-driven patterns, SAM/CDK deployment, and cold start optimization. | `skills/aws-serverless` |
-| **azure-functions** | ⚪ | Expert patterns for Azure Functions development including isolated worker model, Durable Functions orchestration, cold start optimization, and production patterns. Covers .NET, Python, and Node.js programming models. Use when: azure function, azure functions, durable functions, azure serverless, function app. | `skills/azure-functions` |
-| **backend-dev-guidelines** | ⚪ | Opinionated backend development standards for Node.js + Express + TypeScript microservices. Covers layered architecture, BaseController pattern, dependency injection, Prisma repositories, Zod validation, unifiedConfig, Sentry error tracking, async safety, and testing discipline. | `skills/backend-dev-guidelines` |
-| **backend-patterns** | ⚪ | Backend architecture patterns, API design, database optimization, and server-side best practices for Node.js, Express, and Next.js API routes. | `skills/cc-skill-backend-patterns` |
-| **bash-linux** | ⚪ | Bash/Linux terminal patterns. Critical commands, piping, error handling, scripting. Use when working on macOS or Linux systems. | `skills/bash-linux` |
-| **behavioral-modes** | ⚪ | AI operational modes (brainstorm, implement, debug, review, teach, ship, orchestrate). Use to adapt behavior based on task type. | `skills/behavioral-modes` |
-| **blockrun** | ⚪ | Use when user needs capabilities Claude lacks (image generation, real-time X/Twitter data) or explicitly requests external models ("blockrun", "use grok", "use gpt", "dall-e", "deepseek") | `skills/blockrun` |
-| **brainstorming** | ⚪ | Use this skill before any creative or constructive work (features, components, architecture, behavior changes, or functionality). This skill transforms vague ideas into validated designs through disciplined, incremental reasoning and collaboration. | `skills/brainstorming` |
-| **brand-guidelines** | ⚪ | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply. | `skills/brand-guidelines-anthropic` |
-| **brand-guidelines** | ⚪ | Applies Anthropic's official brand colors and typography to any sort of artifact that may benefit from having Anthropic's look-and-feel. Use it when brand colors or style guidelines, visual formatting, or company design standards apply. | `skills/brand-guidelines-community` |
-| **Broken Authentication Testing** | ⚪ | This skill should be used when the user asks to "test for broken authentication vulnerabilities", "assess session management security", "perform credential stuffing tests", "evaluate password policies", "test for session fixation", or "identify authentication bypass flaws". It provides comprehensive techniques for identifying authentication and session management weaknesses in web applications. | `skills/broken-authentication` |
-| **browser-automation** | ⚪ | Browser automation powers web testing, scraping, and AI agent interactions. The difference between a flaky script and a reliable system comes down to understanding selectors, waiting strategies, and anti-detection patterns.  This skill covers Playwright (recommended) and Puppeteer, with patterns for testing, scraping, and agentic browser control. Key insight: Playwright won the framework war. Unless you need Puppeteer's stealth ecosystem or are Chrome-only, Playwright is the better choice in 202 | `skills/browser-automation` |
-| **browser-extension-builder** | ⚪ | Expert in building browser extensions that solve real problems - Chrome, Firefox, and cross-browser extensions. Covers extension architecture, manifest v3, content scripts, popup UIs, monetization strategies, and Chrome Web Store publishing. Use when: browser extension, chrome extension, firefox addon, extension, manifest v3. | `skills/browser-extension-builder` |
-| **bullmq-specialist** | ⚪ | BullMQ expert for Redis-backed job queues, background processing, and reliable async execution in Node.js/TypeScript applications. Use when: bullmq, bull queue, redis queue, background job, job queue. | `skills/bullmq-specialist` |
-| **bun-development** | ⚪ | Modern JavaScript/TypeScript development with Bun runtime. Covers package management, bundling, testing, and migration from Node.js. Use when working with Bun, optimizing JS/TS development speed, or migrating from Node.js to Bun. | `skills/bun-development` |
-| **Burp Suite Web Application Testing** | ⚪ | This skill should be used when the user asks to "intercept HTTP traffic", "modify web requests", "use Burp Suite for testing", "perform web vulnerability scanning", "test with Burp Repeater", "analyze HTTP history", or "configure proxy for web testing". It provides comprehensive guidance for using Burp Suite's core features for web application security testing. | `skills/burp-suite-testing` |
-| **busybox-on-windows** | ⚪ | How to use a Win32 build of BusyBox to run many of the standard UNIX command line tools on Windows. | `skills/busybox-on-windows` |
-| **canvas-design** | ⚪ | Create beautiful visual art in .png and .pdf documents using design philosophy. You should use this skill when the user asks to create a poster, piece of art, design, or other static piece. Create original visual designs, never copying existing artists' work to avoid copyright violations. | `skills/canvas-design` |
-| **cc-skill-continuous-learning** | ⚪ | Development skill from everything-claude-code | `skills/cc-skill-continuous-learning` |
-| **cc-skill-project-guidelines-example** | ⚪ | Project Guidelines Skill (Example) | `skills/cc-skill-project-guidelines-example` |
-| **cc-skill-strategic-compact** | ⚪ | Development skill from everything-claude-code | `skills/cc-skill-strategic-compact` |
-| **Claude Code Guide** | ⚪ | Master guide for using Claude Code effectively. Includes configuration templates, prompting strategies "Thinking" keywords, debugging techniques, and best practices for interacting with the agent. | `skills/claude-code-guide` |
-| **clean-code** | ⚪ | Pragmatic coding standards - concise, direct, no over-engineering, no unnecessary comments | `skills/clean-code` |
-| **clerk-auth** | ⚪ | Expert patterns for Clerk auth implementation, middleware, organizations, webhooks, and user sync Use when: adding authentication, clerk auth, user authentication, sign in, sign up. | `skills/clerk-auth` |
-| **clickhouse-io** | ⚪ | ClickHouse database patterns, query optimization, analytics, and data engineering best practices for high-performance analytical workloads. | `skills/cc-skill-clickhouse-io` |
-| **Cloud Penetration Testing** | ⚪ | This skill should be used when the user asks to "perform cloud penetration testing", "assess Azure or AWS or GCP security", "enumerate cloud resources", "exploit cloud misconfigurations", "test O365 security", "extract secrets from cloud environments", or "audit cloud infrastructure". It provides comprehensive techniques for security assessment across major cloud platforms. | `skills/cloud-penetration-testing` |
-| **code-review-checklist** | ⚪ | Comprehensive checklist for conducting thorough code reviews covering functionality, security, performance, and maintainability | `skills/code-review-checklist` |
-| **codex-review** | ⚪ | Professional code review with auto CHANGELOG generation, integrated with Codex AI | `skills/codex-review` |
-| **coding-standards** | ⚪ | Universal coding standards, best practices, and patterns for TypeScript, JavaScript, React, and Node.js development. | `skills/cc-skill-coding-standards` |
-| **competitor-alternatives** | ⚪ | When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' or 'competitive landing pages.' Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. Emphasizes deep research, modular content architecture, and varied section types beyond feature tables. | `skills/competitor-alternatives` |
-| **computer-use-agents** | ⚪ | Build AI agents that interact with computers like humans do - viewing screens, moving cursors, clicking buttons, and typing text. Covers Anthropic's Computer Use, OpenAI's Operator/CUA, and open-source alternatives. Critical focus on sandboxing, security, and handling the unique challenges of vision-based control. Use when: computer use, desktop automation agent, screen control AI, vision-based agent, GUI automation. | `skills/computer-use-agents` |
-| **concise-planning** | ⚪ | Use when a user asks for a plan for a coding task, to generate a clear, actionable, and atomic checklist. | `skills/concise-planning` |
-| **content-creator** | ⚪ | Create SEO-optimized marketing content with consistent brand voice. Includes brand voice analyzer, SEO optimizer, content frameworks, and social media templates. Use when writing blog posts, creating social media content, analyzing brand voice, optimizing SEO, planning content calendars, or when user mentions content creation, brand voice, SEO optimization, social media marketing, or content strategy. | `skills/content-creator` |
-| **context-window-management** | ⚪ | Strategies for managing LLM context windows including summarization, trimming, routing, and avoiding context rot Use when: context window, token limit, context management, context engineering, long context. | `skills/context-window-management` |
-| **context7-auto-research** | ⚪ | Automatically fetch latest library/framework documentation for Claude Code via Context7 API | `skills/context7-auto-research` |
-| **conversation-memory** | ⚪ | Persistent memory systems for LLM conversations including short-term, long-term, and entity-based memory Use when: conversation memory, remember, memory persistence, long-term memory, chat history. | `skills/conversation-memory` |
-| **copy-editing** | ⚪ | When the user wants to edit, review, or improve existing marketing copy. Also use when the user mentions 'edit this copy,' 'review my copy,' 'copy feedback,' 'proofread,' 'polish this,' 'make this better,' or 'copy sweep.' This skill provides a systematic approach to editing marketing copy through multiple focused passes. | `skills/copy-editing` |
-| **copywriting** | ⚪ | Use this skill when writing, rewriting, or improving marketing copy for any page (homepage, landing page, pricing, feature, product, or about page). This skill produces clear, compelling, and testable copy while enforcing alignment, honesty, and conversion best practices. | `skills/copywriting` |
-| **core-components** | ⚪ | Core component library and design system patterns. Use when building UI, using design tokens, or working with the component library. | `skills/core-components` |
-| **crewai** | ⚪ | Expert in CrewAI - the leading role-based multi-agent framework used by 60% of Fortune 500 companies. Covers agent design with roles and goals, task definition, crew orchestration, process types (sequential, hierarchical, parallel), memory systems, and flows for complex workflows. Essential for building collaborative AI agent teams. Use when: crewai, multi-agent team, agent roles, crew of agents, role-based agents. | `skills/crewai` |
-| **Cross-Site Scripting and HTML Injection Testing** | ⚪ | This skill should be used when the user asks to "test for XSS vulnerabilities", "perform cross-site scripting attacks", "identify HTML injection flaws", "exploit client-side injection vulnerabilities", "steal cookies via XSS", or "bypass content security policies". It provides comprehensive techniques for detecting, exploiting, and understanding XSS and HTML injection attack vectors in web applications. | `skills/xss-html-injection` |
-| **d3-viz** | ⚪ | Creating interactive data visualisations using d3.js. This skill should be used when creating custom charts, graphs, network diagrams, geographic visualisations, or any complex SVG-based data visualisation that requires fine-grained control over visual elements, transitions, or interactions. Use this for bespoke visualisations beyond standard charting libraries, whether in React, Vue, Svelte, vanilla JavaScript, or any other environment. | `skills/claude-d3js-skill` |
-| **daily-news-report** | ⚪ | 基于预设 URL 列表抓取内容，筛选高质量技术信息并生成每日 Markdown 报告。 | `skills/daily-news-report` |
-| **database-design** | ⚪ | Database design principles and decision-making. Schema design, indexing strategy, ORM selection, serverless databases. | `skills/database-design` |
-| **deployment-procedures** | ⚪ | Production deployment principles and decision-making. Safe deployment workflows, rollback strategies, and verification. Teaches thinking, not scripts. | `skills/deployment-procedures` |
-| **design-orchestration** | ⚪ | Orchestrates design workflows by routing work through brainstorming, multi-agent review, and execution readiness in the correct order. Prevents premature implementation, skipped validation, and unreviewed high-risk designs. | `skills/design-orchestration` |
-| **discord-bot-architect** | ⚪ | Specialized skill for building production-ready Discord bots. Covers Discord.js (JavaScript) and Pycord (Python), gateway intents, slash commands, interactive components, rate limiting, and sharding. | `skills/discord-bot-architect` |
-| **dispatching-parallel-agents** | ⚪ | Use when facing 2+ independent tasks that can be worked on without shared state or sequential dependencies | `skills/dispatching-parallel-agents` |
-| **doc-coauthoring** | ⚪ | Guide users through a structured workflow for co-authoring documentation. Use when user wants to write documentation, proposals, technical specs, decision docs, or similar structured content. This workflow helps users efficiently transfer context, refine content through iteration, and verify the doc works for readers. Trigger when user mentions writing docs, creating proposals, drafting specs, or similar documentation tasks. | `skills/doc-coauthoring` |
-| **docker-expert** | ⚪ | Docker containerization expert with deep knowledge of multi-stage builds, image optimization, container security, Docker Compose orchestration, and production deployment patterns. Use PROACTIVELY for Dockerfile optimization, container issues, image size problems, security hardening, networking, and orchestration challenges. | `skills/docker-expert` |
-| **documentation-templates** | ⚪ | Documentation templates and structure guidelines. README, API docs, code comments, and AI-friendly documentation. | `skills/documentation-templates` |
-| **docx** | ⚪ | Comprehensive document creation, editing, and analysis with support for tracked changes, comments, formatting preservation, and text extraction. When Claude needs to work with professional documents (.docx files) for: (1) Creating new documents, (2) Modifying or editing content, (3) Working with tracked changes, (4) Adding comments, or any other document tasks | `skills/docx-official` |
-| **email-sequence** | ⚪ | When the user wants to create or optimize an email sequence, drip campaign, automated email flow, or lifecycle email program. Also use when the user mentions "email sequence," "drip campaign," "nurture sequence," "onboarding emails," "welcome sequence," "re-engagement emails," "email automation," or "lifecycle emails." For in-app onboarding, see onboarding-cro. | `skills/email-sequence` |
-| **email-systems** | ⚪ | Email has the highest ROI of any marketing channel. $36 for every $1 spent. Yet most startups treat it as an afterthought - bulk blasts, no personalization, landing in spam folders.  This skill covers transactional email that works, marketing automation that converts, deliverability that reaches inboxes, and the infrastructure decisions that scale. Use when: keywords, file_patterns, code_patterns. | `skills/email-systems` |
-| **environment-setup-guide** | ⚪ | Guide developers through setting up development environments with proper tools, dependencies, and configurations | `skills/environment-setup-guide` |
-| **Ethical Hacking Methodology** | ⚪ | This skill should be used when the user asks to "learn ethical hacking", "understand penetration testing lifecycle", "perform reconnaissance", "conduct security scanning", "exploit vulnerabilities", or "write penetration test reports". It provides comprehensive ethical hacking methodology and techniques. | `skills/ethical-hacking-methodology` |
-| **exa-search** | ⚪ | Semantic search, similar content discovery, and structured research using Exa API | `skills/exa-search` |
-| **executing-plans** | ⚪ | Use when you have a written implementation plan to execute in a separate session with review checkpoints | `skills/executing-plans` |
-| **File Path Traversal Testing** | ⚪ | This skill should be used when the user asks to "test for directory traversal", "exploit path traversal vulnerabilities", "read arbitrary files through web applications", "find LFI vulnerabilities", or "access files outside web root". It provides comprehensive file path traversal attack and testing methodologies. | `skills/file-path-traversal` |
-| **file-organizer** | ⚪ | Intelligently organizes files and folders by understanding context, finding duplicates, and suggesting better organizational structures. Use when user wants to clean up directories, organize downloads, remove duplicates, or restructure projects. | `skills/file-organizer` |
-| **file-uploads** | ⚪ | Expert at handling file uploads and cloud storage. Covers S3, Cloudflare R2, presigned URLs, multipart uploads, and image optimization. Knows how to handle large files without blocking. Use when: file upload, S3, R2, presigned URL, multipart. | `skills/file-uploads` |
-| **finishing-a-development-branch** | ⚪ | Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup | `skills/finishing-a-development-branch` |
-| **firebase** | ⚪ | Firebase gives you a complete backend in minutes - auth, database, storage, functions, hosting. But the ease of setup hides real complexity. Security rules are your last line of defense, and they're often wrong. Firestore queries are limited, and you learn this after you've designed your data model.  This skill covers Firebase Authentication, Firestore, Realtime Database, Cloud Functions, Cloud Storage, and Firebase Hosting. Key insight: Firebase is optimized for read-heavy, denormalized data. I | `skills/firebase` |
-| **firecrawl-scraper** | ⚪ | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API | `skills/firecrawl-scraper` |
-| **form-cro** | ⚪ | Optimize any form that is NOT signup or account registration — including lead capture, contact, demo request, application, survey, quote, and checkout forms. Use when the goal is to increase form completion rate, reduce friction, or improve lead quality without breaking compliance or downstream workflows. | `skills/form-cro` |
-| **free-tool-strategy** | ⚪ | When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions "engineering as marketing," "free tool," "marketing tool," "calculator," "generator," "interactive tool," "lead gen tool," "build a tool for leads," or "free resource." This skill bridges engineering and marketing — useful for founders and technical marketers. | `skills/free-tool-strategy` |
-| **frontend-design** | ⚪ | Create distinctive, production-grade frontend interfaces with intentional aesthetics, high craft, and non-generic visual identity. Use when building or styling web UIs, components, pages, dashboards, or frontend applications. | `skills/frontend-design` |
-| **frontend-dev-guidelines** | ⚪ | Opinionated frontend development standards for modern React + TypeScript applications. Covers Suspense-first data fetching, lazy loading, feature-based architecture, MUI v7 styling, TanStack Router, performance optimization, and strict TypeScript practices. | `skills/frontend-dev-guidelines` |
-| **frontend-patterns** | ⚪ | Frontend development patterns for React, Next.js, state management, performance optimization, and UI best practices. | `skills/cc-skill-frontend-patterns` |
-| **game-art** | ⚪ | Game art principles. Visual style selection, asset pipeline, animation workflow. | `skills/game-development/game-art` |
-| **game-audio** | ⚪ | Game audio principles. Sound design, music integration, adaptive audio systems. | `skills/game-development/game-audio` |
-| **game-design** | ⚪ | Game design principles. GDD structure, balancing, player psychology, progression. | `skills/game-development/game-design` |
-| **game-development** | ⚪ | Game development orchestrator. Routes to platform-specific skills based on project needs. | `skills/game-development` |
-| **gcp-cloud-run** | ⚪ | Specialized skill for building production-ready serverless applications on GCP. Covers Cloud Run services (containerized), Cloud Run Functions (event-driven), cold start optimization, and event-driven architecture with Pub/Sub. | `skills/gcp-cloud-run` |
-| **geo-fundamentals** | ⚪ | Generative Engine Optimization for AI search engines (ChatGPT, Claude, Perplexity). | `skills/geo-fundamentals` |
-| **git-pushing** | ⚪ | Stage, commit, and push git changes with conventional commit messages. Use when user wants to commit and push changes, mentions pushing to remote, or asks to save and push their work. Also activates when user says "push changes", "commit and push", "push this", "push to github", or similar git workflow requests. | `skills/git-pushing` |
-| **github-workflow-automation** | ⚪ | Automate GitHub workflows with AI assistance. Includes PR reviews, issue triage, CI/CD integration, and Git operations. Use when automating GitHub workflows, setting up PR review automation, creating GitHub Actions, or triaging issues. | `skills/github-workflow-automation` |
-| **graphql** | ⚪ | GraphQL gives clients exactly the data they need - no more, no less. One endpoint, typed schema, introspection. But the flexibility that makes it powerful also makes it dangerous. Without proper controls, clients can craft queries that bring down your server.  This skill covers schema design, resolvers, DataLoader for N+1 prevention, federation for microservices, and client integration with Apollo/urql. Key insight: GraphQL is a contract. The schema is the API documentation. Design it carefully. | `skills/graphql` |
-| **HTML Injection Testing** | ⚪ | This skill should be used when the user asks to "test for HTML injection", "inject HTML into web pages", "perform HTML injection attacks", "deface web applications", or "test content injection vulnerabilities". It provides comprehensive HTML injection attack techniques and testing methodologies. | `skills/html-injection-testing` |
-| **hubspot-integration** | ⚪ | Expert patterns for HubSpot CRM integration including OAuth authentication, CRM objects, associations, batch operations, webhooks, and custom objects. Covers Node.js and Python SDKs. Use when: hubspot, hubspot api, hubspot crm, hubspot integration, contacts api. | `skills/hubspot-integration` |
-| **i18n-localization** | ⚪ | Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL support. | `skills/i18n-localization` |
-| **IDOR Vulnerability Testing** | ⚪ | This skill should be used when the user asks to "test for insecure direct object references," "find IDOR vulnerabilities," "exploit broken access control," "enumerate user IDs or object references," or "bypass authorization to access other users' data." It provides comprehensive guidance for detecting, exploiting, and remediating IDOR vulnerabilities in web applications. | `skills/idor-testing` |
-| **inngest** | ⚪ | Inngest expert for serverless-first background jobs, event-driven workflows, and durable execution without managing queues or workers. Use when: inngest, serverless background job, event-driven workflow, step function, durable execution. | `skills/inngest` |
-| **interactive-portfolio** | ⚪ | Expert in building portfolios that actually land jobs and clients - not just showing work, but creating memorable experiences. Covers developer portfolios, designer portfolios, creative portfolios, and portfolios that convert visitors into opportunities. Use when: portfolio, personal website, showcase work, developer portfolio, designer portfolio. | `skills/interactive-portfolio` |
-| **internal-comms** | ⚪ | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.). | `skills/internal-comms-anthropic` |
-| **internal-comms** | ⚪ | A set of resources to help me write all kinds of internal communications, using the formats that my company likes to use. Claude should use this skill whenever asked to write some sort of internal communications (status reports, leadership updates, 3P updates, company newsletters, FAQs, incident reports, project updates, etc.). | `skills/internal-comms-community` |
-| **javascript-mastery** | ⚪ | Comprehensive JavaScript reference covering 33+ essential concepts every developer should know. From fundamentals like primitives and closures to advanced patterns like async/await and functional programming. Use when explaining JS concepts, debugging JavaScript issues, or teaching JavaScript fundamentals. | `skills/javascript-mastery` |
-| **kaizen** | ⚪ | Guide for continuous improvement, error proofing, and standardization. Use this skill when the user wants to improve code quality, refactor, or discuss process improvements. | `skills/kaizen` |
-| **langfuse** | ⚪ | Expert in Langfuse - the open-source LLM observability platform. Covers tracing, prompt management, evaluation, datasets, and integration with LangChain, LlamaIndex, and OpenAI. Essential for debugging, monitoring, and improving LLM applications in production. Use when: langfuse, llm observability, llm tracing, prompt management, llm evaluation. | `skills/langfuse` |
-| **langgraph** | ⚪ | Expert in LangGraph - the production-grade framework for building stateful, multi-actor AI applications. Covers graph construction, state management, cycles and branches, persistence with checkpointers, human-in-the-loop patterns, and the ReAct agent pattern. Used in production at LinkedIn, Uber, and 400+ companies. This is LangChain's recommended approach for building agents. Use when: langgraph, langchain agent, stateful agent, agent graph, react agent. | `skills/langgraph` |
-| **last30days** | ⚪ | Research a topic from the last 30 days on Reddit + X + Web, become an expert, and write copy-paste-ready prompts for the user's target tool. | `skills/last30days` |
-| **launch-strategy** | ⚪ | When the user wants to plan a product launch, feature announcement, or release strategy. Also use when the user mentions 'launch,' 'Product Hunt,' 'feature release,' 'announcement,' 'go-to-market,' 'beta launch,' 'early access,' 'waitlist,' or 'product update.' This skill covers phased launches, channel strategy, and ongoing launch momentum. | `skills/launch-strategy` |
-| **lint-and-validate** | ⚪ | Automatic quality control, linting, and static analysis procedures. Use after every code modification to ensure syntax correctness and project standards. Triggers onKeywords: lint, format, check, validate, types, static analysis. | `skills/lint-and-validate` |
-| **Linux Privilege Escalation** | ⚪ | This skill should be used when the user asks to "escalate privileges on Linux", "find privesc vectors on Linux systems", "exploit sudo misconfigurations", "abuse SUID binaries", "exploit cron jobs for root access", "enumerate Linux systems for privilege escalation", or "gain root access from low-privilege shell". It provides comprehensive techniques for identifying and exploiting privilege escalation paths on Linux systems. | `skills/linux-privilege-escalation` |
-| **Linux Production Shell Scripts** | ⚪ | This skill should be used when the user asks to "create bash scripts", "automate Linux tasks", "monitor system resources", "backup files", "manage users", or "write production shell scripts". It provides ready-to-use shell script templates for system administration. | `skills/linux-shell-scripting` |
-| **llm-app-patterns** | ⚪ | Production-ready patterns for building LLM applications. Covers RAG pipelines, agent architectures, prompt IDEs, and LLMOps monitoring. Use when designing AI applications, implementing RAG, building agents, or setting up LLM observability. | `skills/llm-app-patterns` |
-| **loki-mode** | ⚪ | Multi-agent autonomous startup system for Claude Code. Triggers on "Loki Mode". Orchestrates 100+ specialized agents across engineering, QA, DevOps, security, data/ML, business operations, marketing, HR, and customer success. Takes PRD to fully deployed, revenue-generating product with zero human intervention. Features Task tool for subagent dispatch, parallel code review with 3 specialized reviewers, severity-based issue triage, distributed task queue with dead letter handling, automatic deployment to cloud providers, A/B testing, customer feedback loops, incident response, circuit breakers, and self-healing. Handles rate limits via distributed state checkpoints and auto-resume with exponential backoff. Requires --dangerously-skip-permissions flag. | `skills/loki-mode` |
-| **marketing-ideas** | ⚪ | Provide proven marketing strategies and growth ideas for SaaS and software products, prioritized using a marketing feasibility scoring system. | `skills/marketing-ideas` |
-| **marketing-psychology** | ⚪ | Apply behavioral science and mental models to marketing decisions, prioritized using a psychological leverage and feasibility scoring system. | `skills/marketing-psychology` |
-| **mcp-builder** | ⚪ | Guide for creating high-quality MCP (Model Context Protocol) servers that enable LLMs to interact with external services through well-designed tools. Use when building MCP servers to integrate external APIs or services, whether in Python (FastMCP) or Node/TypeScript (MCP SDK). | `skills/mcp-builder` |
-| **Metasploit Framework** | ⚪ | This skill should be used when the user asks to "use Metasploit for penetration testing", "exploit vulnerabilities with msfconsole", "create payloads with msfvenom", "perform post-exploitation", "use auxiliary modules for scanning", or "develop custom exploits". It provides comprehensive guidance for leveraging the Metasploit Framework in security assessments. | `skills/metasploit-framework` |
-| **micro-saas-launcher** | ⚪ | Expert in launching small, focused SaaS products fast - the indie hacker approach to building profitable software. Covers idea validation, MVP development, pricing, launch strategies, and growing to sustainable revenue. Ship in weeks, not months. Use when: micro saas, indie hacker, small saas, side project, saas mvp. | `skills/micro-saas-launcher` |
-| **mobile-design** | ⚪ | Mobile-first design and engineering doctrine for iOS and Android apps. Covers touch interaction, performance, platform conventions, offline behavior, and mobile-specific decision-making. Teaches principles and constraints, not fixed layouts. Use for React Native, Flutter, or native mobile apps. | `skills/mobile-design` |
-| **mobile-games** | ⚪ | Mobile game development principles. Touch input, battery, performance, app stores. | `skills/game-development/mobile-games` |
-| **moodle-external-api-development** | ⚪ | Create custom external web service APIs for Moodle LMS. Use when implementing web services for course management, user tracking, quiz operations, or custom plugin functionality. Covers parameter validation, database operations, error handling, service registration, and Moodle coding standards. | `skills/moodle-external-api-development` |
-| **multi-agent-brainstorming** | ⚪ | Use this skill when a design or idea requires higher confidence, risk reduction, or formal review. This skill orchestrates a structured, sequential multi-agent design review where each agent has a strict, non-overlapping role. It prevents blind spots, false confidence, and premature convergence. | `skills/multi-agent-brainstorming` |
-| **multiplayer** | ⚪ | Multiplayer game development principles. Architecture, networking, synchronization. | `skills/game-development/multiplayer` |
-| **neon-postgres** | ⚪ | Expert patterns for Neon serverless Postgres, branching, connection pooling, and Prisma/Drizzle integration Use when: neon database, serverless postgres, database branching, neon postgres, postgres serverless. | `skills/neon-postgres` |
-| **nestjs-expert** | ⚪ | Nest.js framework expert specializing in module architecture, dependency injection, middleware, guards, interceptors, testing with Jest/Supertest, TypeORM/Mongoose integration, and Passport.js authentication. Use PROACTIVELY for any Nest.js application issues including architecture decisions, testing strategies, performance optimization, or debugging complex dependency injection problems. If a specialized expert is a better fit, I will recommend switching and stop. | `skills/nestjs-expert` |
-| **Network 101** | ⚪ | This skill should be used when the user asks to "set up a web server", "configure HTTP or HTTPS", "perform SNMP enumeration", "configure SMB shares", "test network services", or needs guidance on configuring and testing network services for penetration testing labs. | `skills/network-101` |
-| **nextjs-best-practices** | ⚪ | Next.js App Router principles. Server Components, data fetching, routing patterns. | `skills/nextjs-best-practices` |
-| **nextjs-supabase-auth** | ⚪ | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authentication next.js, login supabase, auth middleware, protected route. | `skills/nextjs-supabase-auth` |
-| **nodejs-best-practices** | ⚪ | Node.js development principles and decision-making. Framework selection, async patterns, security, and architecture. Teaches thinking, not copying. | `skills/nodejs-best-practices` |
-| **nosql-expert** | ⚪ | Expert guidance for distributed NoSQL databases (Cassandra, DynamoDB). Focuses on mental models, query-first modeling, single-table design, and avoiding hot partitions in high-scale systems. | `skills/nosql-expert` |
-| **notebooklm** | ⚪ | Use this skill to query your Google NotebookLM notebooks directly from Claude Code for source-grounded, citation-backed answers from Gemini. Browser automation, library management, persistent auth. Drastically reduced hallucinations through document-only responses. | `skills/notebooklm` |
-| **notion-template-business** | ⚪ | Expert in building and selling Notion templates as a business - not just making templates, but building a sustainable digital product business. Covers template design, pricing, marketplaces, marketing, and scaling to real revenue. Use when: notion template, sell templates, digital product, notion business, gumroad. | `skills/notion-template-business` |
-| **obsidian-clipper-template-creator** | ⚪ | Guide for creating templates for the Obsidian Web Clipper. Use when you want to create a new clipping template, understand available variables, or format clipped content. | `skills/obsidian-clipper-template-creator` |
-| **onboarding-cro** | ⚪ | When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions "onboarding flow," "activation rate," "user activation," "first-run experience," "empty states," "onboarding checklist," "aha moment," or "new user experience." For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence. | `skills/onboarding-cro` |
-| **page-cro** | ⚪ | Analyze and optimize individual pages for conversion performance. Use when the user wants to improve conversion rates, diagnose why a page is underperforming, or increase the effectiveness of marketing pages (homepage, landing pages, pricing, feature pages, or blog posts). This skill focuses on diagnosis, prioritization, and testable recommendations— not blind optimization. | `skills/page-cro` |
-| **paid-ads** | ⚪ | When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ad copy,' 'ad creative,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' or 'audience targeting.' This skill covers campaign strategy, ad creation, audience targeting, and optimization. | `skills/paid-ads` |
-| **parallel-agents** | ⚪ | Multi-agent orchestration patterns. Use when multiple independent tasks can run with different domain expertise or when comprehensive analysis requires multiple perspectives. | `skills/parallel-agents` |
-| **paywall-upgrade-cro** | ⚪ | When the user wants to create or optimize in-app paywalls, upgrade screens, upsell modals, or feature gates. Also use when the user mentions "paywall," "upgrade screen," "upgrade modal," "upsell," "feature gate," "convert free to paid," "freemium conversion," "trial expiration screen," "limit reached screen," "plan upgrade prompt," or "in-app pricing." Distinct from public pricing pages (see page-cro) — this skill focuses on in-product upgrade moments where the user has already experienced value. | `skills/paywall-upgrade-cro` |
-| **pc-games** | ⚪ | PC and console game development principles. Engine selection, platform features, optimization strategies. | `skills/game-development/pc-games` |
-| **pdf** | ⚪ | Comprehensive PDF manipulation toolkit for extracting text and tables, creating new PDFs, merging/splitting documents, and handling forms. When Claude needs to fill in a PDF form or programmatically process, generate, or analyze PDF documents at scale. | `skills/pdf-official` |
-| **Pentest Checklist** | ⚪ | This skill should be used when the user asks to "plan a penetration test", "create a security assessment checklist", "prepare for penetration testing", "define pentest scope", "follow security testing best practices", or needs a structured methodology for penetration testing engagements. | `skills/pentest-checklist` |
-| **Pentest Commands** | ⚪ | This skill should be used when the user asks to "run pentest commands", "scan with nmap", "use metasploit exploits", "crack passwords with hydra or john", "scan web vulnerabilities with nikto", "enumerate networks", or needs essential penetration testing command references. | `skills/pentest-commands` |
-| **performance-profiling** | ⚪ | Performance profiling principles. Measurement, analysis, and optimization techniques. | `skills/performance-profiling` |
-| **personal-tool-builder** | ⚪ | Expert in building custom tools that solve your own problems first. The best products often start as personal tools - scratch your own itch, build for yourself, then discover others have the same itch. Covers rapid prototyping, local-first apps, CLI tools, scripts that grow into products, and the art of dogfooding. Use when: build a tool, personal tool, scratch my itch, solve my problem, CLI tool. | `skills/personal-tool-builder` |
-| **plaid-fintech** | ⚪ | Expert patterns for Plaid API integration including Link token flows, transactions sync, identity verification, Auth for ACH, balance checks, webhook handling, and fintech compliance best practices. Use when: plaid, bank account linking, bank connection, ach, account aggregation. | `skills/plaid-fintech` |
-| **plan-writing** | ⚪ | Structured task planning with clear breakdowns, dependencies, and verification criteria. Use when implementing features, refactoring, or any multi-step work. | `skills/plan-writing` |
-| **planning-with-files** | ⚪ | Implements Manus-style file-based planning for complex tasks. Creates task_plan.md, findings.md, and progress.md. Use when starting complex multi-step tasks, research projects, or any task requiring >5 tool calls. | `skills/planning-with-files` |
-| **playwright-skill** | ⚪ | Complete browser automation with Playwright. Auto-detects dev servers, writes clean test scripts to /tmp. Test pages, fill forms, take screenshots, check responsive design, validate UX, test login flows, check links, automate any browser task. Use when user wants to test websites, automate browser interactions, validate web functionality, or perform any browser-based testing. | `skills/playwright-skill` |
-| **popup-cro** | ⚪ | Create and optimize popups, modals, overlays, slide-ins, and banners to increase conversions without harming user experience or brand trust. | `skills/popup-cro` |
-| **powershell-windows** | ⚪ | PowerShell Windows patterns. Critical pitfalls, operator syntax, error handling. | `skills/powershell-windows` |
-| **pptx** | ⚪ | Presentation creation, editing, and analysis. When Claude needs to work with presentations (.pptx files) for: (1) Creating new presentations, (2) Modifying or editing content, (3) Working with layouts, (4) Adding comments or speaker notes, or any other presentation tasks | `skills/pptx-official` |
-| **pricing-strategy** | ⚪ | Design pricing, packaging, and monetization strategies based on value, customer willingness to pay, and growth objectives. | `skills/pricing-strategy` |
-| **prisma-expert** | ⚪ | Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and database operations. Use PROACTIVELY for Prisma schema issues, migration problems, query performance, relation design, or database connection issues. | `skills/prisma-expert` |
-| **Privilege Escalation Methods** | ⚪ | This skill should be used when the user asks to "escalate privileges", "get root access", "become administrator", "privesc techniques", "abuse sudo", "exploit SUID binaries", "Kerberoasting", "pass-the-ticket", "token impersonation", or needs guidance on post-exploitation privilege escalation for Linux or Windows systems. | `skills/privilege-escalation-methods` |
-| **product-manager-toolkit** | ⚪ | Comprehensive toolkit for product managers including RICE prioritization, customer interview analysis, PRD templates, discovery frameworks, and go-to-market strategies. Use for feature prioritization, user research synthesis, requirement documentation, and product strategy development. | `skills/product-manager-toolkit` |
-| **production-code-audit** | ⚪ | Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then systematically transform it to production-grade, corporate-level professional quality with optimizations | `skills/production-code-audit` |
-| **programmatic-seo** | ⚪ | Design and evaluate programmatic SEO strategies for creating SEO-driven pages at scale using templates and structured data. Use when the user mentions programmatic SEO, pages at scale, template pages, directory pages, location pages, comparison pages, integration pages, or keyword-pattern page generation. This skill focuses on feasibility, strategy, and page system design—not execution unless explicitly requested. | `skills/programmatic-seo` |
-| **prompt-caching** | ⚪ | Caching strategies for LLM prompts including Anthropic prompt caching, response caching, and CAG (Cache Augmented Generation) Use when: prompt caching, cache prompt, response cache, cag, cache augmented. | `skills/prompt-caching` |
-| **prompt-engineer** | ⚪ | Expert in designing effective prompts for LLM-powered applications. Masters prompt structure, context management, output formatting, and prompt evaluation. Use when: prompt engineering, system prompt, few-shot, chain of thought, prompt design. | `skills/prompt-engineer` |
-| **prompt-engineering** | ⚪ | Expert guide on prompt engineering patterns, best practices, and optimization techniques. Use when user wants to improve prompts, learn prompting strategies, or debug agent behavior. | `skills/prompt-engineering` |
-| **prompt-library** | ⚪ | Curated collection of high-quality prompts for various use cases. Includes role-based prompts, task-specific templates, and prompt refinement techniques. Use when user needs prompt templates, role-play prompts, or ready-to-use prompt examples for coding, writing, analysis, or creative tasks. | `skills/prompt-library` |
-| **python-patterns** | ⚪ | Python development principles and decision-making. Framework selection, async patterns, type hints, project structure. Teaches thinking, not copying. | `skills/python-patterns` |
-| **rag-engineer** | ⚪ | Expert in building Retrieval-Augmented Generation systems. Masters embedding models, vector databases, chunking strategies, and retrieval optimization for LLM applications. Use when: building RAG, vector search, embeddings, semantic search, document retrieval. | `skills/rag-engineer` |
-| **rag-implementation** | ⚪ | Retrieval-Augmented Generation patterns including chunking, embeddings, vector stores, and retrieval optimization Use when: rag, retrieval augmented, vector search, embeddings, semantic search. | `skills/rag-implementation` |
-| **react-patterns** | ⚪ | Modern React patterns and principles. Hooks, composition, performance, TypeScript best practices. | `skills/react-patterns` |
-| **react-ui-patterns** | ⚪ | Modern React UI patterns for loading states, error handling, and data fetching. Use when building UI components, handling async data, or managing UI states. | `skills/react-ui-patterns` |
-| **receiving-code-review** | ⚪ | Use when receiving code review feedback, before implementing suggestions, especially if feedback seems unclear or technically questionable - requires technical rigor and verification, not performative agreement or blind implementation | `skills/receiving-code-review` |
-| **Red Team Tools and Methodology** | ⚪ | This skill should be used when the user asks to "follow red team methodology", "perform bug bounty hunting", "automate reconnaissance", "hunt for XSS vulnerabilities", "enumerate subdomains", or needs security researcher techniques and tool configurations from top bug bounty hunters. | `skills/red-team-tools` |
-| **red-team-tactics** | ⚪ | Red team tactics principles based on MITRE ATT&CK. Attack phases, detection evasion, reporting. | `skills/red-team-tactics` |
-| **referral-program** | ⚪ | When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' or 'partner program.' This skill covers program design, incentive structure, and growth optimization. | `skills/referral-program` |
-| **remotion-best-practices** | ⚪ | Best practices for Remotion - Video creation in React | `skills/remotion-best-practices` |
-| **requesting-code-review** | ⚪ | Use when completing tasks, implementing major features, or before merging to verify work meets requirements | `skills/requesting-code-review` |
-| **research-engineer** | ⚪ | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objective criticism, and zero flair. Focuses on theoretical correctness, formal verification, and optimal implementation across any required technology. | `skills/research-engineer` |
-| **salesforce-development** | ⚪ | Expert patterns for Salesforce platform development including Lightning Web Components (LWC), Apex triggers and classes, REST/Bulk APIs, Connected Apps, and Salesforce DX with scratch orgs and 2nd generation packages (2GP). Use when: salesforce, sfdc, apex, lwc, lightning web components. | `skills/salesforce-development` |
-| **schema-markup** | ⚪ | Design, validate, and optimize schema.org structured data for eligibility, correctness, and measurable SEO impact. Use when the user wants to add, fix, audit, or scale schema markup (JSON-LD) for rich results. This skill evaluates whether schema should be implemented, what types are valid, and how to deploy safely according to Google guidelines. | `skills/schema-markup` |
-| **scroll-experience** | ⚪ | Expert in building immersive scroll-driven experiences - parallax storytelling, scroll animations, interactive narratives, and cinematic web experiences. Like NY Times interactives, Apple product pages, and award-winning web experiences. Makes websites feel like experiences, not just pages. Use when: scroll animation, parallax, scroll storytelling, interactive story, cinematic website. | `skills/scroll-experience` |
-| **Security Scanning Tools** | ⚪ | This skill should be used when the user asks to "perform vulnerability scanning", "scan networks for open ports", "assess web application security", "scan wireless networks", "detect malware", "check cloud security", or "evaluate system compliance". It provides comprehensive guidance on security scanning tools and methodologies. | `skills/scanning-tools` |
-| **security-review** | ⚪ | Use this skill when adding authentication, handling user input, working with secrets, creating API endpoints, or implementing payment/sensitive features. Provides comprehensive security checklist and patterns. | `skills/cc-skill-security-review` |
-| **segment-cdp** | ⚪ | Expert patterns for Segment Customer Data Platform including Analytics.js, server-side tracking, tracking plans with Protocols, identity resolution, destinations configuration, and data governance best practices. Use when: segment, analytics.js, customer data platform, cdp, tracking plan. | `skills/segment-cdp` |
-| **senior-architect** | ⚪ | Comprehensive software architecture skill for designing scalable, maintainable systems using ReactJS, NextJS, NodeJS, Express, React Native, Swift, Kotlin, Flutter, Postgres, GraphQL, Go, Python. Includes architecture diagram generation, system design patterns, tech stack decision frameworks, and dependency analysis. Use when designing system architecture, making technical decisions, creating architecture diagrams, evaluating trade-offs, or defining integration patterns. | `skills/senior-architect` |
-| **senior-fullstack** | ⚪ | Comprehensive fullstack development skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, and complete tech stack guidance. Use when building new projects, analyzing code quality, implementing design patterns, or setting up development workflows. | `skills/senior-fullstack` |
-| **seo-audit** | ⚪ | Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance. Use when the user asks for an SEO audit, technical SEO review, ranking diagnosis, on-page SEO review, meta tag audit, or SEO health check. This skill identifies issues and prioritizes actions but does not execute changes. For large-scale page creation, use programmatic-seo. For structured data, use schema-markup. | `skills/seo-audit` |
-| **seo-fundamentals** | ⚪ | Core principles of SEO including E-E-A-T, Core Web Vitals, technical foundations, content quality, and how modern search engines evaluate pages. This skill explains *why* SEO works, not how to execute specific optimizations. | `skills/seo-fundamentals` |
-| **server-management** | ⚪ | Server management principles and decision-making. Process management, monitoring strategy, and scaling decisions. Teaches thinking, not commands. | `skills/server-management` |
-| **Shodan Reconnaissance and Pentesting** | ⚪ | This skill should be used when the user asks to "search for exposed devices on the internet," "perform Shodan reconnaissance," "find vulnerable services using Shodan," "scan IP ranges with Shodan," or "discover IoT devices and open ports." It provides comprehensive guidance for using Shodan's search engine, CLI, and API for penetration testing reconnaissance. | `skills/shodan-reconnaissance` |
-| **shopify-apps** | ⚪ | Expert patterns for Shopify app development including Remix/React Router apps, embedded apps with App Bridge, webhook handling, GraphQL Admin API, Polaris components, billing, and app extensions. Use when: shopify app, shopify, embedded app, polaris, app bridge. | `skills/shopify-apps` |
-| **shopify-development** | ⚪ | Build Shopify apps, extensions, themes using GraphQL Admin API, Shopify CLI, Polaris UI, and Liquid. TRIGGER: "shopify", "shopify app", "checkout extension", "admin extension", "POS extension", "shopify theme", "liquid template", "polaris", "shopify graphql", "shopify webhook", "shopify billing", "app subscription", "metafields", "shopify functions" | `skills/shopify-development` |
-| **signup-flow-cro** | ⚪ | When the user wants to optimize signup, registration, account creation, or trial activation flows. Also use when the user mentions "signup conversions," "registration friction," "signup form optimization," "free trial signup," "reduce signup dropoff," or "account creation flow." For post-signup onboarding, see onboarding-cro. For lead capture forms (not account creation), see form-cro. | `skills/signup-flow-cro` |
-| **skill-creator** | ⚪ | Guide for creating effective skills. This skill should be used when users want to create a new skill (or update an existing skill) that extends Claude's capabilities with specialized knowledge, workflows, or tool integrations. | `skills/skill-creator` |
-| **skill-developer** | ⚪ | Create and manage Claude Code skills following Anthropic best practices. Use when creating new skills, modifying skill-rules.json, understanding trigger patterns, working with hooks, debugging skill activation, or implementing progressive disclosure. Covers skill structure, YAML frontmatter, trigger types (keywords, intent patterns, file paths, content patterns), enforcement levels (block, suggest, warn), hook mechanisms (UserPromptSubmit, PreToolUse), session tracking, and the 500-line rule. | `skills/skill-developer` |
-| **slack-bot-builder** | ⚪ | Build Slack apps using the Bolt framework across Python, JavaScript, and Java. Covers Block Kit for rich UIs, interactive components, slash commands, event handling, OAuth installation flows, and Workflow Builder integration. Focus on best practices for production-ready Slack apps. Use when: slack bot, slack app, bolt framework, block kit, slash command. | `skills/slack-bot-builder` |
-| **slack-gif-creator** | ⚪ | Knowledge and utilities for creating animated GIFs optimized for Slack. Provides constraints, validation tools, and animation concepts. Use when users request animated GIFs for Slack like "make me a GIF of X doing Y for Slack." | `skills/slack-gif-creator` |
-| **SMTP Penetration Testing** | ⚪ | This skill should be used when the user asks to "perform SMTP penetration testing", "enumerate email users", "test for open mail relays", "grab SMTP banners", "brute force email credentials", or "assess mail server security". It provides comprehensive techniques for testing SMTP server security. | `skills/smtp-penetration-testing` |
-| **social-content** | ⚪ | When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' or 'viral content.' This skill covers content creation, repurposing, and platform-specific strategies. | `skills/social-content` |
-| **software-architecture** | ⚪ | Guide for quality focused software architecture. This skill should be used when users want to write code, design architecture, analyze code, in any case that relates to software development. | `skills/software-architecture` |
-| **SQL Injection Testing** | ⚪ | This skill should be used when the user asks to "test for SQL injection vulnerabilities", "perform SQLi attacks", "bypass authentication using SQL injection", "extract database information through injection", "detect SQL injection flaws", or "exploit database query vulnerabilities". It provides comprehensive techniques for identifying, exploiting, and understanding SQL injection attack vectors across different database systems. | `skills/sql-injection-testing` |
-| **SQLMap Database Penetration Testing** | ⚪ | This skill should be used when the user asks to "automate SQL injection testing," "enumerate database structure," "extract database credentials using sqlmap," "dump tables and columns from a vulnerable database," or "perform automated database penetration testing." It provides comprehensive guidance for using SQLMap to detect and exploit SQL injection vulnerabilities. | `skills/sqlmap-database-pentesting` |
-| **SSH Penetration Testing** | ⚪ | This skill should be used when the user asks to "pentest SSH services", "enumerate SSH configurations", "brute force SSH credentials", "exploit SSH vulnerabilities", "perform SSH tunneling", or "audit SSH security". It provides comprehensive SSH penetration testing methodologies and techniques. | `skills/ssh-penetration-testing` |
-| **stripe-integration** | ⚪ | Get paid from day one. Payments, subscriptions, billing portal, webhooks, metered billing, Stripe Connect. The complete guide to implementing Stripe correctly, including all the edge cases that will bite you at 3am.  This isn't just API calls - it's the full payment system: handling failures, managing subscriptions, dealing with dunning, and keeping revenue flowing. Use when: stripe, payments, subscription, billing, checkout. | `skills/stripe-integration` |
-| **subagent-driven-development** | ⚪ | Use when executing implementation plans with independent tasks in the current session | `skills/subagent-driven-development` |
-| **supabase-postgres-best-practices** | ⚪ | Postgres performance optimization and best practices from Supabase. Use this skill when writing, reviewing, or optimizing Postgres queries, schema designs, or database configurations. | `skills/postgres-best-practices` |
-| **systematic-debugging** | ⚪ | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes | `skills/systematic-debugging` |
-| **tailwind-patterns** | ⚪ | Tailwind CSS v4 principles. CSS-first configuration, container queries, modern patterns, design token architecture. | `skills/tailwind-patterns` |
-| **tavily-web** | ⚪ | Web search, content extraction, crawling, and research capabilities using Tavily API | `skills/tavily-web` |
-| **tdd-workflow** | ⚪ | Test-Driven Development workflow principles. RED-GREEN-REFACTOR cycle. | `skills/tdd-workflow` |
-| **telegram-bot-builder** | ⚪ | Expert in building Telegram bots that solve real problems - from simple automation to complex AI-powered bots. Covers bot architecture, the Telegram Bot API, user experience, monetization strategies, and scaling bots to thousands of users. Use when: telegram bot, bot api, telegram automation, chat bot telegram, tg bot. | `skills/telegram-bot-builder` |
-| **telegram-mini-app** | ⚪ | Expert in building Telegram Mini Apps (TWA) - web apps that run inside Telegram with native-like experience. Covers the TON ecosystem, Telegram Web App API, payments, user authentication, and building viral mini apps that monetize. Use when: telegram mini app, TWA, telegram web app, TON app, mini app. | `skills/telegram-mini-app` |
-| **templates** | ⚪ | Project scaffolding templates for new applications. Use when creating new projects from scratch. Contains 12 templates for various tech stacks. | `skills/app-builder/templates` |
-| **test-driven-development** | ⚪ | Use when implementing any feature or bugfix, before writing implementation code | `skills/test-driven-development` |
-| **test-fixing** | ⚪ | Run tests and systematically fix all failing tests using smart error grouping. Use when user asks to fix failing tests, mentions test failures, runs test suite and failures occur, or requests to make tests pass. | `skills/test-fixing` |
-| **testing-patterns** | ⚪ | Jest testing patterns, factory functions, mocking strategies, and TDD workflow. Use when writing unit tests, creating test factories, or following TDD red-green-refactor cycle. | `skills/testing-patterns` |
-| **theme-factory** | ⚪ | Toolkit for styling artifacts with a theme. These artifacts can be slides, docs, reportings, HTML landing pages, etc. There are 10 pre-set themes with colors/fonts that you can apply to any artifact that has been creating, or can generate a new theme on-the-fly. | `skills/theme-factory` |
-| **Top 100 Web Vulnerabilities Reference** | ⚪ | This skill should be used when the user asks to "identify web application vulnerabilities", "explain common security flaws", "understand vulnerability categories", "learn about injection attacks", "review access control weaknesses", "analyze API security issues", "assess security misconfigurations", "understand client-side vulnerabilities", "examine mobile and IoT security flaws", or "reference the OWASP-aligned vulnerability taxonomy". Use this skill to provide comprehensive vulnerability definitions, root causes, impacts, and mitigation strategies across all major web security categories. | `skills/top-web-vulnerabilities` |
-| **trigger-dev** | ⚪ | Trigger.dev expert for background jobs, AI workflows, and reliable async execution with excellent developer experience and TypeScript-first design. Use when: trigger.dev, trigger dev, background task, ai background job, long running task. | `skills/trigger-dev` |
-| **twilio-communications** | ⚪ | Build communication features with Twilio: SMS messaging, voice calls, WhatsApp Business API, and user verification (2FA). Covers the full spectrum from simple notifications to complex IVR systems and multi-channel authentication. Critical focus on compliance, rate limits, and error handling. Use when: twilio, send SMS, text message, voice call, phone verification. | `skills/twilio-communications` |
-| **typescript-expert** | ⚪ | TypeScript and JavaScript expert with deep knowledge of type-level programming, performance optimization, monorepo management, migration strategies, and modern tooling. Use PROACTIVELY for any TypeScript/JavaScript issues including complex type gymnastics, build performance, debugging, and architectural decisions. If a specialized expert is a better fit, I will recommend switching and stop. | `skills/typescript-expert` |
-| **ui-ux-pro-max** | ⚪ | UI/UX design intelligence. 50 styles, 21 palettes, 50 font pairings, 20 charts, 9 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui). Actions: plan, build, create, design, implement, review, fix, improve, optimize, enhance, refactor, check UI/UX code. Projects: website, landing page, dashboard, admin panel, e-commerce, SaaS, portfolio, blog, mobile app, .html, .tsx, .vue, .svelte. Elements: button, modal, navbar, sidebar, card, table, form, chart. Styles: glassmorphism, claymorphism, minimalism, brutalism, neumorphism, bento grid, dark mode, responsive, skeuomorphism, flat design. Topics: color palette, accessibility, animation, layout, typography, font pairing, spacing, hover, shadow, gradient. Integrations: shadcn/ui MCP for component search and examples. | `skills/ui-ux-pro-max` |
-| **upstash-qstash** | ⚪ | Upstash QStash expert for serverless message queues, scheduled jobs, and reliable HTTP-based task delivery without managing infrastructure. Use when: qstash, upstash queue, serverless cron, scheduled http, message queue serverless. | `skills/upstash-qstash` |
-| **using-git-worktrees** | ⚪ | Use when starting feature work that needs isolation from current workspace or before executing implementation plans - creates isolated git worktrees with smart directory selection and safety verification | `skills/using-git-worktrees` |
-| **using-superpowers** | ⚪ | Use when starting any conversation - establishes how to find and use skills, requiring Skill tool invocation before ANY response including clarifying questions | `skills/using-superpowers` |
-| **vercel-deployment** | ⚪ | Expert knowledge for deploying to Vercel with Next.js Use when: vercel, deploy, deployment, hosting, production. | `skills/vercel-deployment` |
-| **vercel-react-best-practices** | ⚪ | React and Next.js performance optimization guidelines from Vercel Engineering. This skill should be used when writing, reviewing, or refactoring React/Next.js code to ensure optimal performance patterns. Triggers on tasks involving React components, Next.js pages, data fetching, bundle optimization, or performance improvements. | `skills/react-best-practices` |
-| **verification-before-completion** | ⚪ | Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always | `skills/verification-before-completion` |
-| **viral-generator-builder** | ⚪ | Expert in building shareable generator tools that go viral - name generators, quiz makers, avatar creators, personality tests, and calculator tools. Covers the psychology of sharing, viral mechanics, and building tools people can't resist sharing with friends. Use when: generator tool, quiz maker, name generator, avatar creator, viral tool. | `skills/viral-generator-builder` |
-| **voice-agents** | ⚪ | Voice agents represent the frontier of AI interaction - humans speaking naturally with AI systems. The challenge isn't just speech recognition and synthesis, it's achieving natural conversation flow with sub-800ms latency while handling interruptions, background noise, and emotional nuance.  This skill covers two architectures: speech-to-speech (OpenAI Realtime API, lowest latency, most natural) and pipeline (STT→LLM→TTS, more control, easier to debug). Key insight: latency is the constraint. Hu | `skills/voice-agents` |
-| **voice-ai-development** | ⚪ | Expert in building voice AI applications - from real-time voice agents to voice-enabled apps. Covers OpenAI Realtime API, Vapi for voice agents, Deepgram for transcription, ElevenLabs for synthesis, LiveKit for real-time infrastructure, and WebRTC fundamentals. Knows how to build low-latency, production-ready voice experiences. Use when: voice ai, voice agent, speech to text, text to speech, realtime voice. | `skills/voice-ai-development` |
-| **vr-ar** | ⚪ | VR/AR development principles. Comfort, interaction, performance requirements. | `skills/game-development/vr-ar` |
-| **vulnerability-scanner** | ⚪ | Advanced vulnerability analysis principles. OWASP 2025, Supply Chain Security, attack surface mapping, risk prioritization. | `skills/vulnerability-scanner` |
-| **web-artifacts-builder** | ⚪ | Suite of tools for creating elaborate, multi-component claude.ai HTML artifacts using modern frontend web technologies (React, Tailwind CSS, shadcn/ui). Use for complex artifacts requiring state management, routing, or shadcn/ui components - not for simple single-file HTML/JSX artifacts. | `skills/web-artifacts-builder` |
-| **web-design-guidelines** | ⚪ | Review UI code for Web Interface Guidelines compliance. Use when asked to "review my UI", "check accessibility", "audit design", "review UX", or "check my site against best practices". | `skills/web-design-guidelines` |
-| **web-games** | ⚪ | Web browser game development principles. Framework selection, WebGPU, optimization, PWA. | `skills/game-development/web-games` |
-| **web-performance-optimization** | ⚪ | Optimize website and web application performance including loading speed, Core Web Vitals, bundle size, caching strategies, and runtime performance | `skills/web-performance-optimization` |
-| **webapp-testing** | ⚪ | Toolkit for interacting with and testing local web applications using Playwright. Supports verifying frontend functionality, debugging UI behavior, capturing browser screenshots, and viewing browser logs. | `skills/webapp-testing` |
-| **Windows Privilege Escalation** | ⚪ | This skill should be used when the user asks to "escalate privileges on Windows," "find Windows privesc vectors," "enumerate Windows for privilege escalation," "exploit Windows misconfigurations," or "perform post-exploitation privilege escalation." It provides comprehensive guidance for discovering and exploiting privilege escalation vulnerabilities in Windows environments. | `skills/windows-privilege-escalation` |
-| **Wireshark Network Traffic Analysis** | ⚪ | This skill should be used when the user asks to "analyze network traffic with Wireshark", "capture packets for troubleshooting", "filter PCAP files", "follow TCP/UDP streams", "detect network anomalies", "investigate suspicious traffic", or "perform protocol analysis". It provides comprehensive techniques for network packet capture, filtering, and analysis using Wireshark. | `skills/wireshark-analysis` |
-| **WordPress Penetration Testing** | ⚪ | This skill should be used when the user asks to "pentest WordPress sites", "scan WordPress for vulnerabilities", "enumerate WordPress users, themes, or plugins", "exploit WordPress vulnerabilities", or "use WPScan". It provides comprehensive WordPress security assessment methodologies. | `skills/wordpress-penetration-testing` |
-| **workflow-automation** | ⚪ | Workflow automation is the infrastructure that makes AI agents reliable. Without durable execution, a network hiccup during a 10-step payment flow means lost money and angry customers. With it, workflows resume exactly where they left off.  This skill covers the platforms (n8n, Temporal, Inngest) and patterns (sequential, parallel, orchestrator-worker) that turn brittle scripts into production-grade automation.  Key insight: The platforms make different tradeoffs. n8n optimizes for accessibility | `skills/workflow-automation` |
-| **writing-plans** | ⚪ | Use when you have a spec or requirements for a multi-step task, before touching code | `skills/writing-plans` |
-| **writing-skills** | ⚪ | Use when creating new skills, editing existing skills, or verifying skills work before deployment | `skills/writing-skills` |
-| **xlsx** | ⚪ | Comprehensive spreadsheet creation, editing, and analysis with support for formulas, formatting, data analysis, and visualization. When Claude needs to work with spreadsheets (.xlsx, .xlsm, .csv, .tsv, etc) for: (1) Creating new spreadsheets with formulas and formatting, (2) Reading or analyzing data, (3) Modify existing spreadsheets while preserving formulas, (4) Data analysis and visualization in spreadsheets, or (5) Recalculating formulas | `skills/xlsx-official` |
-| **zapier-make-patterns** | ⚪ | No-code automation democratizes workflow building. Zapier and Make (formerly Integromat) let non-developers automate business processes without writing code. But no-code doesn't mean no-complexity - these platforms have their own patterns, pitfalls, and breaking points.  This skill covers when to use which platform, how to build reliable automations, and when to graduate to code-based solutions. Key insight: Zapier optimizes for simplicity and integrations (7000+ apps), Make optimizes for power | `skills/zapier-make-patterns` |
+- [Why This Repo](#why-this-repo)
+- [Installation](#installation)
+- [Recommended Specialized Plugins](#recommended-specialized-plugins)
+- [Choose Your Tool](#choose-your-tool)
+- [Quick FAQ](#quick-faq)
+- [Bundles & Workflows](#bundles--workflows)
+- [Browse 1,962+ Skills](#browse-1962-skills)
+- [Troubleshooting](#troubleshooting)
+- [Stable Skills Manifest v1](#stable-skills-manifest-v1)
+- [Support the Project](#support-the-project)
+- [Contributing](#contributing)
+- [Community](#community)
+- [Credits & Sources](#credits--sources)
+- [Repo Contributors](#repo-contributors)
+- [Star History](#star-history)
+- [License](#license)
 
 ## Installation
 
-To use these skills with **Claude Code**, **Gemini CLI**, **Codex CLI**, **Cursor**, **Antigravity**, or **OpenCode**, clone this repository into your agent's skills directory:
+Most users should start by choosing the smallest useful surface:
+
+- **Specialized plugins** when the job has a clear domain.
+- **Full library install** when you want every skill available in a local skills directory.
+- **Bundles and workflows** when you want role-based recommendations or ordered execution playbooks.
+
+### Full library install
 
 ```bash
-# Universal installation (works with most tools)
-git clone https://github.com/sickn33/antigravity-awesome-skills.git .agent/skills
+# Default: ~/.agents/skills (Antigravity 2.0 global). Use --path for other locations.
+npx agentic-awesome-skills
 
-# Claude Code specific
-git clone https://github.com/sickn33/antigravity-awesome-skills.git .claude/skills
-
-# Gemini CLI specific
-git clone https://github.com/sickn33/antigravity-awesome-skills.git .gemini/skills
-
-# Cursor specific
-git clone https://github.com/sickn33/antigravity-awesome-skills.git .cursor/skills
+# Antigravity CLI slash commands (agy): ~/.gemini/antigravity-cli/skills/<skill>/SKILL.md
+npx agentic-awesome-skills --agy
 ```
 
+The npm installer uses a shallow, release-pinned clone by default so first-run installs stay lighter than a full repository history checkout while matching the published npm package version. Use `--tag main` only when you intentionally want the current repository tip.
+
+### Focused single-skill install with GitHub CLI (preview)
+
+GitHub CLI can preview and install one exact skill for Copilot and other supported hosts. Use an exact `SKILL.md` path in this large, mirrored repository so the selected source is unambiguous and discovery stays fast:
+
+```bash
+gh skill preview sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md
+gh skill install sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md \
+  --agent github-copilot --scope user --pin v14.2.0
+```
+
+`gh skill` support is currently a GitHub CLI preview and may change. Install a focused skill or plugin surface for the job; do not use `--all` unless you intentionally want every discovered canonical and mirrored skill.
+
+### Verify the install
+
+```bash
+test -d ~/.agents/skills && echo "Skills installed in ~/.agents/skills"
+```
+
+### Run your first skill
+
+```text
+Use @brainstorming to plan a SaaS MVP.
+```
+
+### Prefer plugins for Claude Code or Codex?
+
+- Use a specialized plugin when you want a focused marketplace-style distribution.
+- Use the full-library plugin only when you want the widest plugin-safe catalog.
+- Read [Plugins for Claude Code and Codex](docs/users/plugins.md) for full-library plugin install vs specialized plugin install vs direct skills install.
+
+## Recommended Specialized Plugins
+
+Do not install everything first if you already know the work. Start with the focused plugin for your job, then add more only when the task expands.
+
+All specialized plugins are generated as Claude Code and Codex plugin bundles. For Antigravity, use the same `SKILL.md` content through the installer or supported skills paths.
+
+| Plugin | Skills | Best for |
+| --- | ---: | --- |
+| AAS Web App Builder | 10 | Frontend and full-stack developers shipping modern web apps. |
+| AAS Product Design Studio | 10 | Product UI, brand, portfolio, accessibility, and richer visual work. |
+| AAS Security Engineer | 10 | Authorized security testing, audit, and hardening. |
+| AAS Secure App Builder | 10 | Developers who want security embedded while building features. |
+| AAS Documents & Presentations | 9 | Office files, document conversion, decks, and slide workflows. |
+| AAS Data Analytics | 10 | Product analytics, SQL, dashboards, and experiments. |
+| AAS Agent & MCP Builder | 10 | Agentic apps, MCP tools, RAG systems, and evaluation loops. |
+| AAS QA & Test Automation | 10 | Test suites, browser automation, and QA stabilization. |
+| AAS DevOps & Cloud | 10 | Infrastructure, deployments, and operational workflows. |
+| AAS Accessibility & Inclusive UX | 8 | WCAG audits, automated scans, screen-reader checks, and accessible QA. |
+| AAS API Platform Builder | 10 | API design, OpenAPI contracts, auth, security, load tests, and observability. |
+| AAS SaaS Launch & Revenue | 10 | SaaS MVPs, pricing, payments, analytics, lifecycle, referrals, and SEO. |
+| AAS AI Product & Evaluation Ops | 10 | AI product metrics, evals, tracing, experiments, and model-quality loops. |
+
+Next-wave plugins cover marketing/SEO/growth, automation, observability/incident response, Python APIs, mobile apps, data engineering, privacy/compliance, and localization/international growth.
+
+- Read the [specialized plugin roadmap](docs/users/specialized-plugin-roadmap.md).
+- Read the [plugin guide for Claude Code and Codex](docs/users/plugins.md).
+- Compare the hosted [specialized plugin landing page](https://sickn33.github.io/agentic-awesome-skills/plugins).
+- Browse the generated plugin folders in [`plugins/`](plugins/).
+
+## Choose Your Tool
+
+Use the same repository, but install or invoke it in the way your host expects.
+
+| Tool           | Install                                                                  | First Use                                              |
+| -------------- | ------------------------------------------------------------------------ | ------------------------------------------------------ |
+| Claude Code    | `npx agentic-awesome-skills --claude` or Claude plugin marketplace | `>> /brainstorming help me plan a feature`           |
+| Cursor         | `npx agentic-awesome-skills --cursor`                              | `@brainstorming help me plan a feature`              |
+| Gemini CLI     | `npx agentic-awesome-skills --gemini`                              | `Use brainstorming to plan a feature`                |
+| Codex CLI      | `npx agentic-awesome-skills --codex`                               | `Use brainstorming to plan a feature`                |
+| Autohand Code  | `npx agentic-awesome-skills --path ~/.autohand/skills` or `--path .autohand/skills` | `Use brainstorming to plan a feature`                |
+| Antigravity IDE | `npx agentic-awesome-skills --antigravity`                        | `Use @brainstorming to plan a feature`               |
+| Antigravity CLI (`agy`) | `npx agentic-awesome-skills --agy`                        | `/brainstorming help me plan a feature`              |
+| Kiro CLI       | `npx agentic-awesome-skills --kiro`                                | `Use brainstorming to plan a feature`                |
+| Kiro IDE       | `npx agentic-awesome-skills --path ~/.kiro/skills`                 | `Use @brainstorming to plan a feature`               |
+| GitHub Copilot | `gh skill install sickn33/agentic-awesome-skills skills/brainstorming/SKILL.md --agent github-copilot --scope user --pin v14.2.0` (preview) | `Ask Copilot to use brainstorming to plan a feature` |
+| OpenCode       | `npx agentic-awesome-skills --path .agents/skills --category development,backend --risk safe,none` | `opencode run @brainstorming help me plan a feature` |
+| AdaL CLI       | `npx agentic-awesome-skills --path .adal/skills`                   | `Use brainstorming to plan a feature`                |
+| Custom path    | `npx agentic-awesome-skills --path ./my-skills`                    | Depends on your tool                                   |
+
+Use the table above for install targets. Use specialized plugins when you are choosing what to install for a domain, then use the host guides below only for path details, prompt examples, and setup caveats.
+
+- [Claude Code skills](docs/users/claude-code-skills.md): install paths, starter skills, prompt examples, and plugin marketplace flow.
+- [Cursor skills](docs/users/cursor-skills.md): `.cursor/skills/` setup, UI-heavy work, and pair-programming flows.
+- [Codex CLI skills](docs/users/codex-cli-skills.md): planning, implementation, debugging, and review skills for local coding loops.
+- [Gemini CLI skills](docs/users/gemini-cli-skills.md): research, agent systems, integrations, and engineering workflows.
+- [AI agent skills guide](docs/users/ai-agent-skills.md): breadth vs curation, skill-library evaluation, and starting-point selection.
+
+## Quick FAQ
+
+### What is Agentic Awesome Skills?
+
+**Agentic Awesome Skills** (Release 14.5.0) is a large, installable skill library for AI coding assistants. It packages 1,962+ reusable `SKILL.md` playbooks, specialized plugins, bundles, workflows, generated catalogs, and a CLI installer so Claude Code, Codex CLI, Autohand Code, Cursor, Gemini CLI, Antigravity, and similar tools can reuse proven operating instructions instead of one-off prompts.
+
+### How do I install it?
+
+Run `npx agentic-awesome-skills` for the default full-library install. Use a tool-specific flag such as `--codex`, `--cursor`, `--gemini`, `--claude`, or `--antigravity` when you want the installer to place skills in the directory your assistant already watches.
+
+For Autohand Code, use the installer with a custom path:
+
+```bash
+npx agentic-awesome-skills --path ~/.autohand/skills
+npx agentic-awesome-skills --path .autohand/skills
+```
+
+### What are AAS specialized plugins?
+
+AAS specialized plugins are focused, domain-specific distributions of the skill library. They package the most relevant skills for web apps, security, data analytics, documents, DevOps, QA, OSS maintenance, and agent or MCP work so users can start with the right surface instead of activating the entire catalog.
+
+### Should I use the full library or a plugin?
+
+Use the full library if you want the biggest catalog and direct filesystem control. Use a specialized plugin when you want a smaller, marketplace-style distribution for a specific workflow in Claude Code or Codex. For Antigravity, install the matching skills into the supported skills path. The complete explanation lives in [Plugins for Claude Code and Codex](docs/users/plugins.md).
+
+### How are plugins, bundles, and workflows different?
+
+Plugins are installable packaging surfaces, bundles are curated skill recommendations, and workflows are ordered execution playbooks. Start with a plugin when the domain is clear, use bundles to compare adjacent skills, and use workflows when the important part is sequencing planning, coding, testing, auditing, or release work.
+
+### Where do I browse plugins, bundles, workflows, and the full catalog?
+
+Start with [Specialized Plugins](#recommended-specialized-plugins) when you want an installable domain pack. Use [Bundles](docs/users/bundles.md) for role-based recommendations, [Workflows](docs/users/workflows.md) for ordered execution playbooks, [CATALOG.md](CATALOG.md) for the full registry, and the hosted [GitHub Pages catalog](https://sickn33.github.io/agentic-awesome-skills/) for searchable browsing.
+
+
+## Bundles & Workflows
+
+Plugins, bundles, and workflows answer different questions. Plugins are the installable packaging surface; bundles are curated recommendations; workflows are ordered playbooks for getting a result.
+
+| Surface | Answers | Use it for |
+| --- | --- | --- |
+| Specialized plugin | What should I install or activate for this domain? | Focused Claude Code/Codex plugin packaging and Antigravity-compatible skill selection. |
+| Bundle | Which skills naturally belong together? | Role-based discovery after a full-library install or when building a custom subset. |
+| Workflow | What order should the agent run skills in? | Planning, shipping, auditing, testing, or incident-style execution. |
+
+Use a specialized plugin first when your domain is clear. Use bundles to explore adjacent skills or assemble a custom install. Use workflows when the hard part is sequencing the work.
+
+### Start with bundles
+
+Bundles are curated groups of recommended skills for a role or goal such as `Web Wizard`, `Security Engineer`, or `OSS Maintainer`.
+
+- Bundles are recommendations, not separate installs.
+- Install the closest specialized plugin when one matches your work, or install the repository once and use [docs/users/bundles.md](docs/users/bundles.md) to pick a starting set.
+- Good starter combinations:
+  - SaaS MVP: `Essentials` + `Full-Stack Developer` + `QA & Testing`
+  - Production hardening: `Security Developer` + `DevOps & Cloud` + `Observability & Monitoring`
+  - OSS shipping: `Essentials` + `OSS Maintainer`
+
+### Use workflows for outcome-driven execution
+
+- Read [docs/users/workflows.md](docs/users/workflows.md) for human-readable playbooks.
+- Use [data/workflows.json](data/workflows.json) for machine-readable workflow metadata.
+- Initial workflows include shipping a SaaS MVP, security audits, AI agent systems, QA/browser automation, and DDD-oriented design work.
+
+### Need fewer active skills at runtime?
+
+If Antigravity starts hitting context limits with too many active skills, the activation guidance in [docs/users/agent-overload-recovery.md](docs/users/agent-overload-recovery.md) can materialize only the bundles or skill ids you want in the live Antigravity directory.
+
+If you use OpenCode or another `.agents/skills` host, prefer a reduced install up front instead of copying the full library into a context-sensitive runtime. The installer now supports `--risk`, `--category`, and `--tags` so you can keep the installed set narrow.
+
+For a reproducible exact set, pin the package and catalog release and preview the full per-target plan before writing:
+
+```bash
+npx agentic-awesome-skills@14.3.0 --codex --release 14.3.0 --skills frontend-design,game-development/2d-games --dry-run
+```
+
+Remove `--dry-run` only after reviewing the install, update, and removal plan. Unknown or ambiguous skill identifiers fail closed, and metadata filters combine with `--skills` using AND.
+
+The hosted [Skill Workbench](https://sickn33.github.io/agentic-awesome-skills/workbench) builds the same pinned command from catalog evidence and exposes conflicts before you copy it.
+
+## Browse 1,962+ Skills
+
+Use the root repo as a landing page, then jump into the deeper surface that matches your intent.
+
+### What you get in this repository
+
+- **Skills library** in [`skills/`](skills/)
+- **Installer CLI** powered by the npm package in [`package.json`](package.json)
+- **Generated catalog and metadata** in [`CATALOG.md`](CATALOG.md), `skills_index.json`, and [`data/`](data/)
+- **Hosted and local web app** in [`apps/web-app`](apps/web-app) and on [GitHub Pages](https://sickn33.github.io/agentic-awesome-skills/)
+- **Role-based bundles** in [docs/users/bundles.md](docs/users/bundles.md)
+- **Specialized plugin surfaces** in [docs/users/specialized-plugin-roadmap.md](docs/users/specialized-plugin-roadmap.md), [docs/users/plugins.md](docs/users/plugins.md), and [`plugins/`](plugins/)
+- **Execution workflows** in [docs/users/workflows.md](docs/users/workflows.md)
+- **User, contributor, and maintainer docs** under [`docs/`](docs/)
+- **Project visuals** in [`assets/`](assets/), including the [hero](assets/aas-readme-hero.jpeg), [social card](assets/aas-social-card.jpeg), [logo](assets/aas-logo.jpeg), and [support banner](assets/buy-me-a-coffee-banner.png)
+
+### Best ways to explore
+
+- Read the full catalog in [`CATALOG.md`](CATALOG.md).
+- Browse the hosted catalog at [https://sickn33.github.io/agentic-awesome-skills/](https://sickn33.github.io/agentic-awesome-skills/).
+- Start with [Getting Started](docs/users/getting-started.md) and [Usage](docs/users/usage.md) if you are new after installation.
+- Use [Bundles](docs/users/bundles.md) for role-based discovery and [Workflows](docs/users/workflows.md) for step-by-step execution.
+- Use [Plugins for Claude Code and Codex](docs/users/plugins.md) when you care about marketplace-safe distribution, and the [Specialized Plugin Roadmap](docs/users/specialized-plugin-roadmap.md) when you want the best plugin candidates.
+
+### Compare alternatives
+
+- **[Agentic Awesome Skills vs Awesome Claude Skills](docs/users/agentic-awesome-skills-vs-awesome-claude-skills.md)** for breadth vs curated-list tradeoffs.
+- **[Best Claude Code skills on GitHub](docs/users/best-claude-code-skills-github.md)** for a high-intent shortlist.
+- **[Best Cursor skills on GitHub](docs/users/best-cursor-skills-github.md)** for Cursor-compatible options and selection criteria.
+- **[Vexilo · A field guide to Claude Code](https://vexilo.app/?lang=en)** — different scope: a visual, searchable index of every Claude Code primitive (31 agents / 99 commands / 123 skills / 13 rules), organized around the 5-step workflow. Useful as a navigation layer *over* any skill library, not as a skill library itself. ([companion repo](https://github.com/lilhawk7077/claude-code-resources))
+
+## Troubleshooting
+
+Keep the root README short; use the dedicated docs for recovery and platform-specific guidance.
+
+- If you are confused after installation, start with the [Usage Guide](docs/users/usage.md).
+- If you integrate agentic-awesome-skills into a host, read the discovery contract first: [Stable Skills Manifest v1](docs/users/discovery-manifest.md).
+- For Windows truncation or context crash loops, use [docs/users/windows-truncation-recovery.md](docs/users/windows-truncation-recovery.md).
+- For Linux/macOS overload or selective activation, use [docs/users/agent-overload-recovery.md](docs/users/agent-overload-recovery.md).
+- For OpenCode or other `.agents/skills` installs, prefer a reduced install such as `npx agentic-awesome-skills --path .agents/skills --category development,backend --risk safe,none`.
+- For plugin install details, host compatibility, and marketplace-safe distribution, use [docs/users/plugins.md](docs/users/plugins.md).
+- For contributor expectations and guardrails, use [CONTRIBUTING.md](CONTRIBUTING.md), [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), and [`SECURITY.md`](SECURITY.md).
+
+## Stable Skills Manifest v1
+
+Host integrations should use:
+
+- [`skills_index.json`](./skills_index.json) as the **canonical array-format manifest**.
+- [`schemas/skills-index.v1.schema.json`](./schemas/skills-index.v1.schema.json) for the JSON shape.
+- [`data/skills_index.json`](./data/skills_index.json) as the compatibility mirror.
+
+This keeps discovery stable (`id`, `path`, metadata) while ensuring hosts only load `SKILL.md` for requested `@skill-id` values.
+
+## Support the Project
+
+Support is optional. The project stays free and open-source for everyone.
+
+[![Buy me a coffee](assets/buy-me-a-coffee-banner.png)](https://buymeacoffee.com/sickn33)
+
+- [Buy me a book on Buy Me a Coffee](https://buymeacoffee.com/sickn33)
+- Security tooling support: [Snyk](https://snyk.io/)
+- Star the repository
+- Open reproducible issues
+- Contribute docs, fixes, and skills
+
 ---
 
-## How to Contribute
+## Contributing
 
-We welcome contributions from the community! To add a new skill:
+- Add new skills under `skills/<skill-name>/SKILL.md`.
+- Follow the contributor guide in [`CONTRIBUTING.md`](CONTRIBUTING.md).
+- Use the template in [`docs/contributors/skill-template.md`](docs/contributors/skill-template.md).
+- Validate with `npm run validate` before opening a PR.
+- Keep community PRs source-only: do not commit generated registry artifacts like `CATALOG.md`, `skills_index.json`, or `data/*.json`.
+- If your PR changes `SKILL.md`, expect the automated `skill-review` check on GitHub in addition to the usual validation and security scans.
+- If your PR changes skills or risky guidance, manual logic review is still required even when the automated checks are green.
 
-1. **Fork** the repository.
-2. **Create a new directory** inside `skills/` for your skill.
-3. **Add a `SKILL.md`** with the required frontmatter (name and description).
-4. **Run validation**: `python3 scripts/validate_skills.py`.
-5. **Submit a Pull Request**.
+## Community
 
-Please ensure your skill follows the Antigravity/Claude Code best practices.
-
----
+- [Discussions](https://github.com/sickn33/agentic-awesome-skills/discussions) for questions, ideas, showcase posts, and community feedback.
+- [Issues](https://github.com/sickn33/agentic-awesome-skills/issues) for reproducible bugs and concrete, actionable improvement requests.
+- [Follow @AASkills_ on X](https://x.com/AASkills_) for daily skills, practical workflows, and example prompts from the repo.
+- [Follow @sickn33 on X](https://x.com/sickn33) for project updates and releases.
+- [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md) for community expectations and moderation standards.
+- [`SECURITY.md`](SECURITY.md) for security reporting.
 
 ## Credits & Sources
 
 We stand on the shoulders of giants.
 
-👉 **[View the Full Attribution Ledger](docs/SOURCES.md)**
+👉 **[View the Full Attribution Ledger](docs/sources/sources.md)**
 
-Key contributors and sources include:
+Source credits stay here for attribution and auditability. Repository contributor credit lives separately in [Repo Contributors](#repo-contributors).
 
-- **HackTricks**
-- **OWASP**
-- **Anthropic / OpenAI / Google**
-- **The Open Source Community**
+Key source families include:
 
-This collection would not be possible without the incredible work of the Claude Code community and official sources:
+- **Official AI platform and tool repositories**
+- **Security, web, infrastructure, data, design, and automation communities**
+- **Independent skill authors and open-source maintainers**
+
+<details open>
+<summary><strong>Official Sources</strong></summary>
 
 ### Official Sources
 
+- **[aislon/uizze-mcp](https://github.com/aislon/uizze-mcp)**: Official source for the `uizze-ui-research` skill and UIZZE MCP-assisted UI research workflows.
 - **[anthropics/skills](https://github.com/anthropics/skills)**: Official Anthropic skills repository - Document manipulation (DOCX, PDF, PPTX, XLSX), Brand Guidelines, Internal Communications.
 - **[anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks)**: Official notebooks and recipes for building with Claude.
 - **[remotion-dev/skills](https://github.com/remotion-dev/skills)**: Official Remotion skills - Video creation in React with 28 modular rules.
 - **[vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)**: Vercel Labs official skills - React Best Practices, Web Design Guidelines.
 - **[openai/skills](https://github.com/openai/skills)**: OpenAI Codex skills catalog - Agent skills, Skill Creator, Concise Planning.
 - **[supabase/agent-skills](https://github.com/supabase/agent-skills)**: Supabase official skills - Postgres Best Practices.
+- **[microsoft/skills](https://github.com/microsoft/skills)**: Official Microsoft skills - Azure cloud services, Bot Framework, Cognitive Services, and enterprise development patterns across .NET, Python, TypeScript, Go, Rust, and Java.
+- **[MiniMax-AI/cli](https://github.com/MiniMax-AI/cli)**: Official MiniMax CLI - text, image, video, speech, music, vision, and web-search workflows for MiniMax models and APIs.
+- **[google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills)**: Official Gemini skills - Gemini API, SDK and model interactions.
+- **[apify/agent-skills](https://github.com/apify/agent-skills)**: Official Apify skills - Web scraping, data extraction and automation.
+- **[BuyWhere/buywhere-mcp](https://github.com/BuyWhere/buywhere-mcp)**: Official BuyWhere MCP server — search and compare products from Singapore, SEA, and US markets via Model Context Protocol.
+- **[expo/skills](https://github.com/expo/skills)**: Official Expo skills - Expo project workflows and Expo Application Services guidance.
+- **[huggingface/skills](https://github.com/huggingface/skills)**: Official Hugging Face skills - Models, Spaces, datasets, inference, and broader Hugging Face ecosystem workflows.
+- **[longbridge/skills](https://github.com/longbridge/skills)**: Official Longbridge Securities skills - real-time quotes, charts, fundamentals, portfolio analysis, options, and market workflows for HK, US, A-share, and SG markets.
+- **[HasData/hasdata-cli](https://github.com/HasData/hasdata-cli)**: Official HasData CLI and API guidance for search, scraping, ecommerce, travel, jobs, local business, and structured web data workflows.
+- **[runapi-ai/cli-skill](https://github.com/runapi-ai/cli-skill)**: Official RunAPI CLI skill - generate AI images, videos, and music/audio from agent workflows, plus run other model API jobs.
+- **[neondatabase/agent-skills](https://github.com/neondatabase/agent-skills)**: Official Neon skills - Serverless Postgres workflows and Neon platform guidance.
+- **[Skyvern-AI/skyvern](https://github.com/Skyvern-AI/skyvern)**: Official Skyvern browser automation skill — AI-powered browser control using Vision LLMs and computer vision for navigating sites, filling forms, and extracting structured data.
+- **[scopeblind/scopeblind-gateway](https://github.com/scopeblind/scopeblind-gateway)**: Official Scopeblind MCP governance toolkit - Cedar policy authoring, shadow-to-enforce rollout, and signed-receipt verification guidance for agent tool calls.
+- **[Forward-Future/loop-library](https://github.com/Forward-Future/loop-library)**: Official Loop Library skill - find, adapt, and design bounded AI-agent feedback loops with verification, stop rules, guardrails, and handoffs (MIT).
+- **[agent-frontier/wgm](https://github.com/agent-frontier/wgm)**: Official wgm protocol skill - governed build loops with triage, alignment, planning, deterministic backpressure, holdout-scenario judging, and handoff audits (MIT).
+- **[browserbase/skills](https://github.com/browserbase/skills)**: Official Browserbase `competitor-analysis` skill - Browserbase Search API competitor discovery, research lanes, matrices, screenshots, and HTML reports (MIT).
+- **[dair-ai/dair-academy-plugins](https://github.com/dair-ai/dair-academy-plugins)**: Official DAIR Academy plugin skills imported as standalone skills - image generation, adaptive learning, lesson artifacts, LLM council deliberation, survey papers, wiki building, and YouTube study notes (MIT).
+- **[weaviate/agent-skills](https://github.com/weaviate/agent-skills)**: Official Weaviate skills - vector database operations, semantic and hybrid search, data imports, RAG cookbooks, agentic RAG, multimodal PDF search, and async client patterns (BSD-3-Clause).
+- **[pilot-protocol/pilotprotocol](https://github.com/pilot-protocol/pilotprotocol)**: Official Pilot Protocol overlay network - agent addressing, encrypted P2P messaging, NAT traversal, and an installable agent app store (AGPL-3.0).
+- **[Xquik-dev/x-twitter-scraper](https://github.com/Xquik-dev/x-twitter-scraper)**: Official Xquik skill for X data workflows - tweet search, user lookup, follower export, media downloads, MCP, webhooks, OpenAPI, and SDK setup (MIT).
+
+</details>
+
+<details>
+<summary><strong>Community Contributors & Source Repositories</strong></summary>
 
 ### Community Contributors
 
+- **[0xsarwagya/ontoly](https://github.com/0xsarwagya/ontoly)**: Source for the `ontoly-software-graph` skill - deterministic TypeScript software graphs, MCP-backed architecture review, request tracing, impact analysis, and dependency analysis (MIT).
+- [amElnagdy/guard-skills](https://github.com/amElnagdy/guard-skills) — Code Quality & Testing Guard Skills (by amElnagdy)
+
+- [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) — Cloudflare Web Security Audit Skill (by Cloudflare)
+
+- **[supernovae-st/nika-agents](https://github.com/supernovae-st/nika-agents)**: Official upstream source for the `nika` skill and its deterministic, budget-aware AI workflow runner (MIT skill content; AGPL-3.0 engine).
+- **[atdy/maoxuan-product-agent](https://github.com/atdy/maoxuan-product-agent)**: Source for the `product-decision-agent` skill - Chinese-first product judgment across prioritization, growth, operations, data, delivery, and cross-functional collaboration, with 36 tested scenarios (MIT).
+- **[hafiz-actyte/idea-autopsy](https://github.com/hafiz-actyte/idea-autopsy)**: Source for the `idea-autopsy` skill - business-idea validation that hunts the one sentence that kills an idea before you build: kill-list check, five hard filters, free-AI one-prompt test, and live ad-market verification (MIT).
+- **[cruisekkk/trading-ledger](https://github.com/cruisekkk/trading-ledger)**: Source for the `trading-ledger` skill - decision-quality trade journaling that captures entry thesis, plan, and emotion into the user's own Notion database (MIT).
+- **[cruisekkk/time-ledger](https://github.com/cruisekkk/time-ledger)**: Source for the `time-ledger` skill - natural-language time tracking parsed into the user's own Notion database with ask-instead-of-guessing reconciliation (MIT).
+- **[mattpocock/skills](https://github.com/mattpocock/skills)**: Source for 17 Matt Pocock workflow skills - codebase design, TDD, bug diagnosis, triage, PRDs, issues, prototyping, handoff, teaching, and skill-writing guidance (MIT).
+- **[emilkowalski/skills](https://github.com/emilkowalski/skills)**: Source for Emil Kowalski design engineering skills - UI polish, motion review, animation standards, component craft, and high-taste frontend guidance (MIT).
+- **[chaunsin/agent-skills](https://github.com/chaunsin/agent-skills)**: Source for the `pre-release-review` and `drizzle-migration-conflict` skills - deploy-readiness audits and Drizzle Kit migration-conflict workflows (Apache-2.0).
+- **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)**: Source for the `browser-testing-with-devtools` skill - Chrome DevTools MCP browser verification, profiling, network inspection, and frontend debugging guidance (MIT).
+- **[stareezy-1/frontend-architecture-skill](https://github.com/stareezy-1/frontend-architecture-skill)**: Source for the `frontend-lighthouse` skill - portable Lighthouse CI Core Web Vitals gates, performance budgets, and GitHub Actions reporting (MIT).
+- **[bin1874/before-you-build-skill](https://github.com/bin1874/before-you-build-skill)**: Source for the `before-you-build` skill - pre-coding product risk review across demand, alternatives, switching costs, channels, and validation steps (MIT).
+- **[sparklingneuronics/sparkling-skills](https://github.com/sparklingneuronics/sparkling-skills)**: Source for the `dispatch` skill - multi-CLI delegation from Claude Code to Codex, Antigravity, and Gemini agents (MIT).
+- **[takeaseatventure/sql-sentinel](https://github.com/takeaseatventure/sql-sentinel)**: Source for the `sql-sentinel` skill - SQL warehouse cost and performance anti-pattern audits across BigQuery, Snowflake, Redshift, and Postgres (MIT).
+- **[takeaseatventure/devops-skills](https://github.com/takeaseatventure/devops-skills)**: Source for the `cron-doctor` skill - cron expression diagnosis, validation, trap detection, and zero-dependency schedule analysis tooling (MIT).
+- **[drogers0/gh-image](https://github.com/drogers0/gh-image)**: Source for the `gh-image` skill - GitHub CLI image uploads that return canonical `user-attachments` embed URLs for PRs, issues, comments, and README screenshots (MIT).
+- **[Genefold/arrowspace-skills](https://github.com/Genefold/arrowspace-skills)**: Source for the `arrowspace` skill - spectral vector search using graph Laplacian eigenstructure for structurally aware retrieval (Apache-2.0).
+- **[yaojingang/yao-meta-skill](https://github.com/yaojingang/yao-meta-skill)**: Source for the `yao-meta-skill` skill - governed skill creation, refactoring, evaluation, packaging, review, and distribution workflows (MIT).
+- **[connerkward/ckw-design-skill](https://github.com/connerkward/ckw-design-skill)**: Source for the `ckw-design` skill - frontend design direction, design-system guidance, visual philosophy, spatial checks, usability review, and production UI polish workflows (MIT).
+- **[connerkward/deterministic-design-skill](https://github.com/connerkward/deterministic-design-skill)**: Source for the `deterministic-design` skill - rendered UI layout and usability audits using deterministic measurement plus vision-judged review loops (MIT).
+- **[connerkward/lookdev-auto-skill](https://github.com/connerkward/lookdev-auto-skill)**: Source for the `lookdev-auto` skill - automated visual tuning loops where a vision or video model rates rendered variants and suggests improvements (MIT).
+- **[connerkward/lookdev-studio-skill](https://github.com/connerkward/lookdev-studio-skill)**: Source for the `lookdev` skill - human-in-the-loop visual and prose tuning through rendered variants, sliders, swatches, inline edits, and selection-driven refinement (MIT).
+- **[connerkward/macos-screen-recorder-system-audio](https://github.com/connerkward/macos-screen-recorder-system-audio)**: Source for the `macos-screen-recorder` skill - macOS ScreenCaptureKit recording with system audio, CLI workflows, permission handling, and export guidance (MIT).
+- **[connerkward/mcp-apple-notes](https://github.com/connerkward/mcp-apple-notes)**: Source for the `apple-notes-search` skill - semantic and keyword search, related-note discovery, bridge finding, entity threads, and cited synthesis across local Apple Notes via MCP (MIT).
+- **[connerkward/screenstudio-alternative-skill](https://github.com/connerkward/screenstudio-alternative-skill)**: Source for the `screenstudio-alt` skill - open-source screen recording polish with auto-zoom, idle speed-up, cursor treatment, captions, and vertical export workflows (MIT).
+- **[connerkward/web-media-getter-skill](https://github.com/connerkward/web-media-getter-skill)**: Source for the `web-media-getter` skill - unified search across free image, video, and GIF APIs with license-aware media selection guidance (MIT).
+- **[xi-kari/crossframe-skill](https://github.com/xi-kari/crossframe-skill)**: Source for the CrossFrame Skill Suite - Chinese-canonical structural diagnosis, essay drafting, review, and companion workflows across relationships, organizations, institutions, public issues, and research notes (MIT).
+- **[qinghui316/ecl-harness-engineer](https://github.com/qinghui316/ecl-harness-engineer)**: Source for the `ecl-harness-engineer` skill - ECL Agent Harness infrastructure for AI coding workflows, repository guidance, change tracking, lint checks, CI gates, and handoff docs (MIT).
+- **[baskduf/FableCodex](https://github.com/baskduf/FableCodex)**: Source for the `codex-fable5` skill - Codex-native Fable-inspired workflow discipline for evidence-first implementation, goal tracking, review findings, verification gates, and prompt adaptation (AGPL-3.0-or-later).
+- **[Suraj1235/open-dynamic-workflows](https://github.com/Suraj1235/open-dynamic-workflows)**: Source for the `open-dynamic-workflows` skill - open-source dynamic multi-agent workflow engine that plans, orchestrates, and adversarially verifies parallel AI coding agents across OpenCode, Codex, Antigravity, and VS Code (MIT).
+- **[multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills)**: Source for the `andrej-karpathy` skill - English Karpathy-inspired LLM coding guidelines for simplicity, surgical changes, assumption surfacing, and verifiable success criteria (MIT).
+- **[mskadu/opencode-agent-skills](https://github.com/mskadu/opencode-agent-skills)**: Source for opencode behavior, permission, skill-suggestion, and smart Git automation skills.
+- **[adelaidasofia/ai-brain-starter](https://github.com/adelaidasofia/ai-brain-starter)**: Source for the `ingest-youtube` skill - YouTube transcript ingestion into markdown vaults with yt-dlp metadata, VTT cleanup, and capture-seed stubs (MIT).
+- **[JDDavenport/context-kit](https://github.com/JDDavenport/context-kit)**: Source reference for the `context-kit` skill - local-first Personal Context Artifact setup, installer review, and private context hygiene for Claude Code and adjacent agent workflows.
+- **[JunsW/feature-track](https://github.com/JunsW/feature-track)**: Source for the `feature-tracking` skill - lightweight repository-native feature memory for current status, source-of-truth documents, decisions, risks, and cross-session handoff (MIT).
+- **[JularDepick/user-thoughts.SKILL](https://github.com/JularDepick/user-thoughts.SKILL)**: Source for the `user-thoughts` skill - persistent project idea repository workflows for capturing decisions, tech stack notes, UI/UX rationale, and MDBASE-backed project memory (MIT).
+- **[TheaDust/lore](https://github.com/TheaDust/lore)**: Source for the `lore` skill - Markdown-only, zero-dependency long-term project memory for AI coding agents, with monorepo scopes, two-section platform mirrors, and stdlib Python helpers (MIT).
+- **[ZeroPointRepo/youtube-skills](https://github.com/ZeroPointRepo/youtube-skills)**: Source for the `youtube-full` skill - TranscriptAPI-backed YouTube transcripts, search, channel browsing, playlists, and cloud-safe video research workflows (MIT).
+- **[Antheurus/anywrite](https://github.com/Antheurus/anywrite)**: Source for the `anywrite` skill - low-context CLI access to Anytype's local API for objects, properties, files, search, chat, and other workspace operations (MIT).
+- **[Antheurus/sshepherd](https://github.com/Antheurus/sshepherd)**: Source for the `sshepherd` skill - credential-isolated SSH operations, service control, logs, configuration changes, Postgres introspection, and declarative deploys through preconfigured aliases (MIT).
+- **[ejentum/ejentum-mcp](https://github.com/ejentum/ejentum-mcp)**: Source for the `ejentum-reasoning-harness` skill - MCP cognitive harness modes for reasoning, code review, anti-deception checks, and memory-drift analysis (MIT).
+- **[luoyuctl/agenttrace](https://github.com/luoyuctl/agenttrace)**: Source for the `agenttrace-session-audit` skill - local AI coding-agent session audits for cost spikes, tool failures, latency gaps, anomalies, health gates, and session diffs (MIT).
+- **[ohad6k/ditto](https://github.com/ohad6k/ditto)**: Source for the `ditto` skill - mines local coding-agent sessions into private, evidence-backed work, design, and writing profiles with dated source receipts (MIT).
+- **[Necmttn/ax](https://github.com/Necmttn/ax)**: Source for the `ax-extract-workflow` skill - reconstruct workflow behind past coding-agent artifacts using local ax sessions, commits, skills, and tool traces (AGPL-3.0-only).
+- **[Hanyuyuan6/remote-gpu-trainer](https://github.com/Hanyuyuan6/remote-gpu-trainer)**: Source for the `remote-gpu-trainer` skill - rented and remote GPU job orchestration, monitoring, teardown safety, spot resilience, and DL-debug workflows (MIT).
+- **[mturac/recsys-pipeline-architect](https://github.com/mturac/recsys-pipeline-architect)**: Source for the `recsys-pipeline-architect` skill - recommendation, ranking, and feed pipeline architecture using Source, Hydrator, Filter, Scorer, Selector, and SideEffect stages (MIT).
+- **[aomi-labs/skills](https://github.com/aomi-labs/skills)**: Source for the `aomi-transact` skill — natural-language driver for the Aomi CLI with account-abstraction-first execution and simulate-then-sign across 25+ DeFi apps (MIT).
+- **[mycelos-ai/bumblebee-skill](https://github.com/mycelos-ai/bumblebee-skill)**: Source for the `bumblebee` skill - multi-agent implementation workflows with repeatable planning, coding, review, and verification loops (MIT).
+- **[demo112/yunqu-ai-skills](https://github.com/demo112/yunqu-ai-skills)**: Source for WeChat official account, Xiaohongshu content strategy, and MCP tool development skills for Chinese-language platform workflows (MIT).
+- **[tellmefrankie/news-engine](https://github.com/tellmefrankie/news-engine)**: Source for the `news-sentiment-engine` skill - news ingestion, sentiment analysis, and market/news intelligence workflows (MIT).
+- **[Kench001/antigravity-awesome-skills](https://github.com/Kench001/antigravity-awesome-skills)**: Source for the `recursive-context-pruning-token-budgeting` skill - context pruning, token budgeting, and long-session compression guidance (MIT).
+- **[rich-elicitation](https://github.com/CyberZenithX/Rich-Elicitation-Skill)**: Source for the `rich-elicitation` skill - asks clarifying questions in multiple rounds before starting ambiguous tasks.
+- **[CodeShuX/mockhunter](https://github.com/CodeShuX/mockhunter)**: Source for the `mock-hunter` skill - Playwright-based live-page audits that classify visible values as real, mock, LLM-generated, hardcoded, broken, or unknown (MIT).
+- **[commitshow/production-audit](https://github.com/commitshow/production-audit)**: Source for the `production-audit` skill - shipped-app readiness auditing across deployment health, RLS, webhooks, secrets exposure, grants, Stripe idempotency, and mobile UX.
+- **[MohamedAbdallah-14/unslop](https://github.com/MohamedAbdallah-14/unslop)**: Source for the `unslop` skill - deterministic and LLM-assisted cleanup for AI-generated prose across CLI and agent tool workflows.
+- **[monte-carlo-data/mc-agent-toolkit](https://github.com/monte-carlo-data/mc-agent-toolkit)**: Monte Carlo data observability skills — table health checks, change impact assessment, monitor creation, push ingestion, and SQL validation notebooks for dbt changes.
+- **[openclaw/skills](https://github.com/openclaw/skills)**: Source for the `daily-gift` skill - relationship-aware creative gift generation with editorial judgment, concept selection, and multi-format rendering.
+- **[umutbozdag/agent-skills-manager](https://github.com/umutbozdag/agent-skills-manager)**: Source for the `manage-skills` skill - cross-tool skill discovery, creation, editing, toggling, copying, moving, and deletion workflows across major agent coding tools.
+- **[pumanitro/global-chat](https://github.com/pumanitro/global-chat)**: Source for the Global Chat Agent Discovery skill - cross-protocol discovery of MCP servers and AI agents across multiple registries.
+- **[bitjaru/styleseed](https://github.com/bitjaru/styleseed)**: StyleSeed Toss UI and UX skill collection - setup wizard, page and pattern generation, design-token management, accessibility review, UX audits, feedback states, and microcopy guidance for professional mobile-first UI.
+- **[yikuansun/PhotopeaAPI](https://github.com/yikuansun/PhotopeaAPI)**: Source for the `photopea-embedded-editor` skill - Photopea embedding, host-page messaging, file I/O, scripting, and export workflows for web apps (MIT).
+- **[milkomida77/guardian-agent-prompts](https://github.com/milkomida77/guardian-agent-prompts)**: Source for the Multi-Agent Task Orchestrator skill - production-tested delegation patterns, anti-duplication, and quality gates for coordinated agent work.
+- **[Elkidogz/technical-change-skill](https://github.com/Elkidogz/technical-change-skill)**: Source for the Technical Change Tracker skill - structured JSON change records, session handoff, and accessible HTML dashboards for coding continuity.
+- **[vipin-si/article-illustrations](https://github.com/vipin-si/article-illustrations)**: Source for the `article-illustrations` skill - Grav-style hand-drawn article illustrations with whiteboard sketches, sparse annotations, and visual metaphor QA guidance (MIT).
+- **[274326424/video-content-extractor](https://github.com/274326424/video-content-extractor)**: Source for the `video-content-extractor` skill - FFmpeg and Tesseract OCR workflows for extracting timestamped screen text and structured Markdown reports from MP4 videos (MIT).
+- **[metrox-eth/quit-sponsor](https://github.com/metrox-eth/quit-sponsor)**: Source for the `quit-sponsor` skill - evidence-based quit-smoking sponsorship for agents with persistent memory: 44-source cited protocols, sponsor decision tree, three-clause contract, wave protocol, slip attribution coaching, and a timestamped logbook (MIT).
+- **[rmyndharis/antigravity-skills](https://github.com/rmyndharis/antigravity-skills)**: For the massive contribution of 300+ Enterprise skills and the catalog generation logic.
+- **[amartelr/antigravity-workspace-manager](https://github.com/amartelr/antigravity-workspace-manager)**: Workspace Manager CLI companion to dynamically auto-provision subsets of skills across local development environments.
 - **[obra/superpowers](https://github.com/obra/superpowers)**: The original "Superpowers" by Jesse Vincent.
 - **[guanyang/antigravity-skills](https://github.com/guanyang/antigravity-skills)**: Core Antigravity extensions.
 - **[diet103/claude-code-infrastructure-showcase](https://github.com/diet103/claude-code-infrastructure-showcase)**: Infrastructure and Backend/Frontend Guidelines.
 - **[ChrisWiles/claude-code-showcase](https://github.com/ChrisWiles/claude-code-showcase)**: React UI patterns and Design Systems.
 - **[travisvn/awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills)**: Loki Mode and Playwright integration.
+- **[Dimillian/Skills](https://github.com/Dimillian/Skills)**: Curated Codex skills focused on Apple platforms, GitHub workflows, refactoring, and performance (MIT).
 - **[zebbern/claude-code-guide](https://github.com/zebbern/claude-code-guide)**: Comprehensive Security suite & Guide (Source for ~60 new skills).
+- **[morsechimwai/lemmaly](https://github.com/morsechimwai/lemmaly)**: Source for the `lemmaly`, `mathguard`, `invariant-guard`, and `complexity-cuts` skills — algorithm-first discipline layer that forces AI coding agents to state Big-O, name the data structure, prove termination, and pick the right algorithm before writing the loop. Ships a deterministic CI scanner with 59 rules across 11 languages (Apache-2.0).
 - **[alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills)**: Senior Engineering and PM toolkit.
 - **[karanb192/awesome-claude-skills](https://github.com/karanb192/awesome-claude-skills)**: A massive list of verified skills for Claude Code.
-- **[zircote/.claude](https://github.com/zircote/.claude)**: Shopify development skill reference.
-- **[vibeforge1111/vibeship-spawner-skills](https://github.com/vibeforge1111/vibeship-spawner-skills)**: AI Agents, Integrations, Maker Tools (57 skills, Apache 2.0).
+- **[VoltAgent/awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills)**: Curated collection of 1000+ official and community agent skills from leading development teams (MIT).
+- **[zircote/.claude](https://github.com/zircote/.claude)**: Archived Claude Code dotfiles/config repo with a Shopify development skill reference.
+- **[vibeforge1111/vibeship-spawner-skills](https://github.com/vibeforge1111/vibeship-spawner-skills)**: AI agents, integrations, maker tools, and other production-grade skill packs.
 - **[coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills)**: Marketing skills for CRO, copywriting, SEO, paid ads, and growth (23 skills, MIT).
+- **[iradoweck/antigravity-awesome-skills](https://github.com/iradoweck/antigravity-awesome-skills)**: Source for the GeminiIgnore FinOps skill - `.geminiignore` setup patterns for context-window efficiency and token cost reduction.
+- **[heyneuron/flowhunt-skill](https://github.com/heyneuron/flowhunt-skill)**: Source for the FlowHunt automation discovery audit skill - workflow intake, tool-by-tool audit, and opportunity prioritization for productivity automation.
+- **[Intelligent-Internet/II-Commons-Skills](https://github.com/Intelligent-Internet/II-Commons-Skills)**: Source for the II-Commons research skill - deterministic retrieval across arXiv, PubMed/PMC, and supported US policy corpora.
+- **[AgriciDaniel/claude-seo](https://github.com/AgriciDaniel/claude-seo)**: SEO workflow collection covering technical SEO, hreflang, sitemap, geo, schema, and programmatic SEO patterns.
+- **[Leonxlnx/taste-skill](https://github.com/Leonxlnx/taste-skill)**: Frontend design taste skill collection covering premium UI generation, redesign audits, GSAP motion, Stitch design systems, minimalist and brutalist visual modes, and full-output enforcement.
+- **[2slides/slides-generation-2slides-skills](https://github.com/2slides/slides-generation-2slides-skills)**: Source for the `2slides-ppt-generator` skill - AI presentation generation, PDF deck creation, narration, theme search, and slide export workflows using the 2slides API (MIT).
+- **[ch040602/mdpr-skill](https://github.com/ch040602/mdpr-skill)**: Source for the `mdpr-skill` skill - Codex-assisted MDPR presentation review, semantic hints, visual checks, theme candidates, and deterministic renderer boundaries (MIT).
+- **[whoisabhishekadhikari/lovable-cleanup](https://github.com/whoisabhishekadhikari/lovable-cleanup)**: Source for the `lovable-cleanup` skill — audits and strips Lovable scaffolding from Vite + React projects.
+- **[sarveshtalele/linkedin-content-skill](https://github.com/sarveshtalele/linkedin-content-skill)**: Source for the `linkedin-content-generator` skill - LinkedIn post, carousel, newsletter, and content-calendar generation workflows with local feedback memory (MIT).
+- **[mrprewsh/seo-aeo-engine](https://github.com/mrprewsh/seo-aeo-engine)**: SEO/AEO content-growth system covering keyword research, content clustering, landing pages, blog structure, schema, internal linking, and audit workflows.
+- **[jonathimer/devmarketing-skills](https://github.com/jonathimer/devmarketing-skills)**: Developer marketing skills — HN strategy, technical tutorials, docs-as-marketing, Reddit engagement, developer onboarding, and more (33 skills, MIT).
+- **[kepano/obsidian-skills](https://github.com/kepano/obsidian-skills)**: Obsidian-focused skills for markdown, Bases, JSON Canvas, CLI workflows, and content cleanup.
+- **[lewiswigmore/agent-skills](https://github.com/lewiswigmore/agent-skills)**: Source for the `vscode-extension-guide-en` skill - VS Code extension development workflows, packaging, Marketplace publishing, TreeView, and webview patterns.
+- **[mbenhard/unship](https://github.com/mbenhard/unship)**: Source for the `unship` skill - local workflow for comparing AI-generated UI variants in a real app, then keeping one option and cleaning up temporary alternatives (MIT).
+- **[Silverov/yandex-direct-skill](https://github.com/Silverov/yandex-direct-skill)**: Yandex Direct (API v5) advertising audit skill — 55 automated checks, A-F scoring, campaign/ad/keyword analysis for the Russian PPC market (MIT).
 - **[vudovn/antigravity-kit](https://github.com/vudovn/antigravity-kit)**: AI Agent templates with Skills, Agents, and Workflows (33 skills, MIT).
-- **[affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)**: Complete Claude Code configuration collection from Anthropic hackathon winner - skills only (8 skills, MIT).
+- **[affaan-m/everything-claude-code](https://github.com/affaan-m/everything-claude-code)**: Large Claude Code configuration and workflow collection from an Anthropic hackathon winner (MIT).
+- **[whatiskadudoing/fp-ts-skills](https://github.com/whatiskadudoing/fp-ts-skills)**: Practical fp-ts skills for TypeScript – fp-ts-pragmatic, fp-ts-react, fp-ts-errors (v4.4.0).
+- **[warmskull/idea-darwin](https://github.com/warmskull/idea-darwin)**: Darwinian idea-evolution workflow for structured ideation rounds, mutation, crossbreeding, critique, and lineage tracking.
+- **[Slashworks-biz/idea-os](https://github.com/Slashworks-biz/idea-os)**: Source for the `idea-os` skill - five-phase pipeline (triage -> clarify -> research -> PRD -> plan) that turns raw ideas into a build-ready PRD and execution plan.
 - **[webzler/agentMemory](https://github.com/webzler/agentMemory)**: Source for the agent-memory-mcp skill.
-- **[mvanhorn](https://github.com/mvanhorn)**: Contributor of `last30days`.
-- **[rookie-ricardo](https://github.com/rookie-ricardo)**: Contributor of `daily-news-report`.
+- **[rafsilva85/credit-optimizer-v5](https://github.com/rafsilva85/credit-optimizer-v5)**: Manus AI credit optimizer skill — intelligent model routing, context compression, and smart testing. Saves 30-75% on credits with zero quality loss. Audited across 53 scenarios.
+- **[ndesv21/socialclaw](https://github.com/ndesv21/socialclaw)**: Source for the SocialClaw social media publishing skill - campaign scheduling and publishing across major social platforms with a single workspace API key.
+- **[taisly/agent](https://github.com/taisly/agent)**: Source for the Taisly Social Media Posting skill - Codex plugin, CLI, SDK, and official MCP server for publishing approved short-form videos to TikTok, Instagram Reels, YouTube Shorts, X, and Facebook (MIT).
+- **[nickdesi/ZipAI](https://github.com/nickdesi/ZipAI)**: Source for the `zipai-optimizer` skill — ultra-dense prompt caching, semantic log pruning, AST-based code viewing, minified JSON payloads, and telegraphic output constraints for maximum token savings.
+- **[Wittlesus/cursorrules-pro](https://github.com/Wittlesus/cursorrules-pro)**: Professional .cursorrules configurations for 8 frameworks - Next.js, React, Python, Go, Rust, and more. Works with Cursor, Claude Code, and Windsurf.
+- **[nedcodes-ok/rule-porter](https://github.com/nedcodes-ok/rule-porter)**: Bidirectional rule converter between Cursor (.mdc), Claude Code (CLAUDE.md), GitHub Copilot, Windsurf, and legacy .cursorrules formats. Zero dependencies.
+- **[SSOJet/skills](https://github.com/ssojet/skills)**: Production-ready SSOJet skills and integration guides for popular frameworks and platforms — Node.js, Next.js, React, Java, .NET Core, Go, iOS, Android, and more. Works seamlessly with SSOJet SAML, OIDC, and enterprise SSO flows. Works with Cursor, Antigravity, Claude Code, and Windsurf.
+- **[timwukp/agent-skills-best-practice](https://github.com/timwukp/agent-skills-best-practice)**: Source for the `fsi-compliance-checker` skill - financial-services compliance triage for PCI-DSS v4.0 and MAS TRM control mapping (MIT).
+- **[MojoAuth/skills](https://github.com/MojoAuth/skills)**: Production-ready MojoAuth guides and examples for popular frameworks like Node.js, Next.js, React, Java, .NET Core, Go, iOS, and Android.
+- **[mishanefedov/skill-issue](https://github.com/mishanefedov/skill-issue)**: Source for the `skill-issue` activation-audit skill for grading SKILL.md trigger metadata, prompt matching, and collision clusters (MIT).
+- **[wede-wx/atlas](https://github.com/wede-wx/atlas)**: Source for the `atlas-contract` and `atlas-ledger` goal-integrity skills - contract, phase-check, final-audit, and project-ledger guardrails for long-running agent work (MIT).
+- **[yehudalevy-collab/polis-protocol](https://github.com/yehudalevy-collab/polis-protocol)**: Source for the `polis-protocol` multi-agent coordination skill with capability cards, routing history, and protocol amendments (MIT).
+- **[connerlambden/helium-mcp](https://github.com/connerlambden/helium-mcp)**: Source for the `helium-mcp` skill — MCP server for news intelligence, media bias analysis, market data, options pricing, and semantic meme search.
+- **[shmlkv/dna-claude-analysis](https://github.com/shmlkv/dna-claude-analysis)**: Personal genome analysis toolkit — Python scripts analyzing raw DNA data across 17 categories (health risks, ancestry, pharmacogenomics, nutrition, psychology, etc.) with terminal-style single-page HTML visualization.
+- **[AlmogBaku/debug-skill](https://github.com/AlmogBaku/debug-skill)**: Interactive debugger skill for AI agents — breakpoints, stepping, variable inspection, and stack traces via the `dap` CLI. Supports Python, Go, Node.js/TypeScript, Rust, and C/C++.
+- **[sendblue-api/sendblue-cli](https://github.com/sendblue-api/sendblue-cli)**: Source for the `sendblue-cli`, `sendblue-api`, and `sendblue-notify` skills — iMessage, SMS, and RCS messaging via Sendblue's CLI and HTTP API, plus "text me when X finishes" notification patterns for Claude Code hooks and `/loop` / `/schedule` jobs (MIT).
+- **[njerschow/textme](https://github.com/njerschow/textme)**: Source for the `textme` skill — local daemon bridging inbound iMessages (via Sendblue) to a Claude Code session on the user's machine, with voice notes, image input, code execution, and a phone-number whitelist (MIT).
+- **[aptratcn/skill-audit](https://github.com/aptratcn/skill-audit)**: Pre-install security audit skill for detecting malicious, overprivileged, or suspicious third-party agent skills before installation (MIT).
+- **[uberSKILLS](https://github.com/uberskillsdev/uberSKILLS)**: Design, test, and deploy Claude Code Agent Skills through a visual, AI-assisted workflow.
+- **[christopherlhammer11-ai/tool-use-guardian](https://github.com/christopherlhammer11-ai/tool-use-guardian)**: Source for the Tool Use Guardian skill — tool-call reliability wrapper with retries, recovery, and failure classification.
+- **[christopherlhammer11-ai/recallmax](https://github.com/christopherlhammer11-ai/recallmax)**: Source for the RecallMax skill — long-context memory, summarization, and conversation compression for agents.
+- **[tsilverberg/webapp-uat](https://github.com/tsilverberg/webapp-uat)**: Full browser UAT skill — Playwright testing with console/network error capture, WCAG 2.2 AA accessibility checks, i18n validation, responsive testing, and P0-P3 bug triage. Read-only by default, works with React, Vue, Angular, Ionic, Next.js.
+- **[Wolfe-Jam/faf-skills](https://github.com/Wolfe-Jam/faf-skills)**: AI-context and project DNA skills — .faf format management, AI-readiness scoring, bi-sync, MCP server building, and championship-grade testing (7 skills, MIT).
+- **[fullstackcrew-alpha/privacy-mask](https://github.com/fullstackcrew-alpha/privacy-mask)**: Local image privacy masking for AI coding agents. Detects and redacts PII, API keys, and secrets in screenshots via OCR + 47 regex rules. Claude Code hook integration for automatic masking. Supports Tesseract and RapidOCR. 100% offline (MIT).
+- **[AvdLee/SwiftUI-Agent-Skill](https://github.com/AvdLee/SwiftUI-Agent-Skill)**: SwiftUI best-practices skill for agent workflows (MIT).
+- **[CloudAI-X/threejs-skills](https://github.com/CloudAI-X/threejs-skills)**: Three.js-focused skill collection for agent-assisted 3D web work.
+- **[K-Dense-AI/claude-scientific-skills](https://github.com/K-Dense-AI/claude-scientific-skills)**: Scientific, research, engineering, finance, and writing skill suite (MIT).
+- **[NotMyself/claude-win11-speckit-update-skill](https://github.com/NotMyself/claude-win11-speckit-update-skill)**: Archived Speckit update skill for Claude Code (MIT).
+- **[SHADOWPR0/beautiful_prose](https://github.com/SHADOWPR0/beautiful_prose)**: Writing-quality skill for improving prose and reducing generic output.
+- **[SHADOWPR0/security-bluebook-builder](https://github.com/SHADOWPR0/security-bluebook-builder)**: Security documentation/buildbook skill for agent workflows.
+- **[SeanZoR/claude-speed-reader](https://github.com/SeanZoR/claude-speed-reader)**: RSVP-style speed-reading helper for Claude responses (MIT).
+- **[Shpigford/skills](https://github.com/Shpigford/skills)**: General-purpose agent skills for common development tasks (MIT).
+- **[ZhangHanDong/makepad-skills](https://github.com/ZhangHanDong/makepad-skills)**: Makepad app-development skills and references (MIT).
+- **[czlonkowski/n8n-skills](https://github.com/czlonkowski/n8n-skills)**: n8n workflow-building skills for Claude Code (MIT).
+- **[frmoretto/clarity-gate](https://github.com/frmoretto/clarity-gate)**: Verification protocol for marking uncertainty and reducing hallucinated certainty in LLM-facing docs.
+- **[fruitwyatt/puzzle-activity-planner](https://github.com/fruitwyatt/puzzle-activity-planner)**: Puzzle activity-planning skill for classrooms, parties, and events with generator-link workflows.
+- **[gokapso/agent-skills](https://github.com/gokapso/agent-skills)**: Kapso/WhatsApp-oriented agent skills.
+- **[huifer/WellAlly-health](https://github.com/huifer/WellAlly-health)**: Healthcare assistant project cited in release history as a source for health-focused agent capabilities (MIT).
+- **[hyhmrright/brooks-lint](https://github.com/hyhmrright/brooks-lint)**: AI code-review skill grounded in classic software engineering books for design-smell, coupling, and architecture review.
+- **[hyhmrright/logic-lens](https://github.com/hyhmrright/logic-lens)**: AI code-review skill for formal logic inspection across bugs, race conditions, security risks, and API contract issues.
+- **[ibelick/ui-skills](https://github.com/ibelick/ui-skills)**: UI-polish skills for improving interfaces built by agents (MIT).
+- **[jackjin1997/ClawForge](https://github.com/jackjin1997/ClawForge)**: Resource hub of skills, MCP servers, and agent tooling for OpenClaw.
+- **[jthack/ffuf_claude_skill](https://github.com/jthack/ffuf_claude_skill)**: FFUF skill for web fuzzing workflows in Claude.
+- **[kubestellar/console](https://github.com/kubestellar/console)**: KubeStellar Console multi-cluster Kubernetes dashboard with `kc-agent` MCP integration, AI-assisted operations, and built-in agent skills.
+- **[MetcalfSolutions/Satori](https://github.com/MetcalfSolutions/Satori)**: Clinically informed wisdom companion blending psychology frameworks and wisdom traditions into a structured reflective partner.
+- **[muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)**: Context-engineering, multi-agent, and production agent-system skill collection (MIT).
+- **[robzolkos/skill-rails-upgrade](https://github.com/robzolkos/skill-rails-upgrade)**: Rails upgrade skill for agent-assisted migrations.
+- **[sanjay3290/ai-skills](https://github.com/sanjay3290/ai-skills)**: Apache-licensed collection of agent skills for AI coding assistants.
+- **[scarletkc/vexor](https://github.com/scarletkc/vexor)**: Semantic search engine for files and code, referenced in release history.
+- **[sstklen/infinite-gratitude](https://github.com/sstklen/infinite-gratitude)**: Multi-agent research skill from the AI Dojo series (MIT).
+- **[TerminallyLazy/Tree-Ring-Memory](https://github.com/TerminallyLazy/Tree-Ring-Memory)**: Source for the `tree-ring-memory` skill — local-first memory lifecycle guidance for recall, evidence, audit, forgetting, consolidation, and privacy-safe agent memory operations (Apache-2.0).
+- **[wrsmith108/linear-claude-skill](https://github.com/wrsmith108/linear-claude-skill)**: Linear issue/project/team management skill with MCP and GraphQL workflows (MIT).
+- **[wrsmith108/varlock-claude-skill](https://github.com/wrsmith108/varlock-claude-skill)**: Secure environment-variable management skill for Claude Code (MIT).
+- **[xwmxcz/papers-skill](https://github.com/xwmxcz/papers-skill)**: Source for the `papers-skill` skill — academic research workflows over Semantic Scholar (200M+ papers) and arXiv, with citation lookup, arXiv PDF download, and PyMuPDF text extraction via a bundled Python CLI (MIT).
+- **[zenlee123/routerbase-agent-skills](https://github.com/zenlee123/routerbase-agent-skills)**: Source for the `routerbase-model-gateway` skill — OpenAI-compatible RouterBase model gateway setup, model-routing plans, server-side credential handling, and fallback validation patterns (MIT-0).
+- **[zarazhangrui/frontend-slides](https://github.com/zarazhangrui/frontend-slides)**: Frontend slide-creation skills for web-based presentations (MIT).
+- **[zxkane/aws-skills](https://github.com/zxkane/aws-skills)**: AWS-focused Claude agent skills (MIT).
+- **[UrRhb/agentflow](https://github.com/UrRhb/agentflow)**: Kanban-driven AI development pipeline for orchestrating multi-worker Claude Code workflows with deterministic quality gates, adversarial review, cost tracking, and crash-proof execution (MIT).
+- **[AgentPhone-AI/skills](https://github.com/AgentPhone-AI/skills)**: AgentPhone plugin for Claude Code — API-first telephony workflows for AI agents, including phone calls, SMS, phone-number management, voice-agent setup, streaming webhooks, and tool-calling patterns.
+- **[uxuiprinciples/agent-skills](https://github.com/uxuiprinciples/agent-skills)**: Research-backed UX/UI agent skills for auditing interfaces against 168 principles, detecting antipatterns, and injecting UX context into AI coding sessions.
+- **[voidborne-d/humanize-chinese](https://github.com/voidborne-d/humanize-chinese)**: Chinese AI-text detection and humanization toolkit for scoring, rewriting, academic AIGC reduction, and style conversion workflows.
+- **[voidborne-d/lambda-lang](https://github.com/voidborne-d/lambda-lang)**: Agent-to-agent coordination language with compact atoms for multi-agent messaging, orchestration, and structured coordination logs.
+- **[davidondrej/skills](https://github.com/davidondrej/skills)**: Source for David Ondrej agent workflow skills across orchestration, research, setup, skill authoring, and documentation workflows (MIT).
+- **[LambdaTest/agent-skills](https://github.com/LambdaTest/agent-skills)**: Production-grade agent skills for test automation — 46 skills covering E2E, unit, mobile, BDD, visual, and cloud testing across 15+ languages (MIT).
+- **[flyingsquirrel0419/squirrel-skill](https://github.com/flyingsquirrel0419/squirrel-skill)**: Full-cycle software development skill — plans, builds, tests, lints, fixes bugs, and writes production-grade docs. Auto-detects project state and adapts its 8-phase pipeline. Works on 9 AI coding agent platforms (Apache 2.0).
+- **[CodeShuX/tokenwise](https://github.com/CodeShuX/tokenwise)**: Source for the `tokenwise` skill — measurement-driven Haiku/Sonnet/Opus router for Claude Code with per-task NDJSON logging, A/B test mode, and verified $-saved reports (MIT).
+- **[anthony-chaudhary/dos-kernel](https://github.com/anthony-chaudhary/dos-kernel)**: Source for the `dos-verify-done-claims` skill — gates an agent's "done / shipped / fixed" claim on git ground truth (ancestry + the commit's own diff) via the deterministic DOS kernel's read-only `dos verify` / `dos commit-audit` verbs (MIT).
+- **[maxbaluev/accreted-intelligence](https://github.com/maxbaluev/accreted-intelligence)**: Source for the `accint-solve` skill — routes coding-agent work through AccInt's MCP memory loop with retrieval, continuation frames, commitments, and outcome feedback (Apache 2.0).
+- **[sergebulaev/linkedin-skills](https://github.com/sergebulaev/linkedin-skills)**: Source for the `linkedin-post-writer` skill - LinkedIn post drafting from 16 tested hook formulas mapped to engagement goals, with 2026 formatting rules and an AI-tell scrub pass, from a 10-skill LinkedIn bundle for Claude Code and Codex (MIT).
+- **[Sharrmavishal/operating-kit](https://github.com/Sharrmavishal/operating-kit)**: Source for the `pre-ship-gate` skill - a pre-deploy gate that walks the silent failure modes (migrations, feature flags, stale build cache, release pointer, staged rollout, missing env) and verifies the live revision instead of trusting deploy output (MIT).
+- **[Ducksss/codex-profiles](https://github.com/Ducksss/codex-profiles)**: Source for the `codex-profiles` skill - Codex CLI/Desktop profile isolation around separate `CODEX_HOME` directories, diagnostics, and account-context boundaries without copying auth tokens (MIT).
+- **[kimtth/agent-pptify-kit](https://github.com/kimtth/agent-pptify-kit)**: Source for the `pptx-deck-creation` skill - editable, production-ready PowerPoint deck creation with narrative planning, explicit layouts, asset guidance, and quality checks (MIT).
+- **[Optim-Agent/optim-agent](https://github.com/Optim-Agent/optim-agent)**: Source for the `optim-agent` skill - agent-guided optimization of configurable systems against measurable objectives (MIT).
+
+</details>
+
+<details>
+<summary><strong>Inspirations & Additional Sources</strong></summary>
 
 ### Inspirations
 
 - **[f/awesome-chatgpt-prompts](https://github.com/f/awesome-chatgpt-prompts)**: Inspiration for the Prompt Library.
 - **[leonardomso/33-js-concepts](https://github.com/leonardomso/33-js-concepts)**: Inspiration for JavaScript Mastery.
 
----
+### Additional Sources
 
-## License
+- **[agent-cards/skill](https://github.com/agent-cards/skill)**: Manage prepaid virtual Visa cards for AI agents. Create cards, check balances, view credentials, close cards, and get support via MCP tools.
 
-MIT License. See [LICENSE](LICENSE) for details.
-
-## Community
-
-- [Community Guidelines](docs/COMMUNITY_GUIDELINES.md)
-- [Security Policy](docs/SECURITY_GUARDRAILS.md)
-
----
-
----
-
-## GitHub Topics
-
-For repository maintainers, add these topics to maximize discoverability:
-
-```text
-claude-code, gemini-cli, codex-cli, antigravity, cursor, github-copilot, opencode,
-agentic-skills, ai-coding, llm-tools, ai-agents, autonomous-coding, mcp,
-ai-developer-tools, ai-pair-programming, vibe-coding, skill, skills, SKILL.md, rules.md, CLAUDE.md, GEMINI.md, CURSOR.md
-```
-
----
+</details>
 
 ## Repo Contributors
 
-We officially thank the following contributors for their help in making this repository awesome!
+<a href="https://github.com/sickn33/agentic-awesome-skills/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=sickn33/agentic-awesome-skills&max=500" alt="Repository contributors" />
+</a>
 
-- [sck_0](https://github.com/sck_0)
-- [Munir Abbasi](https://github.com/munirabbasi)
-- [Mohammad Faiz](https://github.com/mohdfaiz2k9)
-- [GuppyTheCat](https://github.com/GuppyTheCat)
-- [sickn33](https://github.com/sickn33)
-- [Ianj332](https://github.com/Ianj332)
-- [Tiger-Foxx](https://github.com/Tiger-Foxx)
-- [arathiesh](https://github.com/arathiesh)
-- [1bcMax](https://github.com/1bcMax)
-- [Ahmed Rehan](https://github.com/ar27111994)
-- [BenedictKing](https://github.com/BenedictKing)
-- [Nguyen Huu Loc](https://github.com/LocNguyenSGU)
-- [Owen Wu](https://github.com/yubing744)
-- [SuperJMN](https://github.com/SuperJMN)
-- [Viktor Ferenczi](https://github.com/viktor-ferenczi)
-- [krisnasantosa15](https://github.com/krisnasantosa15)
-- [zebbern](https://github.com/zebbern)
-- [vuth-dogo](https://github.com/vuth-dogo)
+Made with [contrib.rocks](https://contrib.rocks). *(Image may be cached; [view live contributors](https://github.com/sickn33/agentic-awesome-skills/graphs/contributors) on GitHub.)*
+
+We officially thank the following contributors for their help in making this repository awesome!
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=sickn33/antigravity-awesome-skills&type=date&legend=top-left)](https://www.star-history.com/#sickn33/antigravity-awesome-skills&type=date&legend=top-left)
+<a href="https://www.star-history.com/?repos=sickn33%2Fagentic-awesome-skills&type=date&legend=top-left">
+ <picture>
+   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=sickn33/agentic-awesome-skills&type=date&theme=dark&legend=top-left&sealed_token=5UEckOplDlF6KsKi881R_B44YTNBEFj0fRwovC_U0W2Um19HD9wLMQXclNblk6wFKgeGn0RzW0rGZkVCqzoKxaGB3IMaiN8tP8yqLRbhs6lf-kO3KeJWjftxgtV1zdrTVHjfEYfnevKZuYFww2_H2vC8IlXgfaTdNinFb3MD9CcMlu44hpLYu2iABkYy" />
+   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=sickn33/agentic-awesome-skills&type=date&legend=top-left&sealed_token=5UEckOplDlF6KsKi881R_B44YTNBEFj0fRwovC_U0W2Um19HD9wLMQXclNblk6wFKgeGn0RzW0rGZkVCqzoKxaGB3IMaiN8tP8yqLRbhs6lf-kO3KeJWjftxgtV1zdrTVHjfEYfnevKZuYFww2_H2vC8IlXgfaTdNinFb3MD9CcMlu44hpLYu2iABkYy" />
+   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=sickn33/agentic-awesome-skills&type=date&legend=top-left&sealed_token=5UEckOplDlF6KsKi881R_B44YTNBEFj0fRwovC_U0W2Um19HD9wLMQXclNblk6wFKgeGn0RzW0rGZkVCqzoKxaGB3IMaiN8tP8yqLRbhs6lf-kO3KeJWjftxgtV1zdrTVHjfEYfnevKZuYFww2_H2vC8IlXgfaTdNinFb3MD9CcMlu44hpLYu2iABkYy" />
+ </picture>
+</a>
+
+If Agentic Awesome Skills has been useful, consider ⭐ starring the repo!
+
+<!-- GitHub Topics (for maintainers): claude-code, gemini-cli, codex-cli, antigravity, cursor, github-copilot, opencode, agentic-skills, ai-coding, llm-tools, ai-agents, autonomous-coding, mcp, ai-developer-tools, ai-pair-programming, vibe-coding, skill, skills, SKILL.md, rules.md, CLAUDE.md, GEMINI.md, CURSOR.md -->
+
+## License
+
+Original code and tooling are licensed under the MIT License. See [LICENSE](LICENSE).
+
+Original documentation and other non-code written content are licensed under [CC BY 4.0](LICENSE-CONTENT), unless a more specific upstream notice says otherwise. See [docs/sources/sources.md](docs/sources/sources.md) for attributions and third-party license details.
+
+---
