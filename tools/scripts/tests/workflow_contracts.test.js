@@ -6,6 +6,7 @@ const {
   classifyChangeRecords,
   classifyChangedFiles,
   classifyPathPolicy,
+  classifyShadowImpact,
   extractChangelogSection,
   getDirectDerivedChanges,
   hasIssueLink,
@@ -64,18 +65,148 @@ const contract = {
   releaseManagedFiles: ["CHANGELOG.md", "package.json", "package-lock.json", "README.md"],
 };
 
+assert.deepStrictEqual(
+  classifyShadowImpact([modifiedRecord("skills/example/SKILL.md")], contract),
+  { profile: "narrow-skill", reasons: [] },
+);
+assert.deepStrictEqual(
+  classifyShadowImpact([modifiedRecord("docs/users/guide.md")], contract),
+  { profile: "narrow-docs", reasons: [] },
+);
+assert.strictEqual(
+  classifyShadowImpact([modifiedRecord("skills/example/SKILL.md"), modifiedRecord("docs/users/guide.md")], contract).profile,
+  "full",
+);
+assert.strictEqual(
+  classifyShadowImpact([modifiedRecord("tools/scripts/pr_preflight.cjs")], contract).profile,
+  "full",
+);
+assert.strictEqual(
+  classifyShadowImpact([addedRecord("walkthrough.md")], contract).profile,
+  "full",
+);
+assert.deepStrictEqual(
+  classifyShadowImpact([modifiedRecord("unclassified.bin")], contract),
+  { profile: "unknown", reasons: ["unclassified_path"] },
+);
+
+const repositoryRoot = path.resolve(__dirname, "..", "..", "..");
+const agentInstructions = fs.readFileSync(path.join(repositoryRoot, "AGENTS.md"), "utf8");
+const maintenanceGuide = fs.readFileSync(path.join(repositoryRoot, ".github", "MAINTENANCE.md"), "utf8");
+for (const instructions of [agentInstructions, maintenanceGuide]) {
+  assert.match(instructions, /current[- ]base/i);
+  assert.match(instructions, /must exist on the current task base/i);
+  assert.match(instructions, /do not|never import/i);
+  assert.match(instructions, /another branch, worktree, stash, installed copy, or historical commit/i);
+}
+assert.doesNotMatch(agentInstructions, /review:skills:local|local-skill-reviewer-policy/);
+assert.doesNotMatch(maintenanceGuide, /review:skills:local|local-skill-reviewer-policy/);
+
+const maintainerSkill = fs.readFileSync(
+  path.join(repositoryRoot, "skills", "antigravity-maintainer-batch-release", "SKILL.md"),
+  "utf8",
+);
+const mergeBatchGuide = fs.readFileSync(path.join(repositoryRoot, "docs", "maintainers", "merge-batch.md"), "utf8");
+const mergingGuide = fs.readFileSync(path.join(repositoryRoot, "docs", "maintainers", "merging-prs.md"), "utf8");
+const autonomyGuide = fs.readFileSync(path.join(repositoryRoot, "docs", "maintainers", "pr-autonomy.md"), "utf8");
+const maintainerSkillUi = fs.readFileSync(
+  path.join(repositoryRoot, "skills", "antigravity-maintainer-batch-release", "agents", "openai.yaml"),
+  "utf8",
+);
+for (const contractText of [maintainerSkill, maintenanceGuide, mergeBatchGuide, mergingGuide, autonomyGuide]) {
+  assert.match(contractText, /skills\/\*\*|skills\/<skill-id>\/\*\*/);
+}
+assert.match(maintainerSkill, /entire tracked `skills\/<skill-id>\/\*\*` subtree/);
+assert.match(maintainerSkill, /authored by the repository owner/);
+assert.match(maintainerSkill, /exactly one merged release PR/);
+assert.match(maintenanceGuide, /canonical-repo-state` PR owns that state/);
+assert.match(autonomyGuide, /complete nearest skill-directory fingerprint/);
+for (const contractText of [maintainerSkill, maintenanceGuide, mergeBatchGuide, autonomyGuide]) {
+  assert.doesNotMatch(contractText, /may normalize the PR body|close\/reopen the PR|retries `Base branch was modified`/);
+  assert.match(contractText, /does not (?:rewrite|mutate).*PR (?:body|metadata)|PR-body rewriting or normalization/);
+  assert.match(contractText, /does not retry base drift|does not .*retry base drift|no automatic retry/);
+}
+assert.doesNotMatch(maintenanceGuide, /runs the mandatory post-merge `sync:contributors`/);
+assert.match(maintenanceGuide, /hands contributor\/generated drift to the protected canonical-sync lane/);
+assert.match(maintenanceGuide, /`npm run chain` already includes catalog generation/);
+assert.doesNotMatch(maintenanceGuide, /npm run chain\n\s+npm run catalog/);
+assert.match(autonomyGuide, /explicitly dispatches main CI and CodeQL/);
+assert.match(autonomyGuide, /Pages remains release-only/);
+for (const contractText of [maintainerSkill, maintenanceGuide, mergeBatchGuide, autonomyGuide]) {
+  assert.match(contractText, /protected[- ]base|protected base/);
+  assert.match(contractText, /impact_profile.*shadow|shadow-only.*impact_profile/s);
+  assert.match(contractText, /source-validation.*lightweight/s);
+  assert.match(contractText, /required CI.*(?:complete|full).*unsharded/is);
+}
+assert.match(maintenanceGuide, /merge:batch.*only fork-run approval and merge authority/);
+assert.match(mergeBatchGuide, /merge:batch.*only command allowed to approve fork runs or merge/s);
+assert.match(autonomyGuide, /merge:batch.*sole authority for fork-run approval and merge/s);
+assert.match(maintainerSkill, /merge:batch.*recompute the current trusted decision/s);
+for (const contractText of [maintenanceGuide, mergeBatchGuide, autonomyGuide]) {
+  assert.match(contractText, /source-validation.*(?:refresh|generate|generated-state).*once|(?:refresh|generate|generated-state).*once.*source-validation/s);
+  assert.match(contractText, /artifact-preview.*(?:verif(?:y|ies).*manifest|manifest.*verif(?:y|ies))/s);
+  assert.match(contractText, /final (?:CI and CodeQL|`main` CI and CodeQL)/i);
+}
+assert.match(autonomyGuide, /timing telemetry/);
+assert.match(autonomyGuide, /npm run test:local -- --shard-index N --shard-count M/);
+assert.match(mergingGuide, /No local-integration exception/);
+assert.doesNotMatch(mergingGuide, /Rare exception: local squash|`gh pr merge <PR_NUMBER>/);
+assert.match(maintainerSkillUi, /\$antigravity-maintainer-batch-release/);
+assert.doesNotMatch(maintainerSkillUi, /frozen matrix|product, verifier, and gold|recommend|rank/i);
+assert.match(maintainerSkill, /discover every already-configured local AAS MCP host from its real configuration and update each one to the exact same package version/);
+assert.match(maintainerSkill, /Pin `agentic-awesome-skills@X\.Y\.Z` and `--version X\.Y\.Z`; never use `latest`/);
+assert.match(maintainerSkill, /real MCP `initialize` plus `tools\/list` handshake reports catalog package version `X\.Y\.Z`/);
+assert.match(maintainerSkill, /Every stable or prerelease version requires full release alignment/);
+assert.match(maintainerSkill, /npm run sync:release-state`, `npm run plugin-compat:check`, and `npm run bundles:check`/);
+assert.match(maintainerSkill, /every published Codex\/Claude plugin mirror, and every eligible Agent Plugins editorial-bundle manifest/);
+assert.match(maintainerSkill, /explicitly dispatched release-only Pages build/);
+assert.match(maintainerSkill, /final generator pass must be idempotent/);
+assert.match(agentInstructions, /Every stable or prerelease version must finish with the full-release-alignment gate/);
+assert.match(maintenanceGuide, /Run the mandatory full-release-alignment gate/);
+const releaseProcess = fs.readFileSync(
+  path.join(repositoryRoot, "docs", "maintainers", "release-process.md"),
+  "utf8",
+);
+assert.match(releaseProcess, /Complete the mandatory full-release-alignment gate/);
+assert.match(releaseProcess, /Any mismatch, inaccessible configured host, or stale public surface keeps the release incomplete/);
+
 const publishWorkflow = fs.readFileSync(
   path.resolve(__dirname, "..", "..", "..", ".github", "workflows", "publish-npm.yml"),
   "utf8",
 );
-assert.match(publishWorkflow, /name: Verify release identity/);
-assert.match(publishWorkflow, /GITHUB_REF_TYPE" = "tag/);
+assert.match(publishWorkflow, /name: Verify protected release provenance/);
+assert.match(publishWorkflow, /git merge-base --is-ancestor "\$tag_commit" "\$main_commit"/);
+assert.match(publishWorkflow, /ref: main/);
+assert.doesNotMatch(publishWorkflow, /workflow_dispatch/);
 assert.match(publishWorkflow, /expected_tag="v\$\(node -p/);
 
 const pagesWorkflow = fs.readFileSync(
   path.resolve(__dirname, "..", "..", "..", ".github", "workflows", "pages.yml"),
   "utf8",
 );
+assert.match(pagesWorkflow, /^on:\s*\n\s+workflow_dispatch:/m);
+assert.doesNotMatch(pagesWorkflow, /^\s+push:/m);
+assert.match(pagesWorkflow, /permissions:\s*\n\s+contents: read\s*\n\s+pages: write\s*\n\s+id-token: write/);
+const pagesCheckoutIndex = pagesWorkflow.indexOf("- name: Checkout");
+const pagesProvenanceIndex = pagesWorkflow.indexOf("- name: Verify release provenance");
+const pagesSetupIndex = pagesWorkflow.indexOf("- name: Setup Node");
+assert.ok(
+  pagesCheckoutIndex >= 0 && pagesCheckoutIndex < pagesProvenanceIndex && pagesProvenanceIndex < pagesSetupIndex,
+  "Pages must fail closed on release provenance immediately after checkout and before setup/install work",
+);
+for (const provenanceContract of [
+  /GH_TOKEN: \$\{\{ github\.token \}\}/,
+  /GITHUB_REF_TYPE[^\n]+tag/,
+  /GITHUB_REF_NAME[^\n]+\^v\[0-9\]\+\\\.\[0-9\]\+\\\.\[0-9\]\+\$/,
+  /expected_tag="v\$\{package_version\}"/,
+  /refs\/tags\/\$\{GITHUB_REF_NAME\}\^\{commit\}/,
+  /tag_commit[^\n]+GITHUB_SHA[^\n]+head_commit[^\n]+GITHUB_SHA/,
+  /gh api --method GET "repos\/\$\{GITHUB_REPOSITORY\}\/releases\/tags\/\$\{GITHUB_REF_NAME\}"/,
+  /\.draft == false/,
+  /\.published_at/,
+]) {
+  assert.match(pagesWorkflow, provenanceContract);
+}
 for (const command of [
   "npm run validate:strict",
   "npm run validate:glossary",
@@ -95,6 +226,25 @@ const ciWorkflow = fs.readFileSync(
   path.resolve(__dirname, "..", "..", "..", ".github", "workflows", "ci.yml"),
   "utf8",
 );
+const latestHeadConcurrency = [
+  "concurrency:",
+  "  group: ${{ github.workflow }}-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || format('run-{0}', github.run_id) }}",
+  "  cancel-in-progress: ${{ github.event_name == 'pull_request' }}",
+].join("\n");
+for (const workflowPath of [
+  ".github/workflows/ci.yml",
+  ".github/workflows/codeql.yml",
+  ".github/workflows/dependency-review.yml",
+  ".github/workflows/skill-review.yml",
+  ".github/workflows/aas-agent-first-preview.yml",
+  ".github/workflows/actionlint.yml",
+]) {
+  const workflow = fs.readFileSync(path.resolve(__dirname, "..", "..", "..", workflowPath), "utf8");
+  assert.ok(
+    workflow.includes(latestHeadConcurrency),
+    `${workflowPath} must cancel superseded PR heads while keeping every non-PR run in a unique concurrency group`,
+  );
+}
 assert.doesNotMatch(
   ciWorkflow,
   /ENABLE_NETWORK_TESTS:\s*["']1["']/,
@@ -103,16 +253,70 @@ assert.doesNotMatch(
 assert.match(ciWorkflow, /^permissions:\n  contents: read$/m);
 assert.match(
   ciWorkflow,
-  /source-validation:[\s\S]*?- name: Refresh ephemeral derived sources for tests\n\s+run: npm run plugin-compat:sync && npm run index && npm run bundles:sync\n[\s\S]*?- name: Run tests\n\s+run: npm run test/,
+  /source-validation:[\s\S]*?- name: Refresh ephemeral derived sources for tests\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR != 'true'\n\s+run: npm run plugin-compat:sync && npm run index && npm run bundles:sync && npm run sync:metadata && npm run catalog && npm run build:aas-v1-catalog && npm run sync:web-assets\n[\s\S]*?- name: Run tests\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR != 'true'\n\s+run: npm run test/,
   "source-only skill PRs must refresh uncommitted mirrors and indexes before tests read them",
+);
+assert.doesNotMatch(
+  ciWorkflow,
+  /build:aas-v1-review-queue|metadata-overrides\.v1\.json|review-queue\.v1\.json/,
+  "CI should not rebuild retired Core policy or review assets",
 );
 assert.match(ciWorkflow, /name: pr-evidence-/);
 assert.doesNotMatch(ciWorkflow, /pull_request_target:/);
-assert.doesNotMatch(ciWorkflow, /actions\/download-artifact/);
+assert.match(ciWorkflow, /actions\/download-artifact@[0-9a-f]{40}/);
 const prEvidenceJob = ciWorkflow.match(/^  pr-evidence:\n([\s\S]*?)(?=^  artifact-preview:)/m)?.[0] || "";
 assert.ok(prEvidenceJob, "pr-evidence job must exist");
 assert.doesNotMatch(prEvidenceJob, /(?:contents|pull-requests|actions): write/);
 assert.doesNotMatch(prEvidenceJob, /secrets\./);
+for (const stepName of ["Set up Python", "Set up Node", "Install trusted dependencies", "Fetch base branch"]) {
+  assert.match(
+    prEvidenceJob,
+    new RegExp(`- name: ${stepName}\\n\\s+if: env\\.IS_TRUSTED_CANONICAL_SYNC_PR != 'true'`),
+    `${stepName} must be skipped for canonical-sync evidence`,
+  );
+}
+assert.match(
+  prEvidenceJob,
+  /- uses: actions\/checkout@[0-9a-f]{40}[^\n]*\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR != 'true'/,
+  "canonical-sync evidence must not perform an unused checkout",
+);
+assert.match(
+  prEvidenceJob,
+  /- name: Record canonical-sync evidence boundary\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR == 'true'/,
+  "canonical-sync evidence must retain its explicit successful boundary record",
+);
+
+const sourceValidationJob = ciWorkflow.match(/^  source-validation:\n([\s\S]*?)(?=^  pr-evidence:)/m)?.[0] || "";
+assert.match(sourceValidationJob, /needs: pr-policy/, "source validation should not wait for independent PR evidence");
+assert.doesNotMatch(sourceValidationJob, /needs:.*pr-evidence/);
+assert.match(
+  sourceValidationJob,
+  /actions\/checkout@[0-9a-f]{40}[\s\S]*?ref: \$\{\{ github\.event\.pull_request\.head\.sha \}\}/,
+  "source validation must generate its preview from the exact PR head instead of GitHub's synthetic merge commit",
+);
+assert.match(sourceValidationJob, /preview_manifest_digest: \$\{\{ steps\.preview_manifest\.outputs\.manifest_digest \}\}/);
+assert.match(sourceValidationJob, /ci_artifact_preview\.cjs create/);
+assert.match(sourceValidationJob, /actions\/upload-artifact@[0-9a-f]{40}/);
+assert.match(
+  sourceValidationJob,
+  /- name: Record canonical source-validation boundary\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR == 'true'/,
+  "canonical source validation should become a lightweight boundary record after pr-policy exact-tree reproduction",
+);
+const artifactPreviewJob = ciWorkflow.match(/^  artifact-preview:\n([\s\S]*?)(?=^  main-validation-and-sync:)/m)?.[0] || "";
+assert.match(artifactPreviewJob, /needs: \[pr-policy, source-validation\]/);
+assert.match(artifactPreviewJob, /ref: \$\{\{ github\.event\.pull_request\.head\.sha \|\| github\.sha \}\}/);
+assert.match(
+  artifactPreviewJob,
+  /- name: Download exact-head artifact preview manifest[\s\S]*?actions\/download-artifact@[0-9a-f]{40}[\s\S]*?- name: Verify and report exact-head artifact preview[\s\S]*?ci_artifact_preview\.cjs" verify-summary/,
+  "artifact preview should consume and verify the source-validation manifest instead of regenerating the same tree",
+);
+assert.doesNotMatch(
+  artifactPreviewJob,
+  /npm run chain|Generate canonical artifacts preview/,
+  "artifact preview must not regenerate normal source-PR artifacts",
+);
+assert.match(artifactPreviewJob, /- name: Reproduce canonical-sync PR from main\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR == 'true'/);
+assert.match(artifactPreviewJob, /- name: Report generated drift\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR == 'true'/);
 
 const decisionModule = fs.readFileSync(
   path.resolve(__dirname, "..", "..", "lib", "pr-decision.js"),
@@ -125,18 +329,27 @@ const skillReviewWorkflow = fs.readFileSync(
   "utf8",
 );
 assert.match(skillReviewWorkflow, /^permissions:\n  contents: read$/m);
+assert.match(skillReviewWorkflow, /^  review-attempt:$/m);
 assert.match(skillReviewWorkflow, /^  review:$/m);
 assert.match(skillReviewWorkflow, /^  manual-review-required:$/m);
-assert.match(skillReviewWorkflow, /^  missing-review-credentials:$/m);
+assert.doesNotMatch(skillReviewWorkflow, /^  missing-review-credentials:$/m);
 assert.match(
   skillReviewWorkflow,
-  /if: \$\{\{ needs\.review-state\.outputs\.configured != 'true' && github\.event\.pull_request\.head\.repo\.full_name != github\.repository \}\}/,
+  /needs\.review-attempt\.outputs\.outcome != 'reviewed'/,
+  "every non-passing Tessl outcome must route to exact-head manual review",
 );
-assert.match(
-  skillReviewWorkflow,
-  /if: \$\{\{ needs\.review-state\.outputs\.configured != 'true' && github\.event\.pull_request\.head\.repo\.full_name == github\.repository \}\}/,
-);
+assert.match(skillReviewWorkflow, /paths:\s*\n\s+- 'skills\/\*\*'\s*\n\s+- 'plugins\/\*\*\/skills\/\*\*'/);
+assert.match(skillReviewWorkflow, /steps\.plan\.outputs\.requires-manual != 'true'/);
+assert.match(skillReviewWorkflow, /REQUIRES_MANUAL: \$\{\{ steps\.plan\.outputs\.requires-manual \}\}/);
+assert.match(skillReviewWorkflow, /result=manual/);
+assert.match(skillReviewWorkflow, /needs\.review-state\.outputs\.configured != 'true'/);
 assert.match(skillReviewWorkflow, /ref: \$\{\{ github\.event\.pull_request\.base\.sha \}\}/);
+assert.match(skillReviewWorkflow, /review_changed_skills\.cjs --plan/);
+assert.match(skillReviewWorkflow, /actions\/cache\/restore@[0-9a-f]{40}/);
+assert.match(skillReviewWorkflow, /actions\/cache\/save@[0-9a-f]{40}/);
+assert.match(skillReviewWorkflow, /tessl-review-v2-\$\{\{ steps\.plan\.outputs\.fingerprint \}\}/);
+assert.match(skillReviewWorkflow, /steps\.review-cache\.outputs\.cache-hit != 'true'/);
+assert.match(skillReviewWorkflow, /needs\.review-attempt\.outputs\.outcome == 'reviewed'/);
 assert.ok(
   skillReviewWorkflow.indexOf("- name: Checkout pull request content") <
     skillReviewWorkflow.indexOf("- name: Checkout trusted base scripts"),

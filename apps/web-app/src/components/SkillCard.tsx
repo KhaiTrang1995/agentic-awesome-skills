@@ -1,19 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { SkillStarButton } from './SkillStarButton';
 import { Icon } from './ui/Icon';
 import type { Skill } from '../types';
+import { toIndexableRoutePath } from '../utils/seo';
 
 interface SkillCardProps {
   skill: Skill;
   starCount: number;
+  shortlisted?: boolean;
+  onToggleShortlist?: (skillId: string) => void;
 }
 
-export const SkillCard = React.memo(({ skill, starCount }: SkillCardProps) => {
+export const SkillCard = React.memo(({ skill, starCount, shortlisted = false, onToggleShortlist }: SkillCardProps) => {
   return (
     <article className="skill-row group">
       <Link
-        to={`/skill/${skill.id}`}
+        to={toIndexableRoutePath(`/skill/${skill.id}`)}
         className="skill-row__link"
         aria-label={`Read skill ${skill.name}`}
       >
@@ -37,6 +40,16 @@ export const SkillCard = React.memo(({ skill, starCount }: SkillCardProps) => {
         </span>
       </Link>
       <div className="skill-row__save">
+        {onToggleShortlist && (
+          <button
+            type="button"
+            className={`skill-row__shortlist ${shortlisted ? 'is-active' : ''}`}
+            aria-pressed={shortlisted}
+            onClick={() => onToggleShortlist(skill.id)}
+          >
+            {shortlisted ? 'In shortlist' : 'Add to shortlist'}
+          </button>
+        )}
         <SkillStarButton
           skillId={skill.id}
           communityCount={starCount}

@@ -1,21 +1,31 @@
-<!-- registry-sync: version=14.5.0; skills=1962; stars=43325; updated_at=2026-07-15T17:16:56+00:00 -->
-[![Agentic Awesome Skills social preview](apps/web-app/public/social-card.png)](https://github.com/sickn33/agentic-awesome-skills)
+<!-- registry-sync: version=15.14.0; skills=2013; stars=45008; updated_at=2026-08-16T10:07:40+00:00 -->
+# AAS Core — Agentic Awesome Skills
 
-# 🌌 Agentic Awesome Skills: 1,962+ Agentic Skills for Claude Code, Gemini CLI, Cursor, Autohand Code, Copilot & More
+> **Local, agent-owned skill stacks for coding agents—from complete catalog access to a reproducible, reviewable plan.**
 
-> **Installable GitHub library of 1,962+ agentic skills for Claude Code, Cursor, Codex CLI, Autohand Code, Gemini CLI, Antigravity, and other AI coding assistants.**
+**Current release: V15.14.0.** This release includes AAS Core for complete local catalog search, agent-owned selection, manifest validation, planning, and diagnosis. Apply and recovery remain experimental and outside the supported preview path.
 
-Agentic Awesome Skills is an installable GitHub library and npm installer for reusable `SKILL.md` playbooks. It is designed for Claude Code, Cursor, Codex CLI, Autohand Code, Gemini CLI, Antigravity, Kiro, OpenCode, GitHub Copilot, and other AI coding assistants that benefit from structured operating instructions. Instead of collecting one-off prompt snippets, this repository gives you a searchable, installable catalog of skills, bundles, workflows, plugin-safe distributions, and practical docs that help agents perform recurring tasks with better context, stronger constraints, and clearer outputs.
+Codex or Claude inspects your project and chooses exact skills from the complete local AAS catalog. AAS Core does not rank or recommend them: its read-only `compose_stack` tool validates the agent-owned selection in memory, and a client or the `aas` CLI can persist it as `aas-stack.json` and produce an immutable plan before any target change.
 
-This is an independent community project. It is not affiliated with, sponsored by, endorsed by, or authorized by Google. Google, Antigravity, Gemini, and related product names are referenced only to describe compatibility and install targets.
+**[Read the AAS Core preview guide →](https://github.com/sickn33/agentic-awesome-skills/blob/v15.14.0/docs/users/aas-core.md)**
 
-You can use this repo to install a broad multi-tool skill library, start from focused plugin bundles, or jump into workflow-driven execution for planning, coding, debugging, testing, security review, infrastructure, product work, and growth tasks. The root README is intentionally a high-signal landing page: understand what the project is, install the right surface quickly, choose the right tool path, and then follow deeper docs only when you need them.
+```text
+Project
+  -> inspected by Codex or Claude (not by AAS)
+  -> agent searches and reads the complete local catalog
+  -> AAS MCP (local stdio, read-only)
+  -> Codex or Claude chooses exact skill IDs
+  -> compose_stack validates the selection in memory (read-only)
+  -> client or AAS CLI persists aas-stack.json and optional evidence
+  -> AAS CLI validate + immutable plan preview
+  -> human review (optionally in Workbench)
+```
 
-The canonical project page is the GitHub repository at <https://github.com/sickn33/agentic-awesome-skills>; the hosted catalog is a companion discovery surface for search, plugins, skill detail pages, and exact-set composition.
+The reusable `SKILL.md` playbooks, specialized plugins, bundles, workflows, and direct installers remain important. They are the content, curation, distribution, and compatibility layers around AAS Core—not competing primary products.
 
-**Start here:** [Install in 1 minute](#installation) · [Build an exact set](https://sickn33.github.io/agentic-awesome-skills/workbench) · [Recommended plugins](#recommended-specialized-plugins) · [Compare plugin packs](https://sickn33.github.io/agentic-awesome-skills/plugins) · [Choose your tool](#choose-your-tool) · [📚 Browse 1,962+ Skills](#browse-1962-skills) · [Bundles & workflows](#bundles--workflows) · [Support the project](#support-the-project)
+This is an independent community project. It is not affiliated with, sponsored by, endorsed by, or authorized by Google. Google, Antigravity, Gemini, and related product names are referenced only to describe compatibility and install targets. The GitHub repository is canonical; the hosted catalog and browser-local Workbench are companion discovery and review surfaces, not a hosted control plane.
 
-[![GitHub stars](https://img.shields.io/badge/⭐%2043%2C000%2B%20Stars-gold?style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills/stargazers)
+[![GitHub stars](https://img.shields.io/badge/⭐%2045%2C000%2B%20Stars-gold?style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills/stargazers)
 [![Follow @AASkills_ on X](https://img.shields.io/badge/Follow-%40AASkills__-black?style=for-the-badge&logo=x)](https://x.com/AASkills_)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Anthropic-purple)](https://claude.ai)
@@ -24,32 +34,67 @@ The canonical project page is the GitHub repository at <https://github.com/sickn
 [![Autohand Code](https://img.shields.io/badge/Autohand%20Code-CLI-blue)](https://github.com/autohandai/code-cli)
 [![Gemini CLI](https://img.shields.io/badge/Gemini%20CLI-Google-blue)](https://github.com/google-gemini/gemini-cli)
 [![Latest Release](https://img.shields.io/github/v/release/sickn33/agentic-awesome-skills?display_name=tag&style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills/releases/latest)
-[![Install with NPX](https://img.shields.io/badge/Install-npx%20agentic--awesome--skills-black?style=for-the-badge&logo=npm)](#installation)
+[![Direct skill distribution](https://img.shields.io/badge/Direct%20skills-npx%20agentic--awesome--skills-black?style=for-the-badge&logo=npm)](#installation)
 [![Kiro](https://img.shields.io/badge/Kiro-AWS-orange?style=for-the-badge)](https://kiro.dev)
 [![Copilot](https://img.shields.io/badge/Copilot-GitHub-lightblue?style=for-the-badge)](https://github.com/features/copilot)
 [![OpenCode](https://img.shields.io/badge/OpenCode-CLI-gray?style=for-the-badge)](https://github.com/opencode-ai/opencode)
 [![Antigravity](https://img.shields.io/badge/Antigravity-AI%20IDE-red?style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills)
 
-**Current release: V14.5.0.** Trusted by 43k+ GitHub stargazers, this repository combines official and community skill collections with bundles, workflows, installation paths, and docs that help you go from first install to daily use quickly.
+## AAS Core: Agent-First Preview
+
+> **The agent composes. You control. AAS keeps the stack reproducible.**
+
+AAS Core gives the repository one product model:
+
+- **Let the agent choose.** The local MCP preserves `search_skills`, `get_skill`, `compose_stack`, `inspect_stack`, and `diff_stack`, and adds read-only `export_selection_evidence` and `inspect_selection_evidence`; Core does not rank, recommend, exclude, or hide skills.
+- **Guide capability coverage.** MCP session instructions require the agent to evaluate the full project surface—from architecture, domain behavior, data and integrations through testing, security, UX, deployment, and maintenance—then search each applicable capability, compare multiple candidates, cover it with a non-redundant skill or report a catalog gap, and avoid stopping at a minimal shortlist. Core records and validates the resulting selection, but it does not certify semantic completeness.
+- **Keep the chosen stack and evidence reviewable.** A client or the CLI can persist `aas-stack.json` and the separate `aas-selection-evidence.json` sidecar in an `artifact-dir`; the manifest preserves exact agent-selected IDs, while evidence records factual process trace and the agent-declared capability ledger.
+- **Validate and preview through the CLI.** `aas stack validate` checks the proposal, while `aas stack plan` produces an immutable, per-target plan without applying it.
+- **Review in Workbench.** The hosted Workbench imports and reviews stack/plan JSON in browser memory; it does not access your filesystem or install anything.
+- **Retain every useful distribution path.** Direct installs, plugins, bundles, workflows, and the full catalog remain available as payload and compatibility surfaces.
+
+> [!IMPORTANT]
+> Structural and identity validity does not certify semantic fit, compatibility, setup correctness, operational safety, or safety to apply.
+
+| Surface | Current status |
+| --- | --- |
+| Published package | Current npm release; AAS Core status is `agent-first-preview` |
+| Catalog search and inspection | Supported preview; local and read-only |
+| Agent-owned composition | Supported preview; Core validates IDs and structure, not semantic suitability; manifests have a technical maximum of 128 skills |
+| Stack validation and plan preview | Supported preview; no target skill changes |
+| Workbench | Browser-local review of stack and plan artifacts |
+| Selection evidence | Exported and inspected through MCP/CLI contracts; not yet reviewed in Workbench |
+| Apply and recovery | Experimental, explicit opt-in, outside the supported safety claim |
+| Semantic suitability certification | Not provided |
+
+Read the [AAS Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v15.14.0/docs/users/aas-core.md) for the exact trust boundaries, current preview status, Codex/Claude setup model, and CLI lifecycle.
 
 ## Why This Repo
 
-- **Installable, not just inspirational**: use `npx agentic-awesome-skills` to put skills where your tool expects them.
+- **Agent-first, locally controlled**: Codex or Claude inspects the project and chooses from the complete local catalog without uploading your repository to AAS.
+- **Complete and inspectable**: every catalog skill is searchable, readable, and available for agent selection; Core does not certify suitability, compatibility, or operational safety, and metadata is informational rather than an eligibility gate.
+- **Approval before writes**: the durable artifacts are an approved stack and immutable plan, not an opaque one-shot install.
+- **Installable, not just inspirational**: use the compatible legacy installer or plugin distributions when direct delivery is the right path.
 - **Built for major agent workflows**: Claude Code, Cursor, Codex CLI, Autohand Code, Gemini CLI, Antigravity, Kiro, OpenCode, Copilot, and more.
-- **Broad coverage with real utility**: 1,962+ skills across development, testing, security, infrastructure, product, and marketing.
-- **Inspect before installing**: the hosted [Skill Workbench](https://sickn33.github.io/agentic-awesome-skills/workbench) filters recorded risk, provenance, host compatibility, and setup evidence, then generates release-pinned preview and install commands for exact IDs.
-- **Focused by default**: specialized plugins help you start with the web, security, data, docs, DevOps, QA, OSS, or agent/MCP workflows you actually need.
+- **Broad coverage with real utility**: 2,013+ skills across development, testing, security, infrastructure, product, and marketing.
+- **Inspect before installing**: the hosted [Skill Workbench](https://sickn33.github.io/agentic-awesome-skills/workbench) reviews agent-produced stack manifests and immutable plans without browser-side installation.
+- **Focused delivery remains available**: specialized plugins package proven sets for web, security, data, docs, DevOps, QA, OSS, or agent/MCP workflows.
 - **Useful whether you want breadth or curation**: install the full catalog, choose a specialized plugin, start with bundles, or compare alternatives before installing.
+
+### Why not just search the skills directory?
+
+Direct file search can find candidate prose, but it leaves the result in the conversation. AAS Core adds verified catalog identity, explicit target binding, durable desired state, optional selection evidence, deterministic validation, immutable planning, and dedicated review surfaces. Its value is not choosing better than the coding agent; it is turning the agent's choice into reproducible, inspectable state.
 
 ## Table of Contents
 
+- [AAS Core: Agent-First Preview](#aas-core-agent-first-preview)
 - [Why This Repo](#why-this-repo)
 - [Installation](#installation)
 - [Recommended Specialized Plugins](#recommended-specialized-plugins)
 - [Choose Your Tool](#choose-your-tool)
 - [Quick FAQ](#quick-faq)
 - [Bundles & Workflows](#bundles--workflows)
-- [Browse 1,962+ Skills](#browse-1962-skills)
+- [Browse 2,013+ Skills](#browse-2013-skills)
 - [Troubleshooting](#troubleshooting)
 - [Stable Skills Manifest v1](#stable-skills-manifest-v1)
 - [Support the Project](#support-the-project)
@@ -62,23 +107,60 @@ The canonical project page is the GitHub repository at <https://github.com/sickn
 
 ## Installation
 
-Most users should start by choosing the smallest useful surface:
+For Codex and Claude, start with the [AAS Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v15.14.0/docs/users/aas-core.md): configure the local MCP, ask the agent to inspect the project and choose exact IDs from the full catalog, review the proposed `aas-stack.json`, then run CLI validation and planning. The MCP and validation are read-only. Planning writes only the requested plan artifact; it does not materialize skill payloads or AAS managed state in the target.
+
+Use direct installation when your host does not yet have a native AAS Core adapter, when you already know the exact skill IDs, or when you deliberately prefer manual selection:
 
 - **Specialized plugins** when the job has a clear domain.
 - **Full library install** when you want every skill available in a local skills directory.
 - **Bundles and workflows** when you want role-based recommendations or ordered execution playbooks.
 
-### Full library install
+### Direct skill install
 
 ```bash
-# Default: ~/.agents/skills (Antigravity 2.0 global). Use --path for other locations.
-npx agentic-awesome-skills
+# Antigravity: preview an exact, agent-selected set before writing.
+npx agentic-awesome-skills --antigravity --skills brainstorming,systematic-debugging --dry-run
 
 # Antigravity CLI slash commands (agy): ~/.gemini/antigravity-cli/skills/<skill>/SKILL.md
 npx agentic-awesome-skills --agy
 ```
 
-The npm installer uses a shallow, release-pinned clone by default so first-run installs stay lighter than a full repository history checkout while matching the published npm package version. Use `--tag main` only when you intentionally want the current repository tip.
+The npm installer uses a shallow, release-pinned clone by default and verifies the cloned commit against the immutable `gitHead` recorded for that exact npm package version. If the GitHub tag moved or npm identity metadata is unavailable, installation stops before copying content. Use `--tag main` only when you intentionally accept a mutable, explicitly unverified repository ref.
+
+Antigravity watches `~/.agents/skills` and may load enough installed instructions
+to exhaust its context, slow startup, trigger truncation errors, or enter a crash
+loop. For that target, the installer stops before cloning or writing unless you
+provide `--skills`, a metadata filter, or the explicit `--all` override. The bare
+`npx agentic-awesome-skills` command uses the same protected Antigravity target.
+
+The recommended flow is to ask Codex or Claude with the read-only AAS Core MCP
+configured to inspect the project, search the complete catalog, and choose exact
+skill IDs. AAS MCP selects and validates IDs but does not install them; the agent
+or user then previews the direct installation with the command above and repeats
+it without `--dry-run` after review.
+
+Other direct-install targets retain the legacy-compatible full-catalog behavior
+when no selectors are supplied. The CLI prints the catalog's risk summary first:
+a full install includes `critical` and authorized-use-only `offensive`
+instructions. Installation copies files; it does not execute their commands,
+but an agent may act on an installed skill later. Prefer an exact reviewed set:
+
+```bash
+npx agentic-awesome-skills audit --skills brainstorming,backend-dev-guidelines
+npx agentic-awesome-skills --skills brainstorming,backend-dev-guidelines --dry-run
+```
+
+If you deliberately accept the context and crash-loop risk, the complete
+Antigravity catalog remains available through explicit consent:
+
+```bash
+npx agentic-awesome-skills --antigravity --all
+```
+
+The audit reads the selected skill directories without executing them and
+reports command, network, credential, filesystem, privileged, destructive,
+symlink, and binary signals. It is a review aid, not a safety certificate. See
+[Security, trust, and antivirus alerts](docs/users/security-and-antivirus.md).
 
 ### Focused single-skill install with GitHub CLI (preview)
 
@@ -104,17 +186,17 @@ test -d ~/.agents/skills && echo "Skills installed in ~/.agents/skills"
 Use @brainstorming to plan a SaaS MVP.
 ```
 
-### Prefer plugins for Claude Code or Codex?
+### Prefer plugins for Claude Code, Codex, or another compatible client?
 
 - Use a specialized plugin when you want a focused marketplace-style distribution.
 - Use the full-library plugin only when you want the widest plugin-safe catalog.
-- Read [Plugins for Claude Code and Codex](docs/users/plugins.md) for full-library plugin install vs specialized plugin install vs direct skills install.
+- Read [Plugins for compatible agent clients](docs/users/plugins.md) for host-specific installs, portable Agent Plugins bundles, and direct skills installs.
 
 ## Recommended Specialized Plugins
 
 Do not install everything first if you already know the work. Start with the focused plugin for your job, then add more only when the task expands.
 
-All specialized plugins are generated as Claude Code and Codex plugin bundles. For Antigravity, use the same `SKILL.md` content through the installer or supported skills paths.
+All specialized plugins are generated as Claude Code and Codex plugin bundles. Bundles with flat, cross-host-safe skill layouts also receive a standard Agent Plugins 1.0 root manifest. For Antigravity, use the same `SKILL.md` content through the installer or supported skills paths.
 
 | Plugin | Skills | Best for |
 | --- | ---: | --- |
@@ -135,7 +217,7 @@ All specialized plugins are generated as Claude Code and Codex plugin bundles. F
 Next-wave plugins cover marketing/SEO/growth, automation, observability/incident response, Python APIs, mobile apps, data engineering, privacy/compliance, and localization/international growth.
 
 - Read the [specialized plugin roadmap](docs/users/specialized-plugin-roadmap.md).
-- Read the [plugin guide for Claude Code and Codex](docs/users/plugins.md).
+- Read the [plugin guide for compatible agent clients](docs/users/plugins.md).
 - Compare the hosted [specialized plugin landing page](https://sickn33.github.io/agentic-awesome-skills/plugins).
 - Browse the generated plugin folders in [`plugins/`](plugins/).
 
@@ -145,12 +227,12 @@ Use the same repository, but install or invoke it in the way your host expects.
 
 | Tool           | Install                                                                  | First Use                                              |
 | -------------- | ------------------------------------------------------------------------ | ------------------------------------------------------ |
-| Claude Code    | `npx agentic-awesome-skills --claude` or Claude plugin marketplace | `>> /brainstorming help me plan a feature`           |
+| Claude Code    | [AAS Core local MCP preview](docs/users/claude-code-skills.md), direct install, or Claude plugin marketplace | Ask Claude to choose and compose an AAS stack |
 | Cursor         | `npx agentic-awesome-skills --cursor`                              | `@brainstorming help me plan a feature`              |
 | Gemini CLI     | `npx agentic-awesome-skills --gemini`                              | `Use brainstorming to plan a feature`                |
-| Codex CLI      | `npx agentic-awesome-skills --codex`                               | `Use brainstorming to plan a feature`                |
+| Codex CLI      | [AAS Core local MCP preview](docs/users/codex-cli-skills.md) or `npx agentic-awesome-skills --codex` | Ask Codex to choose and compose an AAS stack |
 | Autohand Code  | `npx agentic-awesome-skills --path ~/.autohand/skills` or `--path .autohand/skills` | `Use brainstorming to plan a feature`                |
-| Antigravity IDE | `npx agentic-awesome-skills --antigravity`                        | `Use @brainstorming to plan a feature`               |
+| Antigravity IDE | `npx agentic-awesome-skills --antigravity --skills <ids> --dry-run` | Ask an MCP-enabled agent to choose exact IDs first |
 | Antigravity CLI (`agy`) | `npx agentic-awesome-skills --agy`                        | `/brainstorming help me plan a feature`              |
 | Kiro CLI       | `npx agentic-awesome-skills --kiro`                                | `Use brainstorming to plan a feature`                |
 | Kiro IDE       | `npx agentic-awesome-skills --path ~/.kiro/skills`                 | `Use @brainstorming to plan a feature`               |
@@ -159,7 +241,7 @@ Use the same repository, but install or invoke it in the way your host expects.
 | AdaL CLI       | `npx agentic-awesome-skills --path .adal/skills`                   | `Use brainstorming to plan a feature`                |
 | Custom path    | `npx agentic-awesome-skills --path ./my-skills`                    | Depends on your tool                                   |
 
-Use the table above for install targets. Use specialized plugins when you are choosing what to install for a domain, then use the host guides below only for path details, prompt examples, and setup caveats.
+Use the Codex and Claude guides for the AAS Core MCP preview path. For other hosts—or when you deliberately want manual delivery—use the table's direct install targets, specialized plugins, and host-specific path guidance.
 
 - [Claude Code skills](docs/users/claude-code-skills.md): install paths, starter skills, prompt examples, and plugin marketplace flow.
 - [Cursor skills](docs/users/cursor-skills.md): `.cursor/skills/` setup, UI-heavy work, and pair-programming flows.
@@ -171,11 +253,21 @@ Use the table above for install targets. Use specialized plugins when you are ch
 
 ### What is Agentic Awesome Skills?
 
-**Agentic Awesome Skills** (Release 14.5.0) is a large, installable skill library for AI coding assistants. It packages 1,962+ reusable `SKILL.md` playbooks, specialized plugins, bundles, workflows, generated catalogs, and a CLI installer so Claude Code, Codex CLI, Autohand Code, Cursor, Gemini CLI, Antigravity, and similar tools can reuse proven operating instructions instead of one-off prompts.
+**Agentic Awesome Skills** is the repository behind AAS Core, a local agent-first control plane for recording and validating agent-chosen skill stacks. The read-only AAS MCP gives Codex and Claude complete catalog search and skill inspection; the stack CLI and Workbench make the chosen state reproducible and reviewable. Direct installers, specialized plugins, bundles, and workflows remain supported distribution and discovery surfaces.
+
+### Is AAS Core fully certified?
+
+The supported path covers complete local catalog search and inspection, agent-owned selection, stack composition and validation, immutable planning, and diagnosis. Transactional apply/recovery safety remains outside the supported claim; apply and recovery are explicitly experimental and disabled without additional opt-in flags.
 
 ### How do I install it?
 
-Run `npx agentic-awesome-skills` for the default full-library install. Use a tool-specific flag such as `--codex`, `--cursor`, `--gemini`, `--claude`, or `--antigravity` when you want the installer to place skills in the directory your assistant already watches.
+For AAS Core, follow the [preview guide](https://github.com/sickn33/agentic-awesome-skills/blob/v15.14.0/docs/users/aas-core.md) and use only a package release whose notes explicitly state that it includes Core. Release 14.6.0 predates Core; Core-capable releases begin with the 15.x line.
+
+For direct skill distribution, use a tool-specific flag such as `--codex`,
+`--cursor`, `--gemini`, or `--claude` to place skills in the directory your
+assistant watches. The default target is Antigravity; it requires `--skills`, a
+metadata filter, or explicit `--all` consent before cloning or writing because a
+full watched catalog can exhaust context or trigger a crash loop.
 
 For Autohand Code, use the installer with a custom path:
 
@@ -203,10 +295,11 @@ Start with [Specialized Plugins](#recommended-specialized-plugins) when you want
 
 ## Bundles & Workflows
 
-Plugins, bundles, and workflows answer different questions. Plugins are the installable packaging surface; bundles are curated recommendations; workflows are ordered playbooks for getting a result.
+Core, plugins, bundles, and workflows answer different questions. Codex or Claude selects skills; AAS Core records and validates that selection; plugins package a focused delivery surface; bundles are curated starting points; workflows are ordered playbooks for getting a result.
 
 | Surface | Answers | Use it for |
 | --- | --- | --- |
+| AAS Core | How do I search the full catalog and preserve the agent's chosen stack? | Agent-owned selection, a pinned `aas-stack.json`, validation, and immutable plan preview. |
 | Specialized plugin | What should I install or activate for this domain? | Focused Claude Code/Codex plugin packaging and Antigravity-compatible skill selection. |
 | Bundle | Which skills naturally belong together? | Role-based discovery after a full-library install or when building a custom subset. |
 | Workflow | What order should the agent run skills in? | Planning, shipping, auditing, testing, or incident-style execution. |
@@ -244,16 +337,18 @@ npx agentic-awesome-skills@14.3.0 --codex --release 14.3.0 --skills frontend-des
 
 Remove `--dry-run` only after reviewing the install, update, and removal plan. Unknown or ambiguous skill identifiers fail closed, and metadata filters combine with `--skills` using AND.
 
-The hosted [Skill Workbench](https://sickn33.github.io/agentic-awesome-skills/workbench) builds the same pinned command from catalog evidence and exposes conflicts before you copy it.
+The hosted [Skill Workbench](https://sickn33.github.io/agentic-awesome-skills/workbench) imports and reviews AAS Core stack manifests and immutable plans in browser memory. It does not access the filesystem, generate an approved plan, or install skills.
 
-## Browse 1,962+ Skills
+## Browse 2,013+ Skills
 
 Use the root repo as a landing page, then jump into the deeper surface that matches your intent.
 
 ### What you get in this repository
 
 - **Skills library** in [`skills/`](skills/)
-- **Installer CLI** powered by the npm package in [`package.json`](package.json)
+- **AAS Core** in [`tools/lib/aas-v1`](tools/lib/aas-v1), exposed through the `aas` CLI and local `aas-mcp` server
+- **Versioned stack and result schemas** in [`schemas/aas-v1`](schemas/aas-v1)
+- **Compatible legacy installer CLI** powered by the npm package in [`package.json`](package.json)
 - **Generated catalog and metadata** in [`CATALOG.md`](CATALOG.md), `skills_index.json`, and [`data/`](data/)
 - **Hosted and local web app** in [`apps/web-app`](apps/web-app) and on [GitHub Pages](https://sickn33.github.io/agentic-awesome-skills/)
 - **Role-based bundles** in [docs/users/bundles.md](docs/users/bundles.md)
@@ -282,6 +377,8 @@ Use the root repo as a landing page, then jump into the deeper surface that matc
 Keep the root README short; use the dedicated docs for recovery and platform-specific guidance.
 
 - If you are confused after installation, start with the [Usage Guide](docs/users/usage.md).
+- For Core setup, trust boundaries, stack manifests, and preview status, use the [AAS Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v15.14.0/docs/users/aas-core.md).
+- On native Windows, `AAS_ADAPTER_WINDOWS_ACL_FAILED` refers to the configuration path checked with PowerShell `Get-Acl`, not the cache and not `icacls`; do not approve until preview returns an approval digest.
 - If you integrate agentic-awesome-skills into a host, read the discovery contract first: [Stable Skills Manifest v1](docs/users/discovery-manifest.md).
 - For Windows truncation or context crash loops, use [docs/users/windows-truncation-recovery.md](docs/users/windows-truncation-recovery.md).
 - For Linux/macOS overload or selective activation, use [docs/users/agent-overload-recovery.md](docs/users/agent-overload-recovery.md).
@@ -290,6 +387,8 @@ Keep the root README short; use the dedicated docs for recovery and platform-spe
 - For contributor expectations and guardrails, use [CONTRIBUTING.md](CONTRIBUTING.md), [`CODE_OF_CONDUCT.md`](CODE_OF_CONDUCT.md), and [`SECURITY.md`](SECURITY.md).
 
 ## Stable Skills Manifest v1
+
+This is the stable **direct-host discovery manifest** for integrations that load individual `SKILL.md` files. It is not `aas-stack.json`, the verified AAS Core catalog, or the Core composition contract. Core users should start with the [AAS Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v15.14.0/docs/users/aas-core.md); custom host integrations can continue using the manifest below.
 
 Host integrations should use:
 
@@ -351,14 +450,18 @@ Key source families include:
 
 ### Official Sources
 
+- **[vostride/agent-qa](https://github.com/vostride/agent-qa)**: Official Agent QA skills for authoring natural-language web and mobile tests, evidence-backed run triage, and scoped debug/fix workflows (FSL-1.1-ALv2, Apache-2.0 after two years).
 - **[aislon/uizze-mcp](https://github.com/aislon/uizze-mcp)**: Official source for the `uizze-ui-research` skill and UIZZE MCP-assisted UI research workflows.
 - **[anthropics/skills](https://github.com/anthropics/skills)**: Official Anthropic skills repository - Document manipulation (DOCX, PDF, PPTX, XLSX), Brand Guidelines, Internal Communications.
 - **[anthropics/claude-cookbooks](https://github.com/anthropics/claude-cookbooks)**: Official notebooks and recipes for building with Claude.
+- **[Orkas-AI/Orkas-VideoStudio](https://github.com/Orkas-AI/Orkas-VideoStudio)**: Official source for the `video-router` skill - choose and lock generation, deterministic composition, supplied-footage editing, or an automatic cross-modal production plan (MIT).
 - **[remotion-dev/skills](https://github.com/remotion-dev/skills)**: Official Remotion skills - Video creation in React with 28 modular rules.
 - **[vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills)**: Vercel Labs official skills - React Best Practices, Web Design Guidelines.
 - **[openai/skills](https://github.com/openai/skills)**: OpenAI Codex skills catalog - Agent skills, Skill Creator, Concise Planning.
 - **[supabase/agent-skills](https://github.com/supabase/agent-skills)**: Supabase official skills - Postgres Best Practices.
 - **[microsoft/skills](https://github.com/microsoft/skills)**: Official Microsoft skills - Azure cloud services, Bot Framework, Cognitive Services, and enterprise development patterns across .NET, Python, TypeScript, Go, Rust, and Java.
+- **[Simon-He95/markstream-vue](https://github.com/Simon-He95/markstream-vue)**: Official Markstream skill for installing streaming Markdown renderers across Vue, React, Svelte, Angular, Nuxt, Next.js, and Vue 2 applications (MIT).
+- **[nowork-studio/NotFair](https://github.com/nowork-studio/NotFair)**: Official source for the `seo-drift` skill - dated SEO baselines and regression detection across rankings, indexation, metadata, directives, schema, and on-page elements (MIT).
 - **[MiniMax-AI/cli](https://github.com/MiniMax-AI/cli)**: Official MiniMax CLI - text, image, video, speech, music, vision, and web-search workflows for MiniMax models and APIs.
 - **[google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills)**: Official Gemini skills - Gemini API, SDK and model interactions.
 - **[apify/agent-skills](https://github.com/apify/agent-skills)**: Official Apify skills - Web scraping, data extraction and automation.
@@ -373,11 +476,16 @@ Key source families include:
 - **[scopeblind/scopeblind-gateway](https://github.com/scopeblind/scopeblind-gateway)**: Official Scopeblind MCP governance toolkit - Cedar policy authoring, shadow-to-enforce rollout, and signed-receipt verification guidance for agent tool calls.
 - **[Forward-Future/loop-library](https://github.com/Forward-Future/loop-library)**: Official Loop Library skill - find, adapt, and design bounded AI-agent feedback loops with verification, stop rules, guardrails, and handoffs (MIT).
 - **[agent-frontier/wgm](https://github.com/agent-frontier/wgm)**: Official wgm protocol skill - governed build loops with triage, alignment, planning, deterministic backpressure, holdout-scenario judging, and handoff audits (MIT).
+- **[browser-act/skills](https://github.com/browser-act/skills)**: Official BrowserAct skills - authenticated browser automation, JavaScript-rendered extraction, screenshots, parallel session isolation, verification handling, and human handoff (MIT).
 - **[browserbase/skills](https://github.com/browserbase/skills)**: Official Browserbase `competitor-analysis` skill - Browserbase Search API competitor discovery, research lanes, matrices, screenshots, and HTML reports (MIT).
 - **[dair-ai/dair-academy-plugins](https://github.com/dair-ai/dair-academy-plugins)**: Official DAIR Academy plugin skills imported as standalone skills - image generation, adaptive learning, lesson artifacts, LLM council deliberation, survey papers, wiki building, and YouTube study notes (MIT).
 - **[weaviate/agent-skills](https://github.com/weaviate/agent-skills)**: Official Weaviate skills - vector database operations, semantic and hybrid search, data imports, RAG cookbooks, agentic RAG, multimodal PDF search, and async client patterns (BSD-3-Clause).
 - **[pilot-protocol/pilotprotocol](https://github.com/pilot-protocol/pilotprotocol)**: Official Pilot Protocol overlay network - agent addressing, encrypted P2P messaging, NAT traversal, and an installable agent app store (AGPL-3.0).
 - **[Xquik-dev/x-twitter-scraper](https://github.com/Xquik-dev/x-twitter-scraper)**: Official Xquik skill for X data workflows - tweet search, user lookup, follower export, media downloads, MCP, webhooks, OpenAPI, and SDK setup (MIT).
+- **[Modellix/modellix-plugin](https://github.com/Modellix/modellix-plugin)**: Official Modellix skill - authenticated, paid AI image and video generation through the Modellix CLI (MIT).
+- **[cohesivity-org/cohesivity-skill](https://github.com/cohesivity-org/cohesivity-skill)**: Official Cohesivity skill - agent provisioned backend infrastructure covering Postgres, hosting, auth, realtime, storage, cron, email, and AI model APIs over one HTTP API (MIT).
+- **[ASI2030/Fact-Check-X](https://github.com/ASI2030/Fact-Check-X)**: Source for the `fact-check-x-complete` workflow - claim-level AI answer comparison, citation-fidelity review, and public primary-source verification without bundled browser automation (Apache-2.0).
+- **[happy520ai/unified-ai-system](https://github.com/happy520ai/unified-ai-system)**: Official source for the `unified-ai-gateway` skill - nine governed Codex MCP tools for provider-free prompt enhancement, credential-free gateway health, readiness, fake-provider chat, knowledge, workflow, and workforce evidence (Apache-2.0).
 
 </details>
 
@@ -386,10 +494,23 @@ Key source families include:
 
 ### Community Contributors
 
+- **[riffkit/skill](https://github.com/riffkit/skill)**: Official upstream source for the `riffkit` skill - short-form video riffing and UGC ad generation in nine natively generated languages (MIT).
+- **[5dive-ai/skills](https://github.com/5dive-ai/skills)**: Source for the `compile-knowledge` skill - durable, atomic, interlinked knowledge stores with explicit hygiene, provenance, expiry, and secret-handling boundaries (MIT).
+- **[saudademjj/luopan](https://github.com/saudademjj/luopan)**: Source for the `travel-planner` skill - Chinese-first travel itinerary planning with mandatory budget confirmation, source-traceable facts, workload-aware daily pacing, and rule self-checks (MIT).
+- **[OJPalenzuela/agents-generator](https://github.com/OJPalenzuela/agents-generator)**: Source for the `agents-generator` skill - project-specific `AGENTS.md` and companion rule generation with package-manager detection, monorepo handling, dry-run/update modes, backups, and validated commands (MIT).
+- **[agentbody/skills](https://github.com/agentbody/skills)**: Source for the `people-data` skill - LinkedIn and YouTube professional-profile and public business-contact research via the Agent Body MCP server (MIT).
+- **[sudosubin/gh-attach](https://github.com/sudosubin/gh-attach)**: Source for the `gh-attach` skill - GitHub CLI uploads and downloads of `user-attachments` (screenshots, PDFs, zips, videos), producing repo-scoped URLs for PRs, issues, and READMEs, with GitHub Enterprise Server support (MIT).
+- **[abhinaykrupa/cowork-to-code-bridge](https://github.com/abhinaykrupa/cowork-to-code-bridge)**: Source for the `cowork-to-code-bridge` skill - consent-bound execution on the user's own machine with pinned provenance, narrow scopes, and explicit local-agent limitations (MIT).
+- **[maleksaadi0109/hyprfedora](https://github.com/maleksaadi0109/hyprfedora)**: Source for the `fedora-hyprland-installer` skill - GPU-aware Fedora Hyprland installation, configuration, verification, repair, and removal workflows (MIT).
+- **[merc1305/findMate](https://github.com/merc1305/findMate)**: Source for the `find-complementary-founders` skill - private-first own-owner assessment, approved expiring profiles, and evidence-backed human founder matching (MIT).
+- **[provencher/codex-skills](https://github.com/provencher/codex-skills)**: Source for the `orchestrate` skill - focused Codex multi-agent delegation with non-overlapping ownership, coordinator integration, and user-held approval gates (MIT).
+- **[Phelan164/codex-howto](https://github.com/Phelan164/codex-howto)**: Source for the `maintain-codex-wiki` skill - review-first engineering knowledge with provenance, explicit capture and promotion, and deterministic structural checks (MIT).
 - **[0xsarwagya/ontoly](https://github.com/0xsarwagya/ontoly)**: Source for the `ontoly-software-graph` skill - deterministic TypeScript software graphs, MCP-backed architecture review, request tracing, impact analysis, and dependency analysis (MIT).
 - [amElnagdy/guard-skills](https://github.com/amElnagdy/guard-skills) — Code Quality & Testing Guard Skills (by amElnagdy)
 
 - [cloudflare/security-audit-skill](https://github.com/cloudflare/security-audit-skill) — Cloudflare Web Security Audit Skill (by Cloudflare)
+
+- **[gooseworks-ai/goose-skills](https://github.com/gooseworks-ai/goose-skills)**: Source for the `competitor-ad-intelligence` and `ad-campaign-analyzer` skills - evidence-labeled public ad research plus uncertainty-aware campaign diagnostics and bounded budget tests (MIT).
 
 - **[supernovae-st/nika-agents](https://github.com/supernovae-st/nika-agents)**: Official upstream source for the `nika` skill and its deterministic, budget-aware AI workflow runner (MIT skill content; AGPL-3.0 engine).
 - **[atdy/maoxuan-product-agent](https://github.com/atdy/maoxuan-product-agent)**: Source for the `product-decision-agent` skill - Chinese-first product judgment across prioritization, growth, operations, data, delivery, and cross-functional collaboration, with 36 tested scenarios (MIT).
@@ -428,6 +549,7 @@ Key source families include:
 - **[JularDepick/user-thoughts.SKILL](https://github.com/JularDepick/user-thoughts.SKILL)**: Source for the `user-thoughts` skill - persistent project idea repository workflows for capturing decisions, tech stack notes, UI/UX rationale, and MDBASE-backed project memory (MIT).
 - **[TheaDust/lore](https://github.com/TheaDust/lore)**: Source for the `lore` skill - Markdown-only, zero-dependency long-term project memory for AI coding agents, with monorepo scopes, two-section platform mirrors, and stdlib Python helpers (MIT).
 - **[ZeroPointRepo/youtube-skills](https://github.com/ZeroPointRepo/youtube-skills)**: Source for the `youtube-full` skill - TranscriptAPI-backed YouTube transcripts, search, channel browsing, playlists, and cloud-safe video research workflows (MIT).
+- **[ZeroPointRepo/zillow-skills](https://github.com/ZeroPointRepo/zillow-skills)**: Source for the `us-property-data` skill - U.S. property lookup, valuation, listing, tax, school, photo, and price-history guidance through the independent Zillapi API (MIT-0).
 - **[Antheurus/anywrite](https://github.com/Antheurus/anywrite)**: Source for the `anywrite` skill - low-context CLI access to Anytype's local API for objects, properties, files, search, chat, and other workspace operations (MIT).
 - **[Antheurus/sshepherd](https://github.com/Antheurus/sshepherd)**: Source for the `sshepherd` skill - credential-isolated SSH operations, service control, logs, configuration changes, Postgres introspection, and declarative deploys through preconfigured aliases (MIT).
 - **[ejentum/ejentum-mcp](https://github.com/ejentum/ejentum-mcp)**: Source for the `ejentum-reasoning-harness` skill - MCP cognitive harness modes for reasoning, code review, anti-deception checks, and memory-drift analysis (MIT).
@@ -495,6 +617,7 @@ Key source families include:
 - **[webzler/agentMemory](https://github.com/webzler/agentMemory)**: Source for the agent-memory-mcp skill.
 - **[rafsilva85/credit-optimizer-v5](https://github.com/rafsilva85/credit-optimizer-v5)**: Manus AI credit optimizer skill — intelligent model routing, context compression, and smart testing. Saves 30-75% on credits with zero quality loss. Audited across 53 scenarios.
 - **[ndesv21/socialclaw](https://github.com/ndesv21/socialclaw)**: Source for the SocialClaw social media publishing skill - campaign scheduling and publishing across major social platforms with a single workspace API key.
+- **[talivia-group/agent](https://github.com/talivia-group/agent)**: Source for the `talivia-agent-kit` skill - revenue-first website analytics through the official MCP server, with explicit confirmation for tracking and payment attribution changes (MIT).
 - **[taisly/agent](https://github.com/taisly/agent)**: Source for the Taisly Social Media Posting skill - Codex plugin, CLI, SDK, and official MCP server for publishing approved short-form videos to TikTok, Instagram Reels, YouTube Shorts, X, and Facebook (MIT).
 - **[nickdesi/ZipAI](https://github.com/nickdesi/ZipAI)**: Source for the `zipai-optimizer` skill — ultra-dense prompt caching, semantic log pruning, AST-based code viewing, minified JSON payloads, and telegraphic output constraints for maximum token savings.
 - **[Wittlesus/cursorrules-pro](https://github.com/Wittlesus/cursorrules-pro)**: Professional .cursorrules configurations for 8 frameworks - Next.js, React, Python, Go, Rust, and more. Works with Cursor, Claude Code, and Windsurf.
@@ -566,6 +689,9 @@ Key source families include:
 - **[Ducksss/codex-profiles](https://github.com/Ducksss/codex-profiles)**: Source for the `codex-profiles` skill - Codex CLI/Desktop profile isolation around separate `CODEX_HOME` directories, diagnostics, and account-context boundaries without copying auth tokens (MIT).
 - **[kimtth/agent-pptify-kit](https://github.com/kimtth/agent-pptify-kit)**: Source for the `pptx-deck-creation` skill - editable, production-ready PowerPoint deck creation with narrative planning, explicit layouts, asset guidance, and quality checks (MIT).
 - **[Optim-Agent/optim-agent](https://github.com/Optim-Agent/optim-agent)**: Source for the `optim-agent` skill - agent-guided optimization of configurable systems against measurable objectives (MIT).
+- **[thecsdoctor/brendangregg-use-tsa-skill](https://github.com/thecsdoctor/brendangregg-use-tsa-skill)**: Source for the `brendangregg-use-tsa` skill - methodical performance troubleshooting and root-cause analysis with Brendan Gregg's USE and TSA methods, plus evidence-backed RCA and postmortem reporting (MIT).
+- **[AntonioCardenas/generate-nanobanana](https://github.com/AntonioCardenas/generate-nanobanana)**: Source for the `generate-nanobanana` skill - image and video generation via Google's Gemini media models (Nano Banana 2 Lite/Standard/Pro, Gemini Omni Flash) with cost-approval gates before paid runs, real reference-image support, and a prompt/seed log beside every output (MIT).
+- **[alfredtech2026/shopify-app-review-brief](https://github.com/alfredtech2026/shopify-app-review-brief)**: Source for the `shopify-review-triage` skill - public-data-only P0–P3 triage of low-star Shopify App Store reviews into a source-linked brief, with an explicit needs-human-read bucket and first-pass vs. human-checked labeling (MIT).
 
 </details>
 
@@ -583,6 +709,8 @@ Key source families include:
 
 </details>
 
+Catalog dashboard search, filters, shortlist, and discovery were originally contributed by [@zinzied](https://github.com/zinzied) in [#1111](https://github.com/sickn33/agentic-awesome-skills/pull/1111), then repaired and integrated through [#1118](https://github.com/sickn33/agentic-awesome-skills/pull/1118) under the repository's fork-safety policy.
+
 ## Repo Contributors
 
 <a href="https://github.com/sickn33/agentic-awesome-skills/graphs/contributors">
@@ -595,13 +723,7 @@ We officially thank the following contributors for their help in making this rep
 
 ## Star History
 
-<a href="https://www.star-history.com/?repos=sickn33%2Fagentic-awesome-skills&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=sickn33/agentic-awesome-skills&type=date&theme=dark&legend=top-left&sealed_token=5UEckOplDlF6KsKi881R_B44YTNBEFj0fRwovC_U0W2Um19HD9wLMQXclNblk6wFKgeGn0RzW0rGZkVCqzoKxaGB3IMaiN8tP8yqLRbhs6lf-kO3KeJWjftxgtV1zdrTVHjfEYfnevKZuYFww2_H2vC8IlXgfaTdNinFb3MD9CcMlu44hpLYu2iABkYy" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=sickn33/agentic-awesome-skills&type=date&legend=top-left&sealed_token=5UEckOplDlF6KsKi881R_B44YTNBEFj0fRwovC_U0W2Um19HD9wLMQXclNblk6wFKgeGn0RzW0rGZkVCqzoKxaGB3IMaiN8tP8yqLRbhs6lf-kO3KeJWjftxgtV1zdrTVHjfEYfnevKZuYFww2_H2vC8IlXgfaTdNinFb3MD9CcMlu44hpLYu2iABkYy" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=sickn33/agentic-awesome-skills&type=date&legend=top-left&sealed_token=5UEckOplDlF6KsKi881R_B44YTNBEFj0fRwovC_U0W2Um19HD9wLMQXclNblk6wFKgeGn0RzW0rGZkVCqzoKxaGB3IMaiN8tP8yqLRbhs6lf-kO3KeJWjftxgtV1zdrTVHjfEYfnevKZuYFww2_H2vC8IlXgfaTdNinFb3MD9CcMlu44hpLYu2iABkYy" />
- </picture>
-</a>
+[View the live Star History chart](https://www.star-history.com/?repos=sickn33%2Fagentic-awesome-skills&type=date&legend=top-left).
 
 If Agentic Awesome Skills has been useful, consider ⭐ starring the repo!
 

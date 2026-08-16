@@ -107,7 +107,7 @@ describe('SkillDetail', () => {
         expect(screen.getByText(/Related topic guides/i)).toBeInTheDocument();
         expect(screen.getByRole('link', { name: /Antigravity plugins/i })).toHaveAttribute(
           'href',
-          '/topics/antigravity-plugins',
+          '/topics/antigravity-plugins/',
         );
         expect(screen.getByTestId('markdown-content')).toHaveTextContent('This is the skill content.');
         expect(document.title).toContain('react-patterns');
@@ -268,7 +268,7 @@ describe('SkillDetail', () => {
       expect(navigator.clipboard.writeText).toHaveBeenCalledWith('Use @click-test');
     });
 
-    it('should send the exact skill to the Workbench', async () => {
+    it('should link to Core artifact review without promising composition', async () => {
       const mockSkill = createMockSkill({ id: 'click-install', name: 'click-install' });
 
       (useSkills as Mock).mockReturnValue({
@@ -289,12 +289,12 @@ describe('SkillDetail', () => {
       });
 
       await waitFor(() => {
-        expect(screen.getByRole('link', { name: /Compose exact install/i })).toBeInTheDocument();
+        expect(screen.getByRole('link', { name: /Review Core artifacts/i })).toBeInTheDocument();
       });
 
-      expect(screen.getByRole('link', { name: /Compose exact install/i })).toHaveAttribute(
+      expect(screen.getByRole('link', { name: /Review Core artifacts/i })).toHaveAttribute(
         'href',
-        '/workbench?selected=click-install&host=codex',
+        '/workbench/',
       );
     });
   });
@@ -325,6 +325,85 @@ describe('SkillDetail', () => {
         expect(starBtn).toBeInTheDocument();
         expect(starBtn).toHaveAttribute('data-community-count', '10');
       });
+    });
+  });
+
+  describe('Similar skills recommendations', () => {
+    it('suggests skills that share a category or tags, excluding the current skill', async () => {
+      const current = createMockSkill({
+        id: 'react-patterns',
+        name: 'react-patterns',
+        category: 'frontend',
+        tags: ['react', 'ui'],
+      });
+      const similar = createMockSkill({
+        id: 'react-hooks',
+        name: 'react-hooks',
+        category: 'frontend',
+        tags: ['react'],
+      });
+      const unrelated = createMockSkill({
+        id: 'terraform',
+        name: 'terraform',
+        category: 'infra',
+        tags: ['iac'],
+      });
+
+      (useSkills as Mock).mockReturnValue({
+        skills: [current, similar, unrelated],
+        stars: {},
+        loading: false,
+      });
+
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        text: async () => '# content',
+      });
+
+      renderWithRouter(<SkillDetail />, {
+        route: '/skill/react-patterns',
+        path: '/skill/:id',
+        useProvider: false,
+      });
+
+      await waitFor(() => {
+        expect(screen.getByText(/Similar skills to consider/i)).toBeInTheDocument();
+      });
+
+      expect(screen.getByText('@react-hooks')).toBeInTheDocument();
+      expect(screen.queryByText('@terraform')).not.toBeInTheDocument();
+    });
+
+    it('does not render recommendations when no other skill shares category or tags', async () => {
+      const current = createMockSkill({
+        id: 'solo-skill',
+        name: 'solo-skill',
+        category: 'frontend',
+        tags: ['react'],
+      });
+
+      (useSkills as Mock).mockReturnValue({
+        skills: [current],
+        stars: {},
+        loading: false,
+      });
+
+      global.fetch = vi.fn().mockResolvedValue({
+        ok: true,
+        text: async () => '# Solo content',
+      });
+
+      renderWithRouter(<SkillDetail />, {
+        route: '/skill/solo-skill',
+        path: '/skill/:id',
+        useProvider: false,
+      });
+
+      await waitFor(() => {
+        expect(screen.getByText('@solo-skill')).toBeInTheDocument();
+      });
+
+      expect(screen.queryByText(/Similar skills to consider/i)).not.toBeInTheDocument();
     });
   });
 });

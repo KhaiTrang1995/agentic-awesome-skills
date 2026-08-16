@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-15T17:16:56.000Z",
+  "generatedAt": "2026-08-16T10:07:40.000Z",
   "aliases": {
     "20-andruia-intelligence": "20-andruia-niche-intelligence",
     "accessibility-compliance-audit": "accessibility-compliance-accessibility-audit",
@@ -14,6 +14,7 @@
     "quinn": "agent-squad/quinn",
     "rex": "agent-squad/rex",
     "android-jetpack-expert": "android-jetpack-compose-expert",
+    "antigravity-maintainer-release": "antigravity-maintainer-batch-release",
     "api-testing-mock": "api-testing-observability-api-mock",
     "apify-brand-monitoring": "apify-brand-reputation-monitoring",
     "templates": "app-builder/templates",
@@ -138,6 +139,7 @@
     "full-stack-feature": "full-stack-orchestration-full-stack-feature",
     "2d-games": "game-development/2d-games",
     "3d-games": "game-development/3d-games",
+    "engine-selection": "game-development/engine-selection",
     "game-art": "game-development/game-art",
     "game-audio": "game-development/game-audio",
     "game-design": "game-development/game-design",
@@ -147,6 +149,7 @@
     "vr-ar": "game-development/vr-ar",
     "web-games": "game-development/web-games",
     "git-pr-workflow": "git-pr-workflows-git-workflow",
+    "hf-cloud-discovery": "hf-cloud-aws-context-discovery",
     "hugging-face-evals": "hugging-face-community-evals",
     "hugging-face-publisher": "hugging-face-paper-publisher",
     "huggingface-lora-builder": "huggingface-lora-space-builder",
