@@ -251,6 +251,17 @@ assert.doesNotMatch(
   "PR and push CI must not depend on mutable upstream network clones",
 );
 assert.match(ciWorkflow, /^permissions:\n  contents: read$/m);
+const mainValidationJobStart = ciWorkflow.indexOf("  main-validation-and-sync:");
+assert.ok(mainValidationJobStart >= 0, "main-validation-and-sync job must exist");
+const mainValidationJob = ciWorkflow.slice(mainValidationJobStart);
+const mainSyncIndex = mainValidationJob.indexOf("- name: Run repo-state sync");
+const mainReferenceValidationIndex = mainValidationJob.indexOf("- name: Validate references");
+assert.ok(
+  mainSyncIndex >= 0 &&
+    mainReferenceValidationIndex >= 0 &&
+    mainSyncIndex < mainReferenceValidationIndex,
+  "main canonical sync must regenerate source-derived bundle data before validating cross-references",
+);
 assert.match(
   ciWorkflow,
   /source-validation:[\s\S]*?- name: Refresh ephemeral derived sources for tests\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR != 'true'\n\s+run: npm run plugin-compat:sync && npm run index && npm run bundles:sync && npm run sync:metadata && npm run catalog && npm run build:aas-v1-catalog && npm run sync:web-assets\n[\s\S]*?- name: Run tests\n\s+if: env\.IS_TRUSTED_CANONICAL_SYNC_PR != 'true'\n\s+run: npm run test/,
@@ -289,6 +300,14 @@ assert.match(
 const sourceValidationJob = ciWorkflow.match(/^  source-validation:\n([\s\S]*?)(?=^  pr-evidence:)/m)?.[0] || "";
 assert.match(sourceValidationJob, /needs: pr-policy/, "source validation should not wait for independent PR evidence");
 assert.doesNotMatch(sourceValidationJob, /needs:.*pr-evidence/);
+const sourceRefreshIndex = sourceValidationJob.indexOf("- name: Refresh ephemeral derived sources for tests");
+const sourceReferenceValidationIndex = sourceValidationJob.indexOf("- name: Validate references");
+assert.ok(
+  sourceRefreshIndex >= 0 &&
+    sourceReferenceValidationIndex >= 0 &&
+    sourceRefreshIndex < sourceReferenceValidationIndex,
+  "source validation must refresh source-derived bundle data before validating cross-references",
+);
 assert.match(
   sourceValidationJob,
   /actions\/checkout@[0-9a-f]{40}[\s\S]*?ref: \$\{\{ github\.event\.pull_request\.head\.sha \}\}/,
@@ -345,6 +364,11 @@ assert.match(skillReviewWorkflow, /result=manual/);
 assert.match(skillReviewWorkflow, /needs\.review-state\.outputs\.configured != 'true'/);
 assert.match(skillReviewWorkflow, /ref: \$\{\{ github\.event\.pull_request\.base\.sha \}\}/);
 assert.match(skillReviewWorkflow, /review_changed_skills\.cjs --plan/);
+assert.match(
+  skillReviewWorkflow,
+  /timeout --signal=TERM --kill-after=30s 10m node trusted-base\/tools\/scripts\/review_changed_skills\.cjs/,
+  "Tessl review must time out into the exact-head manual-review path instead of blocking indefinitely",
+);
 assert.match(skillReviewWorkflow, /actions\/cache\/restore@[0-9a-f]{40}/);
 assert.match(skillReviewWorkflow, /actions\/cache\/save@[0-9a-f]{40}/);
 assert.match(skillReviewWorkflow, /tessl-review-v2-\$\{\{ steps\.plan\.outputs\.fingerprint \}\}/);

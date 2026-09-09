@@ -3,8 +3,10 @@ import {
   WORKBENCH_MAX_IMPORT_BYTES,
   WORKBENCH_MAX_JSON_DEPTH,
   WorkbenchImportError,
+  type WorkbenchPairPlan,
   parseWorkbenchArtifact,
   readWorkbenchFile,
+  reviewWorkbenchPair,
 } from '../workbenchReview';
 
 const D = `sha256-${'a'.repeat(64)}`;
@@ -27,6 +29,41 @@ function validStack(): Record<string, unknown> {
 }
 
 describe('workbenchReview', () => {
+  it('compares manifest digest, catalog, desired skills, and target across a stack-plan pair', async () => {
+    const stack = parseWorkbenchArtifact(JSON.stringify(validStack()), 'stack');
+    expect(stack.kind).toBe('stack');
+    if (stack.kind !== 'stack') throw new Error('expected stack');
+    const stackDigest = `sha256-${'b'.repeat(64)}`;
+    const matchingPlan: WorkbenchPairPlan = {
+      payload: {
+        manifestDigest: stackDigest,
+        catalog: stack.value.catalog,
+        desiredSkills: ['react-best-practices'],
+        target: { host: 'codex', scope: 'project' },
+        profile: stack.value.profile,
+      },
+    };
+
+    expect(reviewWorkbenchPair(stack.value, matchingPlan, stackDigest)).toEqual({
+      status: 'consistent',
+      checks: [
+        { id: 'manifestDigest', label: 'Manifest digest', status: 'match' },
+        { id: 'catalog', label: 'Catalog identity', status: 'match' },
+        { id: 'skills', label: 'Selected skills', status: 'match' },
+        { id: 'target', label: 'Plan target', status: 'match' },
+        { id: 'profile', label: 'Project profile', status: 'match' },
+      ],
+    });
+
+    const mismatchedPlan = structuredClone(matchingPlan);
+    mismatchedPlan.payload.desiredSkills = ['other-skill'];
+    mismatchedPlan.payload.target = { host: 'claude', scope: 'user' };
+    mismatchedPlan.payload.profile = { ...stack.value.profile, goals: ['different goal'] };
+    const mismatch = reviewWorkbenchPair(stack.value, mismatchedPlan, stackDigest);
+    expect(mismatch.status).toBe('inconsistent');
+    expect(mismatch.checks.filter((check) => check.status === 'mismatch').map((check) => check.id)).toEqual(['skills', 'target', 'profile']);
+  });
+
   it('accepts the public stack shape and rejects duplicate skill IDs', () => {
     expect(parseWorkbenchArtifact(JSON.stringify(validStack()), 'stack').kind).toBe('stack');
     const withoutProjectType = validStack();
@@ -40,6 +77,19 @@ describe('workbenchReview', () => {
     const stack = validStack();
     stack.skills = [{ id: 'same' }, { id: 'same' }];
     expect(() => parseWorkbenchArtifact(JSON.stringify(stack), 'stack')).toThrow('duplicate IDs');
+  });
+
+  it('rejects duplicate JSON properties before their overwritten values disappear', () => {
+    const input = JSON.stringify(validStack());
+    for (const ambiguous of [
+      input.replace('"schemaVersion":2', '"schemaVersion":1,"schemaVersion":2'),
+      input.replace('"version":"15.0.0"', '"version":"1.0.0","version":"15.0.0"'),
+      input.replace('"version":"15.0.0"', String.raw`"ver\u0073ion":"1.0.0","version":"15.0.0"`),
+    ]) expect(() => parseWorkbenchArtifact(ambiguous, 'stack')).toThrow('duplicate JSON property');
+    const stack = validStack();
+    (stack.profile as Record<string, unknown>).goals = ['braces {}, colon : and comma , in strings', 'escaped "quote"'];
+    stack.targets = [{ host: 'codex', scope: 'project' }, { host: 'claude', scope: 'user' }];
+    expect(parseWorkbenchArtifact(JSON.stringify(stack), 'stack').kind).toBe('stack');
   });
 
   it('rejects the retired v1 policy shape', () => {

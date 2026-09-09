@@ -41,6 +41,25 @@ assert.deepStrictEqual(capturedNpmCall.options, {
   stdio: ["ignore", "pipe", "pipe"],
 });
 
+assert.deepStrictEqual(
+  installer.resolveNpmInvocation(["view", "example"], {
+    platform: "win32",
+    env: { npm_execpath: String.raw`C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js` },
+    execPath: String.raw`C:\Program Files\nodejs\node.exe`,
+  }),
+  {
+    command: String.raw`C:\Program Files\nodejs\node.exe`,
+    args: [String.raw`C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js`, "view", "example"],
+  },
+  "Windows should execute npm's JavaScript entry point with Node instead of spawning npm.cmd",
+);
+
+assert.deepStrictEqual(
+  installer.resolveNpmInvocation(["view", "example"], { platform: "win32", env: {}, execPath: "node.exe" }),
+  { command: "npm.cmd", args: ["view", "example"] },
+  "Windows should retain the legacy command fallback outside an npm-managed process",
+);
+
 assert.doesNotThrow(
   () => installer.assertClonedReleaseIdentity(publishedHead, publishedHead, "v15.12.0"),
   "the installer should accept a clone that matches the npm release identity",
@@ -62,6 +81,26 @@ assert.throws(
   () => installer.resolvePublishedGitHead("15.12.0", () => npmResult({ stdout: "{}\n" })),
   /gitHead is missing or invalid/i,
   "a release without a valid gitHead must fail closed",
+);
+
+assert.strictEqual(
+  installer.resolvePublishedGitHead("15.12.0", () => npmResult({ stdout: `[\n  "${publishedHead}"\n]\n` })),
+  publishedHead,
+  "npm >= 12 wraps single-field --json output in an array and must still resolve",
+);
+
+assert.throws(
+  () => installer.resolvePublishedGitHead("15.12.0", () => npmResult({ stdout: "[]\n" })),
+  /gitHead is missing or invalid/i,
+  "an empty array response must fail closed",
+);
+
+assert.throws(
+  () => installer.resolvePublishedGitHead("15.12.0", () => npmResult({
+    stdout: `["${publishedHead}", "${movedTagHead}"]\n`,
+  })),
+  /gitHead is missing or invalid/i,
+  "an ambiguous multi-entry response must fail closed",
 );
 
 assert.strictEqual(installer.resolveInstallVersion({}), require("../../../package.json").version);

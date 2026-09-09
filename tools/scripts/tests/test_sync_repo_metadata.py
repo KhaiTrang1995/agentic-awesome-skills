@@ -174,13 +174,15 @@ The 1,273+ reusable `SKILL.md` playbooks, specialized plugins, bundles, workflow
 
     def test_build_about_description_uses_live_skill_count(self):
         description = sync_repo_metadata.build_about_description(
-            {
-                "total_skills_label": "1,304+",
-            }
+            {"total_skills_label": "1,304+"}
         )
         self.assertIn("AAS Core is the local, agent-first control plane", description)
         self.assertIn("1,304+ agentic skills", description)
         self.assertIn("local MCP", description)
+        self.assertLessEqual(len(description), 350)
+        self.assertNotIn("token", description.lower())
+        self.assertNotIn("fees", description.lower())
+        self.assertNotIn("3PoVcc3rDcp5HC3C92Sx6WguMDqGzpK6RtbF9tR8pump", description)
 
     def test_core_release_capability_is_major_based_and_fail_closed(self):
         self.assertEqual(
