@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-09-08T17:12:44.000Z",
-  "total": 2115,
+  "generatedAt": "2026-09-16T16:59:38.000Z",
+  "total": 2124,
   "skills": [
     {
       "id": "00-andruia-consultant",
@@ -1811,6 +1811,43 @@
         "sessions"
       ],
       "path": "skills/agenttrace-session-audit/SKILL.md"
+    },
+    {
+      "id": "agy-auto",
+      "canonical_id": "agy-auto",
+      "name": "agy-auto",
+      "description": "Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layered policy controls instead of --dangerously-skip-permissions.",
+      "category": "security",
+      "risk": "critical",
+      "source": "community",
+      "source_type": "community",
+      "source_repo": "onkarbadve/agy-auto",
+      "license": "MIT",
+      "license_source": "https://github.com/onkarbadve/agy-auto/blob/main/LICENSE",
+      "tags": [
+        "antigravity",
+        "agy",
+        "security",
+        "permissions",
+        "sandboxing",
+        "guardrails",
+        "cli"
+      ],
+      "triggers": [
+        "antigravity",
+        "agy",
+        "security",
+        "permissions",
+        "sandboxing",
+        "guardrails",
+        "cli",
+        "auto",
+        "configure",
+        "pretooluse",
+        "gate",
+        "run"
+      ],
+      "path": "skills/agy-auto/SKILL.md"
     },
     {
       "id": "agy-delegate",
@@ -13110,6 +13147,39 @@
       "path": "skills/clickup-automation/SKILL.md"
     },
     {
+      "id": "client-secret-exposure-audit",
+      "canonical_id": "client-secret-exposure-audit",
+      "name": "client-secret-exposure-audit",
+      "description": "Audit a deployed web app for secrets exposed to the browser: hardcoded API keys/tokens in JS, secrets in HTML meta/attributes/comments, publicly reachable source/config/deploy files, and header/CORS misconfig.",
+      "category": "security",
+      "risk": "safe",
+      "source": "self",
+      "source_type": "self",
+      "tags": [
+        "security",
+        "secrets",
+        "owasp",
+        "reconnaissance",
+        "web",
+        "headers"
+      ],
+      "triggers": [
+        "security",
+        "secrets",
+        "owasp",
+        "reconnaissance",
+        "web",
+        "headers",
+        "client",
+        "secret",
+        "exposure",
+        "audit",
+        "deployed",
+        "app"
+      ],
+      "path": "skills/client-secret-exposure-audit/SKILL.md"
+    },
+    {
       "id": "cline-delegate",
       "canonical_id": "cline-delegate",
       "name": "cline-delegate",
@@ -17809,6 +17879,44 @@
         "domain"
       ],
       "path": "skills/ddd-tactical-patterns/SKILL.md"
+    },
+    {
+      "id": "de-ai-writer",
+      "canonical_id": "de-ai-writer",
+      "name": "de-ai-writer",
+      "description": "Chinese AI-smell removal engine: 35 Chinese AI-tell patterns (赋能/闭环), AI-smell scoring, de-AI rewriting, style clone. Use when a Chinese draft reads machine-written or the user asks 去AI味.",
+      "category": "content-writing",
+      "risk": "safe",
+      "source": "community",
+      "source_type": "community",
+      "source_repo": "jiawood2006/hermes-skills",
+      "license": "MIT",
+      "license_source": "https://github.com/jiawood2006/hermes-skills/blob/main/LICENSE",
+      "tags": [
+        "chinese",
+        "writing",
+        "editing",
+        "humanize",
+        "de-ai",
+        "copywriting",
+        "style-clone",
+        "ai-detection"
+      ],
+      "triggers": [
+        "chinese",
+        "writing",
+        "editing",
+        "humanize",
+        "de-ai",
+        "copywriting",
+        "style-clone",
+        "ai-detection",
+        "de",
+        "ai",
+        "writer",
+        "smell"
+      ],
+      "path": "skills/de-ai-writer/SKILL.md"
     },
     {
       "id": "debate-review",
@@ -27709,6 +27817,40 @@
       "path": "skills/gitops-workflow/SKILL.md"
     },
     {
+      "id": "glasser",
+      "canonical_id": "glasser",
+      "name": "glasser",
+      "description": "Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable integration.",
+      "category": "data",
+      "risk": "critical",
+      "source": "self",
+      "source_type": "self",
+      "tags": [
+        "api",
+        "data",
+        "search",
+        "enrichment",
+        "marketing",
+        "research",
+        "cli"
+      ],
+      "triggers": [
+        "api",
+        "data",
+        "search",
+        "enrichment",
+        "marketing",
+        "research",
+        "cli",
+        "glasser",
+        "inspect",
+        "run",
+        "third",
+        "party"
+      ],
+      "path": "skills/glasser/SKILL.md"
+    },
+    {
       "id": "global-chat-agent-discovery",
       "canonical_id": "global-chat-agent-discovery",
       "name": "global-chat-agent-discovery",
@@ -36065,6 +36207,38 @@
       "path": "skills/marketing-psychology/SKILL.md"
     },
     {
+      "id": "marketplace-rbac-audit",
+      "canonical_id": "marketplace-rbac-audit",
+      "name": "marketplace-rbac-audit",
+      "description": "Audit multi-role marketplace authorization across roles, resource ownership, tenant boundaries, and order-state transitions; use when access rules need evidence, not UI assumptions.",
+      "category": "security",
+      "risk": "safe",
+      "source": "self",
+      "source_type": "self",
+      "tags": [
+        "marketplace",
+        "rbac",
+        "authorization",
+        "access-control",
+        "security"
+      ],
+      "triggers": [
+        "marketplace",
+        "rbac",
+        "authorization",
+        "access-control",
+        "security",
+        "audit",
+        "multi",
+        "role",
+        "roles",
+        "resource",
+        "ownership",
+        "tenant"
+      ],
+      "path": "skills/marketplace-rbac-audit/SKILL.md"
+    },
+    {
       "id": "markstream-angular",
       "canonical_id": "markstream-angular",
       "name": "markstream-angular",
@@ -36671,6 +36845,42 @@
         "servers"
       ],
       "path": "skills/mcp-tool-developer/SKILL.md"
+    },
+    {
+      "id": "md2video-audio",
+      "canonical_id": "md2video-audio",
+      "name": "md2video-audio",
+      "description": "Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narration.",
+      "category": "media",
+      "risk": "safe",
+      "source": "community",
+      "source_type": "community",
+      "source_repo": "70v-Yoyo/md2video-audio-skill",
+      "license": "Apache-2.0",
+      "license_source": "https://github.com/70v-Yoyo/md2video-audio-skill/blob/main/LICENSE",
+      "tags": [
+        "markdown",
+        "video",
+        "audio",
+        "text-to-speech",
+        "marp",
+        "presentation"
+      ],
+      "triggers": [
+        "markdown",
+        "video",
+        "audio",
+        "text-to-speech",
+        "marp",
+        "presentation",
+        "md2video",
+        "convert",
+        "documents",
+        "narrated",
+        "mp4",
+        "videos"
+      ],
+      "path": "skills/md2video-audio/SKILL.md"
     },
     {
       "id": "mdpr-skill",
@@ -44243,6 +44453,38 @@
       "path": "skills/production-code-audit/SKILL.md"
     },
     {
+      "id": "production-runtime-certification",
+      "canonical_id": "production-runtime-certification",
+      "name": "production-runtime-certification",
+      "description": "Certify a deployed service with fresh evidence across source, CI, migrations, runtime health, readiness, and critical routes; use before declaring a release production-ready.",
+      "category": "devops",
+      "risk": "safe",
+      "source": "self",
+      "source_type": "self",
+      "tags": [
+        "production",
+        "deployment",
+        "verification",
+        "reliability",
+        "devops"
+      ],
+      "triggers": [
+        "production",
+        "deployment",
+        "verification",
+        "reliability",
+        "devops",
+        "runtime",
+        "certification",
+        "certify",
+        "deployed",
+        "fresh",
+        "evidence",
+        "source"
+      ],
+      "path": "skills/production-runtime-certification/SKILL.md"
+    },
+    {
       "id": "production-scheduling",
       "canonical_id": "production-scheduling",
       "name": "production-scheduling",
@@ -49219,7 +49461,7 @@
       "id": "seo-aeo-blog-writer",
       "canonical_id": "seo-aeo-blog-writer",
       "name": "seo-aeo-blog-writer",
-      "description": "Writes long-form blog posts with TL;DR block, definition sentence, comparison table, and 5-question FAQ for SEO ranking and AEO citation. Activate when the user wants to write a blog post, article, or long-form content piece.",
+      "description": "Writes search-intent-led long-form articles with answer-first structure, FAQ coverage, internal links, and conversion paths for SEO and AEO.",
       "category": "content",
       "risk": "safe",
       "source": "community",
@@ -49235,13 +49477,13 @@
         "blog",
         "writer",
         "writes",
+        "search",
+        "intent",
+        "led",
         "long",
         "form",
-        "posts",
-        "tl",
-        "dr",
-        "block",
-        "definition"
+        "articles",
+        "answer"
       ],
       "path": "skills/seo-aeo-blog-writer/SKILL.md"
     },
@@ -49249,7 +49491,7 @@
       "id": "seo-aeo-content-cluster",
       "canonical_id": "seo-aeo-content-cluster",
       "name": "seo-aeo-content-cluster",
-      "description": "Builds a topical authority map with a pillar page, prioritised cluster articles, content types, internal link map, and content gap analysis. Activate when the user wants to build a content cluster, topic map, or content strategy.",
+      "description": "Builds a topical authority map from business goals, search intent, existing content, and gaps, then prioritises foundational and supporting pages.",
       "category": "content",
       "risk": "safe",
       "source": "community",
@@ -49267,11 +49509,11 @@
         "topical",
         "authority",
         "map",
-        "pillar",
-        "page",
-        "prioritised",
-        "articles",
-        "types"
+        "business",
+        "goals",
+        "search",
+        "intent",
+        "existing"
       ],
       "path": "skills/seo-aeo-content-cluster/SKILL.md"
     },
@@ -49279,7 +49521,7 @@
       "id": "seo-aeo-content-quality-auditor",
       "canonical_id": "seo-aeo-content-quality-auditor",
       "name": "seo-aeo-content-quality-auditor",
-      "description": "Audits content for SEO and AEO performance with scored reports, severity-ranked fix lists, and projected scores after fixes. Activate when the user wants to audit, review, or score content for SEO or AEO compliance.",
+      "description": "Audits a website, codebase, page, or content set for technical SEO, search intent, AEO, conversion paths, and publishing readiness, then produces prioritised fixes that can be implemented and verified.",
       "category": "content",
       "risk": "safe",
       "source": "community",
@@ -49297,12 +49539,12 @@
         "quality",
         "auditor",
         "audits",
-        "performance",
-        "scored",
-        "reports",
-        "severity",
-        "ranked",
-        "fix"
+        "website",
+        "codebase",
+        "page",
+        "set",
+        "technical",
+        "search"
       ],
       "path": "skills/seo-aeo-content-quality-auditor/SKILL.md"
     },
@@ -49310,7 +49552,7 @@
       "id": "seo-aeo-internal-linking",
       "canonical_id": "seo-aeo-internal-linking",
       "name": "seo-aeo-internal-linking",
-      "description": "Maps internal link opportunities between pages with anchor text, placement instructions, orphan page detection, and cannibalization checks. Activate when the user wants to build an internal linking strategy or find link opportunities.",
+      "description": "Maps internal link opportunities between pages with relevant anchor text, placement instructions, orphan-page detection, and cannibalisation checks.",
       "category": "uncategorized",
       "risk": "safe",
       "source": "community",
@@ -49330,9 +49572,9 @@
         "opportunities",
         "between",
         "pages",
+        "relevant",
         "anchor",
-        "text",
-        "placement"
+        "text"
       ],
       "path": "skills/seo-aeo-internal-linking/SKILL.md"
     },
@@ -49340,7 +49582,7 @@
       "id": "seo-aeo-keyword-research",
       "canonical_id": "seo-aeo-keyword-research",
       "name": "seo-aeo-keyword-research",
-      "description": "Researches and prioritises SEO keywords with AEO question queries, difficulty tiers, cannibalization checks, and a content map. Activate when the user wants to find keywords, research search terms, or build a keyword strategy.",
+      "description": "Researches and prioritises keywords from the site context and live search intent, including problem queries, question queries, difficulty tiers, and a content map.",
       "category": "content",
       "risk": "safe",
       "source": "community",
@@ -49358,11 +49600,11 @@
         "researches",
         "prioritises",
         "keywords",
-        "question",
-        "queries",
-        "difficulty",
-        "tiers",
-        "cannibalization"
+        "site",
+        "context",
+        "live",
+        "search",
+        "intent"
       ],
       "path": "skills/seo-aeo-keyword-research/SKILL.md"
     },
@@ -49370,7 +49612,7 @@
       "id": "seo-aeo-landing-page-writer",
       "canonical_id": "seo-aeo-landing-page-writer",
       "name": "seo-aeo-landing-page-writer",
-      "description": "Writes complete, structured landing pages optimized for SEO ranking, AEO citation, and visitor conversion. Activate when the user wants to write or generate a landing page for a product, service, or offer.",
+      "description": "Writes or improves conversion-focused landing pages for products, services, and offers with practical SEO and AEO structure.",
       "category": "uncategorized",
       "risk": "safe",
       "source": "community",
@@ -49388,12 +49630,12 @@
         "page",
         "writer",
         "writes",
-        "complete",
-        "structured",
+        "improves",
+        "conversion",
         "pages",
-        "optimized",
-        "ranking",
-        "citation"
+        "products",
+        "offers",
+        "practical"
       ],
       "path": "skills/seo-aeo-landing-page-writer/SKILL.md"
     },
@@ -49401,7 +49643,7 @@
       "id": "seo-aeo-meta-description-generator",
       "canonical_id": "seo-aeo-meta-description-generator",
       "name": "seo-aeo-meta-description-generator",
-      "description": "Writes 3 title tag variants and 3 meta description variants per page with SERP preview, OG tags, and Twitter Card tags. Activate when the user wants to write meta tags, title tags, or social sharing tags for any page.",
+      "description": "Writes title tags, meta descriptions, Open Graph tags, and Twitter Card tags aligned to page intent and conversion goals.",
       "category": "uncategorized",
       "risk": "safe",
       "source": "community",
@@ -49420,19 +49662,49 @@
         "generator",
         "writes",
         "title",
-        "tag",
-        "variants",
-        "per",
-        "page",
-        "serp"
+        "tags",
+        "descriptions",
+        "open",
+        "graph",
+        "twitter"
       ],
       "path": "skills/seo-aeo-meta-description-generator/SKILL.md"
+    },
+    {
+      "id": "seo-aeo-orchestrator",
+      "canonical_id": "seo-aeo-orchestrator",
+      "name": "seo-aeo-orchestrator",
+      "description": "Runs an audit-first SEO/AEO growth workflow from project discovery through implementation, foundational content, measurement setup, deployment verification, and optional weekly monitoring.",
+      "category": "uncategorized",
+      "risk": "critical",
+      "source": "self",
+      "source_type": "self",
+      "tags": [
+        "seo",
+        "aeo",
+        "orchestrator"
+      ],
+      "triggers": [
+        "seo",
+        "aeo",
+        "orchestrator",
+        "runs",
+        "audit",
+        "first",
+        "growth",
+        "discovery",
+        "through",
+        "foundational",
+        "content",
+        "measurement"
+      ],
+      "path": "skills/seo-aeo-orchestrator/SKILL.md"
     },
     {
       "id": "seo-aeo-schema-generator",
       "canonical_id": "seo-aeo-schema-generator",
       "name": "seo-aeo-schema-generator",
-      "description": "Generates valid JSON-LD structured data for 10 schema types with rich result eligibility validation and implementation-ready script blocks. Activate when the user wants to generate schema markup, JSON-LD, or structured data for any page.",
+      "description": "Generates and validates implementation-ready JSON-LD structured data for relevant page types and rich-result eligibility.",
       "category": "uncategorized",
       "risk": "safe",
       "source": "community",
@@ -49448,13 +49720,13 @@
         "schema",
         "generator",
         "generates",
-        "valid",
+        "validates",
         "json",
         "ld",
         "structured",
         "data",
-        "10",
-        "types"
+        "relevant",
+        "page"
       ],
       "path": "skills/seo-aeo-schema-generator/SKILL.md"
     },
@@ -61482,6 +61754,42 @@
         "clean"
       ],
       "path": "skills/youtube-transcript/SKILL.md"
+    },
+    {
+      "id": "youtube-transcript-skills",
+      "canonical_id": "youtube-transcript-skills",
+      "name": "youtube-transcript-skills",
+      "description": "Fetch YouTube video transcripts, search videos/channels, browse channels, and extract playlists via the getyoutubetranscript.com API - free tier, no card required.",
+      "category": "api-integration",
+      "risk": "safe",
+      "source": "community",
+      "source_type": "community",
+      "source_repo": "tubeagentkit/youtube-transcript-skills",
+      "license": "MIT",
+      "license_source": "https://github.com/tubeagentkit/youtube-transcript-skills/blob/main/LICENSE",
+      "tags": [
+        "youtube",
+        "transcripts",
+        "video-search",
+        "channels",
+        "playlists",
+        "api"
+      ],
+      "triggers": [
+        "youtube",
+        "transcripts",
+        "video-search",
+        "channels",
+        "playlists",
+        "api",
+        "transcript",
+        "skills",
+        "fetch",
+        "video",
+        "search",
+        "videos"
+      ],
+      "path": "skills/youtube-transcript-skills/SKILL.md"
     },
     {
       "id": "zapier-make-patterns",

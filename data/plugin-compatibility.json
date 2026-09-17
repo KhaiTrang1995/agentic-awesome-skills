@@ -1195,6 +1195,31 @@
       "runtime_files": []
     },
     {
+      "id": "agy-auto",
+      "path": "skills/agy-auto",
+      "targets": {
+        "codex": "blocked",
+        "claude": "blocked"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [
+        "target_specific_home_path"
+      ],
+      "blocked_reasons": {
+        "codex": [
+          "target_specific_home_path"
+        ],
+        "claude": [
+          "target_specific_home_path"
+        ]
+      },
+      "runtime_files": []
+    },
+    {
       "id": "agy-delegate",
       "path": "skills/agy-delegate",
       "targets": {
@@ -8651,6 +8676,25 @@
       "runtime_files": []
     },
     {
+      "id": "client-secret-exposure-audit",
+      "path": "skills/client-secret-exposure-audit",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "cline-delegate",
       "path": "skills/cline-delegate",
       "targets": {
@@ -11725,6 +11769,25 @@
     {
       "id": "ddd-tactical-patterns",
       "path": "skills/ddd-tactical-patterns",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "de-ai-writer",
+      "path": "skills/de-ai-writer",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -18278,6 +18341,25 @@
       "runtime_files": []
     },
     {
+      "id": "glasser",
+      "path": "skills/glasser",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "global-chat-agent-discovery",
       "path": "skills/global-chat-agent-discovery",
       "targets": {
@@ -23741,6 +23823,25 @@
       "runtime_files": []
     },
     {
+      "id": "marketplace-rbac-audit",
+      "path": "skills/marketplace-rbac-audit",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "markstream-angular",
       "path": "skills/markstream-angular",
       "targets": {
@@ -24066,6 +24167,25 @@
     {
       "id": "mcp-tool-developer",
       "path": "skills/mcp-tool-developer",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "md2video-audio",
+      "path": "skills/md2video-audio",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -29058,6 +29178,25 @@
       "runtime_files": []
     },
     {
+      "id": "production-runtime-certification",
+      "path": "skills/production-runtime-certification",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "production-scheduling",
       "path": "skills/production-scheduling",
       "targets": {
@@ -32438,6 +32577,25 @@
     {
       "id": "seo-aeo-meta-description-generator",
       "path": "skills/seo-aeo-meta-description-generator",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "seo-aeo-orchestrator",
+      "path": "skills/seo-aeo-orchestrator",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -40474,6 +40632,25 @@
       "runtime_files": []
     },
     {
+      "id": "youtube-transcript-skills",
+      "path": "skills/youtube-transcript-skills",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "zapier-make-patterns",
       "path": "skills/zapier-make-patterns",
       "targets": {
@@ -40646,14 +40823,14 @@
     }
   ],
   "summary": {
-    "total_skills": 2115,
+    "total_skills": 2124,
     "supported": {
-      "codex": 2035,
-      "claude": 2057
+      "codex": 2043,
+      "claude": 2065
     },
     "blocked": {
-      "codex": 80,
-      "claude": 58
+      "codex": 81,
+      "claude": 59
     },
     "manual_setup": 20
   }

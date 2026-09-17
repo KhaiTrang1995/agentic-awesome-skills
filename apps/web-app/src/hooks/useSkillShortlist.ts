@@ -21,22 +21,25 @@ function readShortlist(): string[] {
   }
 }
 
-function writeShortlist(ids: string[]): void {
+function writeShortlist(ids: string[]): boolean {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(ids));
     window.dispatchEvent(new Event(CHANGE_EVENT));
+    return true;
   } catch {
     // Local storage can be unavailable in private or restricted browsing contexts.
+    return false;
   }
 }
 
 /** A browser-local working set for comparing and exporting exact skill IDs. */
 export function useSkillShortlist() {
   const [ids, setIds] = useState<string[]>(readShortlist);
-  // Snapshot of the last value we persisted. Guards the persistence effect so
+  // Snapshot of the last value confirmed in browser storage. Guards the persistence effect so
   // it never echoes a change back that its own change/storage listeners caused
-  // (which would make two hooks ping-pong and re-render forever).
-  const persistedRef = useRef<string | null>(null);
+  // (which would make two hooks ping-pong and re-render forever), and lets us
+  // restore the UI when a browser rejects a write.
+  const persistedRef = useRef<string[]>(ids);
 
   useEffect(() => {
     const sync = () => setIds(readShortlist());
@@ -53,12 +56,24 @@ export function useSkillShortlist() {
   // double-invokes updaters in dev, and a side effect there would fire twice.
   useEffect(() => {
     const next = JSON.stringify(ids);
-    if (next === persistedRef.current) return;
-    persistedRef.current = next;
+    const persisted = JSON.stringify(persistedRef.current);
+    if (next === persisted) return;
     // Only actually write when the stored value differs, so storage-synced
     // updates don't get re-broadcast (or dispatch a spurious change event).
     const stored = readStoredValue();
-    if (stored !== undefined && stored !== next) writeShortlist(ids);
+    if (stored === next) {
+      persistedRef.current = ids;
+      return;
+    }
+    if (stored !== undefined && writeShortlist(ids)) {
+      persistedRef.current = ids;
+      return;
+    }
+
+    // Keep the UI honest when persistence is unavailable or fails. The
+    // shortlist is described as browser-saved, so don't display a transient
+    // selection that will disappear on reload.
+    setIds(persistedRef.current);
   }, [ids]);
 
   const toggle = useCallback((skillId: string) => {

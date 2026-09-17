@@ -1,8 +1,8 @@
 # Skill Catalog
 
-Generated at: 2026-09-08T17:12:44.000Z
+Generated at: 2026-09-16T16:59:38.000Z
 
-Total skills: 2115
+Total skills: 2124
 
 ## agent-behavior (5)
 
@@ -249,7 +249,7 @@ Total skills: 2115
 | `10-andruia-skill-smith` | Ingeniero de Sistemas de Andru.ia. Diseña, redacta y despliega nuevas habilidades (skills) dentro del repositorio siguiendo el Estándar de Diamante. | safe | personal | 10, andruia, skill, smith | 10, andruia, skill, smith, ingeniero, de, sistemas, andru, ia, dise, redacta, despliega |
 | `20-andruia-niche-intelligence` | Estratega de Inteligencia de Dominio de Andru.ia. Analiza el nicho específico de un proyecto para inyectar conocimientos, regulaciones y estándares únicos de... | safe | personal | 20, andruia, niche, intelligence | 20, andruia, niche, intelligence, estratega, de, inteligencia, dominio, andru, ia, analiza, el |
 
-## api-integration (30)
+## api-integration (31)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
@@ -283,6 +283,7 @@ Total skills: 2115
 | `us-property-data` | Use when a task needs real U.S. residential property data: valuation, listings, price or tax history, schools, or a zillow.com URL. | safe | ZeroPointRepo/zillow-skills | property-data, real-estate, api, zillow | property-data, real-estate, api, zillow, us, property, data, task, real, residential, valuation, listings |
 | `whatsapp-automation` | Automate WhatsApp Business tasks via Rube MCP (Composio): send messages, manage templates, upload media, and handle contacts. Always search tools first for c... | critical | community | whatsapp | whatsapp, automation, automate, business, tasks, via, rube, mcp, composio, send, messages, upload |
 | `youtube-full` | Fetch YouTube transcripts, search videos, browse channels, and extract playlists via TranscriptAPI — no yt-dlp, no Google API key, works from any cloud server. | safe | ZeroPointRepo/youtube-skills | youtube, transcripts, video-search, channels, playlists, api, transcriptapi | youtube, transcripts, video-search, channels, playlists, api, transcriptapi, full, fetch, search, videos, browse |
+| `youtube-transcript-skills` | Fetch YouTube video transcripts, search videos/channels, browse channels, and extract playlists via the getyoutubetranscript.com API - free tier, no card req... | safe | tubeagentkit/youtube-transcript-skills | youtube, transcripts, video-search, channels, playlists, api | youtube, transcripts, video-search, channels, playlists, api, transcript, skills, fetch, video, search, videos |
 
 ## app-builder (4)
 
@@ -785,10 +786,10 @@ Total skills: 2115
 | `scientific-writing` | This is the core skill for the deep research and writing tool—combining AI-driven deep research with well-formatted written outputs. Every document produced ... | critical | community | scientific, writing | scientific, writing, core, skill, deep, research, combining, ai, driven, well, formatted, written |
 | `search-specialist` | Expert web researcher using advanced search techniques and | critical | community | search | search, web, researcher, techniques |
 | `seo` | Run a broad SEO audit across technical SEO, on-page SEO, schema, sitemaps, content quality, AI search readiness, and GEO. Use as the umbrella skill when the ... | critical | https://github.com/AgriciDaniel/claude-seo | seo | seo, run, broad, audit, technical, page, schema, sitemaps, content, quality, ai, search |
-| `seo-aeo-blog-writer` | Writes long-form blog posts with TL;DR block, definition sentence, comparison table, and 5-question FAQ for SEO ranking and AEO citation. Activate when the u... | safe | community | seo, aeo, blog, writer | seo, aeo, blog, writer, writes, long, form, posts, tl, dr, block, definition |
-| `seo-aeo-content-cluster` | Builds a topical authority map with a pillar page, prioritised cluster articles, content types, internal link map, and content gap analysis. Activate when th... | safe | community | seo, aeo, content, cluster | seo, aeo, content, cluster, topical, authority, map, pillar, page, prioritised, articles, types |
-| `seo-aeo-content-quality-auditor` | Audits content for SEO and AEO performance with scored reports, severity-ranked fix lists, and projected scores after fixes. Activate when the user wants to ... | safe | community | seo, aeo, content, quality, auditor | seo, aeo, content, quality, auditor, audits, performance, scored, reports, severity, ranked, fix |
-| `seo-aeo-keyword-research` | Researches and prioritises SEO keywords with AEO question queries, difficulty tiers, cannibalization checks, and a content map. Activate when the user wants ... | safe | community | seo, aeo, keyword, research | seo, aeo, keyword, research, researches, prioritises, keywords, question, queries, difficulty, tiers, cannibalization |
+| `seo-aeo-blog-writer` | Writes search-intent-led long-form articles with answer-first structure, FAQ coverage, internal links, and conversion paths for SEO and AEO. | safe | community | seo, aeo, blog, writer | seo, aeo, blog, writer, writes, search, intent, led, long, form, articles, answer |
+| `seo-aeo-content-cluster` | Builds a topical authority map from business goals, search intent, existing content, and gaps, then prioritises foundational and supporting pages. | safe | community | seo, aeo, content, cluster | seo, aeo, content, cluster, topical, authority, map, business, goals, search, intent, existing |
+| `seo-aeo-content-quality-auditor` | Audits a website, codebase, page, or content set for technical SEO, search intent, AEO, conversion paths, and publishing readiness, then produces prioritised... | safe | community | seo, aeo, content, quality, auditor | seo, aeo, content, quality, auditor, audits, website, codebase, page, set, technical, search |
+| `seo-aeo-keyword-research` | Researches and prioritises keywords from the site context and live search intent, including problem queries, question queries, difficulty tiers, and a conten... | safe | community | seo, aeo, keyword, research | seo, aeo, keyword, research, researches, prioritises, keywords, site, context, live, search, intent |
 | `seo-audit` | Diagnose and audit SEO issues affecting crawlability, indexation, rankings, and organic performance. | safe | community | seo, audit | seo, audit, diagnose, issues, affecting, crawlability, indexation, rankings, organic, performance |
 | `seo-authority-builder` | Analyzes content for E-E-A-T signals and suggests improvements to build authority and trust. Identifies missing credibility elements. Use PROACTIVELY for YMY... | none | community | seo, authority, builder | seo, authority, builder, analyzes, content, signals, suggests, improvements, trust, identifies, missing, credibility |
 | `seo-cannibalization-detector` | Analyzes multiple provided pages to identify keyword overlap and potential cannibalization issues. Suggests differentiation strategies. Use PROACTIVELY when ... | safe | community | seo, cannibalization, detector | seo, cannibalization, detector, analyzes, multiple, provided, pages, identify, keyword, overlap, potential, issues |
@@ -818,6 +819,12 @@ Total skills: 2115
 | `youtube-seo-optimizer` | Generate complete YouTube & podcast SEO packages with live-researched keywords — titles, descriptions, tags, hashtags, chapters, and audit fixes. Use for new... | safe | community | youtube, seo, optimizer | youtube, seo, optimizer, generate, complete, podcast, packages, live, researched, keywords, titles, descriptions |
 | `youtube-summarizer` | Extract transcripts from YouTube videos and generate comprehensive, detailed summaries using intelligent analysis frameworks | safe | community | video, summarization, transcription, youtube, content-analysis | video, summarization, transcription, youtube, content-analysis, summarizer, extract, transcripts, videos, generate, detailed, summaries |
 
+## content-writing (1)
+
+| Skill | Description | Risk | Source | Tags | Triggers |
+| --- | --- | --- | --- | --- | --- |
+| `de-ai-writer` | Chinese AI-smell removal engine: 35 Chinese AI-tell patterns (赋能/闭环), AI-smell scoring, de-AI rewriting, style clone. Use when a Chinese draft reads machine-... | safe | jiawood2006/hermes-skills | chinese, writing, editing, humanize, de-ai, copywriting, style-clone, ai-detection | chinese, writing, editing, humanize, de-ai, copywriting, style-clone, ai-detection, de, ai, writer, smell |
+
 ## context-optimization (1)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
@@ -838,7 +845,7 @@ Total skills: 2115
 | `liuguang-banlan-ui` | Builds two parameterized UI modes—流光溢彩白 (iridescent white) and 五彩斑斓黑 (colorful black)—with OKLCH, WebGL/CSS fallback, vision gating, screenshot QA, and total... | critical | self | ui, frontend, oklch, webgl, accessibility | ui, frontend, oklch, webgl, accessibility, liuguang, banlan, two, parameterized, modes, iridescent, white |
 | `modellix` | Integrate the Modellix API/CLI for async AI image, video, and speech generation or transcription (model run --wait, task download). | critical | Modellix/modellix-plugin | image-generation, video-generation, audio-generation, text-to-speech, speech-to-text, speech-to-speech, modellix, cli, api | image-generation, video-generation, audio-generation, text-to-speech, speech-to-text, speech-to-speech, modellix, cli, api, integrate, async, ai |
 
-## data (24)
+## data (25)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
@@ -850,6 +857,7 @@ Total skills: 2115
 | `data-engineer` | Build scalable data pipelines, modern data warehouses, and real-time streaming architectures. Implements Apache Spark, dbt, Airflow, and cloud-native data pl... | critical | community | data | data, engineer, scalable, pipelines, warehouses, real, time, streaming, architectures, implements, apache, spark |
 | `dbt-transformation-patterns` | Production-ready patterns for dbt (data build tool) including model organization, testing strategies, documentation, and incremental processing. | none | community | dbt, transformation | dbt, transformation, data, including, model, organization, testing, documentation, incremental, processing |
 | `firecrawl-scraper` | Deep web scraping, screenshots, PDF parsing, and website crawling using Firecrawl API. Use when you need deep content extraction from web pages, page interac... | critical | community | firecrawl, scraper | firecrawl, scraper, deep, web, scraping, screenshots, pdf, parsing, website, crawling, api, content |
+| `glasser` | Search, inspect, and run third-party data APIs through one CLI when the environment has no suitable integration. | critical | self | api, data, search, enrichment, marketing, research, cli | api, data, search, enrichment, marketing, research, cli, glasser, inspect, run, third, party |
 | `mixpanel-automation` | Automate Mixpanel tasks via Rube MCP (Composio): events, segmentation, funnels, cohorts, user profiles, JQL queries. Always search tools first for current sc... | critical | community | mixpanel | mixpanel, automation, automate, tasks, via, rube, mcp, composio, events, segmentation, funnels, cohorts |
 | `monte-carlo-monitor-creation` | Guides creation of Monte Carlo monitors via MCP tools, producing monitors-as-code YAML for CI/CD deployment. | safe | monte-carlo-data/mc-agent-toolkit | data-observability, monitoring, monte-carlo, monitors-as-code | data-observability, monitoring, monte-carlo, monitors-as-code, monte, carlo, monitor, creation, guides, monitors, via, mcp |
 | `monte-carlo-prevent` | Surfaces Monte Carlo data observability context (table health, alerts, lineage, blast radius) before SQL/dbt edits. | safe | monte-carlo-data/mc-agent-toolkit | data-observability, dbt, schema, monte-carlo, lineage | data-observability, dbt, schema, monte-carlo, lineage, monte, carlo, prevent, surfaces, data, observability, context |
@@ -1239,7 +1247,7 @@ Total skills: 2115
 | `systematic-debugging` | Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes | critical | community | systematic, debugging | systematic, debugging, encountering, any, bug, test, failure, unexpected, behavior, before, proposing, fixes |
 | `test-fixing` | Systematically identify and fix all failing tests using smart grouping strategies. Use when explicitly asks to fix tests ("fix these tests", "make tests pass... | safe | community | fixing | fixing, test, systematically, identify, fix, all, failing, tests, smart, grouping, explicitly, asks |
 
-## devops (38)
+## devops (39)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
@@ -1273,6 +1281,7 @@ Total skills: 2115
 | `observability-and-instrumentation` | Instruments code so production behavior is visible and diagnosable. Use when adding logging, metrics, tracing, or alerting. Use when shipping any feature tha... | critical | addyosmani/agent-skills | observability, and, instrumentation | observability, and, instrumentation, instruments, code, so, behavior, visible, diagnosable, adding, logging, metrics |
 | `observability-monitoring-monitor-setup` | You are a monitoring and observability expert specializing in implementing comprehensive monitoring solutions. Set up metrics collection, distributed tracing... | critical | community | observability, monitoring, monitor, setup | observability, monitoring, monitor, setup, specializing, implementing, solutions, set, up, metrics, collection, distributed |
 | `observability-monitoring-slo-implement` | You are an SLO (Service Level Objective) expert specializing in implementing reliability standards and error budget-based engineering practices. Design compr... | critical | community | observability, monitoring, slo, implement | observability, monitoring, slo, implement, level, objective, specializing, implementing, reliability, standards, error, budget |
+| `production-runtime-certification` | Certify a deployed service with fresh evidence across source, CI, migrations, runtime health, readiness, and critical routes; use before declaring a release ... | safe | self | production, deployment, verification, reliability, devops | production, deployment, verification, reliability, devops, runtime, certification, certify, deployed, fresh, evidence, source |
 | `service-mesh-observability` | Complete guide to observability patterns for Istio, Linkerd, and service mesh deployments. | critical | community | service, mesh, observability | service, mesh, observability, complete, istio, linkerd, deployments |
 | `shipping-and-launch` | Prepares production launches. Use when preparing to deploy to production. Use when you need a pre-launch checklist, when setting up monitoring, when planning... | critical | addyosmani/agent-skills | shipping, and, launch | shipping, and, launch, prepares, launches, preparing, deploy, pre, checklist, setting, up, monitoring |
 | `sshepherd` | Zero-knowledge SSH ops CLI — server health checks, docker/systemd control, log tailing, Postgres introspection, and declarative deploys, without ever exposin... | critical | Antheurus/sshepherd | ssh, devops, cli, server-ops, postgres, deploy, zero-knowledge | ssh, devops, cli, server-ops, postgres, deploy, zero-knowledge, sshepherd, zero, knowledge, ops, server |
@@ -1597,13 +1606,14 @@ Total skills: 2115
 | `not-human-search-mcp` | Search AI-ready websites, inspect indexed site details, verify MCP endpoints, and discover tools and APIs using the Not Human Search MCP server | safe | https://nothumansearch.ai | mcp, search, ai-discovery, api-discovery, mcp-verification, agent-tools | mcp, search, ai-discovery, api-discovery, mcp-verification, agent-tools, human, ai, websites, inspect, indexed, site |
 | `parallel-search-mcp` | Search the public web and verify sources with Parallel's free Search MCP. Use when the user chooses Parallel or its connected tools for current information a... | safe | self | mcp, web-search, research, citations | mcp, web-search, research, citations, parallel, search, public, web, verify, sources, free, user |
 
-## media (10)
+## media (11)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
 | `atlas-cloud-media` | Generate Atlas Cloud images and videos through its asynchronous media API with schema-first model selection and credential-safe polling. | critical | self | atlas-cloud, image-generation, video-generation, media-api | atlas-cloud, image-generation, video-generation, media-api, atlas, cloud, media, generate, images, videos, through, asynchronous |
 | `generate-nanobanana` | Generate and edit images/video with Google's Gemini media models (Nano Banana 2/Pro, Gemini Omni Flash), with cost-approval gates, reference-image support, a... | critical | AntonioCardenas/generate-nanobanana | nanobanana, gemini, google-ai-studio, image-generation, video-generation | nanobanana, gemini, google-ai-studio, image-generation, video-generation, generate, edit, images, video, google, media, models |
 | `image-generator` | Generate and edit images using Gemini's Nano Banana Pro model (gemini-3-pro-image-preview). Use this skill when the user asks you to generate images, create ... | safe | dair-ai/dair-academy-plugins | dair-academy, ai, workflow | dair-academy, ai, workflow, image, generator, generate, edit, images, gemini, nano, banana, pro |
+| `md2video-audio` | Convert Markdown documents into narrated MP4 videos with synchronized visuals and voice narration. | safe | 70v-Yoyo/md2video-audio-skill | markdown, video, audio, text-to-speech, marp, presentation | markdown, video, audio, text-to-speech, marp, presentation, md2video, convert, documents, narrated, mp4, videos |
 | `muapi-media` | Generate images and videos with MuAPI's schema-driven asynchronous media API while protecting keys, polling, and output downloads. | critical | self | muapi, image-generation, video-generation, media-api | muapi, image-generation, video-generation, media-api, media, generate, images, videos, schema, driven, asynchronous, api |
 | `remotion` | Generate walkthrough videos from Stitch projects using Remotion with smooth transitions, zooming, and text overlays | critical | community | remotion | remotion, generate, walkthrough, videos, stitch, smooth, transitions, zooming, text, overlays |
 | `remotion-best-practices` | Best practices for Remotion - Video creation in React | safe | community | remotion, video, react, animation, composition | remotion, video, react, animation, composition, creation |
@@ -1930,12 +1940,13 @@ Total skills: 2115
 | `statsmodels` | Statsmodels is Python's premier library for statistical modeling, providing tools for estimation, inference, and diagnostics across a wide range of statistic... | safe | community | statsmodels | statsmodels, python, premier, library, statistical, modeling, providing, estimation, inference, diagnostics, wide, range |
 | `sympy` | SymPy is a Python library for symbolic mathematics that enables exact computation using mathematical symbols rather than numerical approximations. | safe | https://github.com/sympy/sympy | sympy | sympy, python, library, symbolic, mathematics, enables, exact, computation, mathematical, symbols, rather, than |
 
-## security (83)
+## security (86)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
 | `007` | Security audit, hardening, threat modeling (STRIDE/PASTA), Red/Blue Team, OWASP checks, code review, incident response, and infrastructure security for any p... | critical | community | security, audit, owasp, threat-modeling, hardening, pentest | security, audit, owasp, threat-modeling, hardening, pentest, 007, threat, modeling, stride, pasta, red |
 | `active-directory-attacks` | Provide comprehensive techniques for attacking Microsoft Active Directory environments. Covers reconnaissance, credential harvesting, Kerberos attacks, later... | offensive | community | active, directory, attacks | active, directory, attacks, provide, techniques, attacking, microsoft, environments, covers, reconnaissance, credential, harvesting |
+| `agy-auto` | Configure agy-auto PreToolUse security gate to run Antigravity CLI (agy) unattended with layered policy controls instead of --dangerously-skip-permissions. | critical | onkarbadve/agy-auto | antigravity, agy, security, permissions, sandboxing, guardrails, cli | antigravity, agy, security, permissions, sandboxing, guardrails, cli, auto, configure, pretooluse, gate, run |
 | `anti-reversing-techniques` | AUTHORIZED USE ONLY: This skill contains dual-use security techniques. Before proceeding with any bypass or analysis: > 1. | offensive | community | anti, reversing, techniques | anti, reversing, techniques, authorized, skill, contains, dual, security, before, proceeding, any, bypass |
 | `attack-tree-construction` | Build comprehensive attack trees to visualize threat paths. Use when mapping attack scenarios, identifying defense gaps, or communicating security risks to s... | offensive | community | attack, tree, construction | attack, tree, construction, trees, visualize, threat, paths, mapping, scenarios, identifying, defense, gaps |
 | `audit-skills` | Expert security auditor for AI Skills and Bundles. Performs non-intrusive static analysis to identify malicious patterns, data leaks, system stability risks,... | safe | community | security, audit, skills, bundles, cross-platform | security, audit, skills, bundles, cross-platform, auditor, ai, performs, non, intrusive, static, analysis |
@@ -1945,6 +1956,7 @@ Total skills: 2115
 | `bumblebee` | Run Bumblebee supply-chain inventory and exposure scans on macOS/Linux to detect compromised packages, extensions, and MCP host configs. | safe | mycelos-ai/bumblebee-skill | security, supply-chain, incident-response, npm, pypi, tooling | security, supply-chain, incident-response, npm, pypi, tooling, bumblebee, run, supply, chain, inventory, exposure |
 | `burp-suite-testing` | Execute comprehensive web application security testing using Burp Suite's integrated toolset, including HTTP traffic interception and modification, request a... | offensive | community | burp, suite | burp, suite, testing, execute, web, application, security, integrated, toolset, including, http, traffic |
 | `burpsuite-project-parser` | Searches and explores Burp Suite project files (.burp) from the command line. Use when searching response headers or bodies with regex patterns, extracting s... | critical | community | burpsuite, parser | burpsuite, parser, searches, explores, burp, suite, files, command, line, searching, response, headers |
+| `client-secret-exposure-audit` | Audit a deployed web app for secrets exposed to the browser: hardcoded API keys/tokens in JS, secrets in HTML meta/attributes/comments, publicly reachable so... | safe | self | security, secrets, owasp, reconnaissance, web, headers | security, secrets, owasp, reconnaissance, web, headers, client, secret, exposure, audit, deployed, app |
 | `constant-time-analysis` | Analyze cryptographic code to detect operations that leak secret data through execution timing variations. | critical | community | constant, time | constant, time, analysis, analyze, cryptographic, code, detect, operations, leak, secret, data, through |
 | `container-security-hardening` | Harden Docker/container images and runtime deployments with secure base images, non-root users, CVE scanning, SBOM/signing, seccomp/AppArmor, and Kubernetes ... | safe | community | container, security, hardening | container, security, hardening, harden, docker, images, runtime, deployments, secure, base, non, root |
 | `cred-omega` | CISO operacional enterprise para gestao total de credenciais e segredos. | critical | community | credentials, secrets, security, api-keys, vault | credentials, secrets, security, api-keys, vault, cred, omega, ciso, operacional, enterprise, para, gestao |
@@ -1967,6 +1979,7 @@ Total skills: 2115
 | `laravel-security-audit` | Security auditor for Laravel applications. Analyzes code for vulnerabilities, misconfigurations, and insecure practices using OWASP standards and Laravel sec... | safe | community | laravel, security, audit | laravel, security, audit, auditor, applications, analyzes, code, vulnerabilities, misconfigurations, insecure, owasp, standards |
 | `linux-privilege-escalation` | Execute systematic privilege escalation assessments on Linux systems to identify and exploit misconfigurations, vulnerable services, and security weaknesses ... | offensive | community | linux, privilege, escalation | linux, privilege, escalation, execute, systematic, assessments, identify, exploit, misconfigurations, vulnerable, security, weaknesses |
 | `malware-analyst` | Expert malware analyst specializing in defensive malware research, threat intelligence, and incident response. Masters sandbox analysis, behavioral analysis,... | critical | community | malware, analyst | malware, analyst, specializing, defensive, research, threat, intelligence, incident, response, masters, sandbox, analysis |
+| `marketplace-rbac-audit` | Audit multi-role marketplace authorization across roles, resource ownership, tenant boundaries, and order-state transitions; use when access rules need evide... | safe | self | marketplace, rbac, authorization, access-control, security | marketplace, rbac, authorization, access-control, security, audit, multi, role, roles, resource, ownership, tenant |
 | `memory-forensics` | Comprehensive techniques for acquiring, analyzing, and extracting artifacts from memory dumps for incident response and malware analysis. | critical | community | memory, forensics | memory, forensics, techniques, acquiring, analyzing, extracting, artifacts, dumps, incident, response, malware, analysis |
 | `metasploit-framework` | ⚠️ AUTHORIZED USE ONLY > This skill is for educational purposes or authorized security assessments only. > You must have explicit, written permission from th... | offensive | community | metasploit, framework | metasploit, framework, authorized, skill, educational, purposes, security, assessments, must, explicit, written, permission |
 | `mtls-configuration` | Configure mutual TLS (mTLS) for zero-trust service-to-service communication. Use when implementing zero-trust networking, certificate management, or securing... | critical | community | mtls, configuration | mtls, configuration, configure, mutual, tls, zero, trust, communication, implementing, networking, certificate, securing |
@@ -2131,7 +2144,7 @@ Total skills: 2115
 | --- | --- | --- | --- | --- | --- |
 | `travel-planner` | 旅行/行程规划需求时使用:规划去某地旅行、X天X城、带老人孩子、自驾、假期安排等。产出逐日行程表、预算估算(经济/舒适/奢华三档)、交通住宿建议、景点美食清单。必须先问预算,预算未确认只输出问题清单;事实数据带来源和查询日期。 | safe | saudademjj/luopan | travel, itinerary, planning, trip, chinese | travel, itinerary, planning, trip, chinese, planner |
 
-## uncategorized (332)
+## uncategorized (333)
 
 | Skill | Description | Risk | Source | Tags | Triggers |
 | --- | --- | --- | --- | --- | --- |
@@ -2386,10 +2399,11 @@ Total skills: 2115
 | `scarcity-urgency-psychologist` | One sentence - what this skill does and when to invoke it | safe | community | scarcity, urgency, psychologist | scarcity, urgency, psychologist, one, sentence, what, skill, does, invoke |
 | `screenstudio-alt` | Open-source headless Screen Studio alternative: auto speed-up of idle, auto-zoom on click clusters, keystroke overlay chips, smoothed synthetic cursor, and 9... | critical | connerkward/screenstudio-alternative-skill | screen-recording, video, post-production, auto-zoom, vertical-video, ffmpeg | screen-recording, video, post-production, auto-zoom, vertical-video, ffmpeg, screenstudio, alt, open, source, headless, screen |
 | `sdk-dx` | Design SDKs that developers love to use—APIs that feel native, error messages that guide, and experiences that reduce friction. This skill covers creating SD... | critical | jonathimer/devmarketing-skills | sdk, dx | sdk, dx, sdks, developers, love, apis, feel, native, error, messages, experiences, reduce |
-| `seo-aeo-internal-linking` | Maps internal link opportunities between pages with anchor text, placement instructions, orphan page detection, and cannibalization checks. Activate when the... | safe | community | seo, aeo, internal, linking | seo, aeo, internal, linking, maps, link, opportunities, between, pages, anchor, text, placement |
-| `seo-aeo-landing-page-writer` | Writes complete, structured landing pages optimized for SEO ranking, AEO citation, and visitor conversion. Activate when the user wants to write or generate ... | safe | community | seo, aeo, landing, page, writer | seo, aeo, landing, page, writer, writes, complete, structured, pages, optimized, ranking, citation |
-| `seo-aeo-meta-description-generator` | Writes 3 title tag variants and 3 meta description variants per page with SERP preview, OG tags, and Twitter Card tags. Activate when the user wants to write... | safe | community | seo, aeo, meta, description, generator | seo, aeo, meta, description, generator, writes, title, tag, variants, per, page, serp |
-| `seo-aeo-schema-generator` | Generates valid JSON-LD structured data for 10 schema types with rich result eligibility validation and implementation-ready script blocks. Activate when the... | safe | community | seo, aeo, schema, generator | seo, aeo, schema, generator, generates, valid, json, ld, structured, data, 10, types |
+| `seo-aeo-internal-linking` | Maps internal link opportunities between pages with relevant anchor text, placement instructions, orphan-page detection, and cannibalisation checks. | safe | community | seo, aeo, internal, linking | seo, aeo, internal, linking, maps, link, opportunities, between, pages, relevant, anchor, text |
+| `seo-aeo-landing-page-writer` | Writes or improves conversion-focused landing pages for products, services, and offers with practical SEO and AEO structure. | safe | community | seo, aeo, landing, page, writer | seo, aeo, landing, page, writer, writes, improves, conversion, pages, products, offers, practical |
+| `seo-aeo-meta-description-generator` | Writes title tags, meta descriptions, Open Graph tags, and Twitter Card tags aligned to page intent and conversion goals. | safe | community | seo, aeo, meta, description, generator | seo, aeo, meta, description, generator, writes, title, tags, descriptions, open, graph, twitter |
+| `seo-aeo-orchestrator` | Runs an audit-first SEO/AEO growth workflow from project discovery through implementation, foundational content, measurement setup, deployment verification, ... | critical | self | seo, aeo, orchestrator | seo, aeo, orchestrator, runs, audit, first, growth, discovery, through, foundational, content, measurement |
+| `seo-aeo-schema-generator` | Generates and validates implementation-ready JSON-LD structured data for relevant page types and rich-result eligibility. | safe | community | seo, aeo, schema, generator | seo, aeo, schema, generator, generates, validates, json, ld, structured, data, relevant, page |
 | `seo-competitor-pages` | Generate SEO-optimized competitor comparison and alternatives pages. Covers "X vs Y" layouts, "alternatives to X" pages, feature matrices, schema markup, and... | critical | https://github.com/AgriciDaniel/claude-seo | seo, competitor, pages | seo, competitor, pages, generate, optimized, comparison, alternatives, covers, vs, layouts, feature, matrices |
 | `seo-dataforseo` | Use DataForSEO for live SERPs, keyword metrics, backlinks, competitor analysis, on-page checks, and AI visibility data. Trigger when the user needs real SEO ... | critical | https://github.com/AgriciDaniel/claude-seo | seo, dataforseo | seo, dataforseo, live, serps, keyword, metrics, backlinks, competitor, analysis, page, checks, ai |
 | `seo-geo` | Optimize content for AI Overviews, ChatGPT, Perplexity, and other AI search systems. Use when improving GEO, AI citations, llms.txt readiness, crawler access... | critical | https://github.com/AgriciDaniel/claude-seo | seo, geo | seo, geo, optimize, content, ai, overviews, chatgpt, perplexity, other, search, improving, citations |

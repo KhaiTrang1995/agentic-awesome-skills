@@ -67,6 +67,18 @@ describe('useSkillShortlist', () => {
       expect(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')).toEqual(['react']);
     });
 
+    it('does not report a skill as shortlisted when persistence fails', () => {
+      const { result } = renderHook(() => useSkillShortlist());
+      vi.spyOn(localStorage, 'setItem').mockImplementationOnce(() => {
+        throw new DOMException('Storage quota exceeded', 'QuotaExceededError');
+      });
+
+      act(() => result.current.toggle('react'));
+
+      expect(result.current.ids).toEqual([]);
+      expect(JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]')).toEqual([]);
+    });
+
     it('stays referentially stable across renders (memo-friendly)', () => {
       const { result, rerender } = renderHook(() => useSkillShortlist());
       const toggle = result.current.toggle;

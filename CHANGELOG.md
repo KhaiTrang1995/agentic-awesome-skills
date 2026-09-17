@@ -7,15 +7,183 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [17.4.0] - 2026-09-16 - "YouTube Transcript Skill, SEO-AEO Audit-First Overhaul, and Catalog Persistence"
+
+> Adds one reviewed community skill, rewrites the SEO-AEO family around an audit-first evidence workflow, and hardens catalog persistence.
+
+A maintenance release for Claude Code, Cursor, Codex CLI and Gemini CLI.
+It adds one community skill and one new SEO-AEO skill reviewed through the
+protected maintainer workflow, rewrites the SEO-AEO skill family around an
+audit-first evidence workflow, and keeps the hosted catalog aligned with actual
+browser storage; the catalog contains 2,124 skills and existing installation
+interfaces remain supported.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@17.4.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- `youtube-transcript-skills`: fetch YouTube transcripts, search videos and
+  channels, browse channels, and extract playlists via the
+  getyoutubetranscript.com API.
+- `seo-aeo-orchestrator`: end-to-end SEO/AEO growth orchestrator that sequences
+  audit, keyword, content, internal-linking, schema, and meta outputs.
+
+### Changed
+
+- Rewrote ten `seo-aeo-*` skills around an audit-first, evidence-first growth
+  workflow with explicit anti-fabrication and "Not assessed" rules.
+
+### Fixed
+
+- Mark catalog skills as saved only after local persistence succeeds.
+- Keep the catalog shortlist aligned with the last confirmed browser write.
+- Ignore stale catalog refresh results in the web app.
+
+### Improved
+
+- Refreshed canonical indexes, catalogs, plugin mirrors, editorial bundles, and
+  web assets for the 2,124-skill release.
+- Allow catalog web-app browser source through the fork-safety intake.
+- Allow the pinned AAS agent-first preview workflow in fork-run approvals.
+- Official Atlas Cloud badge and sponsorship attribution in README/docs.
+
+### Validation scope
+
+The source PRs passed maintainer repair, exact-head review, repository
+validation, reference and documentation-security checks, protected CI, CodeQL,
+dependency review, package publication and release-only Pages verification.
+
+Thanks to @pushkarsingh32 (#1434), @jhuang-tt (#1446), @jhuang-tt (#1459),
+@ShaunLinTW (#1448), and @prewsh (#1460) for their contributions.
+
+## [17.2.0] - 2026-09-13 - "Three New Skills and Documentation Cleanup"
+
+> Adds three reviewed community skills and refreshes repository documentation
+> and distribution surfaces.
+
+A maintenance release for Claude Code, Cursor, Codex CLI and Gemini CLI.
+It adds three community skills reviewed through the protected maintainer workflow;
+the catalog contains 2,121 skills and existing installation interfaces remain
+supported.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@17.2.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- `glasser`: a workflow for working with the Glasser data API.
+- `production-runtime-certification`: a workflow for certifying production
+  runtimes with bounded evidence.
+- `marketplace-rbac-audit`: a workflow for auditing marketplace role-based
+  access control.
+
+### Improved
+
+- Refreshed canonical indexes, catalogs, plugin mirrors, editorial bundles, and
+  web assets for the 2,121-skill release.
+- Removed the Funding & transparency page and related README and documentation
+  links, and restored the software-only GitHub About metadata synchronization.
+
+### Validation scope
+
+The three source PRs passed maintainer repair, exact-head review, repository
+validation, reference and documentation-security checks, protected CI, CodeQL,
+dependency review, package publication and release-only Pages verification.
+
+Thanks to @adriansurething (#1429) and @mosinlshaikh (#1430, #1432)
+for their contributions.
+
+## [17.3.0] - 2026-09-15 - "Community Skill and Reference Cleanup"
+
+> Adds one reviewed community skill and cleans up a canonical skill reference.
+
+A maintenance release for Claude Code, Cursor, Codex CLI and Gemini CLI.
+It adds one community skill reviewed through the protected maintainer workflow
+and removes an internal flaw register from the `cv-generator` detailed guide;
+the catalog contains 2,122 skills and existing installation interfaces remain
+supported.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@17.3.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- `de-ai-writer`: a Chinese AI-smell removal engine with a 35-pattern catalog,
+  a deterministic AI-smell index, and a deletion-first edit procedure that
+  preserves every source fact.
+
+### Improved
+
+- Refreshed canonical indexes, catalogs, plugin mirrors, editorial bundles, and
+  web assets for the 2,122-skill release.
+- Removed the internal flaw register from the `cv-generator` detailed guide so
+  the reference describes current behavior only.
+
+### Validation scope
+
+The source PRs passed maintainer repair, exact-head review, repository
+validation, reference and documentation-security checks, protected CI, CodeQL,
+dependency review, package publication and release-only Pages verification.
+
+Thanks to @jiawood2006 (#1441) and @WHOISABHISHEKADHIKARI (#1442)
+for their contributions.
+
 ## [Unreleased]
 
-### Documentation
+## [17.1.0] - 2026-09-12 - "Community Skill Additions"
 
-- Publish [Funding & transparency](docs/users/funding-transparency.md), linked from
-  the README support section and documentation index, with the community-token
-  mint, maintainer fee receipt and trading non-endorsement.
-- Restore the software-only GitHub About template with its live skill count;
-  metadata synchronization does not insert the token or fee disclosure.
+> Adds three reviewed community skills and refreshes the AAS distribution surfaces.
+
+A maintenance release for Claude Code, Cursor, Codex CLI and Gemini CLI.
+It adds three community skills reviewed through the protected maintainer workflow;
+the catalog contains 2,118 skills and existing installation interfaces remain supported.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@17.1.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- `agy-auto`: guarded Antigravity CLI permission automation for scoped approvals
+  and safer Antigravity CLI workflows.
+- `client-secret-exposure-audit`: a read-only workflow for identifying and
+  remediating client-side secret exposure.
+- `md2video-audio`: a Markdown-to-narrated-video workflow with synchronized
+  slides and narration.
+
+### Improved
+
+- Refreshed canonical indexes, catalogs, plugin mirrors, editorial bundles, and
+  web assets for the 2,118-skill release.
+
+### Validation scope
+
+The three source PRs passed maintainer repair, exact-head review, repository
+validation, reference and documentation-security checks, protected CI, CodeQL,
+dependency review, package publication and release-only Pages verification.
+
+Thanks to @onkarbadve (#1423), @siddanta-ar1 (#1422), and @70v-Yoyo (#1425)
+for their contributions.
 
 ## [17.0.0] - 2026-09-08 - "Evidence, Portable Bundles, and Grounded Profiles"
 
