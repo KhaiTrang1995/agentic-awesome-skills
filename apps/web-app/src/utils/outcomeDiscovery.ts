@@ -83,27 +83,3 @@ export function evidenceSignals(skill: Skill): Array<{ label: string; value: str
     { label: 'Setup', value: skill.plugin?.setup.type === 'manual' ? skill.plugin.setup.summary || 'Manual setup required' : skill.plugin ? 'No extra setup declared' : 'Not recorded in catalog' },
   ];
 }
-
-/** Reject malformed optional fields too: shortlist comparison consumes these records. */
-export function isDiscoveryCatalog(value: unknown): value is Skill[] {
-  if (!Array.isArray(value) || !value.length || value.length > 10000) return false;
-  const seen = new Set<string>();
-  return value.every((skill: unknown) => {
-    if (!skill || typeof skill !== 'object' || Array.isArray(skill)) return false;
-    const row = skill as Record<string, unknown>;
-    if (!['id', 'name', 'description', 'category', 'path'].every((key) => typeof row[key] === 'string' && (row[key] as string).length <= 2000)) return false;
-    if (!/^[a-z0-9][a-z0-9._-]{0,199}$/.test(row.id as string) || seen.has(row.id as string)) return false;
-    seen.add(row.id as string);
-    for (const key of ['source', 'source_repo', 'license', 'license_source', 'date_added']) if (row[key] !== undefined && typeof row[key] !== 'string') return false;
-    if (row.risk !== undefined && !['none', 'safe', 'critical', 'offensive', 'unknown'].includes(String(row.risk))) return false;
-    if (row.tags !== undefined && (!Array.isArray(row.tags) || !row.tags.every((tag) => typeof tag === 'string'))) return false;
-    if (row.plugin !== undefined) {
-      const plugin = row.plugin as Skill['plugin'];
-      if (!plugin || typeof plugin !== 'object' || !plugin.targets || !plugin.setup ||
-        !['supported', 'blocked'].includes(plugin.targets.codex) || !['supported', 'blocked'].includes(plugin.targets.claude) ||
-        !['none', 'manual'].includes(plugin.setup.type) || typeof plugin.setup.summary !== 'string' ||
-        (plugin.setup.docs !== null && typeof plugin.setup.docs !== 'string') || !Array.isArray(plugin.reasons) || !plugin.reasons.every((reason) => typeof reason === 'string')) return false;
-    }
-    return true;
-  });
-}

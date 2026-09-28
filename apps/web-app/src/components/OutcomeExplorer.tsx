@@ -2,8 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import type { Skill } from '../types';
 import { useSkillShortlist } from '../hooks/useSkillShortlist';
-import { evidenceSignals, groupOutcomeMatches, isDiscoveryCatalog, OUTCOME_PRESETS, parseOutcomeGoal, rankForOutcome } from '../utils/outcomeDiscovery';
+import { evidenceSignals, groupOutcomeMatches, OUTCOME_PRESETS, parseOutcomeGoal, rankForOutcome } from '../utils/outcomeDiscovery';
 import { getSkillsIndexCandidateUrls } from '../utils/publicAssetUrls';
+import { isSkillsIndex } from '../utils/skillsIndex';
 import { ShortlistReview } from './ShortlistReview';
 
 interface Props { catalog?: Skill[]; onGoalChange?: (goal: string) => void }
@@ -36,7 +37,7 @@ function DiscoverySession({ catalog, onGoalChange }: Props): React.ReactElement 
             const text = await response.text();
             if (text.length > 15_000_000) continue;
             const parsed: unknown = JSON.parse(text);
-            if (isDiscoveryCatalog(parsed)) { found = parsed; break; }
+            if (isSkillsIndex(parsed)) { found = parsed; break; }
           } catch { if (controller.signal.aborted) return; }
         }
         if (!found) throw new Error('The catalog could not be loaded. Your imported artifacts have not changed.');
@@ -71,7 +72,7 @@ function DiscoverySession({ catalog, onGoalChange }: Props): React.ReactElement 
           <button type="button" aria-label={`${ids.includes(skill.id) ? 'Remove from shortlist' : 'Add to shortlist'} ${skill.name}`} aria-pressed={ids.includes(skill.id)} onClick={() => toggle(skill.id)}>{ids.includes(skill.id) ? 'Remove from shortlist' : 'Add to shortlist'}</button>
         </article>)}</div>
         {results.length > limit ? <button type="button" onClick={() => setLimit((current) => current + 12)}>Show more candidates</button> : null}
-        <p><Link to="/">Browse the complete catalog</Link> · All {skills.length.toLocaleString('en-US')} skills remain available regardless of metadata or this ranking.</p>
+        <p><Link to="/core">Browse the complete catalog</Link> · All {skills.length.toLocaleString('en-US')} skills remain available regardless of metadata or this ranking.</p>
         {!catalog ? <ShortlistReview suggestedGoal={query} skills={skills.filter((skill) => ids.includes(skill.id))} onRemove={toggle} onClear={clear} /> : null}
       </> : null}
     </div>;

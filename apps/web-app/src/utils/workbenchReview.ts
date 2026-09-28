@@ -168,6 +168,11 @@ function text(value: unknown, path: string, maxLength = 256): string {
   return value;
 }
 
+function nonEmptyText(value: unknown, path: string): string {
+  if (typeof value !== 'string' || value.length === 0) fail(`${path} must be a non-empty string.`);
+  return value;
+}
+
 function literal<T extends string | number>(value: unknown, expected: T, path: string): T {
   if (value !== expected) fail(`${path} must equal ${JSON.stringify(expected)}.`);
   return expected;
@@ -190,24 +195,39 @@ function id(value: unknown, path: string): string {
   return parsed;
 }
 
-function stringArray(value: unknown, path: string, options: { min?: number; max: number; ids?: boolean }): string[] {
+function stringArray(value: unknown, path: string, options: { min?: number; max: number; ids?: boolean; itemMaxLength?: number }): string[] {
   if (!Array.isArray(value) || value.length < (options.min ?? 0) || value.length > options.max) {
     fail(`${path} must contain ${options.min ?? 0} to ${options.max} items.`);
   }
-  const parsed = value.map((entry, index) => options.ids ? id(entry, `${path}[${index}]`) : text(entry, `${path}[${index}]`, 256));
+  const parsed = value.map((entry, index) => options.ids
+    ? id(entry, `${path}[${index}]`)
+    : text(entry, `${path}[${index}]`, options.itemMaxLength ?? 256));
   if (new Set(parsed).size !== parsed.length) fail(`${path} must not contain duplicates.`);
   return parsed;
 }
 
-function parseCatalog(value: unknown, path: string, runtime = false): CatalogIdentity & { closureDigest?: string } {
+type CatalogValidationMode = 'stack' | 'plan' | 'runtime';
+
+function parseCatalog(value: unknown, path: string, mode: CatalogValidationMode): CatalogIdentity & { closureDigest?: string } {
   const entry = record(value, path);
+  const runtime = mode === 'runtime';
   const keys = runtime ? ['package', 'version', 'integrity', 'closureDigest'] : ['package', 'version', 'integrity'];
   exactKeys(entry, keys, keys, path);
-  const packageName = text(entry.package, `${path}.package`, 214);
-  const version = text(entry.version, `${path}.version`, 64);
-  const integrity = runtime ? text(entry.integrity, `${path}.integrity`, 512) : digest(entry.integrity, `${path}.integrity`);
-  if (!PACKAGE_PATTERN.test(packageName)) fail(`${path}.package is not a valid package name.`);
-  if (!VERSION_PATTERN.test(version)) fail(`${path}.version is not a valid version.`);
+
+  // Stack manifests publish npm-style identity constraints. Plan catalog and
+  // runtime identities intentionally require only non-empty strings, so the
+  // reviewer must not narrow their separate schemas.
+  const packageName = mode === 'stack'
+    ? text(entry.package, `${path}.package`, 214)
+    : nonEmptyText(entry.package, `${path}.package`);
+  const version = mode === 'stack'
+    ? text(entry.version, `${path}.version`, 64)
+    : nonEmptyText(entry.version, `${path}.version`);
+  const integrity = runtime
+    ? text(entry.integrity, `${path}.integrity`, 512)
+    : digest(entry.integrity, `${path}.integrity`);
+  if (mode === 'stack' && !PACKAGE_PATTERN.test(packageName)) fail(`${path}.package is not a valid package name.`);
+  if (mode === 'stack' && !VERSION_PATTERN.test(version)) fail(`${path}.version is not a valid version.`);
   return runtime
     ? { package: packageName, version, integrity, closureDigest: digest(entry.closureDigest, `${path}.closureDigest`) }
     : { package: packageName, version, integrity };
@@ -231,11 +251,11 @@ function parseProfile(value: unknown, path: string): ProjectProfile {
   const required = ['goals', 'languages', 'frameworks', 'constraints'];
   exactKeys(entry, allowed, required, path);
   return {
-    goals: stringArray(entry.goals, `${path}.goals`, { max: 32 }),
-    ...(entry.projectType === undefined ? {} : { projectType: text(entry.projectType, `${path}.projectType`, 2048) }),
-    languages: stringArray(entry.languages, `${path}.languages`, { max: 32 }),
-    frameworks: stringArray(entry.frameworks, `${path}.frameworks`, { max: 32 }),
-    constraints: stringArray(entry.constraints, `${path}.constraints`, { max: 32 }),
+    goals: stringArray(entry.goals, `${path}.goals`, { min: 1, max: 32, itemMaxLength: 128 }),
+    ...(entry.projectType === undefined ? {} : { projectType: text(entry.projectType, `${path}.projectType`, 256) }),
+    languages: stringArray(entry.languages, `${path}.languages`, { max: 32, itemMaxLength: 128 }),
+    frameworks: stringArray(entry.frameworks, `${path}.frameworks`, { max: 32, itemMaxLength: 128 }),
+    constraints: stringArray(entry.constraints, `${path}.constraints`, { max: 32, itemMaxLength: 128 }),
   };
 }
 
@@ -244,9 +264,9 @@ function parseVersions(value: unknown, path: string): Versions {
   const keys = ['protocolVersion', 'coreVersion', 'catalogSchemaVersion'];
   exactKeys(entry, keys, keys, path);
   return {
-    protocolVersion: text(entry.protocolVersion, `${path}.protocolVersion`, 64),
-    coreVersion: text(entry.coreVersion, `${path}.coreVersion`, 64),
-    catalogSchemaVersion: text(entry.catalogSchemaVersion, `${path}.catalogSchemaVersion`, 64),
+    protocolVersion: nonEmptyText(entry.protocolVersion, `${path}.protocolVersion`),
+    coreVersion: nonEmptyText(entry.coreVersion, `${path}.coreVersion`),
+    catalogSchemaVersion: nonEmptyText(entry.catalogSchemaVersion, `${path}.catalogSchemaVersion`),
   };
 }
 
@@ -287,7 +307,7 @@ function parseStack(value: unknown): StackManifestReview {
   return {
     schemaVersion: literal(root.schemaVersion, 2, 'stack.schemaVersion'),
     name,
-    catalog: parseCatalog(root.catalog, 'stack.catalog') as CatalogIdentity,
+    catalog: parseCatalog(root.catalog, 'stack.catalog', 'stack') as CatalogIdentity,
     targets: targets as Target[],
     profile: parseProfile(root.profile, 'stack.profile'),
     skills,
@@ -360,8 +380,8 @@ function parsePlan(value: unknown): PlanReview {
       kind: literal(payload.kind, 'aas.stack-plan.payload', 'plan.payload.kind'),
       versions: parseVersions(payload.versions, 'plan.payload.versions'),
       manifestDigest: digest(payload.manifestDigest, 'plan.payload.manifestDigest'),
-      catalog: parseCatalog(payload.catalog, 'plan.payload.catalog') as CatalogIdentity,
-      runtime: parseCatalog(payload.runtime, 'plan.payload.runtime', true) as CatalogIdentity & { closureDigest: string },
+      catalog: parseCatalog(payload.catalog, 'plan.payload.catalog', 'plan') as CatalogIdentity,
+      runtime: parseCatalog(payload.runtime, 'plan.payload.runtime', 'runtime') as CatalogIdentity & { closureDigest: string },
       target: parseTarget(payload.target, 'plan.payload.target', true) as Target & { adapterVersion: string; identityDigest: string },
       installedState: {
         digest: digest(installedState.digest, 'plan.payload.installedState.digest'),

@@ -2,6 +2,7 @@ import React, { createContext, useContext, useState, useEffect, useCallback, use
 import type { Skill, StarMap } from '../types';
 import { supabase } from '../lib/supabase';
 import { getSkillsIndexCandidateUrls } from '../utils/publicAssetUrls';
+import { isSkillsIndex } from '../utils/skillsIndex';
 
 interface SkillContextType {
     skills: Skill[];
@@ -53,11 +54,11 @@ export function SkillProvider({ children }: { children: React.ReactNode }) {
                         throw new Error(`Non-JSON response from ${url} (${contentType})`);
                     }
 
-                    if (!Array.isArray(parsed) || parsed.length === 0) {
+                    if (!isSkillsIndex(parsed)) {
                         throw new Error(`Invalid or empty payload from ${url}`);
                     }
 
-                    data = parsed as Skill[];
+                    data = parsed;
                     break;
                 } catch (err) {
                     lastError = err instanceof Error ? err : new Error(String(err));

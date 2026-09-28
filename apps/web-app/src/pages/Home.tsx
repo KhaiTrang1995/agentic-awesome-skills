@@ -5,6 +5,7 @@ import { categoryFacet, matchCatalogSkill, searchMode, type SearchMode } from '.
 import { SkillCard } from '../components/SkillCard';
 import { ShortlistReview } from '../components/ShortlistReview';
 import OutcomeExplorer from '../components/OutcomeExplorer';
+import WorkflowExplorer from '../components/WorkflowExplorer';
 import { Icon } from '../components/ui/Icon';
 import { useSkills } from '../context/SkillContext';
 import { seoLandingPages } from '../data/seoLandingPages';
@@ -22,16 +23,21 @@ const conceptCards = [
 ] as const;
 
 const integrationGuides = [
-  { name: 'Claude Code', href: 'https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/claude-code-skills.md' },
-  { name: 'Cursor', href: 'https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/cursor-skills.md' },
-  { name: 'Codex CLI', href: 'https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/codex-cli-skills.md' },
-  { name: 'Gemini CLI', href: 'https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/users/gemini-cli-skills.md' },
+  { name: 'Claude Code', href: `${import.meta.env.BASE_URL}docs/claude-code-skills/` },
+  { name: 'Cursor', href: `${import.meta.env.BASE_URL}docs/cursor-skills/` },
+  { name: 'Codex CLI', href: `${import.meta.env.BASE_URL}docs/codex-cli-skills/` },
+  { name: 'Gemini CLI', href: `${import.meta.env.BASE_URL}docs/gemini-cli-skills/` },
   { name: 'Antigravity', href: 'https://github.com/sickn33/agentic-awesome-skills#choose-your-tool' },
 ] as const;
 
 const syncFeatureEnabled = (
   (import.meta as ImportMeta & { env: Record<string, string | undefined> }).env.VITE_ENABLE_SKILLS_SYNC === 'true'
 );
+
+const RISK_FILTERS = new Set(['all', 'safe', 'none', 'unknown', 'critical', 'offensive']);
+const SOURCE_FILTERS = new Set(['all', 'official', 'community', 'self']);
+const SCOPE_FILTERS = new Set(['all', 'shortlist']);
+const SORT_OPTIONS = new Set(['default', 'stars', 'newest', 'az']);
 
 function labelCategory(category: string): string {
   if (category === 'all') return 'All categories';
@@ -40,6 +46,16 @@ function labelCategory(category: string): string {
 
 function getInitialFilter(searchParams: URLSearchParams, key: string, fallback: string): string {
   return searchParams.get(key)?.trim() || fallback;
+}
+
+function getAllowedFilter(searchParams: URLSearchParams, key: string, allowed: ReadonlySet<string>, fallback: string): string {
+  const value = getInitialFilter(searchParams, key, fallback);
+  return allowed.has(value) ? value : fallback;
+}
+
+function getCategoryFilter(searchParams: URLSearchParams, categories: string[], hasCatalog: boolean): string {
+  const value = categoryFacet(getInitialFilter(searchParams, 'category', 'all'));
+  return !hasCatalog || value === 'all' || categories.includes(value) ? value : 'all';
 }
 
 /** Keep a ref pointing at the latest committed value without writing during render. */
@@ -62,16 +78,25 @@ const searchShortcutHint = isMacLike ? '⌘K' : 'Ctrl K';
 
 export function Home(): React.ReactElement {
   const { skills, stars, loading, error, refreshSkills } = useSkills();
+  const { categories, categoryStats } = useMemo(() => {
+    const stats: CategoryStats = Object.create(null);
+    skills.forEach((skill) => { const category = categoryFacet(skill.category); stats[category] = (stats[category] || 0) + 1; });
+    const ordered = Object.keys(stats)
+      .filter((category) => category !== 'uncategorized')
+      .sort((a, b) => stats[b] - stats[a]);
+    if (stats.uncategorized) ordered.push('uncategorized');
+    return { categories: ['all', ...ordered], categoryStats: stats };
+  }, [skills]);
   const [searchParams, setSearchParams] = useSearchParams();
   const [search, setSearch] = useState(() => getInitialFilter(searchParams, 'q', ''));
   const [debouncedSearch, setDebouncedSearch] = useState(() => getInitialFilter(searchParams, 'q', ''));
-  const [categoryFilter, setCategoryFilter] = useState(() => categoryFacet(getInitialFilter(searchParams, 'category', 'all')));
+  const [categoryFilter, setCategoryFilter] = useState(() => getCategoryFilter(searchParams, categories, skills.length > 0));
   const [matchMode, setMatchMode] = useState<SearchMode>(() => searchMode(searchParams.get('match')));
   const [requiredTerms, setRequiredTerms] = useState(() => getInitialFilter(searchParams, 'required', ''));
-  const [riskFilter, setRiskFilter] = useState(() => getInitialFilter(searchParams, 'risk', 'all'));
-  const [sourceFilter, setSourceFilter] = useState(() => getInitialFilter(searchParams, 'source', 'all'));
-  const [scopeFilter, setScopeFilter] = useState(() => getInitialFilter(searchParams, 'scope', 'all'));
-  const [sortBy, setSortBy] = useState(() => getInitialFilter(searchParams, 'sort', 'default'));
+  const [riskFilter, setRiskFilter] = useState(() => getAllowedFilter(searchParams, 'risk', RISK_FILTERS, 'all'));
+  const [sourceFilter, setSourceFilter] = useState(() => getAllowedFilter(searchParams, 'source', SOURCE_FILTERS, 'all'));
+  const [scopeFilter, setScopeFilter] = useState(() => getAllowedFilter(searchParams, 'scope', SCOPE_FILTERS, 'all'));
+  const [sortBy, setSortBy] = useState(() => getAllowedFilter(searchParams, 'sort', SORT_OPTIONS, 'default'));
   const [discoveryGoal, setDiscoveryGoal] = useState('');
   const [syncing, setSyncing] = useState(false);
   const [syncMsg, setSyncMsg] = useState<SyncMessage | null>(null);
@@ -140,14 +165,14 @@ export function Home(): React.ReactElement {
     const nextSearch = getInitialFilter(searchParams, 'q', '');
     setSearch(nextSearch);
     setDebouncedSearch(nextSearch); // avoid a 300ms unfiltered flash on load/nav
-    setCategoryFilter(categoryFacet(getInitialFilter(searchParams, 'category', 'all')));
+    setCategoryFilter(getCategoryFilter(searchParams, categories, skills.length > 0));
     setMatchMode(searchMode(searchParams.get('match')));
     setRequiredTerms(getInitialFilter(searchParams, 'required', ''));
-    setRiskFilter(getInitialFilter(searchParams, 'risk', 'all'));
-    setSourceFilter(getInitialFilter(searchParams, 'source', 'all'));
-    setScopeFilter(getInitialFilter(searchParams, 'scope', 'all'));
-    setSortBy(getInitialFilter(searchParams, 'sort', 'default'));
-  }, [searchParams]);
+    setRiskFilter(getAllowedFilter(searchParams, 'risk', RISK_FILTERS, 'all'));
+    setSourceFilter(getAllowedFilter(searchParams, 'source', SOURCE_FILTERS, 'all'));
+    setScopeFilter(getAllowedFilter(searchParams, 'scope', SCOPE_FILTERS, 'all'));
+    setSortBy(getAllowedFilter(searchParams, 'sort', SORT_OPTIONS, 'default'));
+  }, [categories, searchParams, skills.length]);
 
   const searchMatches = useMemo(() => new Map(skills.map((skill) => [skill.id, matchCatalogSkill(skill, debouncedSearch, matchMode, requiredTerms)])), [skills, debouncedSearch, matchMode, requiredTerms]);
 
@@ -163,16 +188,6 @@ export function Home(): React.ReactElement {
     if (sortBy === 'az') result.sort((a, b) => a.name.localeCompare(b.name));
     return result;
   }, [categoryFilter, searchMatches, riskFilter, scopeFilter, shortlistIds, skills, sortBy, sourceFilter, stars]);
-
-  const { categories, categoryStats } = useMemo(() => {
-    const stats: CategoryStats = Object.create(null);
-    skills.forEach((skill) => { const category = categoryFacet(skill.category); stats[category] = (stats[category] || 0) + 1; });
-    const ordered = Object.keys(stats)
-      .filter((category) => category !== 'uncategorized')
-      .sort((a, b) => stats[b] - stats[a]);
-    if (stats.uncategorized) ordered.push('uncategorized');
-    return { categories: ['all', ...ordered], categoryStats: stats };
-  }, [skills]);
 
   const catalogHealth = useMemo(() => {
     const latest = skills.reduce<string | null>((current, skill) => !current || (skill.date_added || '') > current ? skill.date_added || null : current, null);
@@ -341,6 +356,7 @@ export function Home(): React.ReactElement {
         </section>
 
         <OutcomeExplorer catalog={skills} onGoalChange={setDiscoveryGoal} />
+        <WorkflowExplorer catalog={skills} shortlistIds={shortlistIds} onToggleShortlist={toggleShortlist} />
         <ShortlistReview suggestedGoal={discoveryGoal} skills={shortlistSkills} onRemove={toggleShortlist} onClear={clearShortlist} />
 
         <section className="catalog-results" aria-labelledby="catalog-results-title">

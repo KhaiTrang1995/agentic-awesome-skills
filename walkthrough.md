@@ -1,3 +1,50 @@
+# Top skills contributors - 2026-09-27
+
+- Added a second Top Contributors ranking for canonical skills introduced, alongside the existing commit ranking.
+- Counted each current `skills/**/SKILL.md` once at its first introduction in repository history, resolved commit authors to GitHub accounts, and excluded the requested accounts.
+
+# README structure refresh - 2026-09-27
+
+- Shortened the README entry path while retaining the introduction video, dynamic skill count, sponsors, source credits, top contributors, repository contributors, and star history.
+- Preserved the existing installation anchors used by user guides and updated README metadata sync to keep the new release copy and examples current.
+- Verified heading hierarchy, table-of-contents anchors, repository documentation links, source-credit preservation, validation, docs security, consistency, and the full test suite.
+
+# README Top Contributors - 2026-09-27
+
+- Added a Top Contributors section beside the repository contributor gallery, with linked GitHub avatars and profiles.
+- Ranked the ten eligible accounts by GitHub contributor commit counts observed on September 27, 2026.
+- Simplified the section introduction after feedback so the README focuses on thanking contributors.
+
+# Catalog category completion - 2026-09-27
+
+- Audited the exact `main` catalog at commit `c6c0677`; it contains 2,472 skills, including 359 `uncategorized` entries.
+- Used Jev as an advisory structured classifier with a closed vocabulary of existing catalog categories, then manually reviewed low-confidence and placeholder-description cases.
+- Added `data/category-overrides.json` with 359 maintainer-reviewed assignments and applied it during index generation.
+- Regenerated the index/catalog validation snapshot: 2,472 records and 0 `uncategorized` entries.
+- Passed `npm run validate`, `npm run validate:references`, `npm run security:docs`, and `npm run check:aas-v1-catalog`.
+
+# Documentation experience — 2026-09-26
+
+- Added full-text guide search with highlighted excerpts, individual guide loading, clipboard feedback, accessible code scrolling, breadcrumbs, an active outline, and contextual next steps.
+- Exposed Git-derived dates and exact source links, plus paths for users, contributors, maintainers, Core reference, and troubleshooting.
+- Added article/breadcrumb structured data, real guide sitemap dates, and social images for Getting Started, AAS Core, and FAQ.
+- Made local Markdown targets, images, heading anchors, static route content, and social image checks part of the web build.
+- See the [verification record](docs/maintainers/site-documentation-experience-2026-09-26.md) for checks, accessibility scope, and the external Mintlify limitation.
+- This change does not change the package version or create a release.
+
+# Public AAS info endpoint - 2026-09-25
+
+- Added a generated `apps/web-app/public/api/info.json` endpoint for public AAS name, links, release version, feature list, and current skill count.
+- Generate the count from the canonical `skills_index.json` during the existing web asset setup, so development and Pages builds use the same current catalog without a manually maintained number.
+- Keep the generated endpoint out of source PRs; the Pages build publishes it at `https://aaskills.tech/api/info.json`.
+
+# Jev Social skill intake - 2026-09-21
+
+- Added [`skills/jev-social/SKILL.md`](skills/jev-social/SKILL.md), adapted from the MIT-licensed [`socai-io/jev-social`](https://github.com/socai-io/jev-social) Agent Skill.
+- Kept the workflow read-only and capability-gated: it checks local readiness, uses typed Jev routing and the socai CLI, distinguishes search cards from opened evidence, and stops at login, verification, challenge, or rate-limit boundaries.
+- Pinned executable examples to the full commit behind `v0.1.2` (`794aac59dbef0929ec57f2650504f4231fef598e`), excluded its moving `releases/latest` onboarding installer, and documented download approval, credential, browser-session, prompt-injection, and output-redaction requirements.
+- Added the required community source credit in [`README.md`](README.md). Generated catalogs, indexes, plugin mirrors, and marketplace artifacts remain excluded from the contributor diff.
+
 # Full Snyk group reconciliation — 2026-09-06
 
 - Exported all 551 analytics rows and read all live project/issue records; distinguished stale CLI snapshots, mirror copies, and current findings.
@@ -698,3 +745,26 @@ Moved [Support the Project](README.md#support-the-project) directly below the op
 - Require SoupSieve 2.8.4 or newer alongside BeautifulSoup in junta-leiloeiros to exclude CVE-2026-49477.
 - Generated plugin mirrors are validated locally and remain owned by protected canonical synchronization.
 - Validation: repository chain, reference validation and docs security passed; Pillow 12.3.0 GIF creation/reopening and SoupSieve 2.8.4 selector smoke passed. Snyk EU found no security vulnerabilities in either resolved requirements set; junta-leiloeiros retains a certifi MPL-2.0 license-policy finding.
+
+# AAS social preview refresh — 2026-09-24
+
+- Replaced `apps/web-app/public/social-card.png` with the first generated AAS Core social preview, matching the live site's dark and cyan visual identity and current Search → Choose → Validate → Preview flow.
+- Kept the existing Open Graph and Twitter image URL stable so shared links resolve to the refreshed asset after deployment.
+- Resampled the social card to the site's required 1200 × 630 pixel dimensions after the first deployment validation flagged the generated source dimensions.
+- Updated the provenance record and SEO verifier to bind the selected image's actual visible copy and SHA-256.
+
+# AAS introduction video — 2026-09-25
+
+- Added the 40-second AAS presentation to the README through a GitHub video attachment, rendered inline by GitHub.
+- Added a self-hosted HTML video player to the catalog landing page, with a poster and no automatic download or playback.
+- Added a README link to the site's player as a fallback for GitHub playback stalls.
+
+
+## Homepage outage repair (2026-09-27)
+
+The landing route used useSkills outside CatalogRouteProvider, crashing the deployed homepage. Move it inside the existing provider route and exercise the real App homepage without mocking the context.
+
+
+## Shared site style (2026-09-27)
+
+Use the landing black/cyan palette on every route, share Outfit/JetBrains Mono with Tailwind and Markdown, load the title weight, unify responsive page headings, and keep header/footer appearance stable across navigation.

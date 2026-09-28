@@ -1,11 +1,11 @@
 {
   "name": "agentic-awesome-skills",
-  "version": "17.4.0",
+  "version": "18.7.0",
   "aasCore": {
     "includedFromMajor": 15,
     "status": "agent-first-preview"
   },
-  "description": "AAS Core: complete local skill discovery, agent-owned selection, stack validation, and planning, backed by 2,124+ agentic skills.",
+  "description": "AAS Core: complete local skill discovery, agent-owned selection, stack validation, and planning, backed by 2,474+ agentic skills.",
   "license": "MIT",
   "scripts": {
     "validate": "node tools/scripts/run-python.js tools/scripts/validate_skills.py",
@@ -46,6 +46,9 @@
     "audit:consistency": "node tools/scripts/run-python.js tools/scripts/audit_consistency.py",
     "audit:consistency:github": "node tools/scripts/run-python.js tools/scripts/audit_consistency.py --check-github-about",
     "audit:maintainer": "node tools/scripts/run-python.js tools/scripts/maintainer_audit.py",
+    "maintainer:jev-hints": "node tools/scripts/run-python.js tools/scripts/jev_maintainer_hints.py",
+    "maintainer:jev-batch": "node tools/scripts/run-python.js tools/scripts/jev_maintainer_hints.py --open-prs",
+    "maintainer:sweep": "node tools/scripts/run-python.js tools/scripts/maintainer_sweep.py",
     "security:docs": "node tools/scripts/tests/docs_security_content.test.js",
     "security:scan": "node tools/scripts/run-python.js tools/scripts/security_scanner.py",
     "security:scan:strict": "node tools/scripts/run-python.js tools/scripts/security_scanner.py --strict",

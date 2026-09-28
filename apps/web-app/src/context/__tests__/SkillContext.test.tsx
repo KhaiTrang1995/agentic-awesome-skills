@@ -116,6 +116,40 @@ describe('SkillProvider', () => {
     });
   });
 
+  it('rejects a JSON array containing malformed records and tries the next candidate', async () => {
+    const validSkills = [{
+      id: 'validated-skill',
+      path: 'skills/validated-skill',
+      category: 'core',
+      name: 'Validated skill',
+      description: 'Loaded after rejecting a malformed record',
+    }];
+
+    (global.fetch as Mock)
+      .mockResolvedValueOnce({
+        ok: true,
+        headers: { get: () => 'application/json' },
+        text: async () => JSON.stringify([{}]),
+      })
+      .mockResolvedValueOnce({
+        ok: true,
+        headers: { get: () => 'application/json' },
+        text: async () => JSON.stringify(validSkills),
+      });
+
+    render(
+      <SkillProvider>
+        <SkillsProbe />
+      </SkillProvider>,
+    );
+
+    await waitFor(() => {
+      expect(screen.getByTestId('ids').textContent).toBe('validated-skill');
+      expect(screen.getByTestId('error').textContent).toBe('');
+    });
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+  });
+
   it('keeps the newest refresh result when an older request resolves later', async () => {
     let resolveInitial: ((value: Response) => void) | undefined;
     const initialResponse = new Promise<Response>((resolve) => {

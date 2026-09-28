@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { createMockSkill } from '../../factories/skill';
-import { evidenceSignals, groupOutcomeMatches, isDiscoveryCatalog, outcomeTerms, rankForOutcome } from '../outcomeDiscovery';
+import { evidenceSignals, groupOutcomeMatches, outcomeTerms, rankForOutcome } from '../outcomeDiscovery';
 
 describe('goal discovery relevance and evidence boundaries', () => {
   const specific = createMockSkill({ id: 'react-auth', name: 'React authentication', description: 'Handle authentication in React', tags: [], category: 'frontend', risk: 'unknown' });
@@ -31,15 +31,6 @@ describe('goal discovery relevance and evidence boundaries', () => {
   it('labels missing evidence without awarding a reliability badge', () => {
     const signals = evidenceSignals(createMockSkill({ source: undefined, license: undefined, risk: 'unknown', plugin: undefined }));
     expect(signals.map((entry) => entry.value)).toEqual(['Source not recorded', 'Not recorded in catalog', 'Not assessed in catalog', 'Not recorded in catalog']);
-  });
-  it('rejects duplicate IDs and malformed data before it reaches comparison', () => {
-    expect(isDiscoveryCatalog([specific])).toBe(true);
-    expect(isDiscoveryCatalog([specific, specific])).toBe(false);
-    expect(isDiscoveryCatalog([{ ...specific, tags: [{}] }])).toBe(false);
-    expect(isDiscoveryCatalog([{ ...specific, plugin: { targets: {}, setup: {}, reasons: [] } }])).toBe(false);
-    expect(isDiscoveryCatalog([{ ...specific, source: {} }])).toBe(false);
-    expect(isDiscoveryCatalog([{ ...specific, id: '../escape' }])).toBe(false);
-    expect(isDiscoveryCatalog([])).toBe(false);
   });
 });
 

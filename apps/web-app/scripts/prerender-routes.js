@@ -2,6 +2,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { selectTopSkillEntries } from './generate-sitemap.js';
+import { createElement } from 'react';
+import { renderToStaticMarkup } from 'react-dom/server';
+import Markdown from 'react-markdown';
+import { getDocsMetadata } from './docs-metadata.js';
+import { remarkHeadings } from '../src/utils/markdownHeadings.js';
+import remarkGfm from 'remark-gfm';
 
 const ROOT_DIR = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIST_DIR = path.join(ROOT_DIR, 'dist');
@@ -14,7 +20,7 @@ const HOME_CATALOG_COUNT_FALLBACK = 1969;
 const PRERENDER_SOCIAL_IMAGE = 'social-card.png';
 const SITE_NAME = 'Agentic Awesome Skills';
 const REPOSITORY_URL = 'https://github.com/sickn33/agentic-awesome-skills';
-const HOSTED_CATALOG_URL = 'https://sickn33.github.io/agentic-awesome-skills/';
+const HOSTED_CATALOG_URL = 'https://aaskills.tech/';
 const FAQ_ITEMS = [
   {
     question: 'What is Agentic Awesome Skills?',
@@ -321,6 +327,25 @@ function buildPrerenderFallback({ heading, description, links }) {
   ].join('');
 }
 
+function buildLandingFallback({ siteBaseUrl, catalogCount = 0 }) {
+  const links = [
+    { href: routeToUrl('/core', siteBaseUrl), label: 'Enter AAS Core catalog' },
+    { href: routeToUrl('/workbench', siteBaseUrl), label: 'Review an AAS stack and plan' },
+    { href: routeToUrl('/plugins', siteBaseUrl), label: 'Compare specialized plugin packs' },
+  ];
+  const countLabel = catalogCount > 0
+    ? `${catalogCount.toLocaleString('en-US')}+`
+    : `${HOME_CATALOG_COUNT_FALLBACK.toLocaleString('en-US')}+`;
+
+  return [
+    '<main data-prerender-fallback="true">',
+    '<h1>Agent-first skills for Codex, Claude Code, and friends</h1>',
+    `<p>An open catalog of ${countLabel} reusable SKILL.md playbooks, plus AAS Core for local discovery, agent-owned selection, validation, and plan preview.</p>`,
+    `<nav aria-label="Product surfaces"><ul>${buildStaticLinkList(links)}</ul></nav>`,
+    '</main>',
+  ].join('');
+}
+
 function buildHomeFallback({ landingPages, siteBaseUrl }) {
   const links = [
     { href: routeToUrl('/workbench', siteBaseUrl), label: 'Review an AAS stack and plan' },
@@ -393,12 +418,81 @@ function setRootFallback(html, fallbackHtml) {
   return html.replace(rootPattern, `<div id="root">${fallbackHtml}</div>`);
 }
 
+function buildLandingMeta({ catalogCount, imageUrl, canonicalUrl }) {
+  const visibleCount = Math.max(catalogCount, 0);
+  const formattedCount = visibleCount > 0
+    ? visibleCount.toLocaleString('en-US')
+    : HOME_CATALOG_COUNT_FALLBACK.toLocaleString('en-US');
+  const countLabel = `${formattedCount}+`;
+  const title = 'Agentic Awesome Skills | Agent-first skill catalog and AAS Core';
+  const description = visibleCount > 0
+    ? `Open-source SKILL.md playbooks for Codex, Claude Code, Cursor, and compatible clients, backed by ${countLabel} cataloged skills. Explore AAS Core for search, agent-owned selection, validation, and plan preview.`
+    : 'Open-source SKILL.md playbooks for Codex, Claude Code, Cursor, and compatible clients. Explore AAS Core for catalog search, agent-owned selection, validation, and plan preview.';
+  const catalogBaseUrl = canonicalUrl.replace(/\/$/, '');
+
+  return {
+    title,
+    description,
+    canonicalUrl,
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: imageUrl,
+    twitterCard: 'summary_large_image',
+    jsonLd: [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: SITE_NAME,
+        description,
+        url: canonicalUrl,
+        sameAs: REPOSITORY_URL,
+        isPartOf: {
+          '@type': 'WebSite',
+          name: SITE_NAME,
+          url: catalogBaseUrl,
+        },
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Organization',
+        '@id': `${REPOSITORY_URL}#organization`,
+        name: SITE_NAME,
+        url: REPOSITORY_URL,
+        sameAs: [
+          'https://x.com/AASkills_',
+          'https://www.npmjs.com/package/agentic-awesome-skills',
+          HOSTED_CATALOG_URL,
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'WebSite',
+        name: SITE_NAME,
+        url: catalogBaseUrl,
+        sameAs: REPOSITORY_URL,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'SoftwareSourceCode',
+        name: SITE_NAME,
+        description,
+        url: REPOSITORY_URL,
+        sameAs: [...new Set([canonicalUrl, HOSTED_CATALOG_URL, 'https://www.npmjs.com/package/agentic-awesome-skills'])],
+        mainEntityOfPage: canonicalUrl,
+        codeRepository: REPOSITORY_URL,
+        applicationCategory: 'DeveloperApplication',
+        isAccessibleForFree: true,
+      },
+    ],
+  };
+}
+
 function buildHomeMeta({ catalogCount, imageUrl, canonicalUrl }) {
   const visibleCount = Math.max(catalogCount, HOME_CATALOG_COUNT_FALLBACK);
   const formattedCount = visibleCount.toLocaleString('en-US');
   const title = `AAS Core Preview | Agent-first stacks backed by ${formattedCount}+ skills`;
   const description = `Use AAS Core preview for neutral catalog retrieval, exact agent-owned selection, validation, and plan preview for Codex, Claude Code, and compatible clients, backed by ${formattedCount}+ cataloged skills.`;
-  const catalogBaseUrl = canonicalUrl.replace(/\/$/, '');
+  const catalogBaseUrl = canonicalUrl.replace(/\/core\/?$/, '/').replace(/\/$/, '');
   const sourceCodeEntity = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareSourceCode',
@@ -487,7 +581,7 @@ function buildHomeMeta({ catalogCount, imageUrl, canonicalUrl }) {
         inLanguage: 'en',
         potentialAction: {
           '@type': 'SearchAction',
-          target: `${catalogBaseUrl}/?q={search_term_string}`,
+          target: `${catalogBaseUrl}/core/?q={search_term_string}`,
           'query-input': 'required name=search_term_string',
         },
       },
@@ -672,7 +766,7 @@ function buildWorkbenchMeta({ imageUrl, canonicalUrl }) {
         inLanguage: 'en',
         potentialAction: {
           '@type': 'SearchAction',
-          target: `${catalogBaseUrl}/?q={search_term_string}`,
+          target: `${catalogBaseUrl}/core/?q={search_term_string}`,
           'query-input': 'required name=search_term_string',
         },
       },
@@ -795,7 +889,7 @@ function buildTopicLandingMeta({ page, featuredSkills = [], imageUrl, canonicalU
         inLanguage: 'en',
         potentialAction: {
           '@type': 'SearchAction',
-          target: `${catalogBaseUrl}/?q={search_term_string}`,
+          target: `${catalogBaseUrl}/core/?q={search_term_string}`,
           'query-input': 'required name=search_term_string',
         },
       },
@@ -883,14 +977,70 @@ function main() {
   const skillMap = new Map(skills.map((skill) => [skill.id, skill]));
   const topSkillSet = new Set(topSkillPaths.map((routePath) => routePath.replace(/^\/skill\//, '')));
   const socialImage = `${siteBaseUrl.replace(/\/+$/, '')}/${PRERENDER_SOCIAL_IMAGE}`;
+  const docs = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'src/data/docs.json'), 'utf8'));
+  const docsMetadata = getDocsMetadata();
+  const socialGuides = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'src/data/docs-social.json'), 'utf8'));
+  const docsNavigation = `<nav aria-label="Documentation">${docs.map((doc) => `<p><a href="${escapeHtml(routeToUrl(`/docs/${doc.slug}`, siteBaseUrl))}">${escapeHtml(doc.title)}</a></p>`).join('')}</nav>`;
+  for (const doc of [null, ...docs]) {
+    const metadata = doc ? docsMetadata[doc.slug] : null;
+    const routePath = doc ? `/docs/${doc.slug}` : '/docs';
+    const title = `${doc?.title || 'Documentation'} | ${SITE_NAME}`;
+    const content = doc ? fs.readFileSync(path.join(ROOT_DIR, `../../docs/users/${doc.slug}.md`), 'utf8') : '';
+    const sourceRoot = `${REPOSITORY_URL}/blob/${metadata?.commit || 'main'}/`;
+    const fallback = doc ? renderToStaticMarkup(createElement(Markdown, {
+      remarkPlugins: [remarkGfm, remarkHeadings],
+      urlTransform: (url, key) => {
+        if (key === 'href' && url.startsWith('#')) return `${routeToUrl(routePath, siteBaseUrl)}${url}`;
+        if (/^https?:\/\//i.test(url) || (key === 'href' && /^mailto:/i.test(url))) return url;
+        if (/^[a-z][a-z0-9+.-]*:/i.test(url) || url.startsWith('//') || url.includes('\\')) return '';
+        const resolved = new URL(url, `${sourceRoot}docs/users/${doc.slug}.md`);
+        if (!resolved.href.startsWith(sourceRoot)) return '';
+        const match = resolved.pathname.match(/\/docs\/users\/([^/]+)\.md$/);
+        if (key === 'href' && match && docs.some((entry) => entry.slug === match[1])) return `${routeToUrl(`/docs/${match[1]}`, siteBaseUrl)}${resolved.hash}`;
+        return key === 'src' ? resolved.href.replace(`${REPOSITORY_URL}/blob/`, 'https://raw.githubusercontent.com/sickn33/agentic-awesome-skills/') : resolved.href;
+      },
+    }, content)) : `<h1>Documentation</h1><p>Start with AAS Core, explore integrations, and put your skills to work.</p>${docsNavigation}`;
+    writePrerenderedRoute(routePath, template, {
+      title,
+      description: doc ? `${doc.title}: guides and reference for Agentic Awesome Skills.` : 'Learn AAS Core, install skills, configure integrations, and follow practical workflows.',
+      canonicalUrl: routeToUrl(routePath, siteBaseUrl),
+      ogImage: doc && socialGuides.includes(doc.slug) ? `${siteBaseUrl.replace(/\/+$/, '')}/social/docs/${doc.slug}.png` : socialImage,
+      jsonLd: [{
+        '@context': 'https://schema.org',
+        '@type': doc ? ['WebPage', 'TechArticle'] : 'WebPage',
+        name: title,
+        headline: title,
+        ...(metadata ? { dateModified: metadata.modified, version: metadata.commit } : {}),
+        description: doc ? `${doc.title}: guides and reference for Agentic Awesome Skills.` : 'Learn AAS Core, install skills, configure integrations, and follow practical workflows.',
+        url: routeToUrl(routePath, siteBaseUrl),
+        mainEntityOfPage: routeToUrl(routePath, siteBaseUrl),
+      }, {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: routeToUrl('/', siteBaseUrl) },
+          { '@type': 'ListItem', position: 2, name: 'Documentation', item: routeToUrl('/docs', siteBaseUrl) },
+          ...(doc ? [{ '@type': 'ListItem', position: 3, name: doc.title, item: routeToUrl(routePath, siteBaseUrl) }] : []),
+        ],
+      }],
+    }, `<main><a href="${escapeHtml(routeToUrl('/docs', siteBaseUrl))}">Documentation</a>${fallback}</main>`);
+  }
 
-  const homeCanonical = routeToUrl('/', siteBaseUrl);
+  const landingCanonical = routeToUrl('/', siteBaseUrl);
+  const landingMeta = buildLandingMeta({
+    catalogCount: skills.length,
+    imageUrl: socialImage,
+    canonicalUrl: landingCanonical,
+  });
+  writePrerenderedRoute('/', template, landingMeta, buildLandingFallback({ siteBaseUrl, catalogCount: skills.length }));
+
+  const homeCanonical = routeToUrl('/core', siteBaseUrl);
   const homeMeta = buildHomeMeta({
     catalogCount: skills.length,
     imageUrl: socialImage,
     canonicalUrl: homeCanonical,
   });
-  writePrerenderedRoute('/', template, homeMeta, buildHomeFallback({ landingPages, siteBaseUrl }));
+  writePrerenderedRoute('/core', template, homeMeta, buildHomeFallback({ landingPages, siteBaseUrl }));
 
   const pluginsCanonical = routeToUrl('/plugins', siteBaseUrl);
   const pluginsMeta = buildPluginsMeta({

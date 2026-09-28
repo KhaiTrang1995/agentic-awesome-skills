@@ -38,6 +38,7 @@ Before changing anything:
    - Separate valid source changes, repairable PRs, conflicts, generated-only noise, promotional links, and unsupported ownership/license changes.
    - Review semantics, safety, provenance, risk labels, limitations, source credits, and changed-skill evidence.
    - Prefer narrow maintainer repairs on the contributor branch when maintainer edits are enabled.
+   - Optional accelerator before editing: run `npm run maintainer:sweep` for repo health, open PR check rollup, advisory download of CI `pr-evidence-*` artifacts (when `pr-evidence` succeeded), optional Jev triage (`TYPESAFE_API_KEY` in `.env.local`), `merge:batch --dry-run` on CI-ready PRs, and a **Next actions** hint list. Prefer CI evidence over re-running `npm run pr:evidence` locally when the artifact head matches. For a single head only, use `npm run maintainer:jev-hints -- --base origin/main --head <head-sha>`. Sweep/Jev/CI summaries are advisory only; `merge:batch` recomputes from trusted `main`, and Tessl plus `--reviewed-head` attestation remain authoritative. See `docs/maintainers/maintainer-sweep.md` and `docs/maintainers/jev-hints.md`.
 
 2. Validate changed skills truthfully.
    - Run `npm run validate`, `npm run validate:references`, `npm run security:docs`, changed-skill evidence, and the relevant tests.
@@ -114,7 +115,7 @@ Use `data/specialized-plugin-candidates.json` for specialized-plugin membership 
 
 Treat the current catalog and the legacy user-site bridge as one public system:
 
-- Current catalog: `sickn33/agentic-awesome-skills` at `https://sickn33.github.io/agentic-awesome-skills/`.
+- Current catalog: `sickn33/agentic-awesome-skills` at `https://aaskills.tech/`.
 - Legacy bridge: `sickn33/sickn33.github.io` at `https://sickn33.github.io/antigravity-awesome-skills/`.
 
 For SEO, indexing, Pages, redirect, or infrastructure changes:
@@ -162,7 +163,7 @@ Every stable or prerelease version requires full release alignment. Creating the
 5. Merge that release PR through its required checks, update local `main` to equal `origin/main`, and wait for every source, release, or canonical-sync PR in the release path to close. Re-run the release-state and plugin gates if protected `main` moved.
 6. Run `npm run release:publish -- X.Y.Z`. It must resolve exactly one merged release PR from the same repository, authored by the repository owner, with base `main`, exact title `chore: release vX.Y.Z`, and head branch `release/vX.Y.Z`. Zero or multiple candidates fail closed; never select the newest approximate match. The command then verifies that exact protected merge before creating or reusing the tag and GitHub Release.
    The npm publication workflow must first check out protected `main`, verify that the peeled release tag is an ancestor of current `origin/main`, validate the version directly from the tagged `package.json`, and only then check out or execute tag-controlled code. It has no manual-dispatch bypass.
-7. Wait for publishing workflows, then bind every proof to the exact released commit: verify the tag/ref, GitHub Release, npm version and intended dist-tag, required CI, CodeQL, and the explicitly dispatched release-only Pages build from the exact immutable `vX.Y.Z` tag. Never dispatch Pages from `main` or another branch. Verify live `llms.txt`, `skills.json`, catalog and plugin routes, and the legacy redirect bridge; do not accept a successful run for a different SHA.
+7. Wait for publishing workflows, then bind every proof to the exact released commit: verify the tag/ref, GitHub Release, npm version and intended dist-tag, required CI, CodeQL, and the release-tag Pages build from the exact immutable `vX.Y.Z` tag using `deployment_target=release`. Never manually dispatch the release-tag build from `main` or another branch. A separate `deployment_target=main` dispatch may publish a protected main commit after source and canonical-sync work completes; it must verify current-main identity before build and again before deploy. Canonical-sync commits marked `[skip pages]` are never dispatched by canonical synchronization. Verify live `llms.txt`, `skills.json`, catalog and plugin routes, and the legacy redirect bridge; do not accept a successful run for a different SHA.
 8. After npm confirms `X.Y.Z` as the published dist-tag, discover every already-configured local AAS MCP host from its real configuration and update each one to the exact same package version before declaring the release complete. Updating existing AAS host entries is part of the release; creating a previously absent host configuration still requires explicit authorization.
    - Use the published package's `aas mcp configure` two-pass flow: first preview the change, then repeat the identical command with its approval digest. Supply absolute host-config, cache, and backup paths; require a backup when replacing an existing configuration.
    - Pin `agentic-awesome-skills@X.Y.Z` and `--version X.Y.Z`; never use `latest`, reuse an older cached runtime, or create a previously absent host configuration without explicit authorization.
