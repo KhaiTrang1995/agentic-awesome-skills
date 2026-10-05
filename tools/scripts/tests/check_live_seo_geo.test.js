@@ -2,8 +2,9 @@ const assert = require('node:assert');
 const { assertLiveSeoDocuments } = require('../check-live-seo-geo');
 
 const expected = { countLabel: '1,987+', releaseLabel: 'V15.3.0', pluginCount: 21 };
+const description = 'Open-source AI coding skills for Codex, Claude Code, Cursor, and more. Explore 1,987+ playbooks and AAS Core catalog search, selection, and plan preview.';
 const documents = {
-  home: 'AAS Core Preview | Agent-first stacks backed by 1,987+ skills SoftwareSourceCode FAQPage specialized plugins',
+  home: `Agentic Awesome Skills | Agent-first skill catalog and AAS Core <meta name="description" content="${description}"> SoftwareSourceCode FAQ specialized plugin`,
   plugins: 'AAS Specialized Plugins | 21 AI coding workflow packs specialized plugin packs numberOfItems',
   sitemap: 'https://aaskills.tech/plugins',
   llms: 'https://aaskills.tech/plugins Current release: V15.3.0. 1,987+',
@@ -14,9 +15,16 @@ assert.doesNotThrow(() => assertLiveSeoDocuments(documents, expected));
 assert.throws(
   () => assertLiveSeoDocuments({
     ...documents,
-    home: 'Agentic Awesome Skills GitHub | 1,987+ AI coding skills SoftwareSourceCode FAQPage specialized plugins',
+    home: 'Agentic Awesome Skills GitHub | 1,987+ AI coding skills SoftwareSourceCode FAQ specialized plugin',
   }, expected),
-  /AAS Core Preview/,
+  /home title/,
+);
+assert.throws(
+  () => assertLiveSeoDocuments({
+    ...documents,
+    home: documents.home.replace(description, `${description} Add more words beyond the supported meta description length.`),
+  }, expected),
+  /no more than 160/,
 );
 assert.throws(
   () => assertLiveSeoDocuments({ ...documents, home: `${documents.home} prompt templates` }, expected),

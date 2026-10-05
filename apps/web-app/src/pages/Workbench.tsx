@@ -28,7 +28,7 @@ import {
 interface ImportState<T> {
   value: T | null;
   error: string | null;
-  source: 'paste' | 'file' | 'example' | null;
+  source: 'paste' | 'file' | 'example' | 'plugin' | null;
 }
 
 const EMPTY_IMPORT_STATE = { value: null, error: null, source: null } as const;
@@ -387,7 +387,9 @@ function ArtifactImporter<T>({
   );
 }
 
-export function Workbench(): React.ReactElement {
+export interface WorkbenchHostArtifacts { manifest?: unknown; plan?: unknown; evidence?: unknown }
+
+export function Workbench({ embedded = false, hostArtifacts }: { embedded?: boolean; hostArtifacts?: WorkbenchHostArtifacts } = {}): React.ReactElement {
   const [stack, setStack] = useState<ImportState<StackManifestReview>>({ ...EMPTY_IMPORT_STATE });
   const [plan, setPlan] = useState<ImportState<PlanReview>>({ ...EMPTY_IMPORT_STATE });
   const [evidence, setEvidence] = useState<ImportState<SelectionEvidenceReview>>({ ...EMPTY_IMPORT_STATE });
@@ -395,6 +397,31 @@ export function Workbench(): React.ReactElement {
   const [exampleError, setExampleError] = useState<string | null>(null);
   const exampleAttempt = useRef(0);
   useEffect(() => () => { exampleAttempt.current += 1; }, []);
+
+  useEffect(() => {
+    if (!hostArtifacts) return;
+    let current = true;
+    setStack({ ...EMPTY_IMPORT_STATE }); setPlan({ ...EMPTY_IMPORT_STATE }); setEvidence({ ...EMPTY_IMPORT_STATE });
+    async function receive() {
+      for (const [kind, input] of [['stack', hostArtifacts?.manifest], ['plan', hostArtifacts?.plan], ['evidence', hostArtifacts?.evidence]] as const) {
+        if (input === undefined) continue;
+        const setter = kind === 'stack' ? setStack : kind === 'plan' ? setPlan : setEvidence;
+        try {
+          const artifact = parseWorkbenchArtifact(JSON.stringify(input), kind);
+          if (artifact.kind === 'plan' && !await verifyPlanDigest(artifact.value)) throw new WorkbenchImportError('Plan digest does not match its canonical payload.');
+          if (artifact.kind === 'evidence') await verifySelectionEvidence(artifact.value);
+          if (!current) return;
+          if (artifact.kind === 'stack') setStack({ value: artifact.value, error: null, source: 'plugin' });
+          if (artifact.kind === 'plan') setPlan({ value: artifact.value, error: null, source: 'plugin' });
+          if (artifact.kind === 'evidence') setEvidence({ value: artifact.value, error: null, source: 'plugin' });
+        } catch (error) {
+          if (current) setter({ value: null, error: displayError(error), source: null });
+        }
+      }
+    }
+    void receive();
+    return () => { current = false; };
+  }, [hostArtifacts]);
 
   const loadExample = async () => {
     const attempt = ++exampleAttempt.current;
@@ -430,7 +457,7 @@ export function Workbench(): React.ReactElement {
         <div>
           <div>
             <h1>Review what your agent selected.</h1>
-            <p>Review the exact skills, project profile and proposed changes saved by your agent. Import <code>aas-stack.json</code>, an immutable CLI plan, and optional selection evidence, or explore the recorded example below.</p>
+            <p>Review the exact skills, project profile and proposed changes saved by your agent. Import <code>aas-stack.json</code>, an immutable CLI plan, and optional selection evidence{embedded ? '. The plugin host can also provide the current stack.' : ', or explore the recorded example below.'}</p>
           </div>
           <dl>
             <div><dt>Imported artifacts</dt><dd>In-memory only</dd></div>
@@ -440,8 +467,9 @@ export function Workbench(): React.ReactElement {
         </div>
       </header>
 
-      <OutcomeExplorer />
+      {!embedded ? <OutcomeExplorer /> : null}
 
+      {!embedded ? <>
       <section className="workbench-boundary" aria-labelledby="workbench-start-title">
         <h2 id="workbench-start-title">Need a stack to review?</h2>
         <ol>
@@ -458,6 +486,8 @@ export function Workbench(): React.ReactElement {
         <div><button type="button" disabled={exampleLoading} onClick={() => void loadExample()}>{exampleLoading ? 'Checking example…' : 'Load recorded example'}</button><a href={releaseFileUrl('docs/examples/workflows/mcp-contract/README.md')}>Inputs, commands and limits</a></div>
         {exampleError ? <p role="alert">{exampleError}</p> : null}
       </section>
+
+      </> : null}
 
       <section className="workbench-boundary" aria-labelledby="workbench-boundary-title">
         <h2 id="workbench-boundary-title">Review surface, not an installer</h2>
@@ -484,8 +514,8 @@ export function Workbench(): React.ReactElement {
       </div>}
 
       <section className="workbench-review-area" aria-label="Imported artifact review">
-        {stack.value && (plan.value || evidence.value) ? <PairReview allowInstallation={!plan.error && !evidence.error} stack={stack.value} plan={plan.value} evidence={evidence.value} /> : null}
-        {stack.value && !plan.value && !plan.error && !evidence.value && !evidence.error ? <InstallationHandoff key={JSON.stringify(stack.value)} ids={stack.value.skills.map((skill) => skill.id)} version={stack.value.catalog.version} packageName={stack.value.catalog.package} /> : null}
+        {stack.value && (plan.value || evidence.value) ? <PairReview allowInstallation={!embedded && !plan.error && !evidence.error} stack={stack.value} plan={plan.value} evidence={evidence.value} /> : null}
+        {!embedded && stack.value && !plan.value && !plan.error && !evidence.value && !evidence.error ? <InstallationHandoff key={JSON.stringify(stack.value)} ids={stack.value.skills.map((skill) => skill.id)} version={stack.value.catalog.version} packageName={stack.value.catalog.package} /> : null}
         {stack.value ? <StackReview stack={stack.value} /> : null}
         {plan.value ? <PlanReviewView plan={plan.value} /> : null}
         {evidence.value ? <EvidenceReview evidence={evidence.value} /> : null}
@@ -493,11 +523,11 @@ export function Workbench(): React.ReactElement {
           <div className="workbench-review-empty">
             <p>No artifact loaded</p>
             <h2>Your review appears here.</h2>
-            <p>Nothing is read from your machine until you paste JSON or use a file chooser above.</p>
+            <p>Local files are read only after you paste JSON or use a file chooser above. A plugin host may also provide the current tool result.</p>
           </div>
         ) : null}
       </section>
-      <SelectionFeedback />
+      {!embedded ? <SelectionFeedback /> : null}
     </div>
   );
 }

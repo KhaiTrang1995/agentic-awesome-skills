@@ -13,7 +13,7 @@ const {
   classifyPathPolicy,
 } = require("../lib/workflow-contract");
 
-const { resolveReviewedSkillRoots } = require("../lib/reviewed-fork-skills");
+const { resolveReviewedSkillRoots, resolveReviewedSupportPaths } = require("../lib/reviewed-fork-skills");
 
 const DEFAULT_POLL_SECONDS = 20;
 const REQUIRED_CHECKS = [
@@ -49,6 +49,12 @@ const APPROVAL_WORKFLOW_PATHS = new Set([
   // preview lane for `apps/web-app/**` PRs and must be approvable for fork
   // web-app source contributions alongside ci.yml.
   ".github/workflows/aas-agent-first-preview.yml",
+  // PR-only advisory scanner. It has no manual, push or privileged trigger,
+  // declares only `contents: read` and `checks: read`, uses no secrets, and
+  // pins every action to a full SHA. Its first job only waits for the
+  // exact-head `pr-evidence` result, so it must be approvable for fork PRs
+  // alongside the required workflows.
+  ".github/workflows/skillspector-advisory.yml",
   ".github/workflows/skill-review.yml",
 ]);
 
@@ -1050,13 +1056,16 @@ function approveActionRequiredRuns(projectRoot, repoSlug, prDetails, options = {
   const ownerAuthorizedSensitiveChange = sameRepository
     && String(prDetails?.author?.login || "").toLowerCase() === repositoryOwner
     && reviewedHeads.has(headOid);
-  const reviewedSkillRoots = resolveReviewedSkillRoots(projectRoot, {
+  const reviewedIdentity = {
     pr: prNumber, baseRepository: repoSlug,
     headRepository: prDetails?.headRepository?.nameWithOwner, head: headOid,
-  });
+  };
+  const reviewedSkillRoots = resolveReviewedSkillRoots(projectRoot, reviewedIdentity);
+  const reviewedSupportPaths = resolveReviewedSupportPaths(projectRoot, reviewedIdentity);
+  const policyOptions = { reviewedSkillRoots, reviewedSupportPaths };
   const preliminaryPolicy = records.length === 0
     ? emptyChangePolicy()
-    : classifyRecords(records, { requireBlobSizes: false, reviewedSkillRoots });
+    : classifyRecords(records, { requireBlobSizes: false, ...policyOptions });
   if (!preliminaryPolicy?.approvalSafe && !ownerAuthorizedSensitiveChange) {
     const reasons = Array.isArray(preliminaryPolicy?.reasons) && preliminaryPolicy.reasons.length
       ? preliminaryPolicy.reasons.slice(0, 12).join(", ")
@@ -1064,7 +1073,7 @@ function approveActionRequiredRuns(projectRoot, repoSlug, prDetails, options = {
     throw new Error(`PR #${prNumber} local base-to-head diff is not fork-approval-safe: ${reasons}.`);
   }
   const blobSizes = records.length === 0 ? new Map() : getSizes(projectRoot, records, dependencies);
-  const policy = records.length === 0 ? emptyChangePolicy() : classifyRecords(records, { blobSizes, reviewedSkillRoots });
+  const policy = records.length === 0 ? emptyChangePolicy() : classifyRecords(records, { blobSizes, ...policyOptions });
   if (!policy?.approvalSafe && !ownerAuthorizedSensitiveChange) {
     const reasons = Array.isArray(policy?.reasons) && policy.reasons.length
       ? policy.reasons.slice(0, 12).join(", ")

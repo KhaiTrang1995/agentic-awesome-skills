@@ -1,11 +1,11 @@
-<!-- registry-sync: version=18.7.0; skills=2474; stars=46975; updated_at=2026-09-27T09:49:22+00:00 -->
+<!-- registry-sync: version=18.15.0; skills=2652; stars=47251; updated_at=2026-10-04T23:13:54+00:00 -->
 # AAS Core — Agentic Awesome Skills
 
 > **Find reusable instructions for your project, inspect their complete files, and keep an exact skill set you can review and reuse.**
 
-Agentic Awesome Skills is a library of 2,474+ installable `SKILL.md` playbooks. AAS Core helps Codex or Claude search the complete local catalog, record the skills the agent chooses, and preview a plan you can inspect before changing a target. Core does not rank or recommend skills.
+Agentic Awesome Skills is a library of 2,652+ installable `SKILL.md` playbooks. AAS Core helps Codex or Claude search the complete local catalog, record the skills the agent chooses, and preview a plan you can inspect before changing a target. Core does not rank or recommend skills.
 
-**Current release: V18.7.0.** AAS Core supports local catalog inspection, agent-owned selection, stack validation, and plan preview. Apply and recovery remain experimental. [Read the AAS Core preview guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.7.0/docs/users/aas-core.md) for setup and exact trust boundaries.
+**Current release: V18.15.0.** AAS Core supports local catalog inspection, agent-owned selection, stack validation, and plan preview. Apply and recovery remain experimental. [Read the AAS Core preview guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md) for setup and exact trust boundaries.
 
 This README tracks `main`. Features listed under [Unreleased](CHANGELOG.md#unreleased) require a later release; the versioned guide describes the published package.
 
@@ -35,7 +35,7 @@ This is an independent community project, not affiliated with or endorsed by Goo
 - [Choose Your Tool](#choose-your-tool)
 - [Recommended Specialized Plugins](#recommended-specialized-plugins)
 - [Bundles & Workflows](#bundles--workflows)
-- [Browse 2,474+ Skills](#browse-2474-skills)
+- [Browse 2,652+ Skills](#browse-2652-skills)
 - [Troubleshooting](#troubleshooting)
 - [Stable Skills Manifest v1](#stable-skills-manifest-v1)
 - [Contributing](#contributing)
@@ -56,11 +56,16 @@ If GitHub's player stalls, [watch the video on the AAS website](https://aaskills
 
 ## Support the Project
 
-**We’re looking for sponsors to support Agentic Awesome Skills.** If you or your company would like to support the project, become a sponsor.
+Help keep the catalog open, maintained, and available to the builders who use it.
 
-### [♥ Sponsor AAS →](https://github.com/sponsors/sickn33)
+<a href="https://vercel.com/open-source-program"><img alt="Vercel OSS Program" src="https://vercel.com/oss/program-badge-2026.svg" /></a>
 
-You can also [support AAS on Buy Me a Coffee](https://buymeacoffee.com/sickn33).
+| Support AAS | What it helps fund |
+| --- | --- |
+| [♥ Sponsor AAS](https://github.com/sponsors/sickn33) | Ongoing maintenance, reviews, and release work |
+| [Buy Me a Coffee](https://buymeacoffee.com/sickn33) | Small, direct contributions from the community |
+
+Every contribution helps us keep the skills curated, the tooling tested, and the catalog useful for the next project.
 
 <a href="https://buymeacoffee.com/sickn33">
   <img src="assets/buy-me-a-coffee-banner.png" alt="Support Agentic Awesome Skills on Buy Me a Coffee" width="420" />
@@ -81,7 +86,7 @@ Codex or Claude inspects your project and chooses exact skills. Every current ca
 > [!IMPORTANT]
 > Structural and identity validity does not certify semantic fit, compatibility, setup correctness, operational safety, or safety to apply. Apply and recovery require experimental opt-in and remain outside the supported preview.
 
-The [Workbench](https://aaskills.tech/workbench) reviews stack and plan artifacts in browser memory without accessing your filesystem. See the [Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.7.0/docs/users/aas-core.md) for tool contracts, capability coverage, and limits.
+The [Workbench](https://aaskills.tech/workbench) reviews stack and plan artifacts in browser memory without accessing your filesystem. See the [Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md) for tool contracts, capability coverage, and limits.
 
 ## Installation
 
@@ -90,22 +95,22 @@ The [Workbench](https://aaskills.tech/workbench) reviews stack and plan artifact
 Start with AAS Core in Codex or Claude. Configure the local MCP using the [Codex](docs/users/codex-cli-skills.md) or [Claude](docs/users/claude-code-skills.md) guide. With the MCP available, ask the agent to inspect your project, compare relevant skills, and save the exact selection. Then validate its manifest and review the resulting plan before any installation. The first configuration command previews a change and returns an approval digest:
 
 ```bash
-npm exec --yes --ignore-scripts --package=agentic-awesome-skills@18.7.0 -- aas mcp configure \
+npm exec --yes --ignore-scripts --package=agentic-awesome-skills@18.15.0 -- aas mcp configure \
   --host codex \
   --scope user \
   --config /absolute/path/to/codex/config.toml \
   --cache-root /absolute/path/to/aas-cache
 ```
 
-Use `--host claude` and its configuration path for Claude. The [Core setup guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.7.0/docs/users/aas-core.md#configure-the-local-mcp) explains approval, reconnection, validation, and planning. To hand the reviewed IDs to the direct installer, use `aas stack install-preview` as described in the [manifest handoff](docs/users/aas-core.md#use-the-reviewed-selection); that command only prepares a `--dry-run` preview and does not apply a Core plan.
+Use `--host claude` and its configuration path for Claude. The [Core setup guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md#configure-the-local-mcp) explains approval, reconnection, validation, and planning. To hand the reviewed IDs to the direct installer, use `aas stack install-preview` as described in the [manifest handoff](docs/users/aas-core.md#use-the-reviewed-selection); that command only prepares a `--dry-run` preview and does not apply a Core plan.
 
 ### Install selected skills directly
 
 If you already know the IDs, preview a focused install into your host's skill directory:
 
 ```bash
-npm exec --yes --ignore-scripts --package=agentic-awesome-skills@18.7.0 -- \
-  agentic-awesome-skills --release 18.7.0 --path .agents/skills \
+npm exec --yes --ignore-scripts --package=agentic-awesome-skills@18.15.0 -- \
+  agentic-awesome-skills --release 18.15.0 --path .agents/skills \
   --skills brainstorming,systematic-debugging --dry-run
 ```
 
@@ -163,7 +168,7 @@ Bundles suggest related skills; workflows describe the order to use them. They a
 - [Workflows](docs/users/workflows.md) give ordered playbooks for planning, shipping, testing, and auditing; [workflow metadata](data/workflows.json) is available for integrations.
 - If too many installed skills overload Antigravity, follow the [selective activation guide](docs/users/agent-overload-recovery.md). For other hosts, preview a smaller exact install or use the installer's `--risk`, `--category`, and `--tags` filters.
 
-## Browse 2,474+ Skills
+## Browse 2,652+ Skills
 
 Explore the complete library in the [hosted catalog](https://aaskills.tech/) or [`CATALOG.md`](CATALOG.md). The canonical playbooks live in [`skills/`](skills/); [`skills_index.json`](skills_index.json) provides machine-readable discovery. Use [Getting Started](docs/users/getting-started.md) and [Usage](docs/users/usage.md) for first steps, or the [Workbench](https://aaskills.tech/workbench) to inspect a saved Core stack and plan in your browser.
 
@@ -171,7 +176,7 @@ For narrower comparisons, see [Claude Code skills](docs/users/best-claude-code-s
 
 ## Troubleshooting
 
-- [Core setup and trust boundaries](https://github.com/sickn33/agentic-awesome-skills/blob/v18.7.0/docs/users/aas-core.md)
+- [Core setup and trust boundaries](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md)
 - [Installation and everyday use](docs/users/usage.md)
 - [Windows context and truncation recovery](docs/users/windows-truncation-recovery.md)
 - [Linux/macOS overload and selective activation](docs/users/agent-overload-recovery.md)
@@ -214,6 +219,49 @@ Key source families include:
 
 ### Official Sources
 
+- **[anup-a/agent-artifacts](https://github.com/anup-a/agent-artifacts)**: Official byagent source for the `byagent` skill - publish agent-written Markdown or HTML as a shareable link with the `byagent` CLI, read readers' line comments back, edit, republish to the same link and resolve; pages are public unless `--private` and comment text is treated as untrusted data (MIT).
+- **[prateeks367/voicemoat-skills](https://github.com/prateeks367/voicemoat-skills)**: Official VoiceMoat source for eight Twitter/X and LinkedIn skills (`write-in-my-voice`, `turn-this-into-a-thread`, `same-idea-both-platforms`, `repurpose-into-a-post`, `define-my-content-pillars`, `why-did-this-post-flop`, `get-seen-in-replies`, `draft-my-comments`). They draft in your own voice, write threads, cross-post, repurpose long content, pick content pillars, diagnose a post that underperformed, and write replies and comments worth reading; each works from pasted text alone, and an optional paid VoiceMoat connector adds voice scoring and preview-gated publishing (MIT).
+- **[cloudishai/skills](https://github.com/cloudishai/skills)**: Official Cloudish source for the `cloudish` skill - deploy a Dockerfile, source folder, or existing image as a running container at a live URL, built server-side, with confirmation before the first deploy and before spending credits; uploads the build context and spends prepaid credits (MIT).
+
+- **[voygr-tech/placecall](https://github.com/voygr-tech/placecall)**: Official PlaceCall source for the `placecall` skill - place real outbound phone calls to US businesses through the PlaceCall REST API (reservations, inquiries, quotes), follow the call and return the structured outcome and transcript; paid API, real calls ring real phones (MIT).
+
+- **[gongdear/cline-pilot](https://github.com/gongdear/cline-pilot)**: Official source for the `cline-pilot` skill - proxy-drive Cline CLI coding tasks serially, monitor long runs against git/test evidence instead of self-report, relay decision points, and learn per-project-tag preferences in git-ignored private state (MIT).
+
+- **[bosmdavid-gif/dropthehassle-skill](https://github.com/bosmdavid-gif/dropthehassle-skill)**: Official DropTheHassle source for the `dropthehassle-publish` skill - check that a folder is a finished static build, publish it to a free HTTPS link, hand the human the claim link and verify it is live; the agent never pays (MIT).
+
+- **[busabase/skills](https://github.com/busabase/skills)**: MIT source for the `busabase` skill — authorized MCP workspace operations, permission-aware ChangeRequests, and canonical-versus-pending readback.
+
+- **[metalbear-co/skills](https://github.com/metalbear-co/skills)**: Official mirrord skills source for the `mirrord` skill - run a local process inside a live Kubernetes pod's network, env and traffic, with confirmation before traffic-stealing or cluster-modifying steps (MIT).
+
+- **[beatra-ai/viral-video-remake-skill](https://github.com/beatra-ai/viral-video-remake-skill)**: Official Beatra source for the `viral-video-teardown-remake` skill - paid, hosted work installed from a digest-pinned 0.3.1 archive byte-identical to commit `46f7875` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/photo-to-anime-skill](https://github.com/beatra-ai/photo-to-anime-skill)**: Official Beatra source for the `ai-photo-restyler` skill - paid, hosted work installed from a digest-pinned 0.1.4 archive byte-identical to commit `87bc4c4` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-voice-cloning-skill](https://github.com/beatra-ai/ai-voice-cloning-skill)**: Official Beatra source for the `voice-cloning-studio` skill - paid, hosted work installed from a digest-pinned 0.2.1 archive byte-identical to commit `64923d9` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/multilingual-voiceover-skill](https://github.com/beatra-ai/multilingual-voiceover-skill)**: Official Beatra source for the `ai-multilingual-dubbing` skill - paid, hosted work installed from a digest-pinned 0.1.9 archive byte-identical to commit `030ec84` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-voiceover-generator-skill](https://github.com/beatra-ai/ai-voiceover-generator-skill)**: Official Beatra source for the `voiceover-narration-studio` skill - paid, hosted work installed from a digest-pinned 0.1.9 archive byte-identical to commit `0c44adf` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-podcast-voiceover-skill](https://github.com/beatra-ai/ai-podcast-voiceover-skill)**: Official Beatra source for the `ai-podcast-voiceover` skill - paid, hosted work installed from a digest-pinned 0.1.7 archive byte-identical to commit `ddca11e` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-image-generator-skill](https://github.com/beatra-ai/ai-image-generator-skill)**: Official Beatra source for the `ai-image-generation-studio` skill - paid, hosted work installed from a digest-pinned 0.1.4 archive byte-identical to commit `13c7b9b` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ecommerce-product-images-skill](https://github.com/beatra-ai/ecommerce-product-images-skill)**: Official Beatra source for the `ecommerce-listing-image-set` skill - paid, hosted work installed from a digest-pinned 0.2.0 archive byte-identical to commit `ef9056d` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-poster-maker-skill](https://github.com/beatra-ai/ai-poster-maker-skill)**: Official Beatra source for the `poster-design-studio` skill - paid, hosted work installed from a digest-pinned 0.1.3 archive byte-identical to commit `7a6337f` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-music-generator-skill](https://github.com/beatra-ai/ai-music-generator-skill)**: Official Beatra source for the `music-generation-studio` skill - paid, hosted work installed from a digest-pinned 0.1.8 archive byte-identical to commit `fee8fbf` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-media-generator-skill](https://github.com/beatra-ai/ai-media-generator-skill)**: Official Beatra source for the `beatra` skill - paid, hosted work installed from a digest-pinned 2.8.8 archive byte-identical to commit `69afbfe` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-product-photography-skill](https://github.com/beatra-ai/ai-product-photography-skill)**: Official Beatra source for the `product-photo-studio` skill - paid, hosted work installed from a digest-pinned 0.2.0 archive byte-identical to commit `1490364` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/ai-logo-maker-skill](https://github.com/beatra-ai/ai-logo-maker-skill)**: Official Beatra source for the `ai-logo-maker` skill - paid, hosted work installed from a digest-pinned 0.1.7 archive byte-identical to commit `89bf762` with self-update disabled before first use (MIT-0).
+
+- **[beatra-ai/lyrics-to-song-skill](https://github.com/beatra-ai/lyrics-to-song-skill)**: Official Beatra source for the `suno-lyrics-to-song` skill - paid, hosted work installed from a digest-pinned 0.2.0 archive byte-identical to commit `2facaac` with self-update disabled before first use (MIT-0).
+
+- **[vanshyadav1408/Omentir](https://github.com/vanshyadav1408/Omentir)**: Official Omentir source for the [`omentir-linkedin-outreach`](skills/omentir-linkedin-outreach/SKILL.md) skill - LinkedIn prospecting and outreach through the hosted Omentir MCP server (OAuth): find and score leads, draft messages, and check campaigns, research and drafts only by default, never signs into LinkedIn (MIT).
 - **[Spicy-API/nsfw-ai-skill](https://github.com/Spicy-API/nsfw-ai-skill)**: Official SpicyAPI source for the [`nsfw-ai-spicyapi`](skills/nsfw-ai-spicyapi/SKILL.md) skill — adult (18+) image, image-to-video and image-edit generation through the SpicyAPI API with quote-before-spend and adults-only / consent rules (MIT).
 - **[Atlas Cloud](https://atlascloud.ai/)**: Official source for the [`atlas-cloud-media`](skills/atlas-cloud-media/SKILL.md) skill — asynchronous image and video generation through the Atlas Cloud API.
 - **[sandbaseai/cli](https://github.com/sandbaseai/cli)**: Official source for the `sandbase-mcp` skill - discover, inspect, and invoke 2,000+ AI models and APIs through a local MCP bridge with explicit schema and cost checks (Apache-2.0).
@@ -251,6 +299,7 @@ Key source families include:
 - **[pilot-protocol/pilotprotocol](https://github.com/pilot-protocol/pilotprotocol)**: Official Pilot Protocol overlay network - agent addressing, encrypted P2P messaging, NAT traversal, and an installable agent app store (AGPL-3.0).
 - **[Xquik-dev/x-twitter-scraper](https://github.com/Xquik-dev/x-twitter-scraper)**: Official Xquik skill for X data workflows - tweet search, user lookup, follower export, media downloads, MCP, webhooks, OpenAPI, and SDK setup (MIT).
 - **[Modellix/modellix-plugin](https://github.com/Modellix/modellix-plugin)**: Official Modellix skill - authenticated, paid AI image and video generation through the Modellix CLI (MIT).
+- **[beatra-ai/talking-avatar-video-skill](https://github.com/beatra-ai/talking-avatar-video-skill)**: Official Beatra source for the `talking-avatar-video` skill - paid, hosted work installed from a digest-pinned 0.2.1 archive byte-identical to commit `251c968` with self-update disabled before first use (MIT-0).
 - **[beatra-ai/beatra-skills](https://github.com/beatra-ai/beatra-skills)**: Official Beatra source for the `beatra-ai-video-studio` skill - paid, hosted AI video generation, editing, and extension, installed from a digest-pinned 1.2.5 archive byte-identical to commit `95d662f` with self-update disabled before first use (MIT-0).
 - **[cohesivity-org/cohesivity-skill](https://github.com/cohesivity-org/cohesivity-skill)**: Official Cohesivity skill - agent provisioned backend infrastructure covering Postgres, hosting, auth, realtime, storage, cron, email, and AI model APIs over one HTTP API (MIT).
 - **[ASI2030/Fact-Check-X](https://github.com/ASI2030/Fact-Check-X)**: Source for the `fact-check-x-complete` workflow - claim-level AI answer comparison, citation-fidelity review, and public primary-source verification without bundled browser automation (Apache-2.0).
@@ -258,6 +307,8 @@ Key source families include:
 - **[testdriverai/testdriverai](https://github.com/testdriverai/testdriverai)**: Official TestDriver source for the `testdriver-e2e-testing` skill - author, run, and debug end-to-end tests that drive browsers and native apps in a real desktop sandbox with AI vision and natural-language element descriptions (Apache-2.0).
 - **[HEOJUNFO/ai-film-crew](https://github.com/HEOJUNFO/ai-film-crew)**: Official source for the `film-crew` skill - run a video idea past seven film-crew roles and get a shot list with one model-ready prompt per shot, plus prompt fixes and reroll diagnosis for Wan, LTX, Kling, Veo, Seedance, Hailuo, and Runway (MIT).
 - **[hermes-labs-ai/lintlang](https://github.com/hermes-labs-ai/lintlang)**: Official source for the `lintlang-audit` skill - deterministic, zero-LLM static auditing of agent instructions, tool definitions, and embedded Python prompts, reporting finding codes and locations without editing files or calling a model (Apache-2.0).
+- **[target1m/traderspy-mcp](https://github.com/target1m/traderspy-mcp)**: Official TraderSpy source for six crypto market research skills (`traderspy-*`) - market briefings, technical analysis, screening and backtests, AI signals, top-trader positioning, and position checks through the hosted, read-only TraderSpy MCP server (MIT).
+- **[MohammadHijjawi97/since-cutoff](https://github.com/MohammadHijjawi97/since-cutoff)**: Official source for the `since-cutoff` skill - lists which APIs of a project's pinned Python dependencies changed after the model's training cutoff, from a static diff of the two releases with no model calls, shows where the code uses them, and writes short AGENTS.md or CLAUDE.md notes (MIT).
 
 </details>
 
@@ -266,6 +317,10 @@ Key source families include:
 
 ### Community Contributors
 
+- **[FlowLLM-AI/AxonX](https://github.com/FlowLLM-AI/AxonX)**: Apache-2.0 source for `axonx` — quantitative research plugin development, task execution, and artifact/lineage inspection through CLI and MCP.
+- **[supercorp-ai/supercov](https://github.com/supercorp-ai/supercov)**: MIT source for the `supercov` skill — line, branch and MC/DC coverage of a project's existing tests, used to write focused tests for the untested code.
+- **[alapha888/agent-skills-en](https://github.com/alapha888/agent-skills-en)**: MIT source for `deep-research-framework`, `five-axis-code-review`, `git-commit-message`, `meeting-notes`, and `tech-writing-proofread` — concise English workflows for research reports, code review, commit messages, meeting minutes, and technical proofreading.
+- **[Natchannnn/repository-engineering-skills](https://github.com/Natchannnn/repository-engineering-skills)**: MIT source for `repo-foundation` and `repo-native-refactor` — repository-native implementation, contract-aware migrations, evidence-based review, and bounded cleanup.
 - **[tomelias10/mcp-drift-check](https://github.com/tomelias10/mcp-drift-check)**: MIT source for the `mcp-dependency-drift-audit` skill — zero-execution review of mutable npm/npx package references in MCP configuration, with a manual static fallback and CI/SARIF guidance.
 - **[wwewtech/chatexport-need-miner](https://github.com/wwewtech/chatexport-need-miner)**: Source for the `chatexport-need-miner` skill — community guidance and examples under MIT.
 - **[socai-io/jev-social](https://github.com/socai-io/jev-social)**: Source for the `jev-social` skill — read-only Jev/socai social research routing (MIT).
@@ -294,6 +349,7 @@ Key source families include:
 - **[sandbaseai/awesome-workbuddy](https://github.com/sandbaseai/awesome-workbuddy)**: Source for the `skill-security-audit` skill - read-only-by-default review of Agent Skills, MCP servers, connectors, and extensions across permissions, provenance, credentials, data flow, and irreversible actions (CC0-1.0).
 - **[alexprivalov/boost-asio-skill](https://github.com/alexprivalov/boost-asio-skill)**: Source for the `boost-asio-pro` skill - version-aware async C++ networking with Boost.Asio and standalone Asio across coroutine, callback, and classic `io_service` styles (MIT).
 - **[xiehuan123/dsh-deepread](https://github.com/xiehuan123/dsh-deepread)**: Source for the `dsh-deepread` skill - evidence-first analysis of articles, books, PDFs, and document sets with claim tracing, knowledge maps, and Feynman checks (MIT).
+- **[xiehuan123/browser-extension-launch](https://github.com/xiehuan123/browser-extension-launch)**: Source for the `browser-extension-launch` skill - end-to-end Chrome extension product design, implementation, real-browser acceptance, packaging, and store-launch workflow (MIT).
 - **[riffkit/skill](https://github.com/riffkit/skill)**: Official upstream source for the `riffkit` skill - short-form video riffing and UGC ad generation in nine natively generated languages (MIT).
 - **[5dive-ai/skills](https://github.com/5dive-ai/skills)**: Source for the `compile-knowledge` skill - durable, atomic, interlinked knowledge stores with explicit hygiene, provenance, expiry, and secret-handling boundaries (MIT).
 - **[JanYork/using-lwc](https://github.com/JanYork/using-lwc)**: Source for the `using-lwc` skill - durable, source-grounded project memory with independently verified document and code graphs (Apache-2.0).
@@ -549,16 +605,16 @@ Contributors ranked by the number of commits.
 
 | # | Contributor | Commits |
 |---:|---|---:|
-| 1 | <a href="https://github.com/munir-abbasi"><img src="https://github.com/munir-abbasi.png?size=48" width="32" height="32" alt="" /></a> [@munir-abbasi](https://github.com/munir-abbasi) | 34 |
-| 2 | <a href="https://github.com/Mohammad-Faiz-Cloud-Engineer"><img src="https://github.com/Mohammad-Faiz-Cloud-Engineer.png?size=48" width="32" height="32" alt="" /></a> [@Mohammad-Faiz-Cloud-Engineer](https://github.com/Mohammad-Faiz-Cloud-Engineer) | 33 |
-| 3 | <a href="https://github.com/WHOISABHISHEKADHIKARI"><img src="https://github.com/WHOISABHISHEKADHIKARI.png?size=48" width="32" height="32" alt="" /></a> [@WHOISABHISHEKADHIKARI](https://github.com/WHOISABHISHEKADHIKARI) | 24 |
+| 1 | <a href="https://github.com/WHOISABHISHEKADHIKARI"><img src="https://github.com/WHOISABHISHEKADHIKARI.png?size=48" width="32" height="32" alt="" /></a> [@WHOISABHISHEKADHIKARI](https://github.com/WHOISABHISHEKADHIKARI) | 36 |
+| 2 | <a href="https://github.com/munir-abbasi"><img src="https://github.com/munir-abbasi.png?size=48" width="32" height="32" alt="" /></a> [@munir-abbasi](https://github.com/munir-abbasi) | 34 |
+| 3 | <a href="https://github.com/Mohammad-Faiz-Cloud-Engineer"><img src="https://github.com/Mohammad-Faiz-Cloud-Engineer.png?size=48" width="32" height="32" alt="" /></a> [@Mohammad-Faiz-Cloud-Engineer](https://github.com/Mohammad-Faiz-Cloud-Engineer) | 33 |
 | 4 | <a href="https://github.com/zinzied"><img src="https://github.com/zinzied.png?size=48" width="32" height="32" alt="" /></a> [@zinzied](https://github.com/zinzied) | 24 |
 | 5 | <a href="https://github.com/Prince-1652"><img src="https://github.com/Prince-1652.png?size=48" width="32" height="32" alt="" /></a> [@Prince-1652](https://github.com/Prince-1652) | 17 |
-| 6 | <a href="https://github.com/ssumanbiswas"><img src="https://github.com/ssumanbiswas.png?size=48" width="32" height="32" alt="" /></a> [@ssumanbiswas](https://github.com/ssumanbiswas) | 15 |
-| 7 | <a href="https://github.com/FrancoStino"><img src="https://github.com/FrancoStino.png?size=48" width="32" height="32" alt="" /></a> [@FrancoStino](https://github.com/FrancoStino) | 13 |
-| 8 | <a href="https://github.com/Champbreed"><img src="https://github.com/Champbreed.png?size=48" width="32" height="32" alt="" /></a> [@Champbreed](https://github.com/Champbreed) | 10 |
-| 9 | <a href="https://github.com/Dokhacgiakhoa"><img src="https://github.com/Dokhacgiakhoa.png?size=48" width="32" height="32" alt="" /></a> [@Dokhacgiakhoa](https://github.com/Dokhacgiakhoa) | 10 |
-| 10 | <a href="https://github.com/sx4im"><img src="https://github.com/sx4im.png?size=48" width="32" height="32" alt="" /></a> [@sx4im](https://github.com/sx4im) | 10 |
+| 6 | <a href="https://github.com/beatra-ai"><img src="https://github.com/beatra-ai.png?size=48" width="32" height="32" alt="" /></a> [@beatra-ai](https://github.com/beatra-ai) | 16 |
+| 7 | <a href="https://github.com/ssumanbiswas"><img src="https://github.com/ssumanbiswas.png?size=48" width="32" height="32" alt="" /></a> [@ssumanbiswas](https://github.com/ssumanbiswas) | 15 |
+| 8 | <a href="https://github.com/FrancoStino"><img src="https://github.com/FrancoStino.png?size=48" width="32" height="32" alt="" /></a> [@FrancoStino](https://github.com/FrancoStino) | 13 |
+| 9 | <a href="https://github.com/Champbreed"><img src="https://github.com/Champbreed.png?size=48" width="32" height="32" alt="" /></a> [@Champbreed](https://github.com/Champbreed) | 10 |
+| 10 | <a href="https://github.com/Dokhacgiakhoa"><img src="https://github.com/Dokhacgiakhoa.png?size=48" width="32" height="32" alt="" /></a> [@Dokhacgiakhoa](https://github.com/Dokhacgiakhoa) | 10 |
 
 </td>
 <td valign="top" width="50%">
@@ -569,16 +625,16 @@ Contributors ranked by the number of skills they added.
 
 | # | Contributor | Skills added |
 |---:|---|---:|
-| 1 | <a href="https://github.com/Prince-1652"><img src="https://github.com/Prince-1652.png?size=48" width="32" height="32" alt="" /></a> [@Prince-1652](https://github.com/Prince-1652) | 92 |
-| 2 | <a href="https://github.com/sohamganatra"><img src="https://github.com/sohamganatra.png?size=48" width="32" height="32" alt="" /></a> [@sohamganatra](https://github.com/sohamganatra) | 78 |
-| 3 | <a href="https://github.com/FrancoStino"><img src="https://github.com/FrancoStino.png?size=48" width="32" height="32" alt="" /></a> [@FrancoStino](https://github.com/FrancoStino) | 61 |
-| 4 | <a href="https://github.com/ProgramadorBrasil"><img src="https://github.com/ProgramadorBrasil.png?size=48" width="32" height="32" alt="" /></a> [@ProgramadorBrasil](https://github.com/ProgramadorBrasil) | 52 |
-| 5 | <a href="https://github.com/nikolasdehor"><img src="https://github.com/nikolasdehor.png?size=48" width="32" height="32" alt="" /></a> [@nikolasdehor](https://github.com/nikolasdehor) | 35 |
-| 6 | <a href="https://github.com/RamonRiosJr"><img src="https://github.com/RamonRiosJr.png?size=48" width="32" height="32" alt="" /></a> [@RamonRiosJr](https://github.com/RamonRiosJr) | 26 |
-| 7 | <a href="https://github.com/MMEHDI0606"><img src="https://github.com/MMEHDI0606.png?size=48" width="32" height="32" alt="" /></a> [@MMEHDI0606](https://github.com/MMEHDI0606) | 20 |
-| 8 | <a href="https://github.com/WHOISABHISHEKADHIKARI"><img src="https://github.com/WHOISABHISHEKADHIKARI.png?size=48" width="32" height="32" alt="" /></a> [@WHOISABHISHEKADHIKARI](https://github.com/WHOISABHISHEKADHIKARI) | 19 |
-| 9 | <a href="https://github.com/ar27111994"><img src="https://github.com/ar27111994.png?size=48" width="32" height="32" alt="" /></a> [@ar27111994](https://github.com/ar27111994) | 13 |
-| 10 | <a href="https://github.com/xi-kari"><img src="https://github.com/xi-kari.png?size=48" width="32" height="32" alt="" /></a> [@xi-kari](https://github.com/xi-kari) | 12 |
+| 1 | <a href="https://github.com/FrancoStino"><img src="https://github.com/FrancoStino.png?size=48" width="32" height="32" alt="" /></a> [@FrancoStino](https://github.com/FrancoStino) | 336 |
+| 2 | <a href="https://github.com/WHOISABHISHEKADHIKARI"><img src="https://github.com/WHOISABHISHEKADHIKARI.png?size=48" width="32" height="32" alt="" /></a> [@WHOISABHISHEKADHIKARI](https://github.com/WHOISABHISHEKADHIKARI) | 125 |
+| 3 | <a href="https://github.com/Prince-1652"><img src="https://github.com/Prince-1652.png?size=48" width="32" height="32" alt="" /></a> [@Prince-1652](https://github.com/Prince-1652) | 91 |
+| 4 | <a href="https://github.com/sohamganatra"><img src="https://github.com/sohamganatra.png?size=48" width="32" height="32" alt="" /></a> [@sohamganatra](https://github.com/sohamganatra) | 78 |
+| 5 | <a href="https://github.com/ProgramadorBrasil"><img src="https://github.com/ProgramadorBrasil.png?size=48" width="32" height="32" alt="" /></a> [@ProgramadorBrasil](https://github.com/ProgramadorBrasil) | 52 |
+| 6 | <a href="https://github.com/nikolasdehor"><img src="https://github.com/nikolasdehor.png?size=48" width="32" height="32" alt="" /></a> [@nikolasdehor](https://github.com/nikolasdehor) | 35 |
+| 7 | <a href="https://github.com/Ranjeet2063"><img src="https://github.com/Ranjeet2063.png?size=48" width="32" height="32" alt="" /></a> [@Ranjeet2063](https://github.com/Ranjeet2063) | 20 |
+| 8 | <a href="https://github.com/MMEHDI0606"><img src="https://github.com/MMEHDI0606.png?size=48" width="32" height="32" alt="" /></a> [@MMEHDI0606](https://github.com/MMEHDI0606) | 20 |
+| 9 | <a href="https://github.com/beatra-ai"><img src="https://github.com/beatra-ai.png?size=48" width="32" height="32" alt="" /></a> [@beatra-ai](https://github.com/beatra-ai) | 16 |
+| 10 | <a href="https://github.com/ShianMike"><img src="https://github.com/ShianMike.png?size=48" width="32" height="32" alt="" /></a> [@ShianMike](https://github.com/ShianMike) | 13 |
 
 </td>
 </tr>
@@ -587,7 +643,7 @@ Contributors ranked by the number of skills they added.
 ## Repo Contributors
 
 <a href="https://github.com/sickn33/agentic-awesome-skills/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=sickn33/agentic-awesome-skills&max=500" alt="Repository contributors" />
+  <img src="https://contrib.rocks/image?repo=sickn33/agentic-awesome-skills&max=2000" alt="Repository contributors" />
 </a>
 
 Made with [contrib.rocks](https://contrib.rocks). *(Image may be cached; [view live contributors](https://github.com/sickn33/agentic-awesome-skills/graphs/contributors) on GitHub.)*
@@ -625,3 +681,4 @@ Original code and tooling are licensed under the MIT License. See [LICENSE](LICE
 Original documentation and other non-code written content are licensed under [CC BY 4.0](LICENSE-CONTENT), unless a more specific upstream notice says otherwise. See [docs/sources/sources.md](docs/sources/sources.md) for attributions and third-party license details.
 
 ---
+

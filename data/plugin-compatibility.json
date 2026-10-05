@@ -98,8 +98,84 @@
       ]
     },
     {
+      "id": "360-feedback-system",
+      "path": "skills/360-feedback-system",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "3d-web-experience",
       "path": "skills/3d-web-experience",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "aas-compose-stack",
+      "path": "skills/aas-compose-stack",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "aas-discover",
+      "path": "skills/aas-discover",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "aas-review-stack",
+      "path": "skills/aas-review-stack",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -157,6 +233,25 @@
     {
       "id": "acceptance-orchestrator",
       "path": "skills/acceptance-orchestrator",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "access-matrix",
+      "path": "skills/access-matrix",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -326,6 +421,44 @@
       "runtime_files": []
     },
     {
+      "id": "accounting-audit-system-builder",
+      "path": "skills/accounting-audit-system-builder",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "accounting-software-selection",
+      "path": "skills/accounting-software-selection",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "active-directory-attacks",
       "path": "skills/active-directory-attacks",
       "targets": {
@@ -458,6 +591,44 @@
         "codex": [
           "target_specific_home_path"
         ],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "admin-access-register",
+      "path": "skills/admin-access-register",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "advanced-analytics-dashboard",
+      "path": "skills/advanced-analytics-dashboard",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
         "claude": []
       },
       "runtime_files": []
@@ -1334,8 +1505,46 @@
       "runtime_files": []
     },
     {
+      "id": "ai-agent-evaluation-benchmarking",
+      "path": "skills/ai-agent-evaluation-benchmarking",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ai-agent-security",
       "path": "skills/ai-agent-security",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ai-agent-tool-routing",
+      "path": "skills/ai-agent-tool-routing",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -1374,6 +1583,25 @@
     {
       "id": "ai-analyzer",
       "path": "skills/ai-analyzer",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ai-code-generation-guardrails",
+      "path": "skills/ai-code-generation-guardrails",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -1471,8 +1699,46 @@
       "runtime_files": []
     },
     {
+      "id": "ai-image-generation-studio",
+      "path": "skills/ai-image-generation-studio",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ai-inference-service-mesh",
       "path": "skills/ai-inference-service-mesh",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ai-logo-maker",
+      "path": "skills/ai-logo-maker",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -1551,8 +1817,46 @@
       "runtime_files": []
     },
     {
+      "id": "ai-multilingual-dubbing",
+      "path": "skills/ai-multilingual-dubbing",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ai-native-cli",
       "path": "skills/ai-native-cli",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ai-photo-restyler",
+      "path": "skills/ai-photo-restyler",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -1589,8 +1893,46 @@
       "runtime_files": []
     },
     {
+      "id": "ai-podcast-voiceover",
+      "path": "skills/ai-podcast-voiceover",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ai-product",
       "path": "skills/ai-product",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ai-prompt-regression-testing",
+      "path": "skills/ai-prompt-regression-testing",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -1876,6 +2218,25 @@
     {
       "id": "alternatives-pages",
       "path": "skills/alternatives-pages",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "alumni-re-hire-tracker",
+      "path": "skills/alumni-re-hire-tracker",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -2230,6 +2591,25 @@
     {
       "id": "animejs-animation",
       "path": "skills/animejs-animation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "announcement-board",
+      "path": "skills/announcement-board",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -3678,6 +4058,25 @@
       "runtime_files": []
     },
     {
+      "id": "asset-it-management",
+      "path": "skills/asset-it-management",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "astro",
       "path": "skills/astro",
       "targets": {
@@ -3842,6 +4241,25 @@
       "runtime_files": []
     },
     {
+      "id": "attendance",
+      "path": "skills/attendance",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "audio-transcriber",
       "path": "skills/audio-transcriber",
       "targets": {
@@ -3899,8 +4317,46 @@
       "runtime_files": []
     },
     {
+      "id": "audit-log",
+      "path": "skills/audit-log",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "audit-logging",
       "path": "skills/audit-logging",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "audit-preparation",
+      "path": "skills/audit-preparation",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -4597,6 +5053,25 @@
     {
       "id": "axiom",
       "path": "skills/axiom",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "axonx",
+      "path": "skills/axonx",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -7426,6 +7901,25 @@
       "runtime_files": []
     },
     {
+      "id": "beatra",
+      "path": "skills/beatra",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "beatra-ai-video-studio",
       "path": "skills/beatra-ai-video-studio",
       "targets": {
@@ -7780,6 +8274,25 @@
       "runtime_files": []
     },
     {
+      "id": "board-governance",
+      "path": "skills/board-governance",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "boost-asio-pro",
       "path": "skills/boost-asio-pro",
       "targets": {
@@ -7856,6 +8369,25 @@
       "runtime_files": []
     },
     {
+      "id": "brand-growth-system-builder",
+      "path": "skills/brand-growth-system-builder",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "brand-guidelines",
       "path": "skills/brand-guidelines",
       "targets": {
@@ -7896,6 +8428,25 @@
     {
       "id": "brand-guidelines-community",
       "path": "skills/brand-guidelines-community",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "brand-kit-print-collateral",
+      "path": "skills/brand-kit-print-collateral",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -8217,6 +8768,25 @@
       "runtime_files": []
     },
     {
+      "id": "browser-extension-launch",
+      "path": "skills/browser-extension-launch",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "browser-extension-reverse",
       "path": "skills/browser-extension-reverse",
       "targets": {
@@ -8257,6 +8827,44 @@
     {
       "id": "browser-testing-with-devtools",
       "path": "skills/browser-testing-with-devtools",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "buddy-program-manager",
+      "path": "skills/buddy-program-manager",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "budget-cash-flow",
+      "path": "skills/budget-cash-flow",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -8521,6 +9129,25 @@
       "runtime_files": []
     },
     {
+      "id": "busabase",
+      "path": "skills/busabase",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "business-analyst",
       "path": "skills/business-analyst",
       "targets": {
@@ -8559,6 +9186,44 @@
       "runtime_files": []
     },
     {
+      "id": "business-email-template",
+      "path": "skills/business-email-template",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "business-website-setup",
+      "path": "skills/business-website-setup",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "busybox-on-windows",
       "path": "skills/busybox-on-windows",
       "targets": {
@@ -8580,6 +9245,25 @@
     {
       "id": "buywhere-product-catalog",
       "path": "skills/buywhere-product-catalog",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "byagent",
+      "path": "skills/byagent",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -8749,6 +9433,25 @@
       "runtime_files": []
     },
     {
+      "id": "candidate-talent-pool",
+      "path": "skills/candidate-talent-pool",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "canva-automation",
       "path": "skills/canva-automation",
       "targets": {
@@ -8770,6 +9473,25 @@
     {
       "id": "canvas-design",
       "path": "skills/canvas-design",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "capacity-workload-planner",
+      "path": "skills/capacity-workload-planner",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -9055,6 +9777,25 @@
     {
       "id": "changelog-automation",
       "path": "skills/changelog-automation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "changelog-entry",
+      "path": "skills/changelog-entry",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -9740,8 +10481,46 @@
       "runtime_files": []
     },
     {
+      "id": "clients-accounts",
+      "path": "skills/clients-accounts",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "cline-delegate",
       "path": "skills/cline-delegate",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "cline-pilot",
+      "path": "skills/cline-pilot",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -10044,6 +10823,25 @@
       "runtime_files": []
     },
     {
+      "id": "cloudish",
+      "path": "skills/cloudish",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "cmux",
       "path": "skills/cmux",
       "targets": {
@@ -10141,6 +10939,25 @@
     {
       "id": "code-documentation-doc-generate",
       "path": "skills/code-documentation-doc-generate",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "code-of-conduct",
+      "path": "skills/code-of-conduct",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -10799,6 +11616,44 @@
     {
       "id": "community-building",
       "path": "skills/community-building",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "company-email-accounts",
+      "path": "skills/company-email-accounts",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "competency-matrix",
+      "path": "skills/competency-matrix",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -11698,6 +12553,25 @@
       "runtime_files": []
     },
     {
+      "id": "contract-document-renewal",
+      "path": "skills/contract-document-renewal",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "conversation-memory",
       "path": "skills/conversation-memory",
       "targets": {
@@ -11907,6 +12781,25 @@
       "runtime_files": []
     },
     {
+      "id": "course-upskilling-requests",
+      "path": "skills/course-upskilling-requests",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "cowork-to-code-bridge",
       "path": "skills/cowork-to-code-bridge",
       "targets": {
@@ -12046,6 +12939,25 @@
       "runtime_files": []
     },
     {
+      "id": "credit-cycle-analysis",
+      "path": "skills/credit-cycle-analysis",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "crewai",
       "path": "skills/crewai",
       "targets": {
@@ -12086,6 +12998,25 @@
     {
       "id": "cron-doctor",
       "path": "skills/cron-doctor",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "cross-chain-relayer-audit",
+      "path": "skills/cross-chain-relayer-audit",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -12388,8 +13319,46 @@
       "runtime_files": []
     },
     {
+      "id": "csv-manual-export",
+      "path": "skills/csv-manual-export",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "cucumber-skill",
       "path": "skills/cucumber-skill",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "culture-retention",
+      "path": "skills/culture-retention",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -12717,6 +13686,44 @@
       "runtime_files": []
     },
     {
+      "id": "data-export-engine",
+      "path": "skills/data-export-engine",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "data-privacy-controls",
+      "path": "skills/data-privacy-controls",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "data-quality-frameworks",
       "path": "skills/data-quality-frameworks",
       "targets": {
@@ -13023,6 +14030,25 @@
     {
       "id": "datadog-automation",
       "path": "skills/datadog-automation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "day-book",
+      "path": "skills/day-book",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -13382,6 +14408,25 @@
       "runtime_files": []
     },
     {
+      "id": "deep-research-framework",
+      "path": "skills/deep-research-framework",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "deepapi",
       "path": "skills/deepapi",
       "targets": {
@@ -13420,8 +14465,65 @@
       "runtime_files": []
     },
     {
+      "id": "defi-yield-strategy-allocator",
+      "path": "skills/defi-yield-strategy-allocator",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "define-my-content-pillars",
+      "path": "skills/define-my-content-pillars",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "defuddle",
       "path": "skills/defuddle",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "dei-dashboard",
+      "path": "skills/dei-dashboard",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -14747,6 +15849,25 @@
       "runtime_files": []
     },
     {
+      "id": "design-theme-guide",
+      "path": "skills/design-theme-guide",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "design-thinking",
       "path": "skills/design-thinking",
       "targets": {
@@ -15287,6 +16408,25 @@
       "runtime_files": []
     },
     {
+      "id": "disciplinary-pip-tracker",
+      "path": "skills/disciplinary-pip-tracker",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "discord-automation",
       "path": "skills/discord-automation",
       "targets": {
@@ -15696,6 +16836,25 @@
       "runtime_files": []
     },
     {
+      "id": "document-management-system",
+      "path": "skills/document-management-system",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "documentation",
       "path": "skills/documentation",
       "targets": {
@@ -15968,6 +17127,25 @@
       "runtime_files": []
     },
     {
+      "id": "draft-my-comments",
+      "path": "skills/draft-my-comments",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "drizzle-migration-conflict",
       "path": "skills/drizzle-migration-conflict",
       "targets": {
@@ -16012,6 +17190,25 @@
     {
       "id": "dropbox-automation",
       "path": "skills/dropbox-automation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "dropthehassle-publish",
+      "path": "skills/dropthehassle-publish",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -16278,6 +17475,25 @@
     {
       "id": "ecl-harness-engineer",
       "path": "skills/ecl-harness-engineer",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "ecommerce-listing-image-set",
+      "path": "skills/ecommerce-listing-image-set",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -16651,6 +17867,25 @@
       "runtime_files": []
     },
     {
+      "id": "employee-suggestion-hub",
+      "path": "skills/employee-suggestion-hub",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "employment-contract-templates",
       "path": "skills/employment-contract-templates",
       "targets": {
@@ -16955,8 +18190,65 @@
       "runtime_files": []
     },
     {
+      "id": "esop-equity-tracker",
+      "path": "skills/esop-equity-tracker",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ethical-hacking-methodology",
       "path": "skills/ethical-hacking-methodology",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "etsy-search-listings",
+      "path": "skills/etsy-search-listings",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "etsy-shop-sales-history",
+      "path": "skills/etsy-shop-sales-history",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -17069,6 +18361,25 @@
       "runtime_files": []
     },
     {
+      "id": "events-activities",
+      "path": "skills/events-activities",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "evidence-hygiene",
       "path": "skills/evidence-hygiene",
       "targets": {
@@ -17147,6 +18458,44 @@
     {
       "id": "executing-plans",
       "path": "skills/executing-plans",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "expense-accounting",
+      "path": "skills/expense-accounting",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "expense-management",
+      "path": "skills/expense-management",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -18304,6 +19653,25 @@
       "runtime_files": []
     },
     {
+      "id": "five-axis-code-review",
+      "path": "skills/five-axis-code-review",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "fix-review",
       "path": "skills/fix-review",
       "targets": {
@@ -18836,6 +20204,25 @@
       "runtime_files": []
     },
     {
+      "id": "free-design-resources",
+      "path": "skills/free-design-resources",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "free-tier-strategy",
       "path": "skills/free-tier-strategy",
       "targets": {
@@ -19298,6 +20685,25 @@
       "runtime_files": []
     },
     {
+      "id": "fxmacrodata",
+      "path": "skills/fxmacrodata",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "game-development",
       "path": "skills/game-development",
       "targets": {
@@ -19509,6 +20915,44 @@
     {
       "id": "game-development/web-games",
       "path": "skills/game-development/web-games",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "gamification-engine",
+      "path": "skills/gamification-engine",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "gbp-local-seo-intent",
+      "path": "skills/gbp-local-seo-intent",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -20207,6 +21651,25 @@
       "runtime_files": []
     },
     {
+      "id": "get-seen-in-replies",
+      "path": "skills/get-seen-in-replies",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "gh-attach",
       "path": "skills/gh-attach",
       "targets": {
@@ -20316,6 +21779,25 @@
     {
       "id": "git-advanced-workflows",
       "path": "skills/git-advanced-workflows",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "git-commit-message",
+      "path": "skills/git-commit-message",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -21551,6 +23033,25 @@
     {
       "id": "health-trend-analyzer",
       "path": "skills/health-trend-analyzer",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "health-wellness",
+      "path": "skills/health-wellness",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -24016,6 +25517,25 @@
       "runtime_files": []
     },
     {
+      "id": "idea-to-blueprint",
+      "path": "skills/idea-to-blueprint",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "identity-access-management",
       "path": "skills/identity-access-management",
       "targets": {
@@ -24567,6 +26087,25 @@
       "runtime_files": []
     },
     {
+      "id": "intern-program",
+      "path": "skills/intern-program",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "internal-comms",
       "path": "skills/internal-comms",
       "targets": {
@@ -24607,6 +26146,25 @@
     {
       "id": "internal-comms-community",
       "path": "skills/internal-comms-community",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "internal-communication",
+      "path": "skills/internal-communication",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -24719,6 +26277,44 @@
       "runtime_files": []
     },
     {
+      "id": "inventory-stock-reconciliation",
+      "path": "skills/inventory-stock-reconciliation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "invoices-billing",
+      "path": "skills/invoices-billing",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ios-debugger-agent",
       "path": "skills/ios-debugger-agent",
       "targets": {
@@ -24778,6 +26374,25 @@
     {
       "id": "iso27001-compliance",
       "path": "skills/iso27001-compliance",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "issue-grievance-tracker",
+      "path": "skills/issue-grievance-tracker",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -25194,6 +26809,25 @@
       "runtime_files": []
     },
     {
+      "id": "json-schema-manual",
+      "path": "skills/json-schema-manual",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "julia-pro",
       "path": "skills/julia-pro",
       "targets": {
@@ -25384,6 +27018,25 @@
       "runtime_files": []
     },
     {
+      "id": "knowledge-base",
+      "path": "skills/knowledge-base",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "kotler-macro-analyzer",
       "path": "skills/kotler-macro-analyzer",
       "targets": {
@@ -25424,6 +27077,25 @@
     {
       "id": "kpi-dashboard-design",
       "path": "skills/kpi-dashboard-design",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "kpi-tracker",
+      "path": "skills/kpi-tracker",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -25825,6 +27497,44 @@
       "runtime_files": []
     },
     {
+      "id": "learning-career-development",
+      "path": "skills/learning-career-development",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "leave-management",
+      "path": "skills/leave-management",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "ledger-tasks-yylo",
       "path": "skills/ledger-tasks-yylo",
       "targets": {
@@ -25865,6 +27575,25 @@
     {
       "id": "legal-advisor",
       "path": "skills/legal-advisor",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "legal-compliance-vault",
+      "path": "skills/legal-compliance-vault",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -26348,6 +28077,25 @@
     {
       "id": "linkerd-patterns",
       "path": "skills/linkerd-patterns",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "linktree-link-hub",
+      "path": "skills/linktree-link-hub",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -27013,6 +28761,25 @@
     {
       "id": "logistics-exception-management",
       "path": "skills/logistics-exception-management",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "logo-image-design",
+      "path": "skills/logo-image-design",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -28747,6 +30514,25 @@
       "runtime_files": []
     },
     {
+      "id": "meeting-notes",
+      "path": "skills/meeting-notes",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "meme-coin-audit",
       "path": "skills/meme-coin-audit",
       "targets": {
@@ -28825,6 +30611,25 @@
     {
       "id": "mental-health-analyzer",
       "path": "skills/mental-health-analyzer",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "mentorship-program",
+      "path": "skills/mentorship-program",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -29078,6 +30883,25 @@
     {
       "id": "miro-automation",
       "path": "skills/miro-automation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "mirrord",
+      "path": "skills/mirrord",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -29848,6 +31672,25 @@
       "runtime_files": []
     },
     {
+      "id": "monthly-closing-statements",
+      "path": "skills/monthly-closing-statements",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "moodle-external-api-development",
       "path": "skills/moodle-external-api-development",
       "targets": {
@@ -30078,6 +31921,25 @@
     {
       "id": "multi-tenant-llm-hosting",
       "path": "skills/multi-tenant-llm-hosting",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "music-generation-studio",
+      "path": "skills/music-generation-studio",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -31059,6 +32921,25 @@
       ]
     },
     {
+      "id": "notification-reminder-hub",
+      "path": "skills/notification-reminder-hub",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "notion-automation",
       "path": "skills/notion-automation",
       "targets": {
@@ -31078,8 +32959,46 @@
       "runtime_files": []
     },
     {
+      "id": "notion-manual-import",
+      "path": "skills/notion-manual-import",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "notion-template-business",
       "path": "skills/notion-template-business",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "nsfw-ai-spicyapi",
+      "path": "skills/nsfw-ai-spicyapi",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -31175,6 +33094,25 @@
     {
       "id": "observability-and-instrumentation",
       "path": "skills/observability-and-instrumentation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "observability-cloud-planning",
+      "path": "skills/observability-cloud-planning",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -31825,8 +33763,46 @@
       "runtime_files": []
     },
     {
+      "id": "offboarding-exit",
+      "path": "skills/offboarding-exit",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "offensive-osint",
       "path": "skills/offensive-osint",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "offer-appointment",
+      "path": "skills/offer-appointment",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -31882,6 +33858,25 @@
       "runtime_files": []
     },
     {
+      "id": "okr-system",
+      "path": "skills/okr-system",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "okta-attack",
       "path": "skills/okta-attack",
       "targets": {
@@ -31903,6 +33898,25 @@
     {
       "id": "ollama-stack",
       "path": "skills/ollama-stack",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "omentir-linkedin-outreach",
+      "path": "skills/omentir-linkedin-outreach",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -31979,6 +33993,25 @@
     {
       "id": "onboarding-cro",
       "path": "skills/onboarding-cro",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "onboarding-playbook",
+      "path": "skills/onboarding-playbook",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -32420,6 +34453,25 @@
       "runtime_files": []
     },
     {
+      "id": "organization-design",
+      "path": "skills/organization-design",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "os-scripting",
       "path": "skills/os-scripting",
       "targets": {
@@ -32724,8 +34776,46 @@
       "runtime_files": []
     },
     {
+      "id": "party-ledger-reconciliation",
+      "path": "skills/party-ledger-reconciliation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "patch-diff-exploit",
       "path": "skills/patch-diff-exploit",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "payment-accounting",
+      "path": "skills/payment-accounting",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -32762,8 +34852,46 @@
       "runtime_files": []
     },
     {
+      "id": "payments-received",
+      "path": "skills/payments-received",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "paypal-integration",
       "path": "skills/paypal-integration",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "payroll-finance",
+      "path": "skills/payroll-finance",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -32990,8 +35118,46 @@
       "runtime_files": []
     },
     {
+      "id": "people-directory",
+      "path": "skills/people-directory",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "performance-engineer",
       "path": "skills/performance-engineer",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "performance-management",
+      "path": "skills/performance-management",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -33144,6 +35310,25 @@
     {
       "id": "personal-tool-builder",
       "path": "skills/personal-tool-builder",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "petty-cash-management",
+      "path": "skills/petty-cash-management",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -33334,6 +35519,25 @@
     {
       "id": "pitch-psychologist",
       "path": "skills/pitch-psychologist",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "placecall",
+      "path": "skills/placecall",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -33619,8 +35823,46 @@
       "runtime_files": []
     },
     {
+      "id": "policy-acknowledgement",
+      "path": "skills/policy-acknowledgement",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "policy-as-code",
       "path": "skills/policy-as-code",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "policy-library",
+      "path": "skills/policy-library",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -33703,6 +35945,25 @@
     {
       "id": "posix-shell-pro",
       "path": "skills/posix-shell-pro",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "poster-design-studio",
+      "path": "skills/poster-design-studio",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -34070,6 +36331,25 @@
       "runtime_files": []
     },
     {
+      "id": "pre-boarding",
+      "path": "skills/pre-boarding",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "pre-release-review",
       "path": "skills/pre-release-review",
       "targets": {
@@ -34110,6 +36390,25 @@
     {
       "id": "premium-3d-website",
       "path": "skills/premium-3d-website",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "presentation-deck",
+      "path": "skills/presentation-deck",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -34260,6 +36559,25 @@
       "runtime_files": []
     },
     {
+      "id": "probation-tracker",
+      "path": "skills/probation-tracker",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "product-decision-agent",
       "path": "skills/product-decision-agent",
       "targets": {
@@ -34376,6 +36694,25 @@
     {
       "id": "product-marketing-context",
       "path": "skills/product-marketing-context",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "product-photo-studio",
+      "path": "skills/product-photo-studio",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -34545,6 +36882,25 @@
       "runtime_files": []
     },
     {
+      "id": "project-based-performance",
+      "path": "skills/project-based-performance",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "project-development",
       "path": "skills/project-development",
       "targets": {
@@ -34625,6 +36981,25 @@
       "runtime_files": []
     },
     {
+      "id": "projects-work-management",
+      "path": "skills/projects-work-management",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "prometheus-configuration",
       "path": "skills/prometheus-configuration",
       "targets": {
@@ -34646,6 +37021,25 @@
     {
       "id": "prometheus-grafana",
       "path": "skills/prometheus-grafana",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "promotion-upgrade-requests",
+      "path": "skills/promotion-upgrade-requests",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -34893,6 +37287,25 @@
     {
       "id": "puppeteer-skill",
       "path": "skills/puppeteer-skill",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "purchase-accounting",
+      "path": "skills/purchase-accounting",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -35822,6 +38235,25 @@
       "runtime_files": []
     },
     {
+      "id": "receipt-accounting",
+      "path": "skills/receipt-accounting",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "receiving-code-review",
       "path": "skills/receiving-code-review",
       "targets": {
@@ -35841,8 +38273,46 @@
       "runtime_files": []
     },
     {
+      "id": "recognition-rewards",
+      "path": "skills/recognition-rewards",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "recon-scope-triage",
       "path": "skills/recon-scope-triage",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "recruitment-pipeline",
+      "path": "skills/recruitment-pipeline",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -36130,6 +38600,25 @@
       "runtime_files": []
     },
     {
+      "id": "remote-work-tracker",
+      "path": "skills/remote-work-tracker",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "remotion",
       "path": "skills/remotion",
       "targets": {
@@ -36282,6 +38771,25 @@
       "runtime_files": []
     },
     {
+      "id": "repo-foundation",
+      "path": "skills/repo-foundation",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "repo-maintainer",
       "path": "skills/repo-maintainer",
       "targets": {
@@ -36301,8 +38809,65 @@
       "runtime_files": []
     },
     {
+      "id": "repo-native-refactor",
+      "path": "skills/repo-native-refactor",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "report-writing",
       "path": "skills/report-writing",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "reports-analytics",
+      "path": "skills/reports-analytics",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "repurpose-into-a-post",
+      "path": "skills/repurpose-into-a-post",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -37042,6 +39607,63 @@
       "runtime_files": []
     },
     {
+      "id": "salary-benchmarking",
+      "path": "skills/salary-benchmarking",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "salary-wage-accounting",
+      "path": "skills/salary-wage-accounting",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "sales-accounting",
+      "path": "skills/sales-accounting",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "sales-automator",
       "path": "skills/sales-automator",
       "targets": {
@@ -37120,6 +39742,25 @@
     {
       "id": "sam-altman",
       "path": "skills/sam-altman",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "same-idea-both-platforms",
+      "path": "skills/same-idea-both-platforms",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -38592,6 +41233,25 @@
       "runtime_files": []
     },
     {
+      "id": "seo-directory-backlinks",
+      "path": "skills/seo-directory-backlinks",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "seo-drift",
       "path": "skills/seo-drift",
       "targets": {
@@ -38921,6 +41581,25 @@
     {
       "id": "sequence-psychologist",
       "path": "skills/sequence-psychologist",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "serply-search-mcp",
+      "path": "skills/serply-search-mcp",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -39356,6 +42035,25 @@
       "runtime_files": []
     },
     {
+      "id": "since-cutoff",
+      "path": "skills/since-cutoff",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "site-architecture",
       "path": "skills/site-architecture",
       "targets": {
@@ -39457,6 +42155,25 @@
     {
       "id": "skill-developer",
       "path": "skills/skill-developer",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "skill-gap-analysis",
+      "path": "skills/skill-gap-analysis",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -39901,6 +42618,44 @@
       "runtime_files": []
     },
     {
+      "id": "smart-contract-formal-verification",
+      "path": "skills/smart-contract-formal-verification",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "smart-contract-upgrade-governance",
+      "path": "skills/smart-contract-upgrade-governance",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "smart-git-automation",
       "path": "skills/smart-git-automation",
       "targets": {
@@ -39998,6 +42753,25 @@
     {
       "id": "social-content",
       "path": "skills/social-content",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "social-media-setup",
+      "path": "skills/social-media-setup",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -40154,8 +42928,141 @@
       "runtime_files": []
     },
     {
+      "id": "sop-company-wiki",
+      "path": "skills/sop-company-wiki",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "sops-encryption",
       "path": "skills/sops-encryption",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "soroban-contract-audit",
+      "path": "skills/soroban-contract-audit",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "soroban-liquidity-pool",
+      "path": "skills/soroban-liquidity-pool",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "soroban-oracle-data-feed-audit",
+      "path": "skills/soroban-oracle-data-feed-audit",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "soroban-storage-ttl-lifecycle",
+      "path": "skills/soroban-storage-ttl-lifecycle",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "soroban-token-minter",
+      "path": "skills/soroban-token-minter",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "source-document-filing",
+      "path": "skills/source-document-filing",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -40312,6 +43219,25 @@
     {
       "id": "spline-3d-integration",
       "path": "skills/spline-3d-integration",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "spreadsheet-manual-build",
+      "path": "skills/spreadsheet-manual-build",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -40626,6 +43552,25 @@
       "runtime_files": []
     },
     {
+      "id": "stakeholder-investor-reports",
+      "path": "skills/stakeholder-investor-reports",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "startup-analyst",
       "path": "skills/startup-analyst",
       "targets": {
@@ -40761,6 +43706,82 @@
     {
       "id": "statsmodels",
       "path": "skills/statsmodels",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "stellar-anchor-integration",
+      "path": "skills/stellar-anchor-integration",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "stellar-asset-clawback-compliance",
+      "path": "skills/stellar-asset-clawback-compliance",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "stellar-escrow-timelock",
+      "path": "skills/stellar-escrow-timelock",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "stellar-multisig-threshold-coordinator",
+      "path": "skills/stellar-multisig-threshold-coordinator",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -40970,6 +43991,25 @@
     {
       "id": "subject-line-psychologist",
       "path": "skills/subject-line-psychologist",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "suno-lyrics-to-song",
+      "path": "skills/suno-lyrics-to-song",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -41350,6 +44390,25 @@
     {
       "id": "super-code/typescript",
       "path": "skills/super-code/typescript",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "supercov",
+      "path": "skills/supercov",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -41785,6 +44844,25 @@
       "runtime_files": []
     },
     {
+      "id": "talking-avatar-video",
+      "path": "skills/talking-avatar-video",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "tanstack-query-expert",
       "path": "skills/tanstack-query-expert",
       "targets": {
@@ -41825,6 +44903,25 @@
     {
       "id": "tavily-web",
       "path": "skills/tavily-web",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "tax-register",
+      "path": "skills/tax-register",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -42013,8 +45110,46 @@
       "runtime_files": []
     },
     {
+      "id": "tds-booking-payment",
+      "path": "skills/tds-booking-payment",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "teach",
       "path": "skills/teach",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "team-calendar",
+      "path": "skills/team-calendar",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -42072,6 +45207,25 @@
     {
       "id": "team-composition-analysis",
       "path": "skills/team-composition-analysis",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "tech-writing-proofread",
+      "path": "skills/tech-writing-proofread",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -42209,6 +45363,25 @@
     {
       "id": "telegram-mini-app",
       "path": "skills/telegram-mini-app",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "template-library",
+      "path": "skills/template-library",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -43005,6 +46178,25 @@
       "runtime_files": []
     },
     {
+      "id": "time-tracking",
+      "path": "skills/time-tracking",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "tmux",
       "path": "skills/tmux",
       "targets": {
@@ -43589,6 +46781,25 @@
     {
       "id": "turborepo-caching",
       "path": "skills/turborepo-caching",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "turn-this-into-a-thread",
+      "path": "skills/turn-this-into-a-thread",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -44895,6 +48106,25 @@
       "runtime_files": []
     },
     {
+      "id": "vendor-contractor-management",
+      "path": "skills/vendor-contractor-management",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "vendor-management",
       "path": "skills/vendor-management",
       "targets": {
@@ -45351,6 +48581,25 @@
       "runtime_files": []
     },
     {
+      "id": "viral-video-teardown-remake",
+      "path": "skills/viral-video-teardown-remake",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "visual-emotion-engineer",
       "path": "skills/visual-emotion-engineer",
       "targets": {
@@ -45486,6 +48735,44 @@
     {
       "id": "voice-ai-engine-development",
       "path": "skills/voice-ai-engine-development",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "voice-cloning-studio",
+      "path": "skills/voice-cloning-studio",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "voiceover-narration-studio",
+      "path": "skills/voiceover-narration-studio",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -46016,8 +49303,46 @@
       "runtime_files": []
     },
     {
+      "id": "web3-rate-limiting-circuit-breaker",
+      "path": "skills/web3-rate-limiting-circuit-breaker",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "web3-testing",
       "path": "skills/web3-testing",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "web3-transaction-relayer-pool",
+      "path": "skills/web3-transaction-relayer-pool",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -46189,6 +49514,25 @@
     {
       "id": "whatsapp-cloud-api",
       "path": "skills/whatsapp-cloud-api",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
+      "id": "why-did-this-post-flop",
+      "path": "skills/why-did-this-post-flop",
       "targets": {
         "codex": "supported",
         "claude": "supported"
@@ -46833,6 +50177,25 @@
       "runtime_files": []
     },
     {
+      "id": "write-in-my-voice",
+      "path": "skills/write-in-my-voice",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "writing-great-skills",
       "path": "skills/writing-great-skills",
       "targets": {
@@ -47428,6 +50791,25 @@
       "runtime_files": []
     },
     {
+      "id": "zk-proof-verification-pipeline",
+      "path": "skills/zk-proof-verification-pipeline",
+      "targets": {
+        "codex": "supported",
+        "claude": "supported"
+      },
+      "setup": {
+        "type": "none",
+        "summary": "",
+        "docs": null
+      },
+      "reasons": [],
+      "blocked_reasons": {
+        "codex": [],
+        "claude": []
+      },
+      "runtime_files": []
+    },
+    {
       "id": "zod-validation-expert",
       "path": "skills/zod-validation-expert",
       "targets": {
@@ -47505,10 +50887,10 @@
     }
   ],
   "summary": {
-    "total_skills": 2474,
+    "total_skills": 2652,
     "supported": {
-      "codex": 2387,
-      "claude": 2412
+      "codex": 2565,
+      "claude": 2590
     },
     "blocked": {
       "codex": 87,

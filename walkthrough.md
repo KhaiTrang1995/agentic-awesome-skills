@@ -768,3 +768,38 @@ The landing route used useSkills outside CatalogRouteProvider, crashing the depl
 ## Shared site style (2026-09-27)
 
 Use the landing black/cyan palette on every route, share Outfit/JetBrains Mono with Tailwind and Markdown, load the title weight, unify responsive page headings, and keep header/footer appearance stable across navigation.
+
+## Vercel OSS site migration (2026-09-28)
+
+Configure the repository root as the Vercel project root. `vercel.json` installs both
+package trees, runs the existing web asset setup and build, serves the generated
+`apps/web-app/dist` directory, and falls back to the SPA entry for routes that
+are not prerendered. The Vercel Open Source Program badge is in the README.
+
+Keep `https://aaskills.tech/` as the public canonical URL. Deploy and check a
+Vercel preview first, attach the domain to the Vercel project, then update its
+DNS records. Keep the existing GitHub Pages custom-domain setting and verify
+that `https://sickn33.github.io/agentic-awesome-skills/` and representative
+deep links still redirect to the canonical URL after the DNS change. If GitHub
+Pages stops redirecting them, publish a dedicated redirect artifact there
+before considering the migration complete.
+
+## Unified AAS local plugin preparation (2026-10-02)
+
+Bundle three native workflow skills, the complete catalog and supporting files,
+read-only stdio Core, an offline artifact CLI, and single-file Workbench. Runtime
+requires only Node.js 22 or later on the user computer. No endpoint, cloud database,
+credentials, npm download, or hosted fallback is used. Local runtime identities
+bind bundled bytes; they do not assert verification of an npm release tarball.
+
+The experimental Upstash resource and all three previews containing the hosted
+MCP were removed. Production and DNS were never changed. Source configuration
+returns the existing website to its baseline build without a plugin Function.
+
+Validation includes a relocated package with networking denied: real SDK stdio
+catalog reading, composition/inspection, evidence, process isolation, Workbench
+resource, offline planning and audit. Focused Workbench browser tests pass with
+no fetch and no installer handoff. Root validation, references, documentation
+security, warning budget and full repository tests pass. Codex CLI installation passed with a temporary isolated configuration; native
+UI rendering remains unverified. Generated outputs stay excluded from
+this source PR and belong to protected canonical synchronization.

@@ -70,10 +70,16 @@ function assertNotIncludes(text, snippet, label) {
 }
 
 function assertLiveSeoDocuments({ home, plugins, sitemap, llms, robots }, expected) {
-  assertIncludes(home, `AAS Core Preview | Agent-first stacks backed by ${expected.countLabel} skills`, 'home');
+  assertIncludes(home, 'Agentic Awesome Skills | Agent-first skill catalog and AAS Core', 'home title');
+  const description = home.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1];
+  if (!description) {
+    throw new Error('home description meta tag is missing');
+  }
+  assertIncludes(description, `Explore ${expected.countLabel} playbooks`, 'home description');
+  if (description.length > 160) {
+    throw new Error(`home description is ${description.length} characters; expected no more than 160`);
+  }
   assertIncludes(home, 'SoftwareSourceCode', 'home JSON-LD');
-  assertIncludes(home, 'FAQPage', 'home JSON-LD');
-  assertIncludes(home, 'specialized plugins', 'home');
   assertIncludes(home, expected.countLabel, 'home');
   assertNotIncludes(home, 'prompt templates', 'home');
 

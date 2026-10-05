@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "ES2020",
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.cache/tsconfig.node.tsbuildinfo",
     "allowImportingTsExtensions": true,
@@ -10,5 +12,10 @@
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["vite.config.ts", "vitest.config.ts", "refresh-skills-plugin.d.ts"]
+  "include": [
+    "vite.config.ts",
+    "vitest.config.ts",
+    "refresh-skills-plugin.d.ts",
+    "vite.plugin.config.ts"
+  ]
 }
