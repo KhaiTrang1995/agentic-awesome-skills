@@ -40,7 +40,7 @@ empty templates only - it never holds or processes real employee or customer dat
 
 ## How It Works
 
-Follow the shared execution contract. The module-specific rules below define only domain fields, decisions, calculations, and safety constraints.
+Use the self-contained workflow below; no parent module or integration is required for empty local templates. Record lawful basis and retention as unknown until a qualified owner supplies them; a checkbox or example row does not establish compliance.
 
 ### Step 1 - Identify intent
 
@@ -104,15 +104,7 @@ Once the user asks for it, derive the fields from the confirmed context and emit
 requested artifacts. For machine-readable text, keep prose outside the data; for files,
 provide a usable link. Report material validation failures or limitations separately.
 
-**A selected Notion output is rendered by `notion-manual-import`, so route the
-Notion step there.** When the user selects Notion, hand that step to
-@notion-manual-import: it holds the CSV, the property
-mapping, the import steps and the verification checklist, and it renders the Field
-Reference below instead of defining a table of its own. Do not restate the mapping
-here and do not improvise the import steps. Manual CSV and mapping outputs need no
-connection. For requested workspace changes, follow the shared contract: verify actual
-tool access and the target before writing. A user saying "connected" is not tool evidence.
-Never ask for a Notion password or token.
+For a Notion output, provide the CSV and property mapping below for manual import. If `notion-manual-import` is separately available, it may assist with import instructions; it is optional. For requested workspace writes, verify actual tool access and the precise target, apply the authorized change, and read it back before claiming completion. Never ask for a password or token.
 
 For an Excel-compatible CSV, use UTF-8 with a byte order mark so Excel opens the
 text correctly. A CSV is not an `.xlsx` workbook; create `.xlsx` only when the user
@@ -134,9 +126,9 @@ CREATE TABLE data_privacy_controls (
   retention_period VARCHAR(255),
   access_roles VARCHAR(255),
   encryption VARCHAR(255),
-  consent_required BOOLEAN NOT NULL,
+  consent_required BOOLEAN, -- NULL means applicability is unknown
   owner VARCHAR(255),
-  last_reviewed DATE NOT NULL,
+  last_reviewed DATE, -- NULL means no review has been recorded
   status VARCHAR(100) NOT NULL,
   control_id SERIAL PRIMARY KEY,
   created_at TIMESTAMP DEFAULT NOW(),
@@ -160,15 +152,14 @@ CREATE INDEX idx_data_privacy_controls_status ON data_privacy_controls (status);
       "Retention Period": { "type": "string" },
       "Access Roles": { "type": "string" },
       "Encryption": { "type": "string" },
-      "Consent Required": { "type": "boolean" },
+      "Consent Required": { "type": ["boolean", "null"] },
       "Owner": { "type": "string" },
-      "Last Reviewed": { "type": "string", "format": "date" },
+      "Last Reviewed": { "type": ["string", "null"], "format": "date" },
       "Status": { "type": "string" },
       "Control ID": { "type": "integer" }
   },
   "required": [
       "Data Category",
-      "Last Reviewed",
       "Status"
   ]
 }
@@ -184,7 +175,7 @@ CREATE INDEX idx_data_privacy_controls_status ON data_privacy_controls (status);
 | Retention Period | Text | Leave as Text |
 | Access Roles | Text | Leave as Text |
 | Encryption | Text | Leave as Text |
-| Consent Required | Checkbox | Convert to Checkbox |
+| Consent Required | Select | Use Unknown / Required / Not required; a Checkbox would collapse unknown into false |
 | Owner | Text | Leave as Text |
 | Last Reviewed | Date | Convert to Date |
 | Status | Select (add options after import) | Convert to Select, add options: "Draft", "In Review", "Approved", "Implemented", "Retired" |
@@ -205,9 +196,9 @@ and anything pointing at another table stays `relation`.
 | 5 | Retention Period | `text` | `VARCHAR(255)` | `string` | Text | `24 months after last activity` |
 | 6 | Access Roles | `text` | `VARCHAR(255)` | `string` | Text | `People team, Finance` |
 | 7 | Encryption | `text` | `VARCHAR(255)` | `string` | Text | `At rest and in transit` |
-| 8 | Consent Required | `checkbox` | `BOOLEAN` | `boolean` | Checkbox | `FALSE` |
+| 8 | Consent Required | `nullable boolean` | `BOOLEAN NULL` | `boolean or null` | Select: Unknown / Required / Not required | `FALSE` |
 | 9 | Owner | `text` | `VARCHAR(255)` | `string` | Text | `Sneha Iyer` |
-| 10 | Last Reviewed | `date` | `DATE` | `string, format: date` | Date | `2026-01-15` |
+| 10 | Last Reviewed | `nullable date` | `DATE NULL` | `string or null, format: date` | Date | `2026-01-15` |
 | 11 | Status | `select` | `VARCHAR(100)` | `string` | Select (add options after import) | `Implemented` |
 | 12 | Control ID | `id` | `SERIAL PRIMARY KEY` | `integer` | Text (preserve source ID) | `(blank)` |
 
@@ -302,7 +293,7 @@ We hold a lot of employee data and cannot say who owns it.
 
 ## Related Skills
 
-- ](https://github.com/sickn33/agentic-awesome-skills/blob/main/CATALOG.md) - find the relevant module, then read its skill.
+- [Catalog](https://github.com/sickn33/agentic-awesome-skills/blob/main/CATALOG.md) - find the relevant module, then read its skill.
 - @people-directory - the employee master record most modules link to.
 - @notification-reminder-hub - turns due dates in this module into reminders.
 

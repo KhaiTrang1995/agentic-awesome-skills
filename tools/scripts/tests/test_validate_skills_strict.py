@@ -35,6 +35,25 @@ class ValidateSkillsStrictTests(unittest.TestCase):
             encoding="utf-8",
         )
 
+    def test_empty_and_template_descriptions_fail_in_both_modes(self):
+        for description in ["", "   ", "One sentence - what this skill does and when to invoke it",
+                            "  ONE SENTENCE — what this skill does and when to invoke it.  "]:
+            for strict in [False, True]:
+                with self.subTest(description=description, strict=strict), tempfile.TemporaryDirectory() as temp_dir:
+                    self._write_skill(Path(temp_dir), "demo", [
+                        "name: demo", f'description: "{description}"', "risk: safe", "source: self",
+                    ])
+                    results = validate_skills.collect_validation_results(temp_dir, strict_mode=strict)
+                    self.assertTrue(any("skill-template placeholder" in error for error in results["errors"]))
+
+    def test_real_description_about_templates_is_allowed(self):
+        with tempfile.TemporaryDirectory() as temp_dir:
+            self._write_skill(Path(temp_dir), "demo", [
+                "name: demo", 'description: "Write one sentence summaries when reviewing skill templates."',
+                "risk: safe", "source: self",
+            ])
+            self.assertEqual(validate_skills.collect_validation_results(temp_dir, strict_mode=True)["errors"], [])
+
     def test_missing_date_added_is_advisory_not_strict_failure(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             skills_dir = Path(temp_dir) / "skills"

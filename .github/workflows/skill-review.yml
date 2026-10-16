@@ -66,13 +66,16 @@ jobs:
           path: .tmp/tessl-review-cache
           key: tessl-review-v2-${{ steps.plan.outputs.fingerprint }}
       - name: Set up Tessl
+        id: tessl-setup
+        timeout-minutes: 2
+        continue-on-error: true
         if: ${{ steps.plan.outputs.has-skills == 'true' && steps.plan.outputs.requires-manual != 'true' && steps.review-cache.outputs.cache-hit != 'true' }}
         uses: tesslio/setup-tessl@25ec223fc0da33b41b8044ff5ab2b85235f4f91e
         with:
           token: ${{ secrets.TESSL_TOKEN || secrets.TESSL_API_TOKEN }}
       - name: Review changed skills
         id: tessl-review
-        if: ${{ steps.plan.outputs.has-skills == 'true' && steps.plan.outputs.requires-manual != 'true' && steps.review-cache.outputs.cache-hit != 'true' }}
+        if: ${{ steps.tessl-setup.outcome == 'success' && steps.plan.outputs.has-skills == 'true' && steps.plan.outputs.requires-manual != 'true' && steps.review-cache.outputs.cache-hit != 'true' }}
         run: |
           set +e
           timeout --signal=TERM --kill-after=30s 10m node trusted-base/tools/scripts/review_changed_skills.cjs
@@ -110,8 +113,11 @@ jobs:
           HAS_SKILLS: ${{ steps.plan.outputs.has-skills }}
           REQUIRES_MANUAL: ${{ steps.plan.outputs.requires-manual }}
           TESSL_RESULT: ${{ steps.tessl-review.outputs.result }}
+          SETUP_OUTCOME: ${{ steps.tessl-setup.outcome }}
         run: |
           if [ "$REQUIRES_MANUAL" = "true" ]; then
+            echo "outcome=manual" >> "$GITHUB_OUTPUT"
+          elif [ "$SETUP_OUTCOME" = "failure" ] || [ "$SETUP_OUTCOME" = "cancelled" ]; then
             echo "outcome=manual" >> "$GITHUB_OUTPUT"
           elif [ "$HAS_SKILLS" != "true" ] || [ "$CACHE_HIT" = "true" ] || [ "$TESSL_RESULT" = "reviewed" ]; then
             echo "outcome=reviewed" >> "$GITHUB_OUTPUT"

@@ -437,10 +437,25 @@ assert.doesNotMatch(
   /\bgit\s+checkout\s+<branch>/,
   'AccessLint diff must not document unquoted branch checkout',
 );
+assert.doesNotMatch(
+  accesslintDiffSkill,
+  /\bgit\s+(?:switch|stash\s+(?:push|pop))\b/,
+  'AccessLint diff must preserve the user checkout instead of switching or popping stashes',
+);
 assert.match(
   accesslintDiffSkill,
-  /git switch "\$branch"/,
-  'AccessLint diff should switch to a quoted, validated branch variable',
+  /isolated worktrees or recoverable snapshots/,
+  'AccessLint diff must establish isolated base and candidate snapshots',
+);
+assert.match(
+  accesslintDiffSkill,
+  /full commit SHAs[\s\S]*deterministic ready selector/,
+  'AccessLint diff must verify revisions and deterministic page readiness',
+);
+assert.match(
+  accesslintDiffSkill,
+  /Close only browser processes, servers and snapshots created for this run/,
+  'AccessLint cleanup must preserve pre-existing browser and server sessions',
 );
 assert.match(
   ciWorkflow,

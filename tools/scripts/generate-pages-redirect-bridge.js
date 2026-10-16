@@ -253,9 +253,9 @@ function generateBridge(options) {
     }
     return { currentUrl, relativeRoute };
   });
-  // First-party docs belong to the current site and must not be copied into the separate legacy bridge.
+  // First-party docs and new informational pages have no legacy routes to migrate.
   const bridgeSitemapRoutes = sitemapRoutes.filter(
-    ({ relativeRoute }) => relativeRoute !== 'docs' && !relativeRoute.startsWith('docs/'),
+    ({ relativeRoute }) => relativeRoute !== 'docs' && !relativeRoute.startsWith('docs/') && !['teams', 'trust', 'aas-core'].includes(relativeRoute),
   );
   if (bridgeSitemapRoutes.length !== expectedRoutes) {
     throw new Error(`sitemap route count ${bridgeSitemapRoutes.length} does not match locked expectation ${expectedRoutes}`);

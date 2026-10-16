@@ -1,3 +1,5 @@
+import copy
+import json
 import importlib.util
 import errno
 import pathlib
@@ -48,10 +50,45 @@ class EditorialBundlesTests(unittest.TestCase):
         self.assertEqual(len(bundle_ids), len(set(bundle_ids)))
 
         for bundle in self.manifest_bundles:
-            self.assertEqual(bundle["id"], get_bundle_skills._normalize_bundle_query(bundle["name"]))
+            self.assertEqual(
+                get_bundle_skills.get_bundle_skills([bundle["name"]]),
+                sorted(skill["id"] for skill in bundle["skills"]),
+            )
             self.assertTrue(bundle["skills"], f'bundle "{bundle["id"]}" should not be empty')
             for skill in bundle["skills"]:
                 self.assertTrue((REPO_ROOT / "skills" / skill["id"]).exists())
+
+    def test_migrations_preserve_skills_and_resolve_retired_names(self):
+        payload = json.loads((REPO_ROOT / "data/editorial-bundles.json").read_text())
+        by_id = {b["id"]: b for b in payload["bundles"]}
+        for migration in payload["migrations"]:
+            self.assertNotIn(migration["from"], by_id)
+            expected = sorted(s["id"] for s in by_id[migration["to"]]["skills"])
+            self.assertEqual(get_bundle_skills.get_bundle_skills([migration["from"]]), expected)
+            self.assertEqual(get_bundle_skills.get_bundle_skills([migration["name"]]), expected)
+            self.assertTrue(set(migration["preservedSkills"]) <= set(expected))
+
+    def test_migration_rejects_loss_missing_target_live_duplicate_and_ambiguous_alias(self):
+        bundles = [
+            {"id": "new", "aliases": ["old"], "skills": [{"id": "keep"}]},
+            {"id": "other", "skills": [{"id": "keep"}]},
+        ]
+        payload = {"migrations": [{"from": "old", "to": "new", "preservedSkills": ["keep"]}]}
+        editorial_bundles._validate_bundle_migrations(payload, bundles)
+        for field, value in [("preservedSkills", ["lost"]), ("to", "missing"), ("from", "new")]:
+            bad = copy.deepcopy(payload)
+            bad["migrations"][0][field] = value
+            with self.assertRaises(ValueError):
+                editorial_bundles._validate_bundle_migrations(bad, bundles)
+        bad = copy.deepcopy(payload)
+        bad["migrations"].append(copy.deepcopy(bad["migrations"][0]))
+        with self.assertRaises(ValueError):
+            editorial_bundles._validate_bundle_migrations(bad, bundles)
+        for aliases in [["old"], ["new"]]:
+            bad_bundles = copy.deepcopy(bundles)
+            bad_bundles[1]["aliases"] = aliases
+            with self.assertRaises(ValueError):
+                editorial_bundles._validate_bundle_migrations(payload, bad_bundles)
 
     def test_bundles_doc_matches_renderer(self):
         metadata = editorial_bundles.load_metadata(str(REPO_ROOT))
@@ -417,8 +454,8 @@ Keep this body byte-for-byte.
                 editorial_bundles._validate_editorial_bundles(temp_root, payload)
 
     def test_sample_bundle_copy_matches_source_file_inventory(self):
-        sample_bundle = next(bundle for bundle in self.manifest_bundles if bundle["id"] == "documents-presentations")
-        plugin_skills_root = REPO_ROOT / "plugins" / "agentic-bundle-documents-presentations" / "skills"
+        sample_bundle = next(bundle for bundle in self.manifest_bundles if bundle["id"] == "aas-documents-presentations")
+        plugin_skills_root = REPO_ROOT / "plugins" / "agentic-bundle-aas-documents-presentations" / "skills"
 
         for skill in sample_bundle["skills"]:
             source_dir = REPO_ROOT / "skills" / skill["id"]

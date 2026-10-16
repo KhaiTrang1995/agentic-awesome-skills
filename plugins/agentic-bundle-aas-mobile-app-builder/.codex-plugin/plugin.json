@@ -1,6 +1,6 @@
 {
   "name": "aasb-aas-mobile-app-builder",
-  "version": "18.15.0",
+  "version": "19.7.0",
   "description": "Install the \"AAS Mobile App Builder\" workflow plugin from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "AAS Mobile App Builder",
-    "shortDescription": "Build and ship Expo, React Native, Flutter, iOS, and multi-platform apps with CI, deployment, and store readiness.",
-    "longDescription": "Build and ship Expo, React Native, Flutter, iOS, and multi-platform apps with CI, deployment, and store readiness. Implement a mobile feature in the chosen stack and prepare platform-specific build and release checks. Recommended for: Mobile teams, Expo and React Native builders, Cross-platform app maintainers. Not for: Desktop-only applications, App-store submission, signing credentials or device testing supplied by the plugin. Covers Mobile Developer, React Native Architecture, and 8 more skills.",
+    "shortDescription": "Mobile implementation and platform interface guidance.",
+    "longDescription": "Mobile implementation and platform interface guidance. Build mobile features with React Native, Expo, Flutter or iOS, including platform design, API states and release checks. Recommended for: Mobile teams, Expo and React Native builders, Cross-platform app maintainers. Not for: Desktop-only applications, App-store submission, signing credentials or device testing supplied by the plugin. Covers Mobile Developer, React Native Architecture, and 17 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins - Next Wave",
     "capabilities": [
@@ -34,7 +34,8 @@
     "defaultPrompt": [
       "Inspect this mobile app and its chosen Expo, React Native, Flutter or native iOS stack. Implement the requested feature, check platform-specific behavior and offline/error states, and prepare build and store-readiness checks. Identify device, SDK and signing requirements before claiming verification.",
       "Use this plugin to plan a React Native feature from routing and state to test and release.",
-      "Use this plugin to compare Flutter, React Native, native iOS, and multi-platform tradeoffs for this app."
+      "Use this plugin to compare Flutter, React Native, native iOS, and multi-platform tradeoffs for this app.",
+      "Review this project for the added coverage: Build native iOS screens using the existing navigation and UI conventions; Connect client UI to APIs with explicit state, validation and error handling. Use only the relevant skills and existing stack. Report observed checks and limitations; prepare drafts before external or production actions."
     ]
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "aasb-aas-devops-cloud",
-  "version": "18.15.0",
+  "version": "19.7.0",
   "description": "Install the \"AAS DevOps & Cloud\" workflow plugin from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
@@ -19,8 +19,8 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "AAS DevOps & Cloud",
-    "shortDescription": "Ship infrastructure, deployments, CI, environments, rollback plans, troubleshooting, and incident-ready operations.",
-    "longDescription": "Ship infrastructure, deployments, CI, environments, rollback plans, troubleshooting, and incident-ready operations. Prepare infrastructure and delivery changes with validation, rollback steps and explicit deployment boundaries. Recommended for: Platform teams, Startup engineers owning deployment, Cloud and DevOps maintainers. Not for: An active incident as the primary task: use Observability IR, Cloud accounts, credentials or managed infrastructure supplied by the plugin. Covers Docker Expert, AWS Serverless, and 8 more skills.",
+    "shortDescription": "Cloud delivery, infrastructure and operational recovery.",
+    "longDescription": "Cloud delivery, infrastructure and operational recovery. Prepare AWS or Azure infrastructure, containers, CI/CD, identity and secrets with validation, rollback and explicit deployment boundaries. Recommended for: Platform teams, Startup engineers owning deployment, Cloud and DevOps maintainers. Not for: An active incident as the primary task: use Observability IR, Cloud accounts, credentials or managed infrastructure supplied by the plugin. Covers Docker Expert, AWS Serverless, and 16 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins",
     "capabilities": [
@@ -34,7 +34,8 @@
     "defaultPrompt": [
       "Inspect the deployment target, infrastructure and CI configuration. Prepare the requested change using the existing platform, validate it locally where possible, and provide rollout, rollback and post-deployment checks. Keep production changes for the authorized deployment step.",
       "Use this plugin to design a small-team cloud deployment plan with Terraform, CI, and runbook steps.",
-      "Use this plugin to troubleshoot this failed deployment and prepare an incident response checklist."
+      "Use this plugin to troubleshoot this failed deployment and prepare an incident response checklist.",
+      "Review this project for the added coverage: Plan least-privilege secret storage, access and rotation without exposing values. Use only the relevant skills and existing stack. Report observed checks and limitations; prepare drafts before external or production actions."
     ]
   }
 }

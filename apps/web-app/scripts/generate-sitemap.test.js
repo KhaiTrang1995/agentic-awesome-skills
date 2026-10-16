@@ -38,6 +38,9 @@ describe('sitemap generation script helpers', () => {
 
     expect(xml).toContain('https://example.com/</loc>');
     expect(xml).toContain('https://example.com/core/</loc>');
+    expect(xml).toContain('https://example.com/teams/</loc>');
+    expect(xml).not.toContain('https://example.com/aas-core/</loc>');
+    expect(xml).toContain('https://example.com/trust/</loc>');
     expect(xml).toContain('https://example.com/docs/</loc>');
     expect(xml).toContain('https://example.com/docs/getting-started/</loc>');
     expect(xml).toContain('https://example.com/docs/aas-core/</loc>');
@@ -66,6 +69,9 @@ describe('sitemap generation script helpers', () => {
 
     expect(xml).toContain('https://example.com/</loc>');
     expect(xml).toContain('https://example.com/core/</loc>');
+    expect(xml).toContain('https://example.com/teams/</loc>');
+    expect(xml).not.toContain('https://example.com/aas-core/</loc>');
+    expect(xml).toContain('https://example.com/trust/</loc>');
     expect(xml).toContain('https://example.com/workbench/</loc>');
     expect(xml).toContain('https://example.com/topics/github-ai-skills-repository/</loc>');
     expect(xml).not.toContain('https://example.com/skill');

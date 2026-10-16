@@ -1,3 +1,58 @@
+## Full-catalog review: second 175-tree cohort (October 14, 2026)
+
+Individually reviewed 175 additional canonical skill trees against the original 2,689-tree report, including unchanged entries and their bundled files. Corrected examples, triggers, safety and permission boundaries, and unsupported claims; recovered missing Deep Research, Imagen and OSINT resources with immutable provenance and licenses. See the [cohort receipt](docs/maintainers/full-catalog-large-batch-02-2026-10-14.md) and its JSON file for every disposition and file fingerprint.
+
+Validation/generation, references, documentation security, the 0/0 warning budget and all 148 unsharded local test groups passed. Network/provider and native integration limitations are explicit; protected CI and semantic review remain pending. This source-only PR excludes generated distribution state. Further review and merging are paused after PR creation at the user’s request.
+
+## TypeScript contributor integration (October 14, 2026)
+
+Reviewed the complete five-file TypeScript skill tree and Wen Castillo’s diagnostic regression test from PR #1930. Its exact changes are preserved in owner-authored PR #1931 because the external-fork execution gate refuses Python support/test paths. No policy was weakened; the five targeted tests pass. Final exact-head full CI remains mandatory.
+
+## Complete individual skill report review (October 14, 2026)
+
+Reviewed all 90 named canonical skill trees and their 177 tracked files (176 at the task base), including deferred candidates and unchanged helpers/references. Corrected 60 trees across two source batches; retained 30 after direct review. The [point-by-point ledger](docs/maintainers/individual-skill-review-2026-10-14.md) and complete path/mode/SHA-256 receipt record each disposition, original-source recovery and remaining runtime boundaries. Sixteen new inert regressions plus existing pure examples passed; the full unsharded repository suite passed all 139 groups, along with chain, references, documentation security, warning budget and documentation consistency. Exact-head protected CI and maintainer review remain required before merge; generated state follows the canonical-sync PR. No release or deployment was requested.
+
+## Individual report skill repairs, batch one (October 14, 2026)
+
+Corrected 31 canonical skill trees identified in the prior setup/expansion/consolidation reports, including deferred security, migration, billing, memory, networking and delivery candidates. The [batch-one review](docs/maintainers/report-skill-repairs-batch-one-2026-10-14.md) records each repair and the ten inert regressions consuming actual examples. Remaining named trees and the complete review receipt follow in the second source batch. Plugin membership, public releases and user host configurations are outside this source correction.
+
+## Complete agent setup and skill-page corrections (October 12, 2026)
+
+Completed the Codex and Claude Code guides through configuration preview, digest-bound approval with backups, client connection checks, first agent-owned selection, validation/plan review and a separate direct-installer preview. Shared command generation keeps both guides pinned to the same release. Corrected 18 template descriptions without changing their bodies or IDs and added a narrow regression gate to the existing validator.
+
+Skill instructions now precede related content. Copy SKILL.md copies the original file without optional prompt context; catalog-return navigation preserves query and filters, including subsequent similar-skill navigation. Topic cards use public summaries instead of internal editorial intent.
+
+Validation: 132 repository test groups, 312 web tests/coverage, production build/prerender, typecheck, changed-source lint, references/security, 0/0 warning budget and zero root dependency vulnerabilities. Published 19.5.0 was exercised with both temporary host configurations and actual MCP stdio through reading, composition, validation, planning and installer-preview preparation. No native agent session or user configuration was changed. See [the scoped review](docs/maintainers/agent-setup-catalog-review-2026-10-12.md) for exact fingerprints, checks and residual corpus debt. Generated distributions remain owned by canonical sync.
+
+## Core-first UX, selected visual direction (October 11, 2026)
+
+Implemented the user's third displayed design as the Core homepage: one primary setup action, a navigable recorded example, and contextual Codex/Claude setup links. The example renders actual committed historical manifest/plan data and discloses its v16.7.0 catalog when inspected; it performs no live AI or project writes. The homepage is outside CatalogRouteProvider, avoiding initial catalog requests and persistence initialization.
+
+Reduced primary navigation to Catalog, Docs, and For teams. Catalog now separates skills, packs, workflows, and named collections; repeated product/technical/FAQ sections were removed from skill search. Core/CLI/MCP reference and the plan reviewer are accessible through documentation and contextual actions. Preserved /aas-core/ and its old section anchors through redirects; sitemap removes the duplicate overview and prerender/SEO copy now reflects the product/catalog distinction. Existing filters, saved selections, collections and public routes remain supported. No dependency or runtime service is added.
+
+Validation: 301 web tests in 52 files, coverage, typecheck, production build/prerender, 27-guide and production SEO verification, changed-source lint, chain, reference/documentation security checks and 132 local repository test groups passed. Design QA compared the selected image and browser render at 1487 x 1058 and tested 390px mobile reflow. See design-qa.md for comparison iterations, assets, purposeful behavior and evidence limits. Generated sitemap is excluded from the source PR.
+
+## Catalog discovery, collections, and Core overview (October 11, 2026)
+
+The catalog now groups and searches every category without hiding canonical categories, collapses advanced matching/risk/source controls, and keeps the selected count and review links available while browsing. Optional workflow and outcome explorers follow results. A guided goal/agent path links existing editorial packs and workflows without automatic selection. Browser-local named collections preserve version labels and exact IDs, support notes and explicit file import/export, reject invalid or oversized data, and report storage failures. Imports append new identities without overwriting saved lists; unavailable IDs remain inspectable and cannot be added to the working shortlist.
+
+The single /aas-core/ page explains Core, the CLI, and local stdio MCP together, including agent-owned choice, persistence, non-applying planning, Workbench review, and separate installation boundaries. It links canonical technical guides and appears in the primary navigation and sitemap. New informational routes remain outside the legacy migration set. Privacy describes local collection notes and export/import. No dependency, model call, database, account, or runtime service is added.
+
+Validation: 297 web tests across 52 files, coverage, typecheck, production build/prerender and documentation verification passed. All 132 local repository test groups, skill/reference validation and documentation security passed. Changed-source lint passed; full-app lint retains the two pre-existing Workbench effect errors. Browser checks verified catalog search, save/edit/reload/export of a named collection, import preview, guided agent/goal links and focused workflow opening, the Core overview, and 390px mobile layouts without horizontal overflow. Generated sitemap is excluded from the source PR.
+
+## Team adoption and transparency (October 11, 2026)
+
+Added a three-step Start here section, static /teams/ and /trust/ pages, Catalog navigation, and visible Privacy/Terms/Security links. Team guidance links existing setup and Core documentation without adding installation commands or services. New informational routes stay outside the legacy bridge, preserving its existing curated route lock; a regression verifies their exclusion. Both pages share their copy with the static prerender and appear in the sitemap. Corrected MIT/CC BY 4.0 distinctions and hosted privacy disclosures for Vercel, Supabase public counts, local persistence, and shared links. Analytics URLs omit searches and fragments; no custom events or new dependencies were added.
+
+# Homepage discovery and shareable shortlists - 2026-10-11
+
+- Added a homepage search form, explicit goal/category links, and an agent-specific setup-guide selector using the existing catalog and documentation routes.
+- Added [shared selections](apps/web-app/src/pages/SharedSelection.tsx) with bounded, versioned URL fragments containing only canonical skill IDs. No accounts, database, new dependencies, or paid external services were added.
+- Shared links are inspected in memory. Saving is explicit and merges with the existing browser shortlist; missing IDs and catalog-version drift remain visible. Project goals, targets, and imported artifacts are excluded from shared URLs. These are discovery selections, not validated Core stacks.
+- Added malformed/oversized-link, clipboard-fallback, stale-link, explicit-save, storage-failure, and existing-shortlist-preservation tests.
+- Validation: repository validation and reference checks, documentation security, 132 repository test groups, web coverage suite, type checking, production build, and lint on changed source files. Full-app lint still reports the two unchanged `set-state-in-effect` errors in Workbench and PluginWorkbench.
+- Browser verification: homepage search to the catalog, selection-link creation and opening, desktop layout, and a 390px mobile viewport. Publication and live production verification are separate from this implementation evidence.
+
 # Top skills contributors - 2026-09-27
 
 - Added a second Top Contributors ranking for canonical skills introduced, alongside the existing commit ranking.
@@ -669,6 +724,8 @@
 - Set the README immediate community-support target to EUR 100 per month with an explicit recurring Buy Me a Coffee route. This monthly target is separate from the annual grant proposal.
 - Preserved the existing project identifiers, funding channel, and dated adoption evidence.
 
+Validation: production build/typecheck and 281 web tests (47 files) passed, as did repository validation, reference checks, documentation security, and the full local test suite. Changed-source lint passed. Browser checks verified both informational pages and a 390px layout without horizontal overflow.
+
 ## 2026-09-05 — Complete skill metadata dates
 
 - Added the historical Git introduction date to every canonical skill that lacked `date_added`.
@@ -803,3 +860,46 @@ no fetch and no installer handoff. Root validation, references, documentation
 security, warning budget and full repository tests pass. Codex CLI installation passed with a temporary isolated configuration; native
 UI rendering remains unverified. Generated outputs stay excluded from
 this source PR and belong to protected canonical synchronization.
+
+
+## Core homepage introduction and maintainer restoration (2026-10-11)
+
+Restore the existing locally hosted 40-second introduction video after Core setup, with native controls, its original poster, and no preloading or autoplay. Restore the bottom Maintained by @sickn33 strip, existing local avatar, original licensing notice and GitHub star link. Keep the Core-first hero and navigation intact; responsive styles stack the strip on mobile. No new external service or dependency is added.
+
+## Specialized plugin expansion — 2026-10-13
+
+Reviewed the 2,687-entry metadata inventory and all 21 specialized compositions. Added 48 focused memberships from 33 existing canonical skills and one new API contract testing skill, keeping plugin IDs stable, and repaired published examples before promotion. See [review evidence](docs/maintainers/specialized-plugin-expansion-review-2026-10-13.md) for exact trees, omissions and verification scope. Generated mirrors belong to protected canonical sync; no release or deployment is requested.
+
+## Maintenance and release 19.6.0
+
+Reviewed and repaired the three open contribution PRs, prepared tag-diff-based release notes, and retained protected merge, canonical sync and release flows. See [batch review](docs/maintainers/maintenance-19.6.0.md) for source scope, checks, attribution and full release-alignment requirements.
+
+## Release preparation alignment
+
+The real 19.6.0 candidate exposed an unstaged Codex guide and sitemap dates that changed after the candidate commit. Classify both setup guides as mixed, settle HEAD-dependent metadata before the first push, and reject missing-guide or persistent drift. Real Git fixtures cover convergence and fail-closed behavior.
+
+## Plugin offer consolidation
+
+Unify 28 overlapping packs into existing destinations: 30 focused packs plus the full-library plugin. Preserve every retired pack membership, keep activation lookup aliases, and show the entire active offer from one editorial source. See [migration and scope](docs/users/plugin-migration.md). Publication requires a new release; v19.6.0 stays immutable.
+
+### Azure plugin review follow-up
+
+Address the actual Tessl feedback from the consolidation: require every RBAC hook input, add post-deployment verification and remove unsupported custom-domain preservation guarantees. Validate examples without executing Azure operations.
+
+
+## 2026-10-14 — Exhaustive individual catalog review, first additional batch
+
+Correct the scope of the earlier 90-skill review: full inventory is 2689 canonical entrypoints and 8617 tracked files. Directly review eight additional trees, repair Andru.ia diagnosis/authoring/domain boundaries and broken 3D examples, retain three AAS native workflows and the verified A/B setup guide. Full review remains open; see docs/maintainers/full-catalog-individual-review-2026-10-14.md and exact file receipts.
+
+
+## 2026-10-14 — Exhaustive catalog review, second additional batch
+
+Review nine additional complete trees. Replace three out-of-domain AI operational registers with tool-routing/code-review/prompt-regression contracts and actual tested examples; correct build delivery/status/path boundaries, Django access illustration and score-eval execution classification. Retain three already repaired upstream-routing guides. Full catalog work remains incomplete. See docs/maintainers/full-catalog-individual-review-batch-02-2026-10-14.md.
+
+## 2026-10-14 — Exhaustive catalog review, EAS workflow support
+
+Review all EAS workflow entrypoint/support files. Correct schema/permission/launch boundaries and implement bounded reference retrieval with cache outside the immutable skill. Eleven real helper regressions and actual public-schema fetch; no authenticated EAS job or feedback. Full catalog work remains incomplete; see docs/maintainers/full-catalog-individual-review-batch-03-2026-10-14.md.
+
+## 2026-10-14 — Consolidated 175-tree individual report review
+
+Consolidate pending source repairs into one large batch:85new complete-tree reviews plus90unchanged prior reviews individually reconciled with the full report. Correct remaining trigger gaps and substantive orchestration/EAS/AI/Docker/Git/documentation/wrapper defects. Evidence and exactfile receipts in docs/maintainers/full-catalog-large-batch-01-2026-10-14.md/.json. All2,689 remains the objective; no release or deployment.

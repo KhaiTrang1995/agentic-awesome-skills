@@ -1,5 +1,7 @@
-import { useMemo, useState } from 'react';
-import { Link } from 'react-router';
+import { useEffect, useMemo, useState } from 'react';
+import { Link, useLocation } from 'react-router';
+import { CatalogNavigation } from '../components/CatalogNavigation';
+import './CatalogExperience.css';
 import { Icon } from '../components/ui/Icon';
 import { specializedPlugins, type SpecializedPlugin } from '../data/specializedPlugins';
 import { usePageMeta } from '../hooks/usePageMeta';
@@ -13,18 +15,25 @@ const gettingStartedDocUrl = () => `${import.meta.env.BASE_URL}docs/getting-star
 
 export function Plugins(): React.ReactElement {
   const [query, setQuery] = useState('');
+  const { hash } = useLocation();
+  useEffect(() => {
+    const plugin = specializedPlugins.find((entry) => `#${entry.id}` === hash || entry.aliases.some((alias) => `#${alias}` === hash));
+    if (plugin) document.getElementById(plugin.id)?.scrollIntoView({ block: 'start' });
+    else if (!hash) window.scrollTo(0, 0);
+  }, [hash]);
   usePageMeta(buildPluginsMeta(specializedPlugins.length));
 
   const filtered = useMemo(() => {
     const normalized = query.trim().toLowerCase();
     if (!normalized) return specializedPlugins;
-    return specializedPlugins.filter((plugin) => [plugin.name, plugin.id, plugin.audience, plugin.why, ...plugin.skills, ...plugin.defaultPrompts]
+    return specializedPlugins.filter((plugin) => [plugin.name, plugin.id, ...plugin.aliases, plugin.audience, plugin.why, ...plugin.skills, ...plugin.defaultPrompts]
       .some((value) => value.toLowerCase().includes(normalized)));
   }, [query]);
 
 
   return (
     <div className="plugins-page">
+      <CatalogNavigation active="packs" />
       <header className="plugins-hero">
         <h1>Choose the focused AAS plugin for the job.</h1>
         <p>AAS specialized plugins are domain-specific distributions of the full skill library — smaller scope, clearer activation, faster starts.</p>

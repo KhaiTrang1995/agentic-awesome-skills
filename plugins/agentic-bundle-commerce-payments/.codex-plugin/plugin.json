@@ -1,7 +1,7 @@
 {
   "name": "aasb-commerce-payments",
-  "version": "18.15.0",
-  "description": "Install the \"Commerce & Payments\" editorial skill bundle from Agentic Awesome Skills.",
+  "version": "19.7.0",
+  "description": "Install the \"Payments & Service Integrations\" workflow plugin from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
     "url": "https://github.com/sickn33/agentic-awesome-skills"
@@ -18,9 +18,9 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Commerce & Payments",
-    "shortDescription": "Specialized Packs · 6 curated skills",
-    "longDescription": "For monetization, payments, and commerce workflows. Covers Stripe Integration, Paypal Integration, and 4 more skills.",
+    "displayName": "Payments & Service Integrations",
+    "shortDescription": "Payments, billing and external service integration.",
+    "longDescription": "Payments, billing and external service integration. Integrate payment and service APIs with explicit provider setup, verified account permissions and bounded transaction workflows. Not for: Workflow or CRM trigger automation: use Automation Builder., Payment, purchase or account changes without explicit authorization.. Covers Stripe Integration, Paypal Integration, and 6 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Packs",
     "capabilities": [
@@ -32,8 +32,7 @@
     "termsOfServiceURL": "https://github.com/sickn33/agentic-awesome-skills/blob/main/TERMS.md",
     "brandColor": "#111827",
     "defaultPrompt": [
-      "Use the \"Commerce & Payments\" skills to help me complete this task.",
-      "Review this project with the \"Commerce & Payments\" workflow."
+      "Use the Commerce & Payments pack for this project. Select only relevant skills, inspect the existing stack, and report observed checks and limitations. Prepare drafts before external actions."
     ]
   }
 }

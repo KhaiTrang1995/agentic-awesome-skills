@@ -174,6 +174,36 @@ describe('seo assets verification helpers', () => {
     expect(() => assertPrerenderedRouteIdentities(routes, distDir, '/repo', report.rootUrl)).not.toThrow();
   });
 
+  it('accepts informational routes declared in informationPages.json', () => {
+    const xml = `
+      <urlset>
+        <url><loc>${FIXTURE_ROOT_URL}</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}teams/</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}trust/</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}skill/agent-a/</loc></url>
+      </urlset>
+    `;
+
+    expect(() => analyzeSitemap(xml, { minSkillUrls: 1 })).not.toThrow();
+  });
+
+  it('keeps the redirected Core overview out of the sitemap', () => {
+    const xml = `<urlset><url><loc>${FIXTURE_ROOT_URL}</loc></url><url><loc>${FIXTURE_ROOT_URL}aas-core/</loc></url><url><loc>${FIXTURE_ROOT_URL}skill/agent-a/</loc></url></urlset>`;
+    expect(() => analyzeSitemap(xml, { minSkillUrls: 1 })).toThrow('unsupported non-skill routes');
+  });
+
+  it('rejects undeclared non-skill routes outside the information page allowlist', () => {
+    const xml = `
+      <urlset>
+        <url><loc>${FIXTURE_ROOT_URL}</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}undeclared-page/</loc></url>
+        <url><loc>${FIXTURE_ROOT_URL}skill/agent-a/</loc></url>
+      </urlset>
+    `;
+
+    expect(() => analyzeSitemap(xml, { minSkillUrls: 1 })).toThrow('unsupported non-skill routes');
+  });
+
   it('throws when sitemap has duplicated URLs', () => {
     const xml = `
       <urlset>
@@ -767,12 +797,12 @@ describe('seo assets verification helpers', () => {
     const html = `
       <html>
         <head>
-          <title>AAS Core Preview | Agent-first stacks backed by 1,678+ skills</title>
+          <title>Skill Catalog | 1,678+ reusable skills | AAS</title>
           <meta name="description" content="Use AAS Core preview for neutral catalog retrieval and plan preview backed by 1,678+ cataloged skills." />
-          <meta property="og:title" content="AAS Core Preview | Agent-first stacks backed by 1,678+ skills" />
-          <meta property="og:description" content="Use AAS Core preview with the supporting catalog." />
-          <meta name="twitter:title" content="AAS Core Preview | Agent-first stacks backed by 1,678+ skills" />
-          <meta name="twitter:description" content="Use AAS Core preview with the supporting catalog." />
+          <meta property="og:title" content="Skill Catalog | 1,678+ reusable skills | AAS" />
+          <meta property="og:description" content="Explore reusable agent skills in the catalog." />
+          <meta name="twitter:title" content="Skill Catalog | 1,678+ reusable skills | AAS" />
+          <meta name="twitter:description" content="Explore reusable agent skills in the catalog." />
           <script type="application/ld+json">
             [
               {"@context":"https://schema.org","@type":"CollectionPage","sameAs":"https://github.com/sickn33/agentic-awesome-skills"},

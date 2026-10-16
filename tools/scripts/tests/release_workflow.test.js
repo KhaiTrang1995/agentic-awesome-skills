@@ -10,6 +10,14 @@ assert.strictEqual(release.isPrereleaseVersion("15.0.0-rc.1"), true);
 assert.strictEqual(release.isPrereleaseVersion("15.0.0"), false);
 assert.strictEqual(release.isPrereleaseVersion("15.0.0+build.1"), false);
 assert.throws(() => release.isPrereleaseVersion("15.0"), /Invalid semantic version/);
+assert.throws(
+  () => release.isPrereleaseVersion("15.0.0 & echo injected"),
+  /Invalid semantic version/,
+);
+
+for (const invalid of ["15.0.0-01", "15.0.0-rc.01", "15.0.0\n"]) {
+  assert.throws(() => release.isPrereleaseVersion(invalid), /Invalid semantic version/);
+}
 
 function git(cwd, ...args) {
   const result = spawnSync("git", args, { cwd, encoding: "utf8" });
@@ -53,6 +61,45 @@ assert.throws(
 const root = fs.mkdtempSync(path.join(os.tmpdir(), "release-workflow-"));
 const repo = path.join(root, "repo");
 const remote = path.join(root, "remote.git");
+const fakeNode = path.join(root, "node.exe");
+const fakeNpmCli = path.join(root, "npm-cli.js");
+fs.writeFileSync(fakeNpmCli, "// test fixture\n");
+assert.deepStrictEqual(
+  release.resolveCommandInvocation("npm", ["run", "test"], {
+    platform: "win32",
+    execPath: fakeNode,
+    env: { npm_execpath: fakeNpmCli },
+  }),
+  { command: fakeNode, args: [fakeNpmCli, "run", "test"] },
+);
+assert.deepStrictEqual(
+  release.resolveCommandInvocation("git", ["status"], {
+    platform: "win32",
+    execPath: fakeNode,
+    env: { npm_execpath: fakeNpmCli },
+  }),
+  { command: "git", args: ["status"] },
+);
+// Exercise real subprocess argument boundaries on every supported local host.
+const literalArgument = "value & echo INJECTED>release-shell-injection-marker.txt";
+assert.deepStrictEqual(
+  JSON.parse(release.runCommand(process.execPath,
+    ["-e", "process.stdout.write(JSON.stringify(process.argv.slice(1)))", literalArgument],
+    root, { capture: true, shell: true })),
+  [literalArgument],
+);
+assert.strictEqual(fs.existsSync(path.join(root, "release-shell-injection-marker.txt")), false);
+assert.throws(() => release.resolveCommandInvocation("npm", [], {
+  platform: "win32", execPath: fakeNode, env: { npm_execpath: root },
+}), /Unable to resolve npm-cli/);
+for (const command of ["prepare", "publish"]) {
+  const rejected = spawnSync(process.execPath,
+    [path.resolve(__dirname, "../release_workflow.js"), command, "15.0.0 & echo injected"],
+    { cwd: root, encoding: "utf8", shell: false });
+  assert.strictEqual(rejected.status, 1);
+  assert.match(rejected.stderr, /Invalid semantic version/,
+    "version validation must precede Git or filesystem effects even outside a repository");
+}
 fs.mkdirSync(repo);
 git(repo, "init", "-b", "main");
 git(repo, "config", "user.name", "Test");
@@ -61,6 +108,25 @@ fs.writeFileSync(path.join(repo, "README.md"), "release\n");
 git(repo, "add", "README.md");
 git(repo, "commit", "-m", "chore: release v1.2.3");
 const releaseCommit = git(repo, "rev-parse", "HEAD");
+
+if (process.platform === "win32") {
+  const marker = path.join(repo, "release-shell-injection-marker.txt");
+  assert.throws(
+    () => release.runCommand(
+      "git",
+      ["rev-parse", "--verify", "missing & echo INJECTED>release-shell-injection-marker.txt"],
+      repo,
+      { capture: true },
+    ),
+    /fatal|failed/u,
+  );
+  assert.strictEqual(
+    fs.existsSync(marker),
+    false,
+    "release commands must never interpret argument metacharacters through cmd.exe",
+  );
+  assert.match(release.runCommand("npm", ["--version"], repo, { capture: true }), /^\d+\.\d+\.\d+/u);
+}
 
 assert.strictEqual(release.validateReleaseSuccessors(repo, releaseCommit, releaseCommit), true);
 
@@ -101,6 +167,51 @@ assert.strictEqual(release.localTagTarget(repo, "v1.2.3"), skipPagesCanonicalCom
 assert.strictEqual(release.remoteTagTarget(repo, "v1.2.3"), null);
 git(repo, "push", "origin", "v1.2.3");
 assert.strictEqual(release.remoteTagTarget(repo, "v1.2.3"), skipPagesCanonicalCommit);
+
+// Reproduce a sitemap lastmod that changes only after its source guide is committed.
+function convergenceFixture(label) {
+  const cwd = path.join(root, label);
+  fs.mkdirSync(cwd);
+  git(cwd, "init", "-b", "release/v1.2.3");
+  git(cwd, "config", "user.name", "Test");
+  git(cwd, "config", "user.email", "test@example.com");
+  fs.writeFileSync(path.join(cwd, "guide.md"), "version 1\n");
+  fs.writeFileSync(path.join(cwd, "sitemap.xml"), "2026-10-12\n");
+  git(cwd, "add", ".");
+  git(cwd, "commit", "--date=2026-10-12T12:00:00Z", "-m", "base");
+  fs.writeFileSync(path.join(cwd, "guide.md"), "version 2\n");
+  git(cwd, "add", "guide.md");
+  git(cwd, "commit", "--date=2026-10-13T12:00:00Z", "-m", "release");
+  return cwd;
+}
+const convergenceContract = { derivedFiles: ["sitemap.xml"], mixedFiles: ["guide.md"], releaseManagedFiles: [] };
+function fixtureRunner(generate) {
+  return (command, args, cwd) => {
+    if (command === "npm") { generate(cwd); return ""; }
+    return git(cwd, ...args);
+  };
+}
+const stable = convergenceFixture("stable");
+const initial = git(stable, "rev-parse", "HEAD");
+release.convergePreparedRelease(stable, convergenceContract, { runCommand: fixtureRunner(cwd => {
+  fs.writeFileSync(path.join(cwd, "sitemap.xml"), git(cwd, "log", "-1", "--format=%aI", "--", "guide.md").slice(0, 10) + "\n");
+}) });
+assert.notStrictEqual(git(stable, "rev-parse", "HEAD"), initial);
+assert.strictEqual(fs.readFileSync(path.join(stable, "sitemap.xml"), "utf8"), "2026-10-13\n");
+assert.strictEqual(git(stable, "status", "--porcelain"), "");
+const settled = git(stable, "rev-parse", "HEAD");
+release.convergePreparedRelease(stable, convergenceContract, { runCommand: fixtureRunner(() => {}) });
+assert.strictEqual(git(stable, "rev-parse", "HEAD"), settled, "no amendment when already stable");
+const missing = convergenceFixture("missing-guide");
+assert.throws(() => release.convergePreparedRelease(missing, { ...convergenceContract, mixedFiles: [] }, {
+  runCommand: fixtureRunner(cwd => fs.writeFileSync(path.join(cwd, "guide.md"), "generated version 3\n")),
+}), /drift/);
+const moving = convergenceFixture("moving-generator");
+let generation = 0;
+assert.throws(() => release.convergePreparedRelease(moving, convergenceContract, {
+  runCommand: fixtureRunner(cwd => fs.writeFileSync(path.join(cwd, "sitemap.xml"), `generation ${++generation}\n`)),
+}), /drift/);
+assert.strictEqual(generation, 2, "persistent drift is not retried or published");
 
 fs.rmSync(root, { recursive: true, force: true });
 console.log("Release workflow tests passed.");

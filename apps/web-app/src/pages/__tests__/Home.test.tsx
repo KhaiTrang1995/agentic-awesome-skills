@@ -86,37 +86,30 @@ describe('Home', () => {
       renderWithRouter(<Home />, { useProvider: false });
 
       await waitFor(() => {
-        expect(document.title).toContain('AAS Core Preview');
+        expect(document.title).toContain('Skill Catalog');
       });
 
       expect(screen.getByRole('heading', {
         level: 1,
-        name: /AAS Core: agent-first skill stacks for Codex, Claude Code, and compatible clients/i,
+        name: /Find the skills for your next project./i,
       })).toBeInTheDocument();
-      expect(screen.getByText(/Search\. Choose\. Validate\. Preview\./i)).toBeInTheDocument();
-      expect(screen.getByRole('link', { name: /Review an AAS Core stack/i })).toHaveAttribute('href', '/workbench/');
-      expect(screen.getByText(/What is the difference between skills and MCP tools/i)).toBeInTheDocument();
+      expect(screen.getByText(/Compare a few candidates/)).toBeInTheDocument();
+      expect(screen.getByRole('navigation', { name: 'Catalog views' })).toBeInTheDocument();
+      expect(screen.queryByText(/What is the difference between skills and MCP tools/i)).not.toBeInTheDocument();
       expect(document.querySelector('meta[property="og:title"]')).toHaveAttribute(
         'content',
-        expect.stringContaining('AAS Core Preview'),
+        expect.stringContaining('Skill Catalog'),
       );
     });
 
-    it('routes the primary catalog action to exact composition', async () => {
-      (useSkills as Mock).mockReturnValue({
-        skills: [],
-        stars: {},
-        loading: false,
-        error: null,
-      });
-
+    it('keeps named collections in a separate catalog view', async () => {
+      (useSkills as Mock).mockReturnValue({ skills: [], stars: {}, loading: false, error: null });
       renderWithRouter(<Home />, { useProvider: false });
-
-      await waitFor(() => {
-        expect(screen.getByRole('link', { name: /Review an AAS Core stack/i })).toBeInTheDocument();
-      });
-
-      expect(screen.getByText(/Inspect evidence, select exact IDs/i)).toBeInTheDocument();
+      fireEvent.click(screen.getByRole('button', { name: 'My collections' }));
+      expect(screen.getByRole('heading', { name: 'Your saved collections.' })).toBeInTheDocument();
+      expect(screen.queryByRole('searchbox', { name: 'Search skills' })).not.toBeInTheDocument();
+      fireEvent.click(screen.getByRole('button', { name: 'Skills' }));
+      expect(screen.getByRole('searchbox', { name: 'Search skills' })).toBeInTheDocument();
     });
   });
 
@@ -229,8 +222,8 @@ describe('Home', () => {
 
       await waitFor(() => {
         expect(screen.queryByRole('button', { name: /Sync Skills/i })).not.toBeInTheDocument();
-        expect(screen.getByText(/Public catalog mode/i)).toBeInTheDocument();
-        expect(screen.getByText(/maintainer-only workflow/i)).toBeInTheDocument();
+        expect(screen.queryByText(/Public catalog mode/i)).not.toBeInTheDocument();
+        expect(screen.queryByText(/maintainer-only workflow/i)).not.toBeInTheDocument();
       });
     });
   });

@@ -1,5 +1,6 @@
+import { catalogNavigationState } from '../utils/catalogNavigation';
 import { useEffect, useMemo, useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import type { Skill } from '../types';
 import { useSkillShortlist } from '../hooks/useSkillShortlist';
 import { evidenceSignals, groupOutcomeMatches, OUTCOME_PRESETS, parseOutcomeGoal, rankForOutcome } from '../utils/outcomeDiscovery';
@@ -10,6 +11,7 @@ import { ShortlistReview } from './ShortlistReview';
 interface Props { catalog?: Skill[]; onGoalChange?: (goal: string) => void }
 
 function DiscoverySession({ catalog, onGoalChange }: Props): React.ReactElement {
+  const navigationLocation = useLocation();
   const [loaded, setLoaded] = useState<Skill[]>([]);
   const [loading, setLoading] = useState(!catalog);
   const [retry, setRetry] = useState(0);
@@ -65,14 +67,14 @@ function DiscoverySession({ catalog, onGoalChange }: Props): React.ReactElement 
         <p className="outcome-note">Exclude a term with “without Supabase” or “senza Supabase”. Repeat for additional terms; complex constraints still need review.</p>
         {excluded.length ? <p role="status">Excluded terms: {excluded.join(", ")}</p> : null}
         <div className="outcome-results">{results.slice(0, limit).map(({ skill, matched, totalTerms, alternatives }, index) => <article className="outcome-card" key={skill.id}>
-          <p className="outcome-eyebrow">Candidate {index + 1} · matches {matched.length} of {totalTerms} goal terms</p><h3><Link to={`/skill/${encodeURIComponent(skill.id)}/`}>{skill.name}</Link></h3><p>{skill.description}</p>
+          <p className="outcome-eyebrow">Candidate {index + 1} · matches {matched.length} of {totalTerms} goal terms</p><h3><Link state={catalogNavigationState(navigationLocation)} to={`/skill/${encodeURIComponent(skill.id)}/`}>{skill.name}</Link></h3><p>{skill.description}</p>
           <p className="outcome-reason"><strong>Why it appears:</strong> {matched.join(', ')}</p>
-          {alternatives.length ? <details><summary>Same procedure · {alternatives.length} alternative {alternatives.length === 1 ? 'ID' : 'IDs'}</summary><p>These IDs share the procedure. Choose the ID you need; none is selected automatically.</p><ul>{alternatives.map((alias) => <li key={alias.id}><Link to={`/skill/${encodeURIComponent(alias.id)}/`}>{alias.id}</Link> <button type="button" aria-pressed={ids.includes(alias.id)} onClick={() => toggle(alias.id)}>{ids.includes(alias.id) ? 'Remove' : 'Select'} {alias.id}</button></li>)}</ul></details> : null}
+          {alternatives.length ? <details><summary>Same procedure · {alternatives.length} alternative {alternatives.length === 1 ? 'ID' : 'IDs'}</summary><p>These IDs share the procedure. Choose the ID you need; none is selected automatically.</p><ul>{alternatives.map((alias) => <li key={alias.id}><Link state={catalogNavigationState(navigationLocation)} to={`/skill/${encodeURIComponent(alias.id)}/`}>{alias.id}</Link> <button type="button" aria-pressed={ids.includes(alias.id)} onClick={() => toggle(alias.id)}>{ids.includes(alias.id) ? 'Remove' : 'Select'} {alias.id}</button></li>)}</ul></details> : null}
           <details><summary>Evidence and gaps</summary><dl>{evidenceSignals(skill).map((signal) => <div key={signal.label}><dt>{signal.label}</dt><dd>{signal.value}</dd></div>)}</dl><p>These fields describe the author’s claims and setup requirements. They do not certify effectiveness. Read the complete skill before choosing it.</p></details>
           <button type="button" aria-label={`${ids.includes(skill.id) ? 'Remove from shortlist' : 'Add to shortlist'} ${skill.name}`} aria-pressed={ids.includes(skill.id)} onClick={() => toggle(skill.id)}>{ids.includes(skill.id) ? 'Remove from shortlist' : 'Add to shortlist'}</button>
         </article>)}</div>
         {results.length > limit ? <button type="button" onClick={() => setLimit((current) => current + 12)}>Show more candidates</button> : null}
-        <p><Link to="/core">Browse the complete catalog</Link> · All {skills.length.toLocaleString('en-US')} skills remain available regardless of metadata or this ranking.</p>
+        <p><Link state={catalogNavigationState(navigationLocation)} to="/core">Browse the complete catalog</Link> · All {skills.length.toLocaleString('en-US')} skills remain available regardless of metadata or this ranking.</p>
         {!catalog ? <ShortlistReview suggestedGoal={query} skills={skills.filter((skill) => ids.includes(skill.id))} onRemove={toggle} onClear={clear} /> : null}
       </> : null}
     </div>;

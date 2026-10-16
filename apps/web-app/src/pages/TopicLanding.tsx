@@ -61,9 +61,6 @@ export function TopicLanding(): React.ReactElement {
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-slate-600 dark:text-slate-300">
             {page.summary}
           </p>
-          <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-500 dark:text-slate-400">
-            {page.primaryIntent}
-          </p>
           <div className="mt-6 flex flex-wrap gap-3">
             {page.links.map((link) => link.to ? (
               <Link

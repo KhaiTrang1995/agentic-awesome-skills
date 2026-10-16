@@ -713,3 +713,55 @@ for (const [label, record, reason] of [
   const tooLarge = classifyChangeRecords(records, { maxTotalBlobBytes: 700 });
   assert.ok(tooLarge.reasons.includes("oversized_total_diff"));
 }
+
+// Both generated setup guides must participate in canonical sync and scripted release staging.
+const actualContract = require("../../lib/workflow-contract").loadWorkflowContract(__dirname);
+const releaseManaged = require("../../lib/workflow-contract").getManagedFiles(actualContract, { includeMixed: true, includeReleaseManaged: true });
+for (const guide of ["docs/users/codex-cli-skills.md", "docs/users/claude-code-skills.md"]) {
+  assert.ok(actualContract.mixedFiles.includes(guide), `${guide} must be classified as mixed`);
+  assert.ok(releaseManaged.includes(guide), `${guide} must be included in release staging`);
+}
+
+// Execute the actual workflow resolver: failed bootstrap cannot be a passing review.
+{
+  const YAML = require('yaml');
+  const { spawnSync } = require('node:child_process');
+  const os = require('node:os');
+  const workflow = YAML.parse(skillReviewWorkflow);
+  const steps = workflow.jobs['review-attempt'].steps;
+  const setup = steps.find((step) => step.id === 'tessl-setup');
+  const review = steps.find((step) => step.id === 'tessl-review');
+  const resolver = steps.find((step) => step.id === 'outcome');
+  assert.strictEqual(setup['timeout-minutes'], 2);
+  assert.strictEqual(setup['continue-on-error'], true);
+  assert.match(review.if, /steps\.tessl-setup\.outcome == 'success'/);
+  const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'aas-review-outcome-'));
+  const output = path.join(directory, 'output');
+  try {
+    for (const [setupOutcome, result, cache, expected] of [
+      ['failure', 'reviewed', 'false', 'manual'],
+      ['cancelled', 'reviewed', 'false', 'manual'],
+      ['success', 'manual', 'false', 'manual'],
+      ['success', 'reviewed', 'false', 'reviewed'],
+      ['skipped', '', 'true', 'reviewed'],
+    ]) {
+      fs.writeFileSync(output, '');
+      const run = spawnSync('bash', ['-c', resolver.run], {
+        encoding: 'utf8',
+        env: { ...process.env, GITHUB_OUTPUT: output, REQUIRES_MANUAL: 'false',
+          HAS_SKILLS: 'true', CACHE_HIT: cache, SETUP_OUTCOME: setupOutcome, TESSL_RESULT: result },
+      });
+      assert.strictEqual(run.status, 0, run.stderr);
+      assert.strictEqual(fs.readFileSync(output, 'utf8').trim(), `outcome=${expected}`);
+    }
+    // No setup and no trustworthy result must fail closed, not invent a pass.
+    const unresolved = spawnSync('bash', ['-c', resolver.run], {
+      encoding: 'utf8', env: { ...process.env, GITHUB_OUTPUT: output,
+        REQUIRES_MANUAL: 'false', HAS_SKILLS: 'true', CACHE_HIT: 'false',
+        SETUP_OUTCOME: '', TESSL_RESULT: '' },
+    });
+    assert.notStrictEqual(unresolved.status, 0);
+  } finally {
+    fs.rmSync(directory, { recursive: true, force: true });
+  }
+}

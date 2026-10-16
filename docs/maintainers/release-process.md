@@ -69,6 +69,8 @@ This command:
 
 Prerelease versions use the same protected flow, for example `15.0.0-rc.1`. They must have their own exact changelog section.
 
+The release runner treats every version, tag, path, and title as data. It validates exact SemVer before invoking Git or writing files, launches `git`, `npm`, and `gh` with argument vectors and `shell: false`, and on Windows runs npm as `node.exe <npm-cli.js> ...`. Do not replace this with `cmd.exe`, `shell: true`, or a concatenated command string. The release regression suite must include a metacharacter payload and prove that no second command or marker file is created.
+
 6. Merge the release PR through required checks, update local `main`, then publish the GitHub release:
 
 ```bash

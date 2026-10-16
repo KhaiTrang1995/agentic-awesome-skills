@@ -157,6 +157,8 @@ permissions narrow, and require confirmation for consequential actions. See
 
 ### How do I start with AAS Core?
 
+For a complete setup through your first skill selection and installation preview, follow [Codex setup](codex-cli-skills.md) or [Claude Code setup](claude-code-skills.md).
+
 Use the pinned `aas` binary from a release whose notes explicitly state that it includes AAS Core to preview and approve local MCP configuration for Codex or Claude. Release 14.6.0 predates Core; Core-capable packages begin with the 15.x line. Restart the host if needed, then ask the agent to search the full catalog, choose exact IDs, and compose a stack without applying it. The command template and trust boundaries are in [AAS Core](aas-core.md).
 
 The package publishes separate `agentic-awesome-skills`, `aas`, and `aas-mcp` binaries. Use the explicit `aas` binary for Core lifecycle commands; the legacy `agentic-awesome-skills` entrypoint remains the direct installer.
@@ -528,3 +530,7 @@ Check the provenance metadata and subtree instructions in `skills/<skill-id>/SKI
 - Explore `@skill-creator` to make your own skills
 
 **Still confused?** [Open a discussion](https://github.com/sickn33/agentic-awesome-skills/discussions) and we'll help you out! 🙌
+
+## Why is my old plugin pack no longer listed?
+
+Overlapping packs are consolidated into one destination per job. See the [replacement table](plugin-migration.md). Your installed copy is not deleted automatically: install and verify its replacement before disabling the old pack. Old IDs remain activation lookup aliases, not installable duplicate plugins. Source changes reach installations in the next published release.

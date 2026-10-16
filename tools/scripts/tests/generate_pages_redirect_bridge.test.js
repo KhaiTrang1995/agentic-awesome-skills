@@ -57,6 +57,9 @@ try {
     `${current}plugins/`,
     `${current}topics/github-ai-skills-repository/`,
     `${current}skill/brainstorming/`,
+    `${current}aas-core/`,
+    `${current}teams/`,
+    `${current}trust/`,
     `${current}docs/`,
     `${current}docs/getting-started/`,
   ];
@@ -112,6 +115,8 @@ try {
   const legacySitemapSource = fs.readFileSync(path.join(outputOne, 'antigravity-awesome-skills/sitemap.xml'), 'utf8');
   assert.strictEqual((legacySitemapSource.match(/<loc>/g) || []).length, 4, 'legacy sitemap stays on the curated source sitemap');
   assert(!legacySitemapSource.includes('/skill/catalog-only/'), 'catalog-only redirects must not expand crawler discovery');
+  assert(!manifest.redirects.some(({ to }) => /\/(teams|trust|aas-core)\/$/.test(to)), 'new informational pages have no legacy routes');
+  assert(!legacySitemapSource.includes('/teams/') && !legacySitemapSource.includes('/trust/'));
   assert(!legacySitemapSource.includes('/docs/'), 'first-party docs must stay out of the legacy bridge');
 
   const outputTwo = path.join(fixtureRoot, '.codex', 'bridge-two');

@@ -1,11 +1,13 @@
 import { render, screen } from '@testing-library/react';
-import { expect, it } from 'vitest';
+import { expect, it, vi } from 'vitest';
 import App from '../App';
 
-it('renders the real homepage through its catalog provider', async () => {
+it('renders the Core homepage without catalog requests', async () => {
   window.history.replaceState({}, '', '/');
+  vi.clearAllMocks();
   render(<App />);
   expect(await screen.findByRole('heading', {
-    level: 1, name: /open skill catalog for coding agents/i,
+    level: 1, name: 'AAS Core',
   })).toBeInTheDocument();
+  expect(globalThis.fetch).not.toHaveBeenCalled();
 });

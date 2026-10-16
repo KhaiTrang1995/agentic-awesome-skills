@@ -22,6 +22,7 @@
     "apps/web-app/public/llms.txt",
     "docs/users/getting-started.md",
     "docs/users/bundles.md",
+    "docs/users/codex-cli-skills.md",
     "docs/users/claude-code-skills.md",
     "docs/users/gemini-cli-skills.md",
     "docs/users/usage.md",

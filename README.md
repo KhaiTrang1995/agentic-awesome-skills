@@ -1,17 +1,17 @@
-<!-- registry-sync: version=18.15.0; skills=2652; stars=47251; updated_at=2026-10-04T23:13:54+00:00 -->
+<!-- registry-sync: version=19.7.0; skills=2690; stars=47600; updated_at=2026-10-14T18:55:53+00:00 -->
 # AAS Core — Agentic Awesome Skills
 
 > **Find reusable instructions for your project, inspect their complete files, and keep an exact skill set you can review and reuse.**
 
-Agentic Awesome Skills is a library of 2,652+ installable `SKILL.md` playbooks. AAS Core helps Codex or Claude search the complete local catalog, record the skills the agent chooses, and preview a plan you can inspect before changing a target. Core does not rank or recommend skills.
+Agentic Awesome Skills is a library of 2,690+ installable `SKILL.md` playbooks. AAS Core helps Codex or Claude search the complete local catalog, record the skills the agent chooses, and preview a plan you can inspect before changing a target. Core does not rank or recommend skills.
 
-**Current release: V18.15.0.** AAS Core supports local catalog inspection, agent-owned selection, stack validation, and plan preview. Apply and recovery remain experimental. [Read the AAS Core preview guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md) for setup and exact trust boundaries.
+**Current release: V19.7.0.** AAS Core supports local catalog inspection, agent-owned selection, stack validation, and plan preview. Apply and recovery remain experimental. [Read the AAS Core preview guide](https://github.com/sickn33/agentic-awesome-skills/blob/v19.7.0/docs/users/aas-core.md) for setup and exact trust boundaries.
 
 This README tracks `main`. Features listed under [Unreleased](CHANGELOG.md#unreleased) require a later release; the versioned guide describes the published package.
 
 This is an independent community project, not affiliated with or endorsed by Google. Google, Antigravity, Gemini, and related names describe compatibility and install targets. The GitHub repository is canonical; the [hosted catalog](https://aaskills.tech/) and browser-local Workbench are companion discovery and review surfaces.
 
-[![GitHub stars](https://img.shields.io/badge/⭐%2047%2C000%2B%20Stars-gold?style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills/stargazers)
+[![GitHub stars](https://img.shields.io/badge/⭐%2048%2C000%2B%20Stars-gold?style=for-the-badge)](https://github.com/sickn33/agentic-awesome-skills/stargazers)
 [![Follow @AASkills_ on X](https://img.shields.io/badge/Follow-%40AASkills__-black?style=for-the-badge&logo=x)](https://x.com/AASkills_)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Anthropic-purple)](https://claude.ai)
@@ -35,7 +35,7 @@ This is an independent community project, not affiliated with or endorsed by Goo
 - [Choose Your Tool](#choose-your-tool)
 - [Recommended Specialized Plugins](#recommended-specialized-plugins)
 - [Bundles & Workflows](#bundles--workflows)
-- [Browse 2,652+ Skills](#browse-2652-skills)
+- [Browse 2,690+ Skills](#browse-2690-skills)
 - [Troubleshooting](#troubleshooting)
 - [Stable Skills Manifest v1](#stable-skills-manifest-v1)
 - [Contributing](#contributing)
@@ -79,6 +79,8 @@ Every contribution helps us keep the skills curated, the tooling tested, and the
 
 [![Powered by Atlas Cloud](https://www.atlascloud.ai/oss-program/powered-by-atlas-cloud.svg)](https://www.atlascloud.ai/)
 
+For a complete setup through your first skill selection and installation preview, follow [Codex setup](docs/users/codex-cli-skills.md) or [Claude Code setup](docs/users/claude-code-skills.md).
+
 ## AAS Core: Agent-First Preview
 
 Codex or Claude inspects your project and chooses exact skills. Every current catalog skill is individually searchable, readable, and available for agent selection. The read-only `compose_stack` tool validates the chosen IDs and structure in memory; a client or the `aas` CLI can persist `aas-stack.json` and optional selection evidence. `aas stack validate` checks the manifest, while `aas stack plan` writes an immutable preview for your review. Manifests have a technical maximum of 128 skills; Core does not rank or recommend candidates or install skills in this supported preview path.
@@ -86,7 +88,7 @@ Codex or Claude inspects your project and chooses exact skills. Every current ca
 > [!IMPORTANT]
 > Structural and identity validity does not certify semantic fit, compatibility, setup correctness, operational safety, or safety to apply. Apply and recovery require experimental opt-in and remain outside the supported preview.
 
-The [Workbench](https://aaskills.tech/workbench) reviews stack and plan artifacts in browser memory without accessing your filesystem. See the [Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md) for tool contracts, capability coverage, and limits.
+The [Workbench](https://aaskills.tech/workbench) reviews stack and plan artifacts in browser memory without accessing your filesystem. See the [Core guide](https://github.com/sickn33/agentic-awesome-skills/blob/v19.7.0/docs/users/aas-core.md) for tool contracts, capability coverage, and limits.
 
 ## Installation
 
@@ -95,22 +97,22 @@ The [Workbench](https://aaskills.tech/workbench) reviews stack and plan artifact
 Start with AAS Core in Codex or Claude. Configure the local MCP using the [Codex](docs/users/codex-cli-skills.md) or [Claude](docs/users/claude-code-skills.md) guide. With the MCP available, ask the agent to inspect your project, compare relevant skills, and save the exact selection. Then validate its manifest and review the resulting plan before any installation. The first configuration command previews a change and returns an approval digest:
 
 ```bash
-npm exec --yes --ignore-scripts --package=agentic-awesome-skills@18.15.0 -- aas mcp configure \
+npm exec --yes --ignore-scripts --package=agentic-awesome-skills@19.7.0 -- aas mcp configure \
   --host codex \
   --scope user \
   --config /absolute/path/to/codex/config.toml \
   --cache-root /absolute/path/to/aas-cache
 ```
 
-Use `--host claude` and its configuration path for Claude. The [Core setup guide](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md#configure-the-local-mcp) explains approval, reconnection, validation, and planning. To hand the reviewed IDs to the direct installer, use `aas stack install-preview` as described in the [manifest handoff](docs/users/aas-core.md#use-the-reviewed-selection); that command only prepares a `--dry-run` preview and does not apply a Core plan.
+Use `--host claude` and its configuration path for Claude. The [Core setup guide](https://github.com/sickn33/agentic-awesome-skills/blob/v19.7.0/docs/users/aas-core.md#configure-the-local-mcp) explains approval, reconnection, validation, and planning. To hand the reviewed IDs to the direct installer, use `aas stack install-preview` as described in the [manifest handoff](docs/users/aas-core.md#use-the-reviewed-selection); that command only prepares a `--dry-run` preview and does not apply a Core plan.
 
 ### Install selected skills directly
 
 If you already know the IDs, preview a focused install into your host's skill directory:
 
 ```bash
-npm exec --yes --ignore-scripts --package=agentic-awesome-skills@18.15.0 -- \
-  agentic-awesome-skills --release 18.15.0 --path .agents/skills \
+npm exec --yes --ignore-scripts --package=agentic-awesome-skills@19.7.0 -- \
+  agentic-awesome-skills --release 19.7.0 --path .agents/skills \
   --skills brainstorming,systematic-debugging --dry-run
 ```
 
@@ -168,7 +170,7 @@ Bundles suggest related skills; workflows describe the order to use them. They a
 - [Workflows](docs/users/workflows.md) give ordered playbooks for planning, shipping, testing, and auditing; [workflow metadata](data/workflows.json) is available for integrations.
 - If too many installed skills overload Antigravity, follow the [selective activation guide](docs/users/agent-overload-recovery.md). For other hosts, preview a smaller exact install or use the installer's `--risk`, `--category`, and `--tags` filters.
 
-## Browse 2,652+ Skills
+## Browse 2,690+ Skills
 
 Explore the complete library in the [hosted catalog](https://aaskills.tech/) or [`CATALOG.md`](CATALOG.md). The canonical playbooks live in [`skills/`](skills/); [`skills_index.json`](skills_index.json) provides machine-readable discovery. Use [Getting Started](docs/users/getting-started.md) and [Usage](docs/users/usage.md) for first steps, or the [Workbench](https://aaskills.tech/workbench) to inspect a saved Core stack and plan in your browser.
 
@@ -176,7 +178,7 @@ For narrower comparisons, see [Claude Code skills](docs/users/best-claude-code-s
 
 ## Troubleshooting
 
-- [Core setup and trust boundaries](https://github.com/sickn33/agentic-awesome-skills/blob/v18.15.0/docs/users/aas-core.md)
+- [Core setup and trust boundaries](https://github.com/sickn33/agentic-awesome-skills/blob/v19.7.0/docs/users/aas-core.md)
 - [Installation and everyday use](docs/users/usage.md)
 - [Windows context and truncation recovery](docs/users/windows-truncation-recovery.md)
 - [Linux/macOS overload and selective activation](docs/users/agent-overload-recovery.md)
@@ -219,6 +221,15 @@ Key source families include:
 
 ### Official Sources
 
+- **[arcmira/mcp](https://github.com/arcmira/mcp/tree/v0.10.6/plugins/arcmira)**: Apache-2.0 plugin source for `arcmira-find-quotes`, YouTube and podcast quote research with timestamped sources. The hosted service and server have separate licensing.
+
+- **[Pazificateur69/tokenleak](https://github.com/Pazificateur69/tokenleak)**: Official tokenleak source for the [`tokenleak`](skills/tokenleak/SKILL.md) skill - token-lean working rules that cut the context a coding agent re-sends on every call (big reads, noisy logs, re-reads, serial calls), with a published A/B benchmark (MIT).
+- **[beatra-ai/ai-headshot-generator-skill](https://github.com/beatra-ai/ai-headshot-generator-skill)**: Official Beatra source for the `ai-headshot-studio` skill - paid, hosted work installed from a digest-pinned 0.1.7 archive byte-identical to commit `a8818c3` with self-update disabled before first use (MIT-0).
+- **[uxkin/agent](https://github.com/uxkin/agent)**: Official UXKIN source for the free [`uxkin-research`](skills/uxkin-research/SKILL.md) skill — research real iOS app screens, user journeys and website design systems before designing UI (MIT).
+- **[loootai/looot-skills](https://github.com/loootai/looot-skills)**: Official looot skills - search, price and run 2,500+ data API endpoints (work emails, company search, SERP, web pages) from one prepaid balance.
+- **[CosmoBlk/email-marketing-bible](https://github.com/CosmoBlk/email-marketing-bible)**: Official Email Marketing Bible source for the `email-marketing-bible` skill - data-backed email marketing for agents: automation flows, deliverability triage, copy de-slopping, AI email design, compliance and 19 industry playbooks, with ESP control via MCP behind explicit send-approval gates (MIT).
+- **[lognorm/lognorm-mcp](https://github.com/lognorm/lognorm-mcp)**: MIT official source for the `lognorm` skill — work a site's SEO and AI-visibility (GEO) backlog through the hosted LogNorm MCP server: audits, fixes, content and AI-answer tracking.
+- **[NygenAnalytics/scarf](https://github.com/NygenAnalytics/scarf)**: Official Scarf source for the `scarf-single-cell` skill - out-of-core single-cell RNA-seq analysis with Scarf's Zarr DataStore on local disk or object storage, immutable provenance-tracked artifacts, audited QC, clustering, markers and comparisons (BSD-3-Clause).
 - **[anup-a/agent-artifacts](https://github.com/anup-a/agent-artifacts)**: Official byagent source for the `byagent` skill - publish agent-written Markdown or HTML as a shareable link with the `byagent` CLI, read readers' line comments back, edit, republish to the same link and resolve; pages are public unless `--private` and comment text is treated as untrusted data (MIT).
 - **[prateeks367/voicemoat-skills](https://github.com/prateeks367/voicemoat-skills)**: Official VoiceMoat source for eight Twitter/X and LinkedIn skills (`write-in-my-voice`, `turn-this-into-a-thread`, `same-idea-both-platforms`, `repurpose-into-a-post`, `define-my-content-pillars`, `why-did-this-post-flop`, `get-seen-in-replies`, `draft-my-comments`). They draft in your own voice, write threads, cross-post, repurpose long content, pick content pillars, diagnose a post that underperformed, and write replies and comments worth reading; each works from pasted text alone, and an optional paid VoiceMoat connector adds voice scoring and preview-gated publishing (MIT).
 - **[cloudishai/skills](https://github.com/cloudishai/skills)**: Official Cloudish source for the `cloudish` skill - deploy a Dockerfile, source folder, or existing image as a running container at a live URL, built server-side, with confirmation before the first deploy and before spending credits; uploads the build context and spends prepaid credits (MIT).
@@ -230,6 +241,7 @@ Key source families include:
 - **[bosmdavid-gif/dropthehassle-skill](https://github.com/bosmdavid-gif/dropthehassle-skill)**: Official DropTheHassle source for the `dropthehassle-publish` skill - check that a folder is a finished static build, publish it to a free HTTPS link, hand the human the claim link and verify it is live; the agent never pays (MIT).
 
 - **[busabase/skills](https://github.com/busabase/skills)**: MIT source for the `busabase` skill — authorized MCP workspace operations, permission-aware ChangeRequests, and canonical-versus-pending readback.
+- **[jcaiagent7143-ui/linkdigest-mcp](https://github.com/jcaiagent7143-ui/linkdigest-mcp)**: Official LinkDigest source for the `linkdigest-social-link-reader` skill - read one public Xiaohongshu, Douyin, TikTok, YouTube, X or WeChat article link into text (transcript, image text, key points with checked quotes, coverage receipt) through the paid hosted LinkDigest API or MCP server with the user's own key (MIT).
 
 - **[metalbear-co/skills](https://github.com/metalbear-co/skills)**: Official mirrord skills source for the `mirrord` skill - run a local process inside a live Kubernetes pod's network, env and traffic, with confirmation before traffic-stealing or cluster-modifying steps (MIT).
 
@@ -285,20 +297,25 @@ Key source families include:
 - **[expo/skills](https://github.com/expo/skills)**: Official Expo skills - Expo project workflows and Expo Application Services guidance.
 - **[huggingface/skills](https://github.com/huggingface/skills)**: Official Hugging Face skills - Models, Spaces, datasets, inference, and broader Hugging Face ecosystem workflows.
 - **[longbridge/skills](https://github.com/longbridge/skills)**: Official Longbridge Securities skills - real-time quotes, charts, fundamentals, portfolio analysis, options, and market workflows for HK, US, A-share, and SG markets.
+- **[makeev/alphai-claude-skills](https://github.com/makeev/alphai-claude-skills)**: Official AlphAI skills - stock briefs, market pulse, SEC Form 4 insider scans, two-ticker read-across, and news alerts through the hosted AlphAI MCP server (relevance-scored financial news, filing-verified earnings reads) (MIT).
 - **[HasData/hasdata-cli](https://github.com/HasData/hasdata-cli)**: Official HasData CLI and API guidance for search, scraping, ecommerce, travel, jobs, local business, and structured web data workflows.
 - **[runapi-ai/cli-skill](https://github.com/runapi-ai/cli-skill)**: Official RunAPI CLI skill - generate AI images, videos, and music/audio from agent workflows, plus run other model API jobs.
 - **[neondatabase/agent-skills](https://github.com/neondatabase/agent-skills)**: Official Neon skills - Serverless Postgres workflows and Neon platform guidance.
+- **[prisma/skills](https://github.com/prisma/skills)**: Official Prisma skills - Prisma Postgres setup, Prisma ORM, Prisma Compute deploys, and Client/CLI workflows.
 - **[Skyvern-AI/skyvern](https://github.com/Skyvern-AI/skyvern)**: Official Skyvern browser automation skill — AI-powered browser control using Vision LLMs and computer vision for navigating sites, filling forms, and extracting structured data.
 - **[scopeblind/scopeblind-gateway](https://github.com/scopeblind/scopeblind-gateway)**: Official Scopeblind MCP governance toolkit - Cedar policy authoring, shadow-to-enforce rollout, and signed-receipt verification guidance for agent tool calls.
 - **[Forward-Future/loop-library](https://github.com/Forward-Future/loop-library)**: Official Loop Library skill - find, adapt, and design bounded AI-agent feedback loops with verification, stop rules, guardrails, and handoffs (MIT).
 - **[agent-frontier/wgm](https://github.com/agent-frontier/wgm)**: Official wgm protocol skill - governed build loops with triage, alignment, planning, deterministic backpressure, holdout-scenario judging, and handoff audits (MIT).
+- **[Instant-Expert/skills](https://github.com/Instant-Expert/skills)**: Official Instant Expert source for the `ask-human-expert` skill - ask real executives, operators and domain experts a question for a written or voice answer or a short call, with a free test mode and the user's approval before every paid order (MIT-0).
 - **[browser-act/skills](https://github.com/browser-act/skills)**: Official BrowserAct skills - authenticated browser automation, JavaScript-rendered extraction, screenshots, parallel session isolation, verification handling, and human handoff (MIT).
+- **[masakaai/jet-browser](https://github.com/masakaai/jet-browser)**: Official Jet Browser skill and Apache-2.0 source - isolated WPE WebKit sessions with ordered JSONL, native input, semantic DOM inspection, screenshots, and reproducible offline runtime checks.
 - **[browserbase/skills](https://github.com/browserbase/skills)**: Official Browserbase `competitor-analysis` skill - Browserbase Search API competitor discovery, research lanes, matrices, screenshots, and HTML reports (MIT).
 - **[dair-ai/dair-academy-plugins](https://github.com/dair-ai/dair-academy-plugins)**: Official DAIR Academy plugin skills imported as standalone skills - image generation, adaptive learning, lesson artifacts, LLM council deliberation, survey papers, wiki building, and YouTube study notes (MIT).
 - **[weaviate/agent-skills](https://github.com/weaviate/agent-skills)**: Official Weaviate skills - vector database operations, semantic and hybrid search, data imports, RAG cookbooks, agentic RAG, multimodal PDF search, and async client patterns (BSD-3-Clause).
 - **[pilot-protocol/pilotprotocol](https://github.com/pilot-protocol/pilotprotocol)**: Official Pilot Protocol overlay network - agent addressing, encrypted P2P messaging, NAT traversal, and an installable agent app store (AGPL-3.0).
 - **[Xquik-dev/x-twitter-scraper](https://github.com/Xquik-dev/x-twitter-scraper)**: Official Xquik skill for X data workflows - tweet search, user lookup, follower export, media downloads, MCP, webhooks, OpenAPI, and SDK setup (MIT).
 - **[Modellix/modellix-plugin](https://github.com/Modellix/modellix-plugin)**: Official Modellix skill - authenticated, paid AI image and video generation through the Modellix CLI (MIT).
+- **[replynodes/replynodes-agent-skills](https://github.com/replynodes/replynodes-agent-skills)**: Official ReplyNodes source for the `url-to-markdown` skill - fetch a public webpage as clean Markdown for reading, summarizing, quoting, or citing while preserving the source URL (MIT).
 - **[beatra-ai/talking-avatar-video-skill](https://github.com/beatra-ai/talking-avatar-video-skill)**: Official Beatra source for the `talking-avatar-video` skill - paid, hosted work installed from a digest-pinned 0.2.1 archive byte-identical to commit `251c968` with self-update disabled before first use (MIT-0).
 - **[beatra-ai/beatra-skills](https://github.com/beatra-ai/beatra-skills)**: Official Beatra source for the `beatra-ai-video-studio` skill - paid, hosted AI video generation, editing, and extension, installed from a digest-pinned 1.2.5 archive byte-identical to commit `95d662f` with self-update disabled before first use (MIT-0).
 - **[cohesivity-org/cohesivity-skill](https://github.com/cohesivity-org/cohesivity-skill)**: Official Cohesivity skill - agent provisioned backend infrastructure covering Postgres, hosting, auth, realtime, storage, cron, email, and AI model APIs over one HTTP API (MIT).
@@ -309,6 +326,8 @@ Key source families include:
 - **[hermes-labs-ai/lintlang](https://github.com/hermes-labs-ai/lintlang)**: Official source for the `lintlang-audit` skill - deterministic, zero-LLM static auditing of agent instructions, tool definitions, and embedded Python prompts, reporting finding codes and locations without editing files or calling a model (Apache-2.0).
 - **[target1m/traderspy-mcp](https://github.com/target1m/traderspy-mcp)**: Official TraderSpy source for six crypto market research skills (`traderspy-*`) - market briefings, technical analysis, screening and backtests, AI signals, top-trader positioning, and position checks through the hosted, read-only TraderSpy MCP server (MIT).
 - **[MohammadHijjawi97/since-cutoff](https://github.com/MohammadHijjawi97/since-cutoff)**: Official source for the `since-cutoff` skill - lists which APIs of a project's pinned Python dependencies changed after the model's training cutoff, from a static diff of the two releases with no model calls, shows where the code uses them, and writes short AGENTS.md or CLAUDE.md notes (MIT).
+- **[qrxcodes/qrx-mcp](https://github.com/qrxcodes/qrx-mcp)**: Official QRX skill - turn a text prompt and a link into an artistic, branded QR code through the hosted QRX MCP server, checked to scan before it is returned (MIT).
+- **[opencanviz/opencanviz-skills-repo](https://github.com/opencanviz/opencanviz-skills-repo)**: Official openCanviz source for the `opencanviz-json` skill - write an openCanviz video project as JSON with a standard-library Python builder and validator (text entrances, 22 scene transitions, motion presets, LaTeX math, plots, tables, rings, 22 example projects), then import it at opencanviz.com/create, where a free account builds and plays it as a narrated, animated explainer and the MP4 download needs a plan or a one-time export purchase (MIT).
 
 </details>
 
@@ -317,6 +336,21 @@ Key source families include:
 
 ### Community Contributors
 
+- **[AshenJyy/antigravity-browser-bridge](https://github.com/AshenJyy/antigravity-browser-bridge)**: Source for the Browser Bridge guide for authorized Edge/Chrome automation using a separately installed local extension and daemon (Apache-2.0).
+
+- **[Reak-Z/mcd-secret-menu-lab](https://github.com/Reak-Z/mcd-secret-menu-lab)**: MIT community recipe-planning workflow for McDonald's China using an authorized MCP connection and explicit account-action boundaries.
+
+- **[Kadajett/cockney](https://github.com/Kadajett/cockney)**: MIT source for the `cockney` skill - terse Cockney-voiced replies and the smallest correct change (reuse, stdlib before dependencies, no speculative abstraction), switching to plain English for security and destructive-action warnings.
+- **[estevecastells/awesome-copilot](https://github.com/estevecastells/awesome-copilot)**: MIT source for the `invokely-statistics` skill - find official statistical figures, series, comparisons and place rankings through the Invokely MCP server, and report each value with its period, unit and source citation. The originating contribution is open and unmerged upstream.
+- **[morluto/rea](https://github.com/morluto/rea)**: MIT source for the `reverse-engineer-anything` skill - evidence-led native, managed, JavaScript/Electron, packaged, and browser investigations with explicit provider limits.
+
+- **[stas4000/what-could-break](https://github.com/stas4000/what-could-break)**: MIT source for the `what-could-break` skill - find what a change breaks outside its own diff and prove the one fact that makes it safe by running real code. Includes material adapted from pstack by Lauren Tan (MIT).
+- **[stas4000/tastegate](https://github.com/stas4000/tastegate)**: MIT source for the `tastegate` skill - pick a design direction, build on a craft floor, then render the page in headless Chromium at phone and desktop width and fail on overlap, sideways scroll, low contrast and AI-slop defaults. Direction rules derive from taste-skill (MIT) and the craft floor from impeccable (Apache-2.0).
+- **[stefanautomateed/shipvela-codex](https://github.com/stefanautomateed/shipvela-codex)**: MIT source for `shipvela-publish` — owner-confirmed website publishing and exact deployment tracking through an already connected Shipvela account. The hosted service is proprietary and plan-limited.
+- **[mdagnolops/1human-reels](https://github.com/mdagnolops/1human-reels)**: MIT source for the `agent-reels` skill - find credited animation and video references on 1human and consult a private library shared by a human and their creative agent; registration, saves, likes, comments and publication are state-changing and require prior owner authorization.
+- **[alexyc9381/shark-skill](https://github.com/alexyc9381/shark-skill)** and **[alexyc9381/court-skill](https://github.com/alexyc9381/court-skill)**: MIT sources for the `shark` and `court` skills by Alex Chen (@nocodealex). Each is a panel of Claude sub-agents (investors, or a jury) that stress-tests an idea.
+- **[ASCIT31/darkmoon-mcp-server](https://github.com/ASCIT31/darkmoon-mcp-server)**: GPL-3.0 source for the `darkmoon-pentest` skill — authorized autonomous pentest runs, status polling and findings triage on a self-hosted Darkmoon Pro instance through its MCP server.
+- **[alapha888/session-handoff-kit](https://github.com/alapha888/session-handoff-kit)**: MIT source for the `session-handoff` skill — structured handoff artifact for the next session, for use when context approaches capacity, before /clear or /compact, when switching tasks, or when ending a coding session.
 - **[FlowLLM-AI/AxonX](https://github.com/FlowLLM-AI/AxonX)**: Apache-2.0 source for `axonx` — quantitative research plugin development, task execution, and artifact/lineage inspection through CLI and MCP.
 - **[supercorp-ai/supercov](https://github.com/supercorp-ai/supercov)**: MIT source for the `supercov` skill — line, branch and MC/DC coverage of a project's existing tests, used to write focused tests for the untested code.
 - **[alapha888/agent-skills-en](https://github.com/alapha888/agent-skills-en)**: MIT source for `deep-research-framework`, `five-axis-code-review`, `git-commit-message`, `meeting-notes`, and `tech-writing-proofread` — concise English workflows for research reports, code review, commit messages, meeting minutes, and technical proofreading.
@@ -325,6 +359,7 @@ Key source families include:
 - **[wwewtech/chatexport-need-miner](https://github.com/wwewtech/chatexport-need-miner)**: Source for the `chatexport-need-miner` skill — community guidance and examples under MIT.
 - **[socai-io/jev-social](https://github.com/socai-io/jev-social)**: Source for the `jev-social` skill — read-only Jev/socai social research routing (MIT).
 - **[work0r-ai/agent-kit](https://github.com/work0r-ai/agent-kit)**: Source for the `workorai` skill — agent kit workflows (MIT).
+- **[awss1i/assay](https://github.com/awss1i/assay)**: MIT source for the `assay` skill. Deterministic local QA that opens a web page you built in a real browser, drives every control, and reports where the page contradicts itself, with no tests to write, no API key, and no network.
 
 - **[shitianfang/jev-use](https://github.com/shitianfang/jev-use)**: Source for the `jev-use` skill - routing an agent loop's no-text judgment steps to the Jev judgment model via the `jev_judge` / `jev_gate` MCP tools, batched per state, with a typed escalation contract that hands writing and low-confidence steps back to the LLM (MIT).
 - **[wwewtech/anti-slop-design](https://github.com/wwewtech/anti-slop-design)**: Source for the `anti-slop-design` skill - anti-AI-slop UI/UX engineering with token archetypes and a seven-axis quality gate (MIT).
@@ -358,7 +393,7 @@ Key source families include:
 - **[agentbody/skills](https://github.com/agentbody/skills)**: Source for the `people-data` skill - LinkedIn and YouTube professional-profile and public business-contact research via the Agent Body MCP server (MIT).
 - **[sudosubin/gh-attach](https://github.com/sudosubin/gh-attach)**: Source for the `gh-attach` skill - GitHub CLI uploads and downloads of `user-attachments` (screenshots, PDFs, zips, videos), producing repo-scoped URLs for PRs, issues, and READMEs, with GitHub Enterprise Server support (MIT).
 - **[Continuum-AI-Corp/OrcaReplay](https://github.com/Continuum-AI-Corp/OrcaReplay)**: Source for the `orca-replay` skill - reading, replaying, and forking recorded coding-agent runs, so a question about what a past run did is answered from its trace rather than from memory (Apache-2.0).
-- **[Continuum-AI-Corp/OrcaPromptVault](https://github.com/Continuum-AI-Corp/OrcaPromptVault)**: Source for the `system-prompt-lookup` skill - a dated archive of shipped AI products' system prompts and tool schemas, each labelled captured or vendor-reported, so a claim about what an agent was instructed to do is answered from the artifact rather than from memory (AGPL-3.0).
+- **[Continuum-AI-Corp/OrcaPromptVault](https://github.com/Continuum-AI-Corp/OrcaPromptVault)**: Source for the `system-prompt-lookup` skill - a dated archive of shipped AI products' system prompts and tool schemas, each labelled captured off the wire or reported by the model itself, so a claim about what an agent was instructed to do is answered from the artifact rather than from memory (AGPL-3.0).
 - **[amElnagdy/review-skills](https://github.com/amElnagdy/review-skills)**: Source for the `debate-review` and `babysit-pr` skills - two-model debate review of PRs/MRs with inline comments and automated babysitting of review rounds for GitHub, GitLab and Azure DevOps (MIT, docs-only — runtime not bundled).
 - **[yylo-dev/yylo-skills](https://github.com/yylo-dev/yylo-skills)**: Source for 7 YYLO skills (`ledger-tasks-yylo`, `plan-ledger-tasks-yylo`, `ralph-loop-yylo`, `understand-project-yylo`, `wiki-yylo`, `workflow-yylo`, `artifact-yylo`) - repo-resident Kanban/task ledger, PDR planning, validated single-task execution loop, and wiki/workflow/artifact records with fail-closed Ledger boundaries (MIT, docs-only — `scripts/kanban.sh` runtime not bundled).
 - **[addyosmani/agent-skills](https://github.com/addyosmani/agent-skills)**: Source for `constraint-driven-development`, `interview-me`, `using-agent-skills` — only names not already in the catalog (22/25 overlap with existing entries) (MIT).
@@ -572,6 +607,7 @@ Key source families include:
 - **[axelfreeman/marketing-mindset](https://github.com/axelfreeman/marketing-mindset)**: Source for the `marketing-mindset` skill - a marketer's decision framework for early-stage B2B and SaaS work: exchange checks, live-competitor benchmarking, pre-declared test volume floors, and channel kill rules (MIT).
 - **[mnemoverse/agent-memory-discipline](https://github.com/mnemoverse/agent-memory-discipline)**: Source for the `agent-memory-discipline` skill, with backend-neutral rules for when an agent recalls from long-term memory before acting and when it saves decisions, corrections and failures afterwards (CC0-1.0).
 - **[Search-3D/electron-drive-skill](https://github.com/Search-3D/electron-drive-skill)**: Source for the `electron-drive-skill` skill - launching and driving Electron apps under Playwright on a scratch profile (MIT).
+- **[codegiveness/kernel-prompt](https://github.com/codegiveness/kernel-prompt)**: MIT source for the `kernel-prompt` skill - harness-neutral prompt design that asks one round of user-only decisions, then returns an improved prompt for another agent without performing the task.
 
 </details>
 
@@ -609,8 +645,8 @@ Contributors ranked by the number of commits.
 | 2 | <a href="https://github.com/munir-abbasi"><img src="https://github.com/munir-abbasi.png?size=48" width="32" height="32" alt="" /></a> [@munir-abbasi](https://github.com/munir-abbasi) | 34 |
 | 3 | <a href="https://github.com/Mohammad-Faiz-Cloud-Engineer"><img src="https://github.com/Mohammad-Faiz-Cloud-Engineer.png?size=48" width="32" height="32" alt="" /></a> [@Mohammad-Faiz-Cloud-Engineer](https://github.com/Mohammad-Faiz-Cloud-Engineer) | 33 |
 | 4 | <a href="https://github.com/zinzied"><img src="https://github.com/zinzied.png?size=48" width="32" height="32" alt="" /></a> [@zinzied](https://github.com/zinzied) | 24 |
-| 5 | <a href="https://github.com/Prince-1652"><img src="https://github.com/Prince-1652.png?size=48" width="32" height="32" alt="" /></a> [@Prince-1652](https://github.com/Prince-1652) | 17 |
-| 6 | <a href="https://github.com/beatra-ai"><img src="https://github.com/beatra-ai.png?size=48" width="32" height="32" alt="" /></a> [@beatra-ai](https://github.com/beatra-ai) | 16 |
+| 5 | <a href="https://github.com/beatra-ai"><img src="https://github.com/beatra-ai.png?size=48" width="32" height="32" alt="" /></a> [@beatra-ai](https://github.com/beatra-ai) | 17 |
+| 6 | <a href="https://github.com/Prince-1652"><img src="https://github.com/Prince-1652.png?size=48" width="32" height="32" alt="" /></a> [@Prince-1652](https://github.com/Prince-1652) | 17 |
 | 7 | <a href="https://github.com/ssumanbiswas"><img src="https://github.com/ssumanbiswas.png?size=48" width="32" height="32" alt="" /></a> [@ssumanbiswas](https://github.com/ssumanbiswas) | 15 |
 | 8 | <a href="https://github.com/FrancoStino"><img src="https://github.com/FrancoStino.png?size=48" width="32" height="32" alt="" /></a> [@FrancoStino](https://github.com/FrancoStino) | 13 |
 | 9 | <a href="https://github.com/Champbreed"><img src="https://github.com/Champbreed.png?size=48" width="32" height="32" alt="" /></a> [@Champbreed](https://github.com/Champbreed) | 10 |
@@ -633,7 +669,7 @@ Contributors ranked by the number of skills they added.
 | 6 | <a href="https://github.com/nikolasdehor"><img src="https://github.com/nikolasdehor.png?size=48" width="32" height="32" alt="" /></a> [@nikolasdehor](https://github.com/nikolasdehor) | 35 |
 | 7 | <a href="https://github.com/Ranjeet2063"><img src="https://github.com/Ranjeet2063.png?size=48" width="32" height="32" alt="" /></a> [@Ranjeet2063](https://github.com/Ranjeet2063) | 20 |
 | 8 | <a href="https://github.com/MMEHDI0606"><img src="https://github.com/MMEHDI0606.png?size=48" width="32" height="32" alt="" /></a> [@MMEHDI0606](https://github.com/MMEHDI0606) | 20 |
-| 9 | <a href="https://github.com/beatra-ai"><img src="https://github.com/beatra-ai.png?size=48" width="32" height="32" alt="" /></a> [@beatra-ai](https://github.com/beatra-ai) | 16 |
+| 9 | <a href="https://github.com/beatra-ai"><img src="https://github.com/beatra-ai.png?size=48" width="32" height="32" alt="" /></a> [@beatra-ai](https://github.com/beatra-ai) | 17 |
 | 10 | <a href="https://github.com/ShianMike"><img src="https://github.com/ShianMike.png?size=48" width="32" height="32" alt="" /></a> [@ShianMike](https://github.com/ShianMike) | 13 |
 
 </td>
@@ -682,3 +718,6 @@ Original documentation and other non-code written content are licensed under [CC
 
 ---
 
+### Consolidated plugin packs
+
+The focused offer unifies overlapping historical bundles with the AAS packs. Use the [plugin migration guide](docs/users/plugin-migration.md) to find replacements. Existing installations require a manual switch after verifying the destination; activation aliases do not create duplicate marketplace plugins. Changes on main become available through the next published release.

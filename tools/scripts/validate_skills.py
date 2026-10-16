@@ -145,6 +145,11 @@ def collect_validation_results(skills_dir, strict_mode=False):
                 desc = metadata["description"]
                 if not isinstance(desc, str):
                     errors.append(f"❌ {rel_path}: 'description' must be a string, got {type(desc).__name__}")
+                elif not desc.strip() or re.fullmatch(
+                    r"one sentence\s*[-–—]\s*what this skill does and when to invoke it[.!]?",
+                    desc.strip(), re.IGNORECASE,
+                ):
+                    errors.append(f"❌ {rel_path}: Description is empty or contains the skill-template placeholder")
                 elif len(desc) > 300: # increased limit for multi-line support
                     errors.append(f"❌ {rel_path}: Description is oversized ({len(desc)} chars). Must be concise.")
 

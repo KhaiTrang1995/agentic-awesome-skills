@@ -7,6 +7,303 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [19.7.0] - 2026-10-14 - "Clearer Plugins, Recovered Resources And Safer Skills"
+
+> Adds **browser-bridge**, ships **2,690** catalog skills, and consolidates **58** overlapping plugin bundles into **30** active offers with preserved skill inventories and migration guidance.
+
+### Added
+
+- **browser-bridge** — Edge and Chrome automation guidance for an explicitly approved upstream bridge, with pinned provenance, accurate command examples and authenticated-action boundaries. The skill does not install or start a bridge service.
+
+### Changed
+
+- Unified overlapping old bundles and specialized AAS plugins. Web App Builder and Product Design Studio have clear canonical names; security, agents, Python/API, marketing, data and other retained packs preserve their useful skills.
+- Restored licensed upstream references and helpers, including Deep Research, Imagen and OSINT material, with immutable source notices, bounded inputs and explicit provider/runtime limitations.
+- Recorded two individual review cohorts of **175** skill trees each, alongside focused documentation and integration repairs. This release changes **571** canonical skill trees relative to `19.6.0`; that count includes content and metadata changes.
+
+### Fixed
+
+- Corrected examples, cancellation and retry behavior, credential/output handling, environment prerequisites, unsupported claims and missing local resources in the reviewed cohorts.
+- TypeScript diagnostics now fail when the compiler cannot run, use locally installed tools and correctly handle the bundled JSONC configuration; export and Vitest examples are updated.
+- Web performance guidance uses INP and correct tree-shaking, image dimensions and hero-image loading advice.
+- Scanner reports retain useful local locations and fixed finding labels while omitting raw suspicious payloads and credential values.
+- Release subprocesses preserve argument boundaries on Windows and reject invalid versions before Git or filesystem changes.
+
+### Review scope
+
+The reported cohorts have individual receipts and bundled-file review evidence. The complete catalog audit remains unfinished; this release does not claim that all 2,690 skills were deeply reviewed or exercised against live services. Native-host and provider limitations remain explicit in the review records.
+
+### Thanks
+
+Thanks to **@AshenJyy** and **@jwcastillo** for the browser, TypeScript and web-performance contributions, and to the upstream authors whose licensed resources were recovered.
+
+---
+
+## [19.6.0] - 2026-10-13 - "Focused Plugins, Safer Workflows And Complete Agent Setup"
+
+> Adds **2** catalog skills and expands **21** focused plugins with **48** useful memberships. Ships **2,689** skills, with complete Codex/Claude setup guidance and reviewed fixes to API, testing, accessibility, analytics and agent-evaluation examples.
+
+### Added
+
+- **api-contract-testing** — provider/consumer runtime contract checks, invalid-response fixtures and version compatibility, using the project's existing tools.
+- **mcd-secret-menu-lab** — community recipe planning for McDonald's China through an already authorized MCP connection, with current-price/nutrition checks and explicit coupon/order boundaries. Installing the skill does not install an MCP server or bundle the upstream quiz/recipe application.
+
+### Changed
+
+- Expanded all 21 specialized plugins to 6–13 skills while keeping plugin IDs stable. Security adds threat modeling and skill audits; QA/API add contracts and bounded retries; other packs add focused UI, document, analytics, incident handoff, pricing, onboarding and privacy workflows.
+- Updated **riffkit** with Adapt, Swap and original-idea video workflows, quote-before-render approval, current free-plan guidance and retry-cost caveats.
+- Made the active **reverse-engineer-anything** upstream location discoverable while retaining historical import provenance and the reviewed local references.
+- Completed Codex and Claude setup guides: approved configuration with backups, connection checks, exact skill selection, immutable plan preview and installer handoff.
+- Improved skill pages and navigation: readable articles, direct SKILL.md copying, retained catalog filters and clearer related-skill context.
+
+### Fixed
+
+- Replaced 18 template or incomplete descriptions and rejected known empty/template descriptions in validation.
+- Corrected asynchronous test assertions, Python negative fixtures, webhook rejection under optimization, API retry statuses and provider wait budgets, alert units, contrast colors, scoring/savings arithmetic and evaluator JSON/calibration guidance.
+- Removed unavailable resource promises, unpinned accessibility-tool downloads and unsupported operational claims from the reviewed cohort.
+- Made plugin membership tests independent per pack so complete coverage fits normal CI deadlines without weakening assertions.
+
+### Review scope
+
+The complete catalog metadata and all 21 specialized compositions were examined. Deep content review covered the selected addition cohort, changed skill trees and this three-PR maintenance batch; it is not a claim that every catalog procedure ran successfully against live services. Automated semantic review and manual exact-head review remain distinct.
+
+### Thanks
+
+Thanks to **@Reak-Z**, **@owengu-ai** and **@morluto** for this maintenance batch, and to the upstream authors of the existing skills selected for the expanded plugins.
+
+---
+
+## [19.5.0] - 2026-10-12 - "Design Systems, Token Discipline And Verified Sources"
+
+> Adds **10** reviewed skills for native iOS and frontend UI work, design-system documentation, screenshot-to-UI matching, UI state coverage, token-lean coding-agent habits, terse Cockney delivery, timestamped YouTube and podcast quote research, official statistics lookups, and a digest-pinned progressive-headshot studio; it also refreshes Jet Browser to v0.9.0 and ships the Core-first product homepage with guided discovery and collections. Ships **2,687** skills.
+
+A catalog release for Claude Code, Cursor, Codex CLI, Gemini CLI, and related AI coding assistants. It includes the protected maintainer batch merged after `19.4.0`, with existing installation interfaces preserved.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@19.5.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- **build-ui** - a step-by-step UI workflow: read the project, follow the plan that fits the job (new screen, dashboard, polish, simplify, review), then render, fix and check again at phone and desktop widths. `risk: safe`, MIT, official source [uxkin/agent](https://github.com/uxkin/agent).
+- **ios-screens** - build iPhone screens that feel native: tab bars and navigation stacks, sheets and detents, safe areas, Dynamic Type, dark mode, permissions, paywalls and empty states, checked on small and large iPhones. `risk: safe`, MIT, official source [uxkin/agent](https://github.com/uxkin/agent).
+- **write-design-md** - write or update a project's DESIGN.md from the colors, type scale, spacing, shapes and components it really uses, with agent-facing rules so new screens match and near-duplicates are surfaced as open questions. `risk: safe`, MIT, official source [uxkin/agent](https://github.com/uxkin/agent).
+- **ui-from-screenshot** - turn a screenshot or mockup into matching UI built from the project's own components, compare the rendered result side by side with the image, and fix the differences. `risk: safe`, MIT, official source [uxkin/agent](https://github.com/uxkin/agent).
+- **ui-states** - design and build the states generated UI usually forgets: first use, empty, loading, partial, error, offline, validation, permission, success, long content and busy actions. `risk: safe`, MIT, official source [uxkin/agent](https://github.com/uxkin/agent).
+- **arcmira-find-quotes** - search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries, then cite the episode, date and timestamped source link through an existing authorized Arcmira connection. `risk: safe`, Apache-2.0, official source [arcmira/mcp](https://github.com/arcmira/mcp).
+- **tokenleak** - token-lean working rules for coding agents: locate before reading, compute instead of reading data, bound command output, never re-read, batch independent calls, and prefer diffs over whole files, without trading away verification. `risk: safe`, MIT, official source [Pazificateur69/tokenleak](https://github.com/Pazificateur69/tokenleak).
+- **cockney** - a cheeky Cockney coding mode that returns terse replies and the smallest correct change, and switches back to plain English for security and destructive-action warnings. `risk: safe`, MIT, community source [Kadajett/cockney](https://github.com/Kadajett/cockney).
+- **invokely-statistics** - find official statistical figures, series, comparisons and place rankings through the Invokely MCP server and report each value with its indicator, period, unit and source citation. `risk: safe`, MIT, community source [estevecastells/awesome-copilot](https://github.com/estevecastells/awesome-copilot).
+- **ai-headshot-studio** - install and use the official AI Headshot Generator package, pinned by digest, for paid hosted work on the Beatra service, with self-update disabled before first use and an approval per paid call. `risk: critical`, MIT-0, official source [beatra-ai/ai-headshot-generator-skill](https://github.com/beatra-ai/ai-headshot-generator-skill).
+
+### Changed
+
+- **jet-browser** - refresh the skill to v0.9.0 (commit `b086730`): the published manifest now carries native `linux/amd64` and `linux/arm64` images, so the ARM guidance and every pinned source or release link were updated to the new tag. `risk: safe` is preserved.
+
+### Site and catalog
+
+- Core is the product homepage, with guided discovery, skill collections, shared-shortlist review for team adoption and clearer information pages; informational routes are accepted by the SEO verifier and sitemap.
+
+### Credits
+
+- **@UXKIN** for `build-ui`, `ios-screens`, `write-design-md`, `ui-from-screenshot` and `ui-states`
+- **@zealous1** for `arcmira-find-quotes`
+- **@Pazificateur69** for `tokenleak`
+- **@Kadajett** for `cockney`
+- **@estevecastells** for `invokely-statistics`
+- **@beatra-ai** for `ai-headshot-studio`
+- **@IRONICBo** for the Jet Browser v0.9.0 refresh
+
+## [19.4.0] - 2026-10-11 - "Prompt Handoffs And Cost-Gated Scaling"
+
+> Adds **2** reviewed skills for turning a rough request into a clear prompt for another agent and for proving a data/AI workflow end to end on a tiny sample before scaling; it also refreshes the Datacircle LinkedIn lookup skill with the Fetchin provider, corrects the OrcaPromptVault artifact wording, and ships guided discovery, collections and a Core overview on the hosted catalog. Ships **2,677** skills.
+
+A catalog release for Claude Code, Cursor, Codex CLI, Gemini CLI, and related AI coding assistants. It includes the protected maintainer batch merged after `19.3.0`, with existing installation interfaces preserved.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@19.4.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- **kernel-prompt** - turn a rough request or draft into a clear, self-contained prompt for another agent: read the context it mentions, ask one round of decisions only the user can make, then return only the prompt and never perform the task it describes. `risk: safe`, MIT, community source [codegiveness/kernel-prompt](https://github.com/codegiveness/kernel-prompt).
+- **skeleton-first** - prove a data/AI/agent workflow end to end on the smallest input with the cheapest settings, look for cheap wins in the sample (duplicates, boilerplate, invalid inputs that are still billed), then scale in cost-gated rungs within a stated budget and keep a run log of cost and decisions. `risk: safe`, self-authored source.
+
+### Changed
+
+- **datacircle** - add Fetchin as the third LinkedIn profile provider (price, limit, request, response and `404`), use HarvestAPI or Fetchin past Up2Data's daily limit, correct Up2Data's per-profile price, and drop the retired `get_invite_link` MCP tool from the skill. `risk: critical` is preserved.
+- **glasser** - add a source parameter to the maintained setup-instruction link so the provider can see which listings agents follow; the link target and installation-approval guidance are unchanged. `risk: critical` is preserved.
+- **system-prompt-lookup** - correct the second artifact label to "captured off the wire or reported by the model itself", so a model's account of its own prompt is not presented as vendor-published material. `risk: safe` is preserved.
+
+### Site and catalog
+
+- Guided discovery, skill collections and a Core overview on the hosted catalog, plus shared-shortlist review for team adoption and clearer information pages.
+
+### Credits
+
+- **@codegiveness** for `kernel-prompt`
+- **@danhe6** for `skeleton-first`
+- **@waynehamadi** for the Datacircle Fetchin provider update
+- **@glasserai** for the Glasser setup-instruction link
+- **@xizhuomengcontin** for the OrcaPromptVault wording correction
+- **@markqian** for the openCanviz official source
+
+## [19.3.0] - 2026-10-10 - "Design Research, Reverse Engineering And Art QR Codes"
+
+> Adds **4** reviewed skills for real-product design research, evidence-led reverse engineering of shipped software, paid LinkedIn profile lookups with per-call consent, and branded art QR codes; it also refreshes the 1human motion skill for the current human-controlled onboarding. Ships **2,675** skills.
+
+A catalog release for Claude Code, Cursor, Codex CLI, Gemini CLI, and related AI coding assistants. It includes the protected maintainer batch merged after `19.2.0`, with existing installation interfaces preserved.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@19.3.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- **uxkin-research** - research how real products handle a screen, flow or visual style before designing it: search UXKIN's library of real iOS screens, user journeys and website design systems, compare several and report the shared pattern. `risk: safe`, MIT, official source [uxkin/agent](https://github.com/uxkin/agent).
+- **reverse-engineer-anything** - investigate shipped apps, binaries, packages and runtimes with evidence-first routing: ASAR/Electron, archives, Android, managed assemblies, firmware, native targets and passive runtime observation, with provider limits and unknowns kept explicit. `risk: safe`, MIT, community source [morluto/rea](https://github.com/morluto/rea).
+- **datacircle** - look up LinkedIn profiles by URL through Datacircle (Up2Data or HarvestAPI, no markup) over its hosted MCP server or REST API, stating the cost and waiting for the user's yes before every paid lookup. `risk: critical`, self-authored source.
+- **qrx** - make branded, print-ready art QR codes that always scan through the hosted QRX MCP server or REST API, plus list, check and re-point existing codes; never asks for a Wi-Fi password and never prints the API key. `risk: critical`, MIT, official source [qrxcodes/qrx-mcp](https://github.com/qrxcodes/qrx-mcp).
+
+### Changed
+
+- **agent-reels** - refresh the 1human motion skill for the current human-controlled onboarding: discovery-only invitations, explicit workspace-install and upload-scope approval, reserved runtime identities, and separate private password setup. `risk: critical` is preserved; no account, billing or background automation was added.
+
+### Credits
+
+- **@UXKIN** for `uxkin-research`
+- **@morluto** for `reverse-engineer-anything`
+- **@waynehamadi** for `datacircle`
+- **@MattDavies** for the `qrx` official source and credit
+- **@mdagnolops** for the `agent-reels` refresh
+
+## [19.2.0] - 2026-10-09 - "Market Data And Change-Safety Skills"
+
+> Adds **6** reviewed skills for US stock-market data, change-impact proof, frontend visual gating, human-expert asks, browser-runtime verification and URL-to-Markdown fetching. Ships **2,671** skills.
+
+A catalog release for Claude Code, Cursor, Codex CLI, Gemini CLI, and related AI coding assistants. It includes the protected maintainer batch merged after `19.1.0`, with existing installation interfaces preserved.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@19.2.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- **equibles** - query US stock-market data (SEC filing search, XBRL statements, earnings-call transcripts, insider and 13F holdings, congressional trades, short interest and daily prices) through the Equibles MCP server or REST API. `risk: safe`, self-authored source.
+- **what-could-break** - find what a change breaks outside its own diff and prove the one fact that makes it safe by running real code. `risk: safe`, MIT, community source [stas4000/what-could-break](https://github.com/stas4000/what-could-break), includes material adapted from pstack by Lauren Tan.
+- **tastegate** - build or fix a frontend so it looks designed, then prove it in a real browser: renders at phone and desktop width and fails on overlap, sideways scroll, low contrast and AI-slop defaults. `risk: safe`, MIT, community source [stas4000/tastegate](https://github.com/stas4000/tastegate); direction rules derive from taste-skill (MIT) and the craft floor from impeccable (Apache-2.0).
+- **url-to-markdown** - fetch a public webpage as clean Markdown for reading, summarizing, quoting, or citing while preserving the source URL. `risk: safe`, MIT, official source [replynodes/replynodes-agent-skills](https://github.com/replynodes/replynodes-agent-skills).
+- **ask-human-expert** - ask real executives, operators and domain experts a question through Instant Expert for a written answer, voice note or a short call, with a free test mode and explicit approval before any paid order. `risk: critical`, MIT-0, official source [Instant-Expert/skills](https://github.com/Instant-Expert/skills).
+- **jet-browser** - verify or integrate Jet Browser for isolated WPE WebKit browser sessions with native input, semantic DOM inspection, ordered JSONL automation and screenshots, pinned to a reviewed commit. `risk: critical`, Apache-2.0, official source [masakaai/jet-browser](https://github.com/masakaai/jet-browser).
+
+### Credits
+
+- **@daniel3303** for `equibles`
+- **@stas4000** for `what-could-break` and `tastegate`
+- **@replynodes-ai** for `url-to-markdown`
+- **@maxko87** for `ask-human-expert`
+- **@IRONICBo** for `jet-browser`
+- **@makeev** for the AlphAI official-source credit
+
+## [19.1.0] - 2026-10-08 - "Publishing, Data And QA Skills"
+
+> Adds **7** reviewed skills for website publishing, paid data APIs, social-link reading, email marketing, Telegram ad buying, motion references and local web-page QA. Ships **2,665** skills.
+
+A catalog release for Claude Code, Cursor, Codex CLI, Gemini CLI, and related AI coding assistants. It includes the protected maintainer batch merged after `19.0.1`, plus a web-app dependency upgrade.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@19.1.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- **shipvela-publish** - publish an explicitly selected website through a connected Shipvela MCP account: stage only public build files, hand manifest approval to the owner, track the exact deployment and return the live URL. `risk: critical`, MIT, community source [stefanautomateed/shipvela-codex](https://github.com/stefanautomateed/shipvela-codex).
+- **looot** - search, price and run 2,500+ data API endpoints (work emails, company search, SERP, web pages) from one prepaid balance through the looot MCP server. `risk: critical`, MIT, official source [loootai/looot-skills](https://github.com/loootai/looot-skills).
+- **linkdigest-social-link-reader** - read a public Xiaohongshu, Douyin, TikTok, YouTube, X or WeChat link into text (caption, transcript, image text, key points) through the LinkDigest REST API or MCP server. `risk: safe`, MIT, official source [jcaiagent7143-ui/linkdigest-mcp](https://github.com/jcaiagent7143-ui/linkdigest-mcp).
+- **email-marketing-bible** - data-backed email marketing for agents: automation flows, deliverability triage, copy de-slopping and design direction, with ESP control behind explicit send-approval gates and compliance coverage. `risk: critical`, MIT, official source [CosmoBlk/email-marketing-bible](https://github.com/CosmoBlk/email-marketing-bible).
+- **telegram-channel-ads** - vet and price Telegram channel posts on real views instead of subscriber count, with reach benchmarks by size, topic and language, ad-network checks and CPM math. `risk: safe`, self-authored source.
+- **agent-reels** - find credited animation and video references on 1human and consult a private library shared by a human and their creative agent; publishing and social actions require prior owner authorization. `risk: critical`, MIT, community source [mdagnolops/1human-reels](https://github.com/mdagnolops/1human-reels).
+- **assay** - deterministic local QA for a web page you just wrote: opens it in a real browser, drives every control and reports where the page contradicts itself, with no API key and no network. `risk: safe`, MIT, community source [awss1i/assay](https://github.com/awss1i/assay).
+
+### Changed
+
+- **apps/web-app** - upgrade `react-router` to `8.4.0`. The web-app audit reports 0 vulnerabilities and all 268 web-app tests pass.
+- **Dependencies** - refresh bundled Node example dependency manifests under `skills/loki-mode`, `skills/telegram` and `skills/whatsapp-cloud-api`.
+
+### Credits
+
+- **@stefanautomateed** for `shipvela-publish`
+- **@walidboulanouar** for `looot`
+- **@jcaiagent7143-ui** for `linkdigest-social-link-reader`
+- **@CosmoBlk** for `email-marketing-bible`
+- **@Courier-Britva** for `telegram-channel-ads`
+- **@mdagnolops** for `agent-reels`
+- **@awss1i** for `assay`
+
+## [19.0.1] - 2026-10-06 - "Pages Surface Repair"
+
+> Patch release. Clears two web-app dependency advisories that blocked the `v19.0.0` release-tag Pages deployment. No catalog or skill changes.
+
+### Fixed
+
+- **apps/web-app** - pin `proxy-addr` to `^2.0.8` (critical: IP spoofing via IPv4-mapped IPv6 trust subnet, GHSA-jqcg-44mw-7w3h) and `source-map-js` to `^1.2.2` (high: event-loop denial of service via indexed source-map section offsets, GHSA-68fv-2mgg-jv7q). `npm --prefix apps/web-app audit --audit-level=high` now reports 0 vulnerabilities, and 268 web-app tests pass.
+
+## [19.0.0] - 2026-10-06 - "Security And Community Signals"
+
+> Adds **6** reviewed skills for security triage, single-cell analysis, SEO/AI visibility, session handoff, and structured decision-making. Advances the fourth bundled dependency to the current patch line. Ships **2,658** skills.
+
+A catalog release for Claude Code, Cursor, Codex CLI, Gemini CLI, and related AI coding assistants. It includes the complete protected maintainer batch merged after `18.15.0`, with existing installation interfaces preserved.
+
+### Start here
+
+- Install: `npx agentic-awesome-skills@19.0.0`
+- [Choose your tool](README.md#choose-your-tool)
+- [Best skills by tool](README.md#best-skills-by-tool)
+- [Bundles](docs/users/bundles.md)
+- [Workflows](docs/users/workflows.md)
+
+### Added
+
+- **darkmoon-pentest (#1797)** - start, follow and triage authorized autonomous AI pentest runs on a self-hosted Darkmoon Pro instance through its MCP server. Authorization-first workflow with a mandatory confirmation gate before any probing action. `risk: offensive`, GPL-3.0-only, from [ASCIT31/darkmoon-mcp-server](https://github.com/ASCIT31/darkmoon-mcp-server).
+- **scarf-single-cell (#1798)** - analyze single-cell RNA-seq at million-cell scale with Scarf: out-of-core Zarr stores, provenance-tracked artifacts, audited QC, clustering, markers and donor comparisons. `risk: critical`, BSD-3-Clause, official source [NygenAnalytics/scarf](https://github.com/NygenAnalytics/scarf).
+- **session-handoff (#1796)** - produce a structured handoff artifact (goal state, decisions, files touched, open loops, next action) when a session ends or context approaches capacity. `risk: safe`, MIT, from [alapha888/session-handoff-kit](https://github.com/alapha888/session-handoff-kit).
+- **lognorm (#1774, landed in #1810)** - work a site's SEO and AI-visibility (GEO) backlog through the hosted LogNorm MCP server: audits, fixes, content and AI-answer tracking. `risk: safe`, MIT, official source [lognorm/lognorm-mcp](https://github.com/lognorm/lognorm-mcp).
+- **shark** and **court (#1777, landed in #1812)** - two structured-decision skills: a Shark Tank-style panel of Claude sub-agent investors that each go IN or OUT, and a courtroom where a prosecutor and defense argue and a jury votes. `risk: safe`, MIT, from [alexyc9381/shark-skill](https://github.com/alexyc9381/shark-skill) and [alexyc9381/court-skill](https://github.com/alexyc9381/court-skill).
+
+### Changed
+
+- **yaml 2.9.1 (#1808)** - bump the published installer's bundled `yaml` runtime dependency to 2.9.1 and align the package-contents regression.
+
+### Fixed
+
+- **express 4.22.3 (#1799, #1803, #1804)** - bump the bundled Express boilerplate in `loki-mode`, `telegram` and `whatsapp-cloud-api` to the current patch line.
+- **parallel-search-mcp (#1802)** - document the optional `User-Agent` header so Parallel can attribute traffic set up by this skill; it does not identify users or count installs.
+
+### Documentation and community
+
+- Credits for the new external skill sources are recorded in the README.
+- Thanks to @georgeatparallel, @Gautam8387, @MBK-fr, @alapha888, @dskuldeep, @alexyc9381 and the LogNorm/ASC-IT teams for the contributions in this batch.
+
 ## [18.15.0] - 2026-10-05 - "Agent Publishing, Coverage Gaps, and Social Writing"
 
 > Adds **12** reviewed skills for agent-page publishing, coverage-driven test writing, macro/FX data, quantitative research, and Twitter/X and LinkedIn writing. Ships **2,652** skills.

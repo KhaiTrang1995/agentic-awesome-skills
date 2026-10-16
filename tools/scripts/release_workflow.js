@@ -19,12 +19,53 @@ function parseArgs(argv) {
   };
 }
 
+function isRegularFile(filePath) {
+  try {
+    const stat = fs.lstatSync(filePath);
+    return stat.isFile() && !stat.isSymbolicLink();
+  } catch {
+    return false;
+  }
+}
+
+function resolveWindowsNpmCli(runtime = {}) {
+  const execPath = runtime.execPath || process.execPath;
+  const env = runtime.env || process.env;
+  const candidates = [
+    path.join(path.dirname(execPath), "node_modules", "npm", "bin", "npm-cli.js"),
+    env.npm_execpath,
+  ];
+
+  for (const candidate of candidates) {
+    if (typeof candidate !== "string" || !path.isAbsolute(candidate)) continue;
+    if (path.basename(candidate).toLowerCase() !== "npm-cli.js") continue;
+    if (isRegularFile(candidate)) return candidate;
+  }
+
+  throw new Error(
+    "Unable to resolve npm-cli.js without a command shell. Run the release through an npm script or install npm beside node.exe.",
+  );
+}
+
+function resolveCommandInvocation(command, args, runtime = {}) {
+  const platform = runtime.platform || process.platform;
+  const execPath = runtime.execPath || process.execPath;
+  if (platform === "win32" && command === "npm") {
+    return {
+      command: execPath,
+      args: [resolveWindowsNpmCli(runtime), ...args],
+    };
+  }
+  return { command, args: [...args] };
+}
+
 function runCommand(command, args, cwd, options = {}) {
-  const result = spawnSync(command, args, {
+  const invocation = resolveCommandInvocation(command, args, options.runtime);
+  const result = spawnSync(invocation.command, invocation.args, {
     cwd,
     encoding: "utf8",
     stdio: options.capture ? ["ignore", "pipe", "pipe"] : "inherit",
-    shell: options.shell ?? process.platform === "win32",
+    shell: false,
   });
 
   if (result.error) {
@@ -196,10 +237,12 @@ function readPackageVersion(projectRoot) {
 }
 
 function isPrereleaseVersion(version) {
-  const match = String(version).match(
+  const match = typeof version === "string" ? version.match(
     /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)(?:-([0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*))?(?:\+[0-9A-Za-z-]+(?:\.[0-9A-Za-z-]+)*)?$/u,
-  );
-  if (!match) throw new Error(`Invalid semantic version: ${version}`);
+  ) : null;
+  if (!match || match[0] !== version || (match[4] && match[4].split(".").some(part => /^0\d+$/u.test(part)))) {
+    throw new Error(`Invalid semantic version: ${version}`);
+  }
   return Boolean(match[4]);
 }
 
@@ -265,10 +308,25 @@ function stageReleaseFiles(projectRoot, contract) {
   runCommand("git", ["add", ...filesToStage], projectRoot);
 }
 
+// Prepare only: settle HEAD-dependent generated metadata before publishing a branch.
+function convergePreparedRelease(projectRoot, contract, options = {}) {
+  const run = options.runCommand || runCommand;
+  run("npm", ["run", "sync:release-state"], projectRoot);
+  stageReleaseFiles(projectRoot, contract);
+  const changed = run("git", ["diff", "--cached", "--name-only"], projectRoot, { capture: true });
+  if (changed) {
+    // No remote branch or tag exists yet. Preserve the author date so doc lastmods settle.
+    run("git", ["commit", "--amend", "--no-edit"], projectRoot);
+  }
+  run("npm", ["run", "sync:release-state"], projectRoot);
+  ensureCleanWorkingTree(projectRoot, "Prepared release has generated or unmanaged drift; refusing to push.");
+}
+
 function prepareRelease(projectRoot, version) {
   if (!version) {
     throw new Error("Usage: npm run release:prepare -- X.Y.Z");
   }
+  isPrereleaseVersion(version);
 
   ensureOnMain(projectRoot);
   ensureCleanWorkingTree(projectRoot, "release:prepare requires a clean tracked working tree.");
@@ -307,6 +365,7 @@ function prepareRelease(projectRoot, version) {
   }
 
   runCommand("git", ["commit", "-m", `chore: release v${version}`], projectRoot);
+  convergePreparedRelease(projectRoot, contract);
   runCommand("git", ["push", "-u", "origin", releaseBranch], projectRoot);
   runCommand(
     "gh",
@@ -342,6 +401,7 @@ function publishRelease(projectRoot, version) {
   if (!version) {
     throw new Error("Usage: npm run release:publish -- X.Y.Z");
   }
+  isPrereleaseVersion(version);
 
   ensureOnMain(projectRoot);
   ensureCleanWorkingTree(projectRoot, "release:publish requires a clean tracked working tree.");
@@ -442,9 +502,12 @@ if (require.main === module) {
 }
 
 module.exports = {
+  convergePreparedRelease,
   localTagTarget,
   remoteTagTarget,
   isPrereleaseVersion,
+  resolveCommandInvocation,
+  runCommand,
   selectMergedReleaseCandidate,
   validateReleaseSuccessors,
 };

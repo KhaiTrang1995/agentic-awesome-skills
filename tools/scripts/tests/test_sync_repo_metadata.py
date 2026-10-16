@@ -31,6 +31,35 @@ update_readme = sys.modules["update_readme"]
 
 
 class SyncRepoMetadataTests(unittest.TestCase):
+    def test_agent_setup_commands_share_pins_and_preserve_surrounding_prose(self):
+        for host in ["codex", "claude"]:
+            content = "Introduction\n" + "\n".join(
+                f"<!-- aas-agent-setup:{host}:{phase} -->\nold command\n<!-- /aas-agent-setup -->"
+                for phase in ["preview", "approve", "plan", "install"]
+            ) + "\nClosing text"
+            updated = sync_repo_metadata.sync_agent_setup_guide(content, {"version": "19.5.0"})
+            self.assertTrue(updated.startswith("Introduction\n"))
+            self.assertTrue(updated.endswith("\nClosing text"))
+            self.assertNotIn("old command", updated)
+            self.assertIn(f"--host {host} --scope user --version 19.5.0", updated)
+            self.assertIn(f"--target {host}:project", updated)
+            self.assertIn('--backup-dir "$AAS_BACKUP"', updated)
+            destination = ".agents" if host == "codex" else ".claude"
+            self.assertIn(f"--destination \"$AAS_PROJECT/{destination}/skills\"", updated)
+            self.assertEqual(sync_repo_metadata.sync_agent_setup_guide(updated, {"version": "19.5.0"}), updated)
+            upgraded = sync_repo_metadata.sync_agent_setup_guide(updated, {"version": "20.0.0"})
+            self.assertNotIn("19.5.0", upgraded)
+            self.assertIn("--package=agentic-awesome-skills@20.0.0", upgraded)
+            self.assertIn("--version 20.0.0", upgraded)
+            self.assertNotIn(" stack apply", upgraded)
+
+    def test_agent_setup_sync_matches_both_committed_guides(self):
+        metadata = {"version": __import__("json").loads((REPO_ROOT / "package.json").read_text())["version"]}
+        for slug in ["codex-cli-skills", "claude-code-skills"]:
+            content = (REPO_ROOT / "docs" / "users" / f"{slug}.md").read_text()
+            self.assertEqual(sync_repo_metadata.sync_agent_setup_guide(content, metadata), content)
+            self.assertEqual(content.count("<!-- /aas-agent-setup -->"), 4)
+
     def test_sync_curated_docs_updates_counts_and_versions(self):
         metadata = {
             "version": "8.4.0",

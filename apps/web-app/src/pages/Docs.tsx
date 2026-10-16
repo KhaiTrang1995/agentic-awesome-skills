@@ -7,6 +7,7 @@ import DocsCodeBlock from '../components/DocsCodeBlock';
 import DocsSearch from '../components/DocsSearch';
 import { loadGuide } from '../utils/docsContent';
 import docs from '../data/docs.json';
+import { seoLandingPages } from '../data/seoLandingPages';
 import socialGuides from '../data/docs-social.json';
 import { usePageMeta } from '../hooks/usePageMeta';
 import { docsUrl } from '../utils/docs';
@@ -161,10 +162,12 @@ export default function Docs() {
               <section><h3>Using AAS</h3><p>Install, discover skills, and build a reviewed stack.</p><Link to="/docs/getting-started/">User guides →</Link></section>
               <section><h3>Building skills</h3><p>Understand skill structure and contribution standards.</p><a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/docs/contributors/skill-anatomy.md">Developer documentation on GitHub ↗</a></section>
               <section><h3>Maintaining AAS</h3><p>Follow protected review, merge, and release procedures.</p><a href="https://github.com/sickn33/agentic-awesome-skills/blob/main/.github/MAINTENANCE.md">Maintainer documentation on GitHub ↗</a></section>
-              <section><h3>CLI and MCP reference</h3><p>Configure the local runtime and understand its supported contracts.</p><Link to="/docs/aas-core/">Core reference →</Link></section>
+              <section><h3>Core, CLI and MCP</h3><p>Configure the local runtime and understand its supported contracts.</p><Link to="/docs/aas-core/">Core reference →</Link></section>
+              <section><h3>Review a plan</h3><p>Inspect the manifest and plan produced by your agent and CLI, or load the recorded example.</p><Link to="/workbench/">Open the plan reviewer →</Link></section>
               <section><h3>Troubleshooting</h3><p>Resolve installation issues and find recovery instructions.</p><Link to="/docs/faq/">Help and frequently asked questions →</Link></section>
             </div>
           </section>
+          <details className="docs-outline"><summary>Catalog topic guides</summary><nav aria-label="Catalog topic guides">{seoLandingPages.map((page) => <Link key={page.slug} to={`/topics/${page.slug}/`}>{page.h1}</Link>)}</nav></details>
           <div className="docs-grid">{groups.map((group) => <section key={group}><h2>{group}</h2>{docs.filter((entry) => entry.group === group).map((entry) => <Link key={entry.slug} to={`/docs/${entry.slug}/`}>{entry.title}<span aria-hidden="true">↗</span></Link>)}</section>)}</div>
         </div>}
       </div>

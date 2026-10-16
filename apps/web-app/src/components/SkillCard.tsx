@@ -1,5 +1,6 @@
+import { catalogNavigationState } from '../utils/catalogNavigation';
 import React from 'react';
-import { Link } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { SkillStarButton } from './SkillStarButton';
 import { Icon } from './ui/Icon';
 import type { Skill } from '../types';
@@ -14,9 +15,11 @@ interface SkillCardProps {
 }
 
 export const SkillCard = React.memo(({ skill, starCount, matchExplanation, shortlisted = false, onToggleShortlist }: SkillCardProps) => {
+  const location = useLocation();
   return (
     <article className="skill-row group">
       <Link
+        state={catalogNavigationState(location)}
         to={toIndexableRoutePath(`/skill/${skill.id}`)}
         className="skill-row__link"
         aria-label={`Read skill ${skill.name}`}

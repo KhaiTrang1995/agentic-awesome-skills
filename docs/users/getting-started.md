@@ -6,6 +6,8 @@
 
 ## Start with AAS Core
 
+For a complete setup through your first skill selection and installation preview, follow [Codex setup](codex-cli-skills.md) or [Claude Code setup](claude-code-skills.md).
+
 On unreleased `main`, `aas stack install-preview --manifest <file> --destination <skill-directory>` prepares a direct-installer dry run from the agent-selected IDs. It does not execute installation or choose skills; destination names must satisfy the installer's filename restrictions. See [the manifest handoff](aas-core.md#use-the-reviewed-selection).
 
 AAS Core is the primary product path. Codex or Claude inspects your project, searches and reads the complete catalog through the local read-only AAS MCP, chooses the exact skill IDs, and uses `compose_stack` to propose an `aas-stack.json`. You review those IDs before using the `aas` CLI to validate the manifest and preview a plan.
@@ -236,3 +238,7 @@ Need a tool-specific starting point first?
 2. [Browse the Bundles](bundles.md)
 3. [See Real-World Examples](../contributors/examples.md)
 4. [Contribute a Skill](../../CONTRIBUTING.md)
+
+## Moving from a retired plugin pack
+
+Consult the [plugin migration guide](plugin-migration.md), install and verify the replacement through your host, then disable the old pack to avoid duplicate activation. The activation helper recognizes former bundle IDs; the marketplace does not redirect them automatically. Use the guide matching your published release.

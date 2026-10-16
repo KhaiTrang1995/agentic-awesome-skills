@@ -88,7 +88,10 @@ def get_bundle_skills(bundle_queries, bundles_path=None):
         for bundle in bundles:
             bundle_name = str(bundle.get("name", "")).lower()
             bundle_id = str(bundle.get("id", ""))
-            if raw_query in bundle_name or query_slug == bundle_id:
+            aliases = bundle.get("aliases", [])
+            if raw_query in bundle_name or query_slug == bundle_id or any(
+                query_slug == _normalize_bundle_query(alias) for alias in aliases
+            ):
                 found = True
                 skills = []
                 for skill in bundle.get("skills", []):

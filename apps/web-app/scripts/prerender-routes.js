@@ -327,23 +327,14 @@ function buildPrerenderFallback({ heading, description, links }) {
   ].join('');
 }
 
-function buildLandingFallback({ siteBaseUrl, catalogCount = 0 }) {
+function buildLandingFallback({ siteBaseUrl }) {
   const links = [
-    { href: routeToUrl('/core', siteBaseUrl), label: 'Enter AAS Core catalog' },
-    { href: routeToUrl('/workbench', siteBaseUrl), label: 'Review an AAS stack and plan' },
-    { href: routeToUrl('/plugins', siteBaseUrl), label: 'Compare specialized plugin packs' },
+    { href: routeToUrl('/docs/codex-cli-skills', siteBaseUrl), label: 'Codex setup' },
+    { href: routeToUrl('/docs/claude-code-skills', siteBaseUrl), label: 'Claude Code setup' },
+    { href: routeToUrl('/core', siteBaseUrl), label: 'Explore the skill catalog' },
+    { href: routeToUrl('/docs/aas-core', siteBaseUrl), label: 'Core, CLI and MCP reference' },
   ];
-  const countLabel = catalogCount > 0
-    ? `${catalogCount.toLocaleString('en-US')}+`
-    : `${HOME_CATALOG_COUNT_FALLBACK.toLocaleString('en-US')}+`;
-
-  return [
-    '<main data-prerender-fallback="true">',
-    '<h1>Agent-first skills for Codex, Claude Code, and friends</h1>',
-    `<p>An open catalog of ${countLabel} reusable SKILL.md playbooks, plus AAS Core for local discovery, agent-owned selection, validation, and plan preview.</p>`,
-    `<nav aria-label="Product surfaces"><ul>${buildStaticLinkList(links)}</ul></nav>`,
-    '</main>',
-  ].join('');
+  return `<main data-prerender-fallback="true"><h1>AAS Core</h1><h2>Your agent chooses. You stay in control.</h2><p>A local workflow to inspect skills, record your agent’s selection, and review a plan before changing your project.</p><section id="recorded-example"><h2>Recorded example · Preview only</h2><p>Review an MCP contract. The agent chooses exact IDs; Core records and validates the choice. Review the plan before any separate installation.</p></section><section id="get-started"><h2>Start with your agent</h2><nav>${buildStaticLinkList(links)}</nav></section></main>`;
 }
 
 function buildHomeFallback({ landingPages, siteBaseUrl }) {
@@ -358,9 +349,9 @@ function buildHomeFallback({ landingPages, siteBaseUrl }) {
 
   return [
     '<main data-prerender-fallback="true">',
-    '<h1>AAS Core: agent-first skill stacks for Codex, Claude Code, and compatible clients</h1>',
-    '<p><strong>Search. Choose. Validate. Preview.</strong></p>',
-    '<p>Turn intent into an explainable aas-stack.json and immutable plan preview without target writes, backed by the AAS skill catalog.</p>',
+    '<h1>Find the skills for your next project.</h1>',
+
+    '<p>Explore reusable playbooks, inspect requirements and sources, and compare candidates.</p>',
     `<nav aria-label="Catalog hubs"><ul>${buildStaticLinkList(links)}</ul></nav>`,
     '</main>',
   ].join('');
@@ -424,10 +415,8 @@ function buildLandingMeta({ catalogCount, imageUrl, canonicalUrl }) {
     ? visibleCount.toLocaleString('en-US')
     : HOME_CATALOG_COUNT_FALLBACK.toLocaleString('en-US');
   const countLabel = `${formattedCount}+`;
-  const title = 'Agentic Awesome Skills | Agent-first skill catalog and AAS Core';
-  const description = visibleCount > 0
-    ? `Open-source AI coding skills for Codex, Claude Code, Cursor, and more. Explore ${countLabel} playbooks and AAS Core catalog search, selection, and plan preview.`
-    : 'Open-source AI coding skills for Codex, Claude Code, Cursor, and more. Explore AAS Core catalog search, selection, and plan preview.';
+  const title = 'AAS Core | Your agent chooses. You stay in control.';
+  const description = `AAS Core records and validates your agent’s skill selection and previews a plan before project changes.${visibleCount > 0 ? ` Explore ${countLabel} reusable skills in the catalog.` : ''}`;
   const catalogBaseUrl = canonicalUrl.replace(/\/$/, '');
 
   return {
@@ -490,8 +479,8 @@ function buildLandingMeta({ catalogCount, imageUrl, canonicalUrl }) {
 function buildHomeMeta({ catalogCount, imageUrl, canonicalUrl }) {
   const visibleCount = Math.max(catalogCount, HOME_CATALOG_COUNT_FALLBACK);
   const formattedCount = visibleCount.toLocaleString('en-US');
-  const title = `AAS Core Preview | Agent-first stacks backed by ${formattedCount}+ skills`;
-  const description = `Use AAS Core preview for neutral catalog retrieval, exact agent-owned selection, validation, and plan preview for Codex, Claude Code, and compatible clients, backed by ${formattedCount}+ cataloged skills.`;
+  const title = `Skill Catalog | ${formattedCount}+ reusable skills | AAS`;
+  const description = `Explore ${formattedCount}+ reusable agent skills. Search, inspect requirements and sources, compare candidates, and hand exact IDs to your coding agent.`;
   const catalogBaseUrl = canonicalUrl.replace(/\/core\/?$/, '/').replace(/\/$/, '');
   const sourceCodeEntity = {
     '@context': 'https://schema.org',
@@ -1034,6 +1023,8 @@ function main() {
   });
   writePrerenderedRoute('/', template, landingMeta, buildLandingFallback({ siteBaseUrl, catalogCount: skills.length }));
 
+  writePrerenderedRoute('/aas-core', template, { ...landingMeta, canonicalUrl: landingCanonical }, `<main><h1>AAS Core</h1><p>The product overview is now on the homepage.</p><a href="${escapeHtml(landingCanonical)}">Open AAS Core</a></main>`);
+
   const homeCanonical = routeToUrl('/core', siteBaseUrl);
   const homeMeta = buildHomeMeta({
     catalogCount: skills.length,
@@ -1042,9 +1033,34 @@ function main() {
   });
   writePrerenderedRoute('/core', template, homeMeta, buildHomeFallback({ landingPages, siteBaseUrl }));
 
+  const informationPages = JSON.parse(fs.readFileSync(path.join(ROOT_DIR, 'src/data/informationPages.json'), 'utf8'));
+  for (const page of informationPages) {
+    const fallback = `<main><p>${escapeHtml(page.title)}</p><h1>${escapeHtml(page.intro)}</h1><p>${escapeHtml(page.lede)}</p>${page.sections.map((section, index) => `<section id="section-${index}"><h2>${escapeHtml(section.title)}</h2><p>${escapeHtml(section.body)}</p>${section.links.map((link) => `<a href="${escapeHtml(link.href.startsWith('/') ? routeToUrl(link.href, siteBaseUrl) : link.href)}">${escapeHtml(link.label)}</a>`).join(' ')}</section>`).join('')}</main>`;
+    writePrerenderedRoute(page.path, template, {
+      title: `${page.title} | ${SITE_NAME}`,
+      description: page.description,
+      canonicalUrl: routeToUrl(page.path, siteBaseUrl),
+      ogImage: socialImage,
+      jsonLd: [{
+        '@context': 'https://schema.org',
+        '@type': 'WebPage',
+        name: page.title,
+        headline: page.title,
+        description: page.description,
+        url: routeToUrl(page.path, siteBaseUrl),
+        mainEntityOfPage: routeToUrl(page.path, siteBaseUrl),
+        isPartOf: {
+          '@type': 'WebSite',
+          name: SITE_NAME,
+          url: siteBaseUrl,
+        },
+      }],
+    }, fallback);
+  }
+
   const pluginsCanonical = routeToUrl('/plugins', siteBaseUrl);
   const pluginsMeta = buildPluginsMeta({
-    pluginCount: JSON.parse(fs.readFileSync(path.join(ROOT_DIR, '../../data/specialized-plugin-candidates.json'), 'utf8')).candidates.length,
+    pluginCount: JSON.parse(fs.readFileSync(path.join(ROOT_DIR, '../../data/editorial-bundles.json'), 'utf8')).bundles.length,
     imageUrl: socialImage,
     canonicalUrl: pluginsCanonical,
   });

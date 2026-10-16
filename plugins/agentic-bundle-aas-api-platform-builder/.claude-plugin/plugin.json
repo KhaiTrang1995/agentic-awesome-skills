@@ -1,7 +1,7 @@
 {
   "name": "agentic-bundle-aas-api-platform-builder",
-  "version": "18.15.0",
-  "description": "Editorial \"AAS API Platform Builder\" bundle for Claude Code from Agentic Awesome Skills.",
+  "version": "19.7.0",
+  "description": "Editorial \"AAS Backend & API Platform\" bundle for Claude Code from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
     "url": "https://github.com/sickn33/agentic-awesome-skills"

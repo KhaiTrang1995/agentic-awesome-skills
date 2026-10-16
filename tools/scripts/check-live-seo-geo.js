@@ -17,7 +17,7 @@ function readExpectedState() {
   return {
     countLabel: `${skills.length.toLocaleString('en-US')}+`,
     releaseLabel: `V${pkg.version}`,
-    pluginCount: JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/specialized-plugin-candidates.json'), 'utf8')).candidates.length,
+    pluginCount: JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/editorial-bundles.json'), 'utf8')).bundles.length,
   };
 }
 
@@ -70,12 +70,12 @@ function assertNotIncludes(text, snippet, label) {
 }
 
 function assertLiveSeoDocuments({ home, plugins, sitemap, llms, robots }, expected) {
-  assertIncludes(home, 'Agentic Awesome Skills | Agent-first skill catalog and AAS Core', 'home title');
+  assertIncludes(home, 'AAS Core | Your agent chooses. You stay in control.', 'home title');
   const description = home.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i)?.[1];
   if (!description) {
     throw new Error('home description meta tag is missing');
   }
-  assertIncludes(description, `Explore ${expected.countLabel} playbooks`, 'home description');
+  assertIncludes(description, `Explore ${expected.countLabel} reusable skills`, 'home description');
   if (description.length > 160) {
     throw new Error(`home description is ${description.length} characters; expected no more than 160`);
   }

@@ -380,10 +380,8 @@ export function isTopSkill(skillId: string, skills: ReadonlyArray<Skill>, limit 
 export function buildLandingMeta(skillCount = 0): SeoMeta {
   const visibleCount = Math.max(skillCount, 0);
   const countLabel = getCatalogCountLabel(visibleCount);
-  const title = 'Agentic Awesome Skills | Agent-first skill catalog and AAS Core';
-  const description = visibleCount > 0
-    ? `Open-source AI coding skills for Codex, Claude Code, Cursor, and more. Explore ${countLabel} playbooks and AAS Core catalog search, selection, and plan preview.`
-    : 'Open-source AI coding skills for Codex, Claude Code, Cursor, and more. Explore AAS Core catalog search, selection, and plan preview.';
+  const title = 'AAS Core | Your agent chooses. You stay in control.';
+  const description = `AAS Core records and validates your agent’s skill selection and previews a plan before project changes.${visibleCount > 0 ? ` Explore ${countLabel} reusable skills in the catalog.` : ''}`;
   return {
     title,
     description,
@@ -413,12 +411,8 @@ export function buildLandingMeta(skillCount = 0): SeoMeta {
 export function buildHomeMeta(skillCount: number): SeoMeta {
   const visibleCount = Math.max(skillCount, 0);
   const visibleCountLabel = visibleCount > 0 ? getCatalogCountLabel(visibleCount) : '';
-  const title = visibleCount > 0
-    ? `AAS Core Preview | Agent-first stacks backed by ${visibleCountLabel} skills`
-    : 'AAS Core Preview | Agent-first skill stacks';
-  const description = visibleCount > 0
-    ? `Use AAS Core preview for neutral catalog retrieval, exact agent-owned selection, validation, and planning for Codex, Claude Code, and compatible clients, backed by ${visibleCountLabel} cataloged skills.`
-    : 'Use AAS Core preview for neutral catalog retrieval, exact agent-owned selection, validation, and planning for Codex, Claude Code, and compatible clients.';
+  const title = visibleCount > 0 ? `Skill Catalog | ${visibleCountLabel} reusable skills | AAS` : 'Skill Catalog | Agentic Awesome Skills';
+  const description = visibleCount > 0 ? `Explore ${visibleCountLabel} reusable agent skills. Search, inspect requirements and sources, compare candidates, and hand exact IDs to your coding agent.` : 'Explore reusable agent skills. Search, inspect requirements and sources, compare candidates, and hand exact IDs to your coding agent.';
   return {
     title,
     description,

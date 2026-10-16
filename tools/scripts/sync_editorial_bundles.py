@@ -492,7 +492,47 @@ def _validate_editorial_bundles(root: Path, payload: dict[str, Any]) -> list[dic
                 raise ValueError(f"Editorial bundle '{bundle_id}' references missing skill '{skill_id}'.")
             seen_skill_ids.add(skill_id)
 
+    _validate_bundle_migrations(payload, bundles)
     return bundles
+
+
+def _validate_bundle_migrations(payload: dict[str, Any], bundles: list[dict[str, Any]]) -> None:
+    by_id = {bundle["id"]: bundle for bundle in bundles}
+    aliases: dict[str, str] = {}
+    for bundle in bundles:
+        values = bundle.get("aliases", [])
+        if not isinstance(values, list) or any(not isinstance(v, str) or not v.strip() for v in values):
+            raise ValueError("Bundle aliases must be non-empty strings.")
+        for alias in values:
+            key = re.sub(r"[^a-z0-9]+", "-", alias.lower()).strip("-")
+            if key in by_id and key != bundle["id"]:
+                raise ValueError(f"Alias shadows active bundle: {alias}")
+            if key in aliases and aliases[key] != bundle["id"]:
+                raise ValueError(f"Ambiguous bundle alias: {alias}")
+            aliases[key] = bundle["id"]
+    migrations = payload.get("migrations", [])
+    if not isinstance(migrations, list):
+        raise ValueError("Bundle migrations must be an array.")
+    retired = set()
+    for migration in migrations:
+        if not isinstance(migration, dict):
+            raise ValueError("Bundle migration must be an object.")
+        old, target = migration.get("from"), migration.get("to")
+        if not isinstance(old, str) or not SAFE_BUNDLE_ID_RE.fullmatch(old):
+            raise ValueError("Invalid retired bundle ID.")
+        if old in by_id or old in retired:
+            raise ValueError(f"Retired bundle is active or duplicated: {old}")
+        retired.add(old)
+        if not isinstance(target, str) or target not in by_id:
+            raise ValueError(f"Missing migration target: {target}")
+        if old not in by_id[target].get("aliases", []):
+            raise ValueError(f"Missing migration alias: {old}")
+        preserved = migration.get("preservedSkills")
+        if not isinstance(preserved, list) or not preserved or any(not isinstance(v, str) for v in preserved):
+            raise ValueError(f"Missing preserved skill inventory: {old}")
+        target_ids = {skill["id"] for skill in by_id[target]["skills"]}
+        if len(preserved) != len(set(preserved)) or not set(preserved) <= target_ids:
+            raise ValueError(f"Migration loses or duplicates skills: {old}")
 
 
 def _bundle_target_status(bundle: dict[str, Any], compatibility: dict[str, dict[str, Any]]) -> dict[str, Any]:

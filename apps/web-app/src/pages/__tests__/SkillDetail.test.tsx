@@ -36,6 +36,39 @@ describe('SkillDetail', () => {
     window.history.pushState({}, '', '/');
   });
 
+  it('shows instructions before related topics and copies the original file without prompt context', async () => {
+    const skill = createMockSkill({ id: 'test-skill', category: 'frontend' });
+    const original = '---\nname: test-skill\n---\n# Instructions\nRead this first.';
+    (useSkills as Mock).mockReturnValue({ skills: [skill], stars: {}, loading: false });
+    global.fetch = vi.fn().mockResolvedValue({ ok: true, text: async () => original });
+    navigator.clipboard.writeText = vi.fn().mockResolvedValue(undefined);
+    renderWithRouter(<SkillDetail />, { route: '/skill/test-skill', path: '/skill/:id', useProvider: false });
+    const content = await screen.findByTestId('markdown-content');
+    const related = screen.getByText(/Related topic guides/i);
+    expect(content.compareDocumentPosition(related) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
+    fireEvent.change(screen.getByLabelText(/Interactive Prompt Builder/i), { target: { value: 'Private task context' } });
+    fireEvent.click(screen.getByRole('button', { name: 'Copy SKILL.md' }));
+    await waitFor(() => expect(navigator.clipboard.writeText).toHaveBeenLastCalledWith(original));
+  });
+
+  it('returns to the catalog query and filters after opening a skill card', async () => {
+    const skill = createMockSkill({ id: 'test-skill' });
+    (useSkills as Mock).mockReturnValue({ skills: [skill], stars: {}, loading: false });
+    global.fetch = vi.fn().mockResolvedValue({ ok: true, text: async () => '# Instructions' });
+    const { SkillCard } = await import('../../components/SkillCard');
+    const query = '?q=react&category=frontend&match=all&required=hooks&sort=name';
+    const router = createMemoryRouter([
+      { path: '/core', element: <SkillCard skill={skill} starCount={0} /> },
+      { path: '/skill/:id', element: <SkillDetail /> },
+    ], { initialEntries: ['/core' + query] });
+    render(<RouterProvider router={router} />);
+    fireEvent.click(screen.getByRole('link', { name: /Read skill/ }));
+    await screen.findByTestId('markdown-content');
+    expect(screen.getByRole('link', { name: 'Back to Catalog' })).toHaveAttribute('href', '/core' + query);
+    fireEvent.click(screen.getByRole('link', { name: 'Back to Catalog' }));
+    await waitFor(() => expect(router.state.location.search).toBe(query));
+  });
+
   describe('Loading state', () => {
     it('should show loading spinner when context is loading', async () => {
       (useSkills as Mock).mockReturnValue({
@@ -254,7 +287,7 @@ describe('SkillDetail', () => {
     await waitFor(() => expect(screen.getByTestId('markdown-content')).toHaveTextContent('Current second content'));
     await act(async () => { finishFirst({ ok: true, text: async () => '# Stale first content' }); });
     expect(screen.getByTestId('markdown-content')).toHaveTextContent('Current second content');
-    fireEvent.click(screen.getByRole('button', { name: /Copy Full Content/i }));
+    fireEvent.click(screen.getByRole('button', { name: /Copy SKILL.md/i }));
     expect(navigator.clipboard.writeText).toHaveBeenLastCalledWith('# Current second content');
   });
 
@@ -289,7 +322,7 @@ describe('SkillDetail', () => {
       expect(navigator.clipboard.writeText).toHaveBeenCalledWith('Use @click-test');
     });
 
-    it.each(['Copy @Skill', 'Copy Full Content'])('reports a failed %s without claiming success', async (button) => {
+    it.each(['Copy @Skill', 'Copy SKILL.md'])('reports a failed %s without claiming success', async (button) => {
       const skill = createMockSkill({ id: 'clipboard-failure', name: 'clipboard-failure' });
       (useSkills as Mock).mockReturnValue({ skills: [skill], stars: {}, loading: false });
       global.fetch = vi.fn().mockResolvedValue({ ok: true, text: async () => '# Copyable content' });

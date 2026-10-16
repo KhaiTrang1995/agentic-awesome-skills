@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "agentic-bundle-aas-api-platform-builder",
-  "version": "18.15.0",
-  "description": "Portable skills-only \"AAS API Platform Builder\" plugin from Agentic Awesome Skills.",
+  "version": "19.7.0",
+  "description": "Portable skills-only \"AAS Backend & API Platform\" plugin from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
     "url": "https://github.com/sickn33/agentic-awesome-skills"

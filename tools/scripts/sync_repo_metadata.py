@@ -281,6 +281,51 @@ def sync_getting_started(content: str, metadata: dict) -> str:
     return content
 
 
+def render_agent_setup_block(host: str, version: str, phase: str) -> str:
+    """One command source for both agent guides; sync keeps release pins aligned."""
+    if host not in {"codex", "claude"}:
+        raise ValueError("Unsupported setup host")
+    prefix = f"npm exec --yes --ignore-scripts --package=agentic-awesome-skills@{version} --"
+    config = '$HOME/.codex/config.toml' if host == 'codex' else '$HOME/.claude.json'
+    configure = (f'{prefix} aas mcp configure \\\n'
+                 f'  --host {host} --scope user --version {version} \\\n'
+                 '  --config "$AAS_CONFIG" --cache-root "$AAS_CACHE" \\\n'
+                 '  --backup-dir "$AAS_BACKUP"')
+    if phase == 'preview':
+        command = (f'AAS_CONFIG="{config}"\n'
+                   'AAS_CACHE="$HOME/.cache/aas"\n'
+                   'AAS_BACKUP="$HOME/.aas-mcp-backups"\n'
+                   'mkdir -p "$(dirname "$AAS_CONFIG")"\n\n' + configure)
+    elif phase == 'approve':
+        command = 'AAS_APPROVAL="PASTE_THE_PREVIEW_APPROVAL_DIGEST"\n' + configure + ' \\\n  --approve "$AAS_APPROVAL"'
+    elif phase == 'plan':
+        command = ('AAS_PROJECT="$PWD"\n'
+                   'AAS_INTEGRITY="PASTE_RUNTIME_INTEGRITY_FROM_CONFIGURATION"\n\n'
+                   f'{prefix} aas stack validate --manifest "$AAS_PROJECT/aas-stack.json"\n\n'
+                   f'{prefix} aas stack plan \\\n'
+                   '  --manifest "$AAS_PROJECT/aas-stack.json" \\\n'
+                   f'  --target {host}:project --target-root "$AAS_PROJECT" \\\n'
+                   '  --cache-root "$AAS_CACHE" --runtime-integrity "$AAS_INTEGRITY" \\\n'
+                   '  --out "$AAS_PROJECT/aas-plan.json"')
+    elif phase == 'install':
+        command = (f'{prefix} aas stack install-preview \\\n'
+                   '  --manifest "$AAS_PROJECT/aas-stack.json" --cache-root "$AAS_CACHE" \\\n'
+                   f'  --destination "$AAS_PROJECT/{".agents" if host == "codex" else ".claude"}/skills"')
+    else:
+        raise ValueError("Unsupported setup phase")
+    return '```bash\n' + command + '\n```'
+
+
+def sync_agent_setup_guide(content: str, metadata: dict) -> str:
+    pattern = re.compile(
+        r'(<!-- aas-agent-setup:(codex|claude):(preview|approve|plan|install) -->)'
+        r'.*?(<!-- /aas-agent-setup -->)', re.DOTALL,
+    )
+    return pattern.sub(lambda match: match[1] + '\n' + render_agent_setup_block(
+        match[2], metadata['version'], match[3],
+    ) + '\n' + match[4], content)
+
+
 def sync_aas_core_guide(content: str, metadata: dict) -> str:
     if metadata["core_included"]:
         content = re.sub(
@@ -453,6 +498,8 @@ def sync_curated_docs(base_dir: str, metadata: dict, dry_run: bool) -> int:
     updated_files += int(update_text_file(root / "README.md", sync_readme_copy, metadata, dry_run))
     updated_files += int(update_text_file(root / "docs" / "users" / "getting-started.md", sync_getting_started, metadata, dry_run))
     updated_files += int(update_text_file(root / "docs" / "users" / "aas-core.md", sync_aas_core_guide, metadata, dry_run))
+    for slug in ["codex-cli-skills", "claude-code-skills"]:
+        updated_files += int(update_text_file(root / "docs" / "users" / f"{slug}.md", sync_agent_setup_guide, metadata, dry_run))
     updated_files += int(update_text_file(root / "apps" / "web-app" / "index.html", sync_web_index_shell, metadata, dry_run))
     updated_files += int(update_text_file(root / "apps" / "web-app" / "public" / "llms.txt", sync_llms_text, metadata, dry_run))
     updated_files += int(

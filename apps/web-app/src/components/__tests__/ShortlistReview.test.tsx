@@ -4,6 +4,7 @@ import { ShortlistReview } from '../ShortlistReview';
 import { renderWithRouter } from '../../utils/testUtils';
 import { createMockSkill } from '../../factories/skill';
 import { catalogVersion } from '../../utils/catalogRelease';
+import { parseSharedShortlist } from '../../utils/sharedShortlist';
 
 const skills = [createMockSkill({
   id: 'slides', description: 'Build a presentation', license: 'MIT',
@@ -14,6 +15,29 @@ describe('shortlist comparison and agent handoff', () => {
   beforeEach(() => {
     vi.mocked(navigator.clipboard.writeText).mockReset().mockResolvedValue();
     vi.mocked(localStorage.setItem).mockClear();
+  });
+
+  it('shares only IDs and version, with a manual link fallback when clipboard is blocked', async () => {
+    renderWithRouter(<ShortlistReview skills={skills} onRemove={vi.fn()} onClear={vi.fn()} />, { useProvider: false });
+    fireEvent.click(screen.getByText('Compare 2 selected skills and prepare an agent brief'));
+    fireEvent.change(screen.getByLabelText('What do you want to accomplish?'), { target: { value: 'Private customer project' } });
+    vi.mocked(navigator.clipboard.writeText).mockRejectedValueOnce(new Error('Denied'));
+    fireEvent.click(screen.getByRole('button', { name: 'Share selection' }));
+    await waitFor(() => expect(screen.getByRole('status')).toHaveTextContent('Select and copy the link'));
+    const value = (screen.getByLabelText('Selection link') as HTMLInputElement).value;
+    expect(value).not.toContain('Private');
+    expect(parseSharedShortlist(new URL(value).hash)).toEqual({ format: 1, version: catalogVersion, ids: ['slides', 'review'] });
+    expect(localStorage.setItem).not.toHaveBeenCalled();
+  });
+
+  it('hides a stale share link when the selection changes', async () => {
+    const props = { onRemove: vi.fn(), onClear: vi.fn() };
+    const { rerender } = renderWithRouter(<ShortlistReview {...props} skills={skills} />, { useProvider: false });
+    fireEvent.click(screen.getByRole('button', { name: 'Share selection' }));
+    await screen.findByLabelText('Selection link');
+    rerender(<ShortlistReview {...props} skills={[skills[0]]} />);
+    expect(screen.queryByLabelText('Selection link')).not.toBeInTheDocument();
+    expect(screen.queryByText(/Selection link copied/)).not.toBeInTheDocument();
   });
 
   it('compares visible requirements and copies a previewable goal-specific brief without persisting it', async () => {

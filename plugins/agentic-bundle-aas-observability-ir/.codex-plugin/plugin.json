@@ -1,7 +1,7 @@
 {
   "name": "aasb-aas-observability-ir",
-  "version": "18.15.0",
-  "description": "Install the \"AAS Observability IR\" workflow plugin from Agentic Awesome Skills.",
+  "version": "19.7.0",
+  "description": "Install the \"AAS Observability & Incident Response\" workflow plugin from Agentic Awesome Skills.",
   "author": {
     "name": "sickn33 and contributors",
     "url": "https://github.com/sickn33/agentic-awesome-skills"
@@ -18,9 +18,9 @@
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "AAS Observability IR",
+    "displayName": "AAS Observability & Incident Response",
     "shortDescription": "Design observability, SLOs, traces, dashboards, monitoring, incident response, troubleshooting, and postmortem workflows.",
-    "longDescription": "Design observability, SLOs, traces, dashboards, monitoring, incident response, troubleshooting, and postmortem workflows. Connect logs, metrics and traces to incident diagnosis, recovery checks and a documented follow-up. Recommended for: SRE teams, Backend teams owning production, Incident responders. Not for: Initial infrastructure delivery: use DevOps & Cloud, Changing production without the required operational authorization. Covers Observability Engineer, Observability And Instrumentation, and 8 more skills.",
+    "longDescription": "Design observability, SLOs, traces, dashboards, monitoring, incident response, troubleshooting, and postmortem workflows. Connect logs, metrics and traces to incident diagnosis, including AI service costs and approved fallbacks, then prepare recovery checks and shift handoff. Recommended for: SRE teams, Backend teams owning production, Incident responders. Not for: Initial infrastructure delivery: use DevOps & Cloud, Changing production without the required operational authorization. Covers Observability Engineer, Observability And Instrumentation, and 10 more skills.",
     "developerName": "sickn33 and contributors",
     "category": "Specialized Product Plugins - Next Wave",
     "capabilities": [
@@ -34,7 +34,8 @@
     "defaultPrompt": [
       "Review the supplied incident timeline, logs, metrics and recent changes. Separate evidence from hypotheses, propose the next diagnostic step and a reversible mitigation, then define recovery checks and postmortem actions. Use LLM-specific tracing only for an LLM system.",
       "Use this plugin to build an incident response plan and rollback checklist for this system.",
-      "Use this plugin to draft a blameless postmortem from this timeline and identify action items."
+      "Use this plugin to draft a blameless postmortem from this timeline and identify action items.",
+      "Review this project for the added coverage: Draft an evidence-based shift handoff with owners and unresolved risks; Investigate AI service incidents with latency, cost and fallback constraints. Use only the relevant skills and existing stack. Report observed checks and limitations; prepare drafts before external or production actions."
     ]
   }
 }

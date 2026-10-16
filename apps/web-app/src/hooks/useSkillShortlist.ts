@@ -88,5 +88,9 @@ export function useSkillShortlist() {
     setIds([]);
   }, []);
 
-  return { ids, toggle, clear };
+  const addMany = useCallback((incoming: string[]) => {
+    setIds((current) => [...new Set([...current, ...incoming])]);
+  }, []);
+
+  return { ids, toggle, clear, addMany };
 }

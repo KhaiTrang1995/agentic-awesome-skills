@@ -11,7 +11,7 @@ The following checks describe contributor expectations. Passing a structural che
 The `SKILL.md` frontmatter must be valid YAML and contain:
 
 - `name`: Kebab-case, matches folder name.
-- `description`: Under 200 chars, clear value prop.
+- `description`: Under 200 chars, clear value prop. Empty descriptions and the known skill-template placeholder fail `npm run validate`; describe the actual task and when to invoke it.
 - `risk`: One of `[none, safe, critical, offensive, unknown]`. Use `unknown` only for legacy or unclassified skills; prefer a concrete level for new skills.
 - `source`: URL to original source (or "self" if original).
 

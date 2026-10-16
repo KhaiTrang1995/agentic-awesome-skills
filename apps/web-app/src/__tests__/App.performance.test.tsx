@@ -29,6 +29,14 @@ describe('App route loading', () => {
     expect(mainSource).not.toContain('<SkillProvider>');
   });
 
+  it('keeps the Core homepage outside the catalog provider and free of catalog requests', () => {
+    const app = fs.readFileSync(path.resolve(__dirname, '..', 'App.tsx'), 'utf8');
+    const landing = fs.readFileSync(path.resolve(__dirname, '..', 'pages', 'Landing.tsx'), 'utf8');
+    expect(app.indexOf('<Route path="/" element={<Landing />} />')).toBeLessThan(app.indexOf('<Route element={<CatalogRouteProvider />}>'));
+    expect(landing).not.toContain('useSkills');
+    expect(landing).not.toContain('fetch(');
+  });
+
   it('keeps the Workbench source free of remote, persistence, and mutation APIs', () => {
     const workbenchPath = path.resolve(__dirname, '..', 'pages', 'Workbench.tsx');
     const source = fs.readFileSync(workbenchPath, 'utf8');

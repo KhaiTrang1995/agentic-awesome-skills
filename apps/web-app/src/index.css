@@ -2899,3 +2899,22 @@ samp {
 .markdown-body table tr { background: var(--surface-card); }
 .markdown-body table tr:nth-child(2n) { background: var(--surface-elevated); }
 .markdown-body mark { color: var(--text-primary); background: var(--accent-soft); }
+
+.shortlist-share-link { display: grid; gap: .5rem; margin: 1rem 0; font-size: .9rem; }
+.shortlist-share-link input { min-width: 0; width: 100%; padding: .7rem; border: 1px solid var(--stroke-strong); border-radius: .5rem; background: var(--surface-canvas); color: var(--text-primary); font: inherit; }
+
+/* Product-first shell: the logo is Core home; discovery and reference are secondary. */
+.app-header__inner { grid-template-columns: 1fr auto auto; gap: 28px; max-width: 1600px; padding-inline: 60px; }
+.brand-link__name { display: none; }
+@media (max-width: 1000px) { .app-header__inner { padding-inline: 28px; } }
+@media (max-width: 640px) { .app-header__inner { padding-inline: 20px; } }
+
+@media (min-width: 1001px) {
+  .app-header__inner { column-gap: 76px; }
+  .app-nav { gap: 42px; }
+  .app-nav__link { font-size: 16px; font-weight: 500; }
+  .github-link { font-size: 16px; }
+  .app-header__actions { position: relative; }
+  .app-header__actions::before { content: ''; position: absolute; left: -40px; height: 32px; width: 1px; background: var(--stroke-subtle); }
+}
+.brand-link__logo { height: 40px; }

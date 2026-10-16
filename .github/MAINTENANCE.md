@@ -152,6 +152,8 @@ Manifest-to-installer preparation must preserve the exact agent selection and em
 
 ### Specialized plugin updates
 
+For offer consolidation, use editorial `migrations` to bind each retired ID to one active target and its complete preserved skill inventory. Validate missing targets, active or repeated retired IDs, lost skills and ambiguous aliases. Keep retired IDs out of generated marketplaces and plugin directories; activation lookup aliases are not marketplace redirects. Document manual installation migration in `docs/users/plugin-migration.md`. Derive the public plugin list, prerender and live-verifier counts from all active editorial bundles, not just the specialized candidate subset. Keep source maintenance distinct from release availability.
+
 Specialized membership comes from `data/specialized-plugin-candidates.json`; installable composition and product copy come from `data/editorial-bundles.json`. These are editorial source inputs. Validate selected IDs against canonical `skills_index.json`, derive the web list and prerender/live-check counts from the source inputs, and test stale-count rejection and complete skill-list access. Keep prose-declared local resources present and byte-identical in generated specialized bundles; the resource regression checks entrypoints, while fenced application examples require semantic review. Exercise documented calculation and chunking fixes with the pure-example regressions. Run bundle generation for validation, then exclude generated plugin folders, marketplaces and bundle docs from the source commit. The protected canonical-sync PR owns those outputs; no release or deployment is implied.
 
 ### B. When You Merge a PR (Step-by-Step)
@@ -210,7 +212,7 @@ Use this playbook:
 2.  **Treat the checklist as guidance, not evidence.** A missing checklist emits a notice; objective path, blob, validation, reference, provenance, security, test, and exact-head review gates determine mergeability.
 3.  **Let `merge:batch` approve action-required fork runs.** GitHub Actions materializes those runs asynchronously, so an empty first lookup is not evidence that approval is unnecessary. Do not approve them directly by run ID; the command binds every approval to the current PR, exact head SHA, allowlisted workflow, locally recomputed diff, and immutable PR tuple.
 4.  **Wait for the required checks.** Merge only after `pr-policy`, `pr-evidence`, `source-validation`, `artifact-preview`, and a truthful skill-review outcome for any change under `skills/**` or `plugins/**/skills/**`. `review` means Tessl semantic review actually passed or reused a successful result for the identical complete skill-directory fingerprint. `manual-review-required` means credentials or credits were unavailable, or Tessl did not produce a passing result; it requires the exact-SHA maintainer judgment above. Never describe `manual-review-required` as “Tessl passed,” and never rerun Tessl merely because the PR head or base moved when the complete changed skill content is identical.
-    Tessl execution is bounded to ten minutes. A timeout is a non-passing result and must route to `manual-review-required`; it is never evidence that semantic review passed.
+    Tessl execution is bounded to ten minutes. Setup is separately bounded to two minutes; failed or timed-out setup skips automated review and routes to `manual-review-required`, never to a passing review. A timeout is a non-passing result and must route to `manual-review-required`; it is never evidence that semantic review passed.
 5.  **If the merge endpoint says `Base branch was modified`**, stop that invocation, discard its stale evidence, refresh the checkout to the current `origin/main`, and rerun `merge:batch`. The command does not retry base drift automatically.
 
 `merge:batch` evaluates the PR as it exists. It does not rewrite or normalize the PR body, and it does not close or reopen the PR to manufacture replacement workflow runs. The reopen procedure below is only for repairing a PR that was historically closed after unsupported local integration.
@@ -407,7 +409,7 @@ Rules:
 
 Reject any PR that fails this:
 
-1.  **Metadata**: Has `name`, `description`?
+1.  **Metadata**: Has `name` and a task-specific `description`? `npm run validate` rejects empty descriptions and the known skill-template placeholder.
 2.  **Safety**: `risk: offensive` used for red-team tools?
 3.  **Clarity**: Does it say _when_ to use it?
 4.  **Examples**: Copy-pasteable code blocks?
@@ -450,6 +452,9 @@ Preflight verification → Changelog → repository/plugin convergence → `npm 
     npm run validate:strict
     ```
 2.  **Update Changelog**: Add the new release section to `CHANGELOG.md`.
+
+    **Release command security boundary:** `release_workflow.js` must reject non-SemVer input before Git or filesystem mutation and launch `git`, `npm`, and `gh` without a command shell. On Windows, invoke npm through `node.exe` and the resolved `npm-cli.js`; never restore `shell: true`, route release arguments through `cmd.exe`, or concatenate data into a command string. Keep the Windows metacharacter regression that proves no injected marker is created.
+
 3.  **Prepare the protected release PR**:
     ```bash
     npm run release:prepare -- X.Y.Z
@@ -680,3 +685,11 @@ If a skill is found to be harmful or broken:
 ## 6. 📁 Data directory note
 
 `data/package.json` exists for historical reasons; the build and catalog scripts run from the repo root and use root `node_modules`. You can ignore or remove `data/package.json` and `data/node_modules` if present.
+
+### Specialized plugin composition expansions
+
+Keep specialized compositions within 5–20 distinct canonical skills. Additions must fill an identified workflow gap and receive complete skill-tree review; equal counts are not a goal. Verify candidate/editorial parity, unknown IDs, duplicate and out-of-range rejection, complete web expansion and generated resource bytes. Commit source definitions only and let protected canonical synchronization own mirrors. See [expansion review](../docs/maintainers/specialized-plugin-expansion-review-2026-10-13.md).
+
+### Prepared-release convergence
+
+Codex and Claude setup guides contain generated exact-version command blocks and are mixed files in `tools/config/generated-files.json`. The release script stages both. After the first candidate commit, `release:prepare` regenerates HEAD-dependent metadata, makes at most one local amendment before any push, then requires a no-drift regeneration. Unmanaged or persistent changes stop preparation before publication. Published commits and tags are never amended by this path.

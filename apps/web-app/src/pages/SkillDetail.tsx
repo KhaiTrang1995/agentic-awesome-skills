@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, lazy, Suspense } from 'react';
-import { useParams, Link } from 'react-router';
+import { useParams, useLocation, Link } from 'react-router';
 import { SkillStarButton } from '../components/SkillStarButton';
 import { Icon } from '../components/ui/Icon';
 import { useSkills } from '../context/SkillContext';
@@ -10,6 +10,7 @@ import { getSkillMarkdownCandidateUrls } from '../utils/publicAssetUrls';
 import { getRelatedSeoLandingPagesForSkill } from '../data/seoLandingPages';
 import { getSkillHeadings, remarkSkillHeadings, skillMarkdownUrl } from '../utils/skillMarkdown';
 import { catalogVersion, skillBundleUrl } from '../utils/catalogRelease';
+import { catalogNavigationState, catalogReturnTo } from '../utils/catalogNavigation';
 import { SkillRequirements } from '../components/SkillRequirements';
 import remarkGfm from 'remark-gfm';
 import rehypeHighlight from 'rehype-highlight';
@@ -86,6 +87,8 @@ interface RouteParams {
 
 export function SkillDetail(): React.ReactElement {
   const { id } = useParams<RouteParams>();
+  const location = useLocation();
+  const backToCatalog = catalogReturnTo(location.state);
   const { skills, stars, loading: contextLoading } = useSkills();
   const [content, setContent] = useState('');
   const [contentLoading, setContentLoading] = useState(true);
@@ -223,11 +226,7 @@ export function SkillDetail(): React.ReactElement {
   };
 
   const copyFullToClipboard = () => {
-    const finalPrompt = customContext.trim()
-      ? `${content}\n\nContext:\n${customContext}`
-      : content;
-
-    void copyText(finalPrompt, setCopiedFull);
+    void copyText(content, setCopiedFull);
   };
 
   if (!contextLoading && !skill) {
@@ -238,7 +237,7 @@ export function SkillDetail(): React.ReactElement {
           <h2 className="mb-2 text-xl font-bold text-slate-900 dark:text-slate-100">Error Loading Skill</h2>
           <p className="text-slate-600 dark:text-slate-400">Skill not found in registry.</p>
           <Link
-            to="/core"
+            to={backToCatalog}
             className="mt-5 inline-flex items-center rounded-full border border-slate-300/80 px-4 py-2 text-sm font-semibold text-slate-700 transition-colors hover:border-teal-300 hover:text-teal-600 dark:border-slate-700 dark:text-slate-300 dark:hover:border-teal-500 dark:hover:text-teal-300"
           >
             Back to Catalog
@@ -271,7 +270,7 @@ export function SkillDetail(): React.ReactElement {
         >
           Retry loading content
         </button>
-        <Link to="/core" className="mt-8 inline-flex items-center font-medium text-teal-600 hover:underline">
+        <Link to={backToCatalog} className="mt-8 inline-flex items-center font-medium text-teal-600 hover:underline">
           <Icon name="arrowLeft" size={16} className="mr-2 h-4 w-4" /> Back to Catalog
         </Link>
       </div>
@@ -285,7 +284,7 @@ export function SkillDetail(): React.ReactElement {
         <div className="pointer-events-none absolute -bottom-24 -left-20 h-56 w-56 rounded-full bg-slate-300/20 blur-3xl dark:bg-slate-600/20" />
 
         <Link
-          to="/core"
+          to={backToCatalog}
           className="group relative mb-5 inline-flex items-center text-sm font-medium text-slate-600 transition-colors hover:text-teal-600 dark:text-slate-300 dark:hover:text-teal-300"
         >
           <Icon name="arrowLeft" size={16} className="mr-1 h-4 w-4 transform transition-transform group-hover:-translate-x-1" />
@@ -346,7 +345,7 @@ export function SkillDetail(): React.ReactElement {
               {copiedFull
                 ? <Icon name="check" size={16} className="h-4 w-4 text-green-400" />
                 : <Icon name="fileCode" size={16} className="h-4 w-4" />}
-              <span>{copiedFull ? 'Copied Content!' : 'Copy Full Content'}</span>
+              <span>{copiedFull ? 'Copied SKILL.md!' : 'Copy SKILL.md'}</span>
             </button>
           </div>
         </div>
@@ -377,7 +376,7 @@ export function SkillDetail(): React.ReactElement {
             Interactive Prompt Builder (Optional)
           </label>
           <p className="mb-3 text-xs text-slate-500 dark:text-slate-400">
-            Add specific details below (e.g. &quot;Use React 19 and Tailwind&quot;). Both copy buttons above will attach your context.
+            Add specific details below (e.g. &quot;Use React 19 and Tailwind&quot;). Copy @Skill attaches your context. Copy SKILL.md copies the original file only.
           </p>
           <textarea
             id="context"
@@ -391,70 +390,10 @@ export function SkillDetail(): React.ReactElement {
             <h2>Before you use this skill</h2>
             <SkillRequirements skill={skill} />
             <a href={skillBundleUrl(skill.path)}>Browse all skill files · v{catalogVersion}</a>
-            <p>Copy Full Content includes SKILL.md only. Linked scripts, templates, and references open in the same repository release.</p>
+            <p>Copy SKILL.md includes the original file only, without your optional prompt context. Linked scripts, templates, and references open in the same repository release.</p>
           </section>
         </div>
       </div>
-
-      {relatedTopicPages.length > 0 && (
-        <section className="skill-detail__related">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-            Related topic guides
-          </p>
-          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-                Place @{skill.name} in the larger AAS catalog
-              </h2>
-              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                These entry points connect this skill to installable agentic skills, the GitHub repository, and focused plugin packs.
-              </p>
-            </div>
-            <Link
-              to={toIndexableRoutePath('/topics/github-ai-skills-repository')}
-              className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-800 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
-            >
-              GitHub skills guide
-            </Link>
-          </div>
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
-            {relatedTopicPages.map((page) => (
-              <Link
-                key={page.slug}
-                to={toIndexableRoutePath(`/topics/${page.slug}`)}
-                className="rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-4 transition-colors hover:border-slate-400 dark:border-slate-800 dark:from-slate-950 dark:to-slate-900 dark:hover:border-slate-600"
-              >
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
-                  {page.eyebrow}
-                </p>
-                <h3 className="mt-2 text-base font-semibold text-slate-900 dark:text-slate-100">
-                  {page.h1}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                  {page.primaryIntent}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {recommendedSkills.length > 0 && (
-        <section className="skill-detail__related" aria-labelledby="related-skills-title">
-          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Suggested next</p>
-          <h2 id="related-skills-title" className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Similar skills to consider</h2>
-          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">Suggestions are based on shared catalog category and tags, not a claim that one skill replaces another.</p>
-          <div className="mt-5 grid gap-3 md:grid-cols-3">
-            {recommendedSkills.map((recommended) => (
-              <Link key={recommended.id} to={toIndexableRoutePath(`/skill/${recommended.id}`)} className="rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-4 transition-colors hover:border-slate-400 dark:border-slate-800 dark:from-slate-950 dark:to-slate-900 dark:hover:border-slate-600">
-                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">{recommended.category}</p>
-                <h3 className="mt-2 text-base font-semibold text-slate-900 dark:text-slate-100">@{recommended.name}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{recommended.description}</p>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
 
       <div className="skill-detail__reading">
         <article className="skill-detail__article">
@@ -522,6 +461,66 @@ export function SkillDetail(): React.ReactElement {
           </dl>
         </aside>
       </div>
+      {relatedTopicPages.length > 0 && (
+        <section className="skill-detail__related">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+            Related topic guides
+          </p>
+          <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
+                Place @{skill.name} in the larger AAS catalog
+              </h2>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                These entry points connect this skill to installable agentic skills, the GitHub repository, and focused plugin packs.
+              </p>
+            </div>
+            <Link
+              to={toIndexableRoutePath('/topics/github-ai-skills-repository')}
+              className="inline-flex items-center justify-center rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-semibold text-slate-800 transition-colors hover:bg-slate-100 dark:border-slate-700 dark:text-slate-200 dark:hover:bg-slate-800"
+            >
+              GitHub skills guide
+            </Link>
+          </div>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            {relatedTopicPages.map((page) => (
+              <Link
+                key={page.slug}
+                to={toIndexableRoutePath(`/topics/${page.slug}`)}
+                className="rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-4 transition-colors hover:border-slate-400 dark:border-slate-800 dark:from-slate-950 dark:to-slate-900 dark:hover:border-slate-600"
+              >
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500 dark:text-slate-400">
+                  {page.eyebrow}
+                </p>
+                <h3 className="mt-2 text-base font-semibold text-slate-900 dark:text-slate-100">
+                  {page.h1}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+                  {page.summary}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {recommendedSkills.length > 0 && (
+        <section className="skill-detail__related" aria-labelledby="related-skills-title">
+          <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">Suggested next</p>
+          <h2 id="related-skills-title" className="text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">Similar skills to consider</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-600 dark:text-slate-300">Suggestions are based on shared catalog category and tags, not a claim that one skill replaces another.</p>
+          <div className="mt-5 grid gap-3 md:grid-cols-3">
+            {recommendedSkills.map((recommended) => (
+              <Link key={recommended.id} to={toIndexableRoutePath(`/skill/${recommended.id}`)} state={catalogNavigationState(location)} className="rounded-xl border border-slate-200 bg-gradient-to-br from-white to-slate-50 p-4 transition-colors hover:border-slate-400 dark:border-slate-800 dark:from-slate-950 dark:to-slate-900 dark:hover:border-slate-600">
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-teal-700 dark:text-teal-300">{recommended.category}</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-900 dark:text-slate-100">@{recommended.name}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">{recommended.description}</p>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
     </div>
   );
 }
